@@ -99,10 +99,57 @@ while running:
 		if event.type == pygame.QUIT:
 			running = False
 
+	# DRAW SCREEN
+
+	# py grame will draw the elements from start to finish based on the order below, background first
+	# then foreground elements. Each one will draw over the one before it. if you draw the background last
+	# the whole screen is overwritten
+
+	# # draw background
+	screen.fill(background_color)
+
+	# # draw reference or background lines, like grids here
+
+
+
+	# # draw borders & frames for interface
+	
+	# # # top bar of interface
+	UI_topBar_height = 40			# menu bar along the top of the screen
+	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
+
+	# # # side bar of itetrface
+	UI_sideBar_width = 120		# menu bar along the side of the screen
+	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
+
+
+
+	# # draw buttons
+
+	
+	# # # exit button
+	# # # # button variables
+	exit_button_origin_x = 0
+	exit_button_origin_y = pygame_window_height - 20
+	exit_button_width = UI_sideBar_width
+	exit_button_height = 20
+	# # # # button body
+	pygame.draw.rect(screen, UI_button_color, (exit_button_origin_x, exit_button_origin_y, exit_button_width, exit_button_height)) #button
+	pygame.draw.rect(screen, UI_button_border_color, (0,(pygame_window_height - 20), UI_sideBar_width, 20), 2) #border
+	# # # # button text/label
+	exit_label_txt = " EXIT"
+	exit_label = myfont.render(str(exit_label_txt), 0, (255,255,0))
+	
+	screen.blit(exit_label, (10, (pygame_window_height-20)))
+
+	# # # # create object using the uiObjects class then add it to the my_uiObjects list
+	newObject = uiObjects((exit_button_origin_x, exit_button_origin_y), exit_button_width, exit_button_height)
+	my_uiObjects.append(newObject)
 
 
 
 
+	pygame.display.flip()		 # updates and draws the screen & launch pygame window
 
 #
 print "this ran ok"
