@@ -153,3 +153,4 @@ while running:
 
 #
 print "this ran ok"
+print "hello world"
