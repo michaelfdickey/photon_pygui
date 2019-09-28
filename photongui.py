@@ -4,6 +4,8 @@
 # 	import modules	#
 
 import pygame
+import random
+import math
 # ************************************************************************************
 
 
@@ -31,17 +33,26 @@ pink = (255,200,200)
 gray = (128,128,128)
 
 
+# interface colors
+background_color = (0,0,0)
+UI_background_color = (102, 0, 51)				# the color of the bar along the side and top
+UI_button_border_color = (153, 127, 76)		# color of the border box around the button
+UI_button_color = (204, 0, 102)				# the default color of the button
+UI_button_click_color = (255, 128 , 255)		# the color a button turns temporarily when clicked on
+
+# interface colors 2
+UI_button_group_color = (125, 50, 100)			
+UI_button_txt_color = (255,255,0)				# color of text label of button
+UI_button_selected_color = (225,100,225)		# color button turns to when toggled on 
+
+## interface formatting
+UI_topBar_height = 20
+UI_sideBar_width = 120  
+
 # Screen size
 pygame_window_width = 1200
 pygame_window_height = 1200
 
-
-# interface colors
-background_color = (0,0,0)
-UI_background_color = (102, 0, 51)
-UI_button_border_color = (153, 0, 76)
-UI_button_color = (204, 0, 102)
-UI_button_click_color = (255, 0, 127)
 
 selected_uiObject = None					# by default, no UI objects are selected at start
 
@@ -130,21 +141,42 @@ while running:
 	# # # exit button
 	# # # # button variables
 	exit_button_origin_x = 0
-	exit_button_origin_y = pygame_window_height - 20
+	exit_button_origin_y = pygame_window_height - 40
 	exit_button_width = UI_sideBar_width
 	exit_button_height = 20
 	# # # # button body
 	pygame.draw.rect(screen, UI_button_color, (exit_button_origin_x, exit_button_origin_y, exit_button_width, exit_button_height)) #button
-	pygame.draw.rect(screen, UI_button_border_color, (0,(pygame_window_height - 20), UI_sideBar_width, 20), 2) #border
+	pygame.draw.rect(screen, UI_button_border_color, (0,(pygame_window_height - 40), UI_sideBar_width, 20), 2) #border
 	# # # # button text/label
 	exit_label_txt = " EXIT"
 	exit_label = myfont.render(str(exit_label_txt), 0, (255,255,0))
-	
-	screen.blit(exit_label, (10, (pygame_window_height-20)))
+	# # # # draw button
+	screen.blit(exit_label, (10, (pygame_window_height-40)))
 
 	# # # # create object using the uiObjects class then add it to the my_uiObjects list
 	newObject = uiObjects((exit_button_origin_x, exit_button_origin_y), exit_button_width, exit_button_height)
 	my_uiObjects.append(newObject)
+
+
+	# # # debug button
+	# # # # button variables
+	debug_button_origin_x = 0
+	debug_button_origin_y = pygame_window_height - 20
+	debug_button_width = UI_sideBar_width
+	debug_button_height = 20
+	# # # # button body
+	pygame.draw.rect(screen, UI_button_color, (debug_button_origin_x, debug_button_origin_y, debug_button_width, debug_button_height)) #button
+	pygame.draw.rect(screen, UI_button_border_color, (0,(pygame_window_height - 20), UI_sideBar_width, 20), 2) #border
+	# # # # button text/label
+	debug_label_txt = " debug"
+	debug_label = myfont.render(str(debug_label_txt), 0, (255,255,0))
+	# # # # draw button
+	screen.blit(debug_label, (10, (pygame_window_height-20)))
+
+	# # # # create object using the uiObjects class then add it to the my_uiObjects list
+	newObject = uiObjects((debug_button_origin_x, debug_button_origin_y), debug_button_width, debug_button_height)
+	my_uiObjects.append(newObject)
+
 
 
 
@@ -152,4 +184,3 @@ while running:
 	pygame.display.flip()		 # updates and draws the screen & launch pygame window
 
 #
-print "this ran ok"
