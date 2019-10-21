@@ -3,7 +3,8 @@
 #	09-27-2019 - currently incorporating menu_physics_garage_005b.py - DONE
 #	10-19-2019 - currently integrating menu_physics_garage_006.py
 #		- working on getting buttons to change color when clicked, and change back when clicked again
-#		- each button needs a dictionary
+#		- currently clicking the button cycles through the function while it's held  down
+
 
 
 # ************************************************************************************
@@ -60,6 +61,10 @@ pygame_window_height = 1200
 selected_uiObject = None					# by default, no UI objects are selected at start
 selected_button = None
 
+
+global button_clicked
+button_clicked = False
+
 # ************************************************************************************
 
 
@@ -92,10 +97,42 @@ def findButton(buttons, x, y):
 				if y >= b.y:
 					if y <= b.y + b.y_height:
 						print "Y ok, button found"
-						print "selected button label_txt = ", b.button_label_txt
+						print "selected button label_txt = ", b.button_name
+						print "this is return b", b 
 						return b
 	return None
 
+
+def matchButton(selected_button):					# for sticky buttons to find and update buttonEnabled =
+	global button_clicked
+	print "button clicked global variable in matchButton: ", button_clicked
+	if selected_button == sticky01[0]:
+		print "clicked button is", sticky01[0]
+		if button_clicked == True:
+			if sticky01[7] == False:
+				sticky01[7] = True
+				print "sticky01 enabled =", sticky01[7]
+				button_clicked == False
+				return
+		if button_clicked == True:
+			if sticky01[7] == False:
+				sticky01[7] = True
+				print "sticky01 enabled =", sticky01[7]
+				button_clicked == False
+				return
+
+
+	"""
+		elif sticky01[7] == True:
+			sticky01[7] = False
+			print "sticky01 enabled =", sticky01[7]
+			return
+	"""
+	if selected_button == sticky02[0]:
+		print "clicked button is", sticky02[0]
+		
+
+# # not sure if this will be needed 10/20/19
 def UpdateSelectedButton():
 	selectedButton[0] = button_name
 	selectedButton[1] = button_origin_x
@@ -115,7 +152,8 @@ def UpdateSelectedButton():
 
 ## takes button info and prepares it for displaying
 class Button:
-	def __init__ (self, (x,y), x_width, y_height, button_label_txt, buttonType, buttonEnabled):
+	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled):
+		self.button_name = button_name
 		self.x = x
 		self.x_width = x_width
 		self.y = y
@@ -161,6 +199,43 @@ my_buttons = []
 
 for n in range(1):
 
+	### these are all the buttons, the my_buttons.append(created_button) iterates through displaying them and
+	### a seperate dictionary is created for each button
+
+	### -------------------------- ###
+	# create sticky02 button
+	button_name =  "Sticky02"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 140
+	button_width = UI_sideBar_width
+	button_height = 20
+	button_label_txt = "Sticky Button 02"
+	buttonType = "sticky"
+	buttonEnabled = False 
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	# create button dictionary
+	sticky02 = {}
+	sticky02[0] = button_name
+	sticky02[1] = button_origin_x
+	sticky02[2] = button_origin_y
+	sticky02[3] = button_width
+	sticky02[4] = button_height
+	sticky02[5] = button_label_txt
+	sticky02[6] = buttonType
+	sticky02[7] = buttonEnabled
+
+	print "sticky02 button dictionary"
+	print sticky02
+	### -------------------------- ###
+
+
+
+
 	### -------------------------- ###
 	# create sticky01 button
 	button_name =  "Sticky01"
@@ -173,7 +248,7 @@ for n in range(1):
 	buttonEnabled = False 
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -193,6 +268,9 @@ for n in range(1):
 	### -------------------------- ###	
 
 
+
+
+
 	### -------------------------- ###
 	# create command01 button
 	button_name = "Command01"
@@ -205,7 +283,7 @@ for n in range(1):
 	buttonEnabled = False 
 
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -222,6 +300,8 @@ for n in range(1):
 	### -------------------------- ###
 
 
+
+
 	### -------------------------- ###
 	# create exit button
 	button_name = "EXIT"
@@ -234,7 +314,7 @@ for n in range(1):
 	buttonEnabled = False
 
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -286,21 +366,28 @@ while running:
 		if event.type == pygame.QUIT:
 			running = False
 
-		elif event.type == pygame.MOUSEBUTTONDOWN:
+		if event.type == pygame.MOUSEBUTTONDOWN:
+			
+			global button_clicked
+			print "button clicked global variable: ", button_clicked
+			button_clicked = True
+			print "button clicked global variable: ", button_clicked
+
 			(mouseX, mouseY) = pygame.mouse.get_pos()
 			print "mouseX = ", mouseX, "mouseY = ", mouseY
 			selected_button = findButton(my_buttons, mouseX, mouseY)
 			print "selected button = ", selected_button
 
+		
 		elif event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
 				selected_button.color = UI_button_color #reverts button back to normal color after letting go of mouse
 			selected_button = None
+		
 
 	if selected_button != None:
 		(mouseX, mouseY) = pygame.mouse.get_pos()
 		selected_button.color = UI_button_click_color
-		# print selected_button.color
 		pygame.display.flip()
 
 		if selected_button.button_label_txt == "EXIT":
@@ -309,16 +396,18 @@ while running:
 
 		if selected_button.buttonType == "pushy":
 			selected_button.color = UI_button_click_color
+			print "clicked button is a pushy temporary button"
 
 		if selected_button.buttonType == "sticky":
-			if selected_button.buttonEnabled == False:
-				selected_button.color == UI_button_selected_color
-				# update the button status
+			# match the clicked button with it's dictiony
+			matchButton(selected_button.button_name)
 
-			
-
-
-				#selected_button.buttonEnabled = True
+		#	if selected_button.buttonEnabled == False:
+		#		print "button is not enabled"
+		#		selected_button.color == UI_button_selected_color
+		#		# update the button status
+		#
+		#		#selected_button.buttonEnabled = True
 
 	# # draw buttons!
 	for i, button in enumerate(my_buttons):
