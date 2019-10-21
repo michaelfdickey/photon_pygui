@@ -1,6 +1,7 @@
 #************************************************************************************
 #  	dev notes
 #	09-27-2019 - currently incorporating menu_physics_garage_005b.py - DONE
+#	10-19-2019 - currently integrating menu_physics_garage_006.py
 
 
 # ************************************************************************************
@@ -110,8 +111,9 @@ class Button:
 		pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 		pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
-		exit_label = myfont.render(str(label_txt), 0, UI_button_txt_color)
-		screen.blit(exit_label, (10, (pygame_window_height-20)))
+		label = myfont.render(str(self.label_txt), 0, UI_button_txt_color)
+		screen.blit(label, (self.x + 5, self.y))
+		#screen.blit(label, (10, (pygame_window_height-20)))
 
 # ************************************************************************************
 
@@ -123,6 +125,20 @@ number_of_buttons = 20
 my_buttons = []
 
 for n in range(1):
+
+	# create command01 button
+	button_cmd01_origin_x = 0								#x0, y0 is upper left corner
+	button_cmd01_origin_y = pygame_window_height - 60
+	button_cmd01_width = UI_sideBar_width
+	button_cmd01_height = 20
+	label_txt = "Command 01"
+	buttonType = "sticky"
+	# define button
+	created_button = Button((button_cmd01_origin_x,button_cmd01_origin_y), button_cmd01_width, button_cmd01_height, label_txt, buttonType)
+	# add button to dictionary
+	my_buttons.append(created_button)
+	print "button origin x", button_cmd01_origin_x, "button width pos", button_cmd01_origin_x + button_cmd01_width
+
 
 	# create exit button
 	button_exit_origin_x = 0
