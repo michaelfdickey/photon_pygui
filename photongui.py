@@ -63,11 +63,18 @@ selected_button = None
 # ************************************************************************************
 
 
+
 # ************************************************************************************
 #	initial lists	#
 
 my_uiObjects = []							# this list will hold all the UI elements
 # ************************************************************************************
+
+
+
+# ************************************************************************************
+# 	initial dictionaries 		#
+selectedButton = {}
 
 
 
@@ -85,9 +92,19 @@ def findButton(buttons, x, y):
 				if y >= b.y:
 					if y <= b.y + b.y_height:
 						print "Y ok, button found"
-						print "selected button label_txt = ", b.label_txt
+						print "selected button label_txt = ", b.button_label_txt
 						return b
 	return None
+
+def UpdateSelectedButton():
+	selectedButton[0] = button_name
+	selectedButton[1] = button_origin_x
+	selectedButton[2] = button_origin_y
+	selectedButton[3] = button_width
+	selectedButton[4] = button_height
+	selectedButton[5] = button_label_txt
+	selectedButton[6] = buttonType
+	selectedButton[7] = buttonEnabled
 
 
 # ************************************************************************************
@@ -98,14 +115,14 @@ def findButton(buttons, x, y):
 
 ## takes button info and prepares it for displaying
 class Button:
-	def __init__ (self, (x,y), x_width, y_height, label_txt, buttonType, buttonEnabled):
+	def __init__ (self, (x,y), x_width, y_height, button_label_txt, buttonType, buttonEnabled):
 		self.x = x
 		self.x_width = x_width
 		self.y = y
 		self.y_height = y_height
 		self.color = UI_button_color
 		self.thickness = 0
-		self.label_txt = label_txt
+		self.button_label_txt = button_label_txt
 		self.colorBorder = UI_button_border_color
 		self.buttonType = buttonType  #pushy, sticky, checky, label (label is just text, not a button)
 		self.buttonEnabled = buttonEnabled
@@ -116,7 +133,7 @@ class Button:
 		pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 		pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
-		label = myfont.render(str(self.label_txt), 0, UI_button_txt_color)
+		label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 		screen.blit(label, (self.x + 5, self.y))
 
 ## updates button display status
@@ -144,6 +161,7 @@ my_buttons = []
 
 for n in range(1):
 
+	### -------------------------- ###
 	# create sticky01 button
 	button_name =  "Sticky01"
 	button_origin_x = 0								#x0, y0 is upper left corner
@@ -154,13 +172,12 @@ for n in range(1):
 	buttonType = "sticky"
 	buttonEnabled = False 
 	
-	# define button
+	# define button then add button to display list
 	created_button = Button((button_origin_x,button_origin_y), button_width, button_height, button_label_txt, buttonType, buttonEnabled)
-	# add button to display list
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
-	# trying to create button dictionary
+	# create button dictionary
 	sticky01 = {}
 	sticky01[0] = button_name
 	sticky01[1] = button_origin_x
@@ -173,38 +190,65 @@ for n in range(1):
 
 	print "sticky01 button dictionary"
 	print sticky01
+	### -------------------------- ###	
 
+
+	### -------------------------- ###
 	# create command01 button
-	button_cmd01_origin_x = 0								#x0, y0 is upper left corner
-	button_cmd01_origin_y = pygame_window_height - 60
-	button_cmd01_width = UI_sideBar_width
-	button_cmd01_height = 20
-	label_txt = "Command 01"
+	button_name = "Command01"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 60
+	button_width = UI_sideBar_width
+	button_height = 20
+	button_label_txt = "Command 01"
 	buttonType = "pushy"
-	button_cmd01_Enabled = False 
-	# define button
-	created_button = Button((button_cmd01_origin_x,button_cmd01_origin_y), button_cmd01_width, button_cmd01_height, label_txt, buttonType, button_cmd01_Enabled)
-	# add button to dictionary
+	buttonEnabled = False 
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_width, button_height, button_label_txt, buttonType, buttonEnabled)
 	my_buttons.append(created_button)
-	print "button origin x", button_cmd01_origin_x, "button width pos", button_cmd01_origin_x + button_cmd01_width
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	# create button dictionary
+	cmd01 = {}
+	cmd01[0] = button_name
+	cmd01[1] = button_origin_x
+	cmd01[2] = button_origin_y
+	cmd01[3] = button_width
+	cmd01[4] = button_height
+	cmd01[5] = button_label_txt
+	cmd01[6] = buttonType
+	cmd01[7] = buttonEnabled
+	### -------------------------- ###
 
 
+	### -------------------------- ###
 	# create exit button
-	button_exit_origin_x = 0
-	button_exit_origin_y = pygame_window_height - 20
-	button_exit_width = UI_sideBar_width
-	button_exit_height = 20
-	label_txt = "EXIT"
+	button_name = "EXIT"
+	button_origin_x = 0
+	button_origin_y = pygame_window_height - 20
+	button_width = UI_sideBar_width
+	button_height = 20
+	button_label_txt = "EXIT"
 	buttonType = "pushy"
-	button_exit_Enabled = False
-	# define button
-	created_button = Button((button_exit_origin_x,button_exit_origin_y), button_exit_width, button_exit_height, label_txt, buttonType, button_exit_Enabled)
-	# add button to dictionary
+	buttonEnabled = False
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_width, button_height, button_label_txt, buttonType, buttonEnabled)
 	my_buttons.append(created_button)
-	print "button origin x", button_exit_origin_x, "button width pos", button_exit_origin_x + button_exit_width
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
-
-
+	# create button dictionary
+	exit = {}
+	exit[0] = button_name
+	exit[1] = button_origin_x
+	exit[2] = button_origin_y
+	exit[3] = button_width
+	exit[4] = button_height
+	exit[5] = button_label_txt
+	exit[6] = buttonType
+	exit[7] = buttonEnabled
+	### -------------------------- ###
 
 
 
@@ -256,10 +300,10 @@ while running:
 	if selected_button != None:
 		(mouseX, mouseY) = pygame.mouse.get_pos()
 		selected_button.color = UI_button_click_color
-		print selected_button.color
+		# print selected_button.color
 		pygame.display.flip()
 
-		if selected_button.label_txt == "EXIT":
+		if selected_button.button_label_txt == "EXIT":
 			print "you pressed exit"
 			running = False
 
@@ -270,9 +314,8 @@ while running:
 			if selected_button.buttonEnabled == False:
 				selected_button.color == UI_button_selected_color
 				# update the button status
-				buttonEnabled = True 
-				updated_button = Button(buttonEnabled)
-				my_buttons.append(updated_button)				
+
+			
 
 
 				#selected_button.buttonEnabled = True
