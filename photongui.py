@@ -3,8 +3,8 @@
 #	09-27-2019 - currently incorporating menu_physics_garage_005b.py - DONE
 #	10-19-2019 - currently integrating menu_physics_garage_006.py
 #		- working on getting buttons to change color when clicked, and change back when clicked again
-#		- currently clicking the button cycles through the function while it's held  down
-#		- line 116 - ButtonUpdate.display(sticky01[7],sticky01[8])		#trying to update color getting displayed using  class ButtonUpdate
+#			- currently clicking the button cycles through the function while it's held  down
+#			- line 116 - ButtonUpdate.display(sticky01[7],sticky01[8])		#trying to update color getting displayed using  class ButtonUpdate
 # test update
 
 # ************************************************************************************
@@ -113,8 +113,32 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			print "old color", sticky01[8]
 			sticky01[8] = UI_button_selected_color
 			print "new color", sticky01[8]
-#			ButtonUpdate.display(sticky01[7],sticky01[8])		#trying to update color getting displayed using  class ButtonUpdate
+			
+			### -------------------------- ###
+			# UPDATE sticky01 button
+			
+			button_name =  "Sticky01"
+			button_origin_x = 0									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 100
+			button_width = UI_sideBar_width
+			button_height = 20
+			button_label_txt = "Sticky Button 01"
+			buttonType = "sticky"
+			buttonEnabled = sticky01[7]
+			buttonColor = sticky01[8]
+		
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+			
 			return
+		
+
+
 		if sticky01[7] == True:
 			print "stick01 enabled was ", sticky01[7]
 			sticky01[7] = False
@@ -122,6 +146,28 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			print "old color", sticky01[8]
 			sticky01[8] = UI_button_color
 			print "new color", sticky01[8]
+
+			### -------------------------- ###
+			# UPDATE sticky01 button
+			
+			button_name =  "Sticky01"
+			button_origin_x = 0									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 100
+			button_width = UI_sideBar_width
+			button_height = 20
+			button_label_txt = "Sticky Button 01"
+			buttonType = "sticky"
+			buttonEnabled = sticky01[7]
+			buttonColor = sticky01[8]
+		
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+
 			return
 
 		
@@ -146,13 +192,13 @@ def UpdateSelectedButton():
 
 ## takes button info and prepares it for displaying
 class Button:
-	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled):
+	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled, buttonColor):
 		self.button_name = button_name
 		self.x = x
 		self.x_width = x_width
 		self.y = y
 		self.y_height = y_height
-		self.color = UI_button_color
+		self.color = buttonColor
 		self.thickness = 0
 		self.button_label_txt = button_label_txt
 		self.colorBorder = UI_button_border_color
@@ -168,19 +214,19 @@ class Button:
 		label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 		screen.blit(label, (self.x + 5, self.y))
 
-## updates button display status
+"""
 class ButtonUpdate:
 	def __init__ (self, buttonEnabled, buttonColor):
 		self.buttonEnabled = buttonEnabled
 		self.buttonColor = buttonColor
 
 	def display(self):
-		pygame.draw.rect(screen, self.buttonColor, (self.x, self.y, self.x_width, self.y_height))               		#button
+		pygame.draw.rect(screen, self.buttonColor, (self.x, self.y, self.x_width, self.y_height))               #button
 		pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
 		label = myfont.render(str(self.label_txt), 0, UI_button_txt_color)
 		screen.blit(label, (self.x + 5, self.y))
-
+"""
 
 # ************************************************************************************
 
@@ -209,7 +255,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -245,7 +291,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -283,7 +329,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -316,7 +362,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
