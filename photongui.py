@@ -1,11 +1,9 @@
 #************************************************************************************
 #  	dev notes
 #	09-27-2019 - currently incorporating menu_physics_garage_005b.py - DONE
-#	10-19-2019 - currently integrating menu_physics_garage_006.py
-#		- working on getting buttons to change color when clicked, and change back when clicked again
-#			- currently clicking the button cycles through the function while it's held  down
-#			- line 116 - ButtonUpdate.display(sticky01[7],sticky01[8])		#trying to update color getting displayed using  class ButtonUpdate
-# test update
+#	10-19-2019 - currently integrating menu_physics_garage_006.py - DONE
+#	10-21-2019 - 
+#
 
 # ************************************************************************************
 # 	import modules	#
@@ -171,18 +169,6 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			return
 
 		
-
-# # not sure if this will be needed 10/20/19
-def UpdateSelectedButton():
-	selectedButton[0] = button_name
-	selectedButton[1] = button_origin_x
-	selectedButton[2] = button_origin_y
-	selectedButton[3] = button_width
-	selectedButton[4] = button_height
-	selectedButton[5] = button_label_txt
-	selectedButton[6] = buttonType
-	selectedButton[7] = buttonEnabled
-
 
 # ************************************************************************************
 
@@ -429,32 +415,19 @@ while running:
 				selected_button.color = UI_button_click_color
 				print "clicked button is a pushy temporary button"
 
-		
-		elif event.type == pygame.MOUSEBUTTONUP:
+		if event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
-				selected_button.color = UI_button_color #reverts button back to normal color after letting go of mouse
-			selected_button = None
-		
-
-	if selected_button != None:
-		(mouseX, mouseY) = pygame.mouse.get_pos()
-		selected_button.color = UI_button_click_color
-		pygame.display.flip()
+				selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
+				selected_button = None
 
 		if selected_button.button_label_txt == "EXIT":
 			print "you pressed exit"
 			running = False
 
-
-
-
-
-		#	if selected_button.buttonEnabled == False:
-		#		print "button is not enabled"
-		#		selected_button.color == UI_button_selected_color
-		#		# update the button status
-		#
-		#		#selected_button.buttonEnabled = True
+		if selected_button != None:
+			(mouseX, mouseY) = pygame.mouse.get_pos()
+			selected_button.color = UI_button_click_color
+			pygame.display.flip()		
 
 	# # draw buttons!
 	for i, button in enumerate(my_buttons):
@@ -463,4 +436,4 @@ while running:
 
 	pygame.display.flip()		 # updates and draws the screen & launch pygame window
 
-#
+
