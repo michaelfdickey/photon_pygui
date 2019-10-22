@@ -5,7 +5,7 @@
 #		- working on getting buttons to change color when clicked, and change back when clicked again
 #		- currently clicking the button cycles through the function while it's held  down
 #		- line 116 - ButtonUpdate.display(sticky01[7],sticky01[8])		#trying to update color getting displayed using  class ButtonUpdate
-
+# test update
 
 # ************************************************************************************
 # 	import modules	#
