@@ -101,10 +101,13 @@ def findButton(buttons, x, y):
 
 
 def matchButton(selected_button):					# for sticky buttons to find and update buttonEnabled =
+
+	### --- check sticky01 button, enable / disable when clicked --- ###
+
 	if selected_button == sticky01[0]:
 		print "clicked button is", sticky01[0]
 		if sticky01[7] == False:
-			print "stick01 enabled was ", sticky01[7]
+			print "sticky01 enabled was ", sticky01[7]
 			sticky01[7] = True
 			print "sticky01 enabled now ", sticky01[7]
 			print "old color", sticky01[8]
@@ -123,7 +126,8 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			buttonType = "sticky"
 			buttonEnabled = sticky01[7]
 			buttonColor = sticky01[8]
-		
+
+					
 			# define button then add button to display list
 			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
 			my_buttons.append(created_button)
@@ -131,13 +135,13 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 
 			for i, button in enumerate(my_buttons):
 				button.display()
-			
+						
 			return
 		
 
 
 		if sticky01[7] == True:
-			print "stick01 enabled was ", sticky01[7]
+			print "sticky01 enabled was ", sticky01[7]
 			sticky01[7] = False
 			print "sticky01 enabled now", sticky01[7]
 			print "old color", sticky01[8]
@@ -156,6 +160,75 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			buttonType = "sticky"
 			buttonEnabled = sticky01[7]
 			buttonColor = sticky01[8]
+
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+			
+			return
+
+	### --- check sticky02 button, enable / disable when clicked --- ###
+
+	if selected_button == sticky02[0]:
+		print "clicked button is", sticky02[0]
+		if sticky02[7] == False:
+			print "sticky02 enabled was ", sticky02[7]
+			sticky02[7] = True
+			print "sticky02 enabled now ", sticky02[7]
+			print "old color", sticky02[8]
+			sticky02[8] = UI_button_selected_color
+			print "new color", sticky02[8]
+			
+			### -------------------------- ###
+			# UPDATE sticky02 button
+			
+			button_name =  "Sticky02"
+			button_origin_x = 0									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 140
+			button_width = UI_sideBar_width
+			button_height = 20
+			button_label_txt = "Sticky Button 02"
+			buttonType = "sticky"
+			buttonEnabled = sticky02[7]
+			buttonColor = sticky02[8]
+		
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+			
+			return
+		
+
+
+		if sticky02[7] == True:
+			print "sticky01 enabled was ", sticky02[7]
+			sticky02[7] = False
+			print "sticky02 enabled now", sticky02[7]
+			print "old color", sticky02[8]
+			sticky02[8] = UI_button_color
+			print "new color", sticky02[8]
+
+			### -------------------------- ###
+			# UPDATE sticky02 button
+			
+			button_name =  "Sticky02"
+			button_origin_x = 0									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 140
+			button_width = UI_sideBar_width
+			button_height = 20
+			button_label_txt = "Sticky Button 02"
+			buttonType = "sticky"
+			buttonEnabled = sticky02[7]
+			buttonColor = sticky02[8]
 		
 			# define button then add button to display list
 			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
@@ -165,9 +238,7 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			for i, button in enumerate(my_buttons):
 				button.display()
 
-			return
-
-		
+			return	
 
 # ************************************************************************************
 
