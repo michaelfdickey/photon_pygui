@@ -3,6 +3,8 @@
 #	09-27-2019 - currently incorporating menu_physics_garage_005b.py - DONE
 #	10-19-2019 - currently integrating menu_physics_garage_006.py
 #	10-21-2019 - working on getting it to not close when you click somewhere else. it's trying to find the button type attrib for no button
+# 	10-22-2019 - sticky buttons working
+#	10-22-2019 - get command button to do something - add FPS display (menu_physics_garage_007.py)
 
 # ************************************************************************************
 # 	import modules	#
@@ -10,6 +12,7 @@
 import pygame
 import random
 import math
+import time 			# for FPS functions
 # ************************************************************************************
 
 
@@ -119,7 +122,7 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			
 			button_name =  "Sticky01"
 			button_origin_x = 0									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 100
+			button_origin_y = pygame_window_height - 120
 			button_width = UI_sideBar_width
 			button_height = 20
 			button_label_txt = "Sticky Button 01"
@@ -153,7 +156,7 @@ def matchButton(selected_button):					# for sticky buttons to find and update bu
 			
 			button_name =  "Sticky01"
 			button_origin_x = 0									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 100
+			button_origin_y = pygame_window_height - 120
 			button_width = UI_sideBar_width
 			button_height = 20
 			button_label_txt = "Sticky Button 01"
@@ -338,7 +341,7 @@ for n in range(1):
 	# create sticky01 button
 	button_name =  "Sticky01"
 	button_origin_x = 0								#x0, y0 is upper left corner
-	button_origin_y = pygame_window_height - 100
+	button_origin_y = pygame_window_height - 120
 	button_width = UI_sideBar_width
 	button_height = 20
 	button_label_txt = "Sticky Button 01"
@@ -369,6 +372,37 @@ for n in range(1):
 	### -------------------------- ###	
 
 
+
+
+	### -------------------------- ###
+	# create command02 button
+	button_name = "Command02"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 80
+	button_width = UI_sideBar_width
+	button_height = 20
+	button_label_txt = "Command 02"
+	buttonType = "pushy"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	# create button dictionary
+	cmd02 = {}
+	cmd02[0] = button_name
+	cmd02[1] = button_origin_x
+	cmd02[2] = button_origin_y
+	cmd02[3] = button_width
+	cmd02[4] = button_height
+	cmd02[5] = button_label_txt
+	cmd02[6] = buttonType
+	cmd02[7] = buttonEnabled
+	cmd02[8] = buttonColor
+	### -------------------------- ###
 
 
 
