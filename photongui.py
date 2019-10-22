@@ -10,11 +10,22 @@
 
 #************************************************************************************
 #	MODIFYING YOUR UI
+#	- ADD A BUTTON - PUSHY 
+#		- pushy is a temporary button active only while it is being clicked on, typically to invoke a command
 #	- ADD A BUTTON - STICKY
 #		1) under "# 	define buttons" copy and paste another button, modifying values accordingly
 #		2a) if a button is sticky, the 'matchButton' funtion is run to check if the button is enabled and toggle it's state
 #		2b) copy and paste in a sticky button section, update values:
 #		2c) be sure to update the button_origin_y and width value to match your new button in both the if enabled=true and enabled=false sections
+#		3) add function for the buttons utility
+#		4) add link to function somewhere in the main program loop
+#	- ADD A LABEL
+#		1) under "# 	define buttons" copy and paste another button, modifying values accordingly, buttonType = label
+#	- ADD A NEW BUTTON TYPE
+#		1) under 	button class ## displays buttons def display(self): copy and paste button type into new section, update values
+#		2) under main program loop \  if selected_button != None: add a new group for that button type
+#	- MOVE A BUTTON
+#	- 
 
 # ************************************************************************************
 # 	import modules	#
@@ -54,6 +65,7 @@ UI_background_color = (102, 0, 51)				# the color of the bar along the side and 
 UI_button_border_color = (153, 127, 76)		# color of the border box around the button
 UI_button_color = (204, 0, 102)				# the default color of the button
 UI_button_click_color = (255, 128 , 255)		# the color a button turns temporarily when clicked on
+UI_label_color = (150,50,100)					# label color 
 
 # interface colors 2
 UI_button_group_color = (125, 50, 100)			
@@ -115,6 +127,7 @@ def count_fps():
 		FPS = cFrame
 		cFrame = 0
 		cSec = time.strftime("%S")
+
 
 # # Button Related Functions
 def findButton(buttons, x, y):
@@ -364,26 +377,32 @@ class Button:
 
 	## displays buttons
 	def display(self):
-		#pygame.draw.circle(screen, self.color, (int(self.x),int(self.y)), self.size, self.thickness)
-		pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
-		pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
-		label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
-		screen.blit(label, (self.x + 5, self.y))
+		# render "pushy" type buttons
+		if self.buttonType == "pushy":
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
-"""
-class ButtonUpdate:
-	def __init__ (self, buttonEnabled, buttonColor):
-		self.buttonEnabled = buttonEnabled
-		self.buttonColor = buttonColor
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+		
+		# render "sticky" type buttons
+		if self.buttonType == "sticky":		
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
-	def display(self):
-		pygame.draw.rect(screen, self.buttonColor, (self.x, self.y, self.x_width, self.y_height))               #button
-		pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+		
+		# render "label" type buttons
+		if self.buttonType == "label":
+			self.color = UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			#pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
-		label = myfont.render(str(self.label_txt), 0, UI_button_txt_color)
-		screen.blit(label, (self.x + 5, self.y))
-"""
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
 
 # ************************************************************************************
 
@@ -398,6 +417,36 @@ for n in range(1):
 
 	### these are all the buttons, the my_buttons.append(created_button) iterates through displaying them and
 	### a seperate dictionary is created for each button
+
+	### -------------------------- ###
+	# create Label 01 
+	button_name =  "Label01"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 240
+	button_width = UI_sideBar_width 					
+	button_height = 20
+	button_label_txt = "Label 01 Group"
+	buttonType = "label"
+	buttonEnabled = False 
+	buttonColor = UI_label_color
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	label01 = {}
+	label01[0] = button_name
+	label01[1] = button_origin_x
+	label01[2] = button_origin_y
+	label01[3] = button_width
+	label01[4] = button_height
+	label01[5] = button_label_txt
+	label01[6] = buttonType
+	label01[7] = buttonEnabled
+	label01[8] = buttonColor
+
+	### -------------------------- ###
 
 	### -------------------------- ###
 	# create FPS button
@@ -654,6 +703,10 @@ while running:
 				if selected_button.buttonType == "pushy":
 					selected_button.color = UI_button_click_color
 					print "clicked button is a pushy temporary button"
+
+				if selected_button.buttonType == "label":
+					selected_button.color = UI_label_color
+					print "clicked button is a label, not a button"
 
 		if event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
