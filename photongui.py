@@ -6,12 +6,23 @@
 # 	10-22-2019 - sticky buttons working
 #	10-22-2019 - get command button to do something - add FPS display (menu_physics_garage_007.py)
 
+
+
+#************************************************************************************
+#	MODIFYING YOUR UI
+#	- ADD A BUTTON - STICKY
+#		1) under "# 	define buttons" copy and paste another button, modifying values accordingly
+#		2a) if a button is sticky, the 'matchButton' funtion is run to check if the button is enabled and toggle it's state
+#		2b) copy and paste in a sticky button section, update values:
+#		2c) be sure to update the button_origin_y and width value to match your new button in both the if enabled=true and enabled=false sections
+
 # ************************************************************************************
 # 	import modules	#
 
 import pygame
 import random
 import math
+import sys
 import time 			# for FPS functions
 # ************************************************************************************
 
@@ -57,10 +68,15 @@ UI_sideBar_width = 120
 pygame_window_width = 1200
 pygame_window_height = 1200
 
-
-selected_uiObject = None					# by default, no UI objects are selected at start
+# by default, no UI objects are selected at start
+selected_uiObject = None					
 selected_button = None
 
+# FPS related variables
+cSec = 0
+cFrame = 0
+FPS = 0
+fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 15)
 
 # global button_clicked
 # button_clicked = False
@@ -86,6 +102,21 @@ selectedButton = {}
 # ************************************************************************************
 #	functions	#
 
+# # FPS related Functions
+def show_fps():
+	fps_overlay = fps_font.render("FPS:"+str(FPS), True, UI_button_txt_color)
+	screen.blit(fps_overlay, (pygame_window_width - 100,pygame_window_height - 30))
+
+def count_fps():
+	global cSec, cFrame, FPS, deltatime
+	if cSec == time.strftime("%S"):
+		cFrame += 1
+	else:
+		FPS = cFrame
+		cFrame = 0
+		cSec = time.strftime("%S")
+
+# # Button Related Functions
 def findButton(buttons, x, y):
 	for b in buttons:
 		print "x = ", x, "y = ", y
@@ -106,6 +137,73 @@ def findButton(buttons, x, y):
 def matchButton(selected_button):					# for sticky buttons to find and update buttonEnabled =
 
 	### --- check sticky01 button, enable / disable when clicked --- ###
+
+	if selected_button == fps[0]:
+		print "clicked button is", fps[0]
+		if fps[7] == False:
+			print "fps enabled was ", fps[7]
+			fps[7] = True
+			print "fps enabled now ", fps[7]
+			print "old color", fps[8]
+			fps[8] = UI_button_selected_color
+			print "new color", fps[8]
+			
+			### -------------------------- ###
+			# UPDATE fps button
+			
+			button_name =  "fps"
+			button_origin_x = 0									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 180
+			button_width = UI_sideBar_width / 3
+			button_height = 20
+			button_label_txt = "FPS"
+			buttonType = "sticky"
+			buttonEnabled = fps[7]
+			buttonColor = fps[8]
+
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+						
+			return
+		
+		if fps[7] == True:
+			print "fps enabled was ", fps[7]
+			fps[7] = False
+			print "fps enabled now", fps[7]
+			print "old color", fps[8]
+			fps[8] = UI_button_color
+			print "new color", fps[8]
+
+			### -------------------------- ###
+			# UPDATE fps button
+			
+			button_name =  "fps"
+			button_origin_x = 0									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 180
+			button_width = UI_sideBar_width / 3
+			button_height = 20
+			button_label_txt = "FPS"
+			buttonType = "sticky"
+			buttonEnabled = fps[7]
+			buttonColor = fps[8]
+
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+			
+			return
+
 
 	if selected_button == sticky01[0]:
 		print "clicked button is", sticky01[0]
@@ -302,6 +400,37 @@ for n in range(1):
 	### a seperate dictionary is created for each button
 
 	### -------------------------- ###
+	# create FPS button
+	button_name =  "FPS"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 180
+	button_width = UI_sideBar_width / 3				# /3 for a small button, 1/3 the bar width
+	button_height = 20
+	button_label_txt = "FPS"
+	buttonType = "sticky"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	fps = {}
+	fps[0] = button_name
+	fps[1] = button_origin_x
+	fps[2] = button_origin_y
+	fps[3] = button_width
+	fps[4] = button_height
+	fps[5] = button_label_txt
+	fps[6] = buttonType
+	fps[7] = buttonEnabled
+	fps[8] = buttonColor
+
+	### -------------------------- ###
+
+
+	### -------------------------- ###
 	# create sticky02 button
 	button_name =  "Sticky02"
 	button_origin_x = 0								#x0, y0 is upper left corner
@@ -488,11 +617,16 @@ while running:
 	# then foreground elements. Each one will draw over the one before it. if you draw the background last
 	# the whole screen is overwritten
 
+	# # always running logic (like count FPS)
+
 
 	# # draw background
 	screen.fill(background_color)
 
 	# # draw reference or background lines, like grids here
+	if fps[7] == True:
+		count_fps()
+		show_fps()
 
 	# # draw borders & frames for interface
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
