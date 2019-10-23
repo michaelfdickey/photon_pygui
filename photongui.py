@@ -33,7 +33,9 @@
 #		2) create a new entry under  'def matchButton(selected_button):' for the new button group
 #		2b) each condition (enabled / disabled) needs to be setup for each button, e.g. if button 1 is enabled and clicked on, button 2 is turned to false (or all other buttons in group)
 #		2c) each button that is updated will need to have it's  "my_buttons.append(created_button)" updated as well
-#		2d) be sure to update the position, size of each button if / when applicable (origin x & y, width and height)	
+#		2d) be sure to update the position, size of each button if / when applicable (origin x & y, width and height)
+#		3) if the group has more than 2 buttons, and only one should be selected, you don't need the if true then false and turn the others true section, since that would enable 2/3
+#		3b) see button group 04 as an example in the def matchButton section	
 #	- MOVE A BUTTON
 #	- 
 
@@ -250,66 +252,7 @@ def matchButton(selected_button):
 						
 			return
 
-		"""
-		if Group04Button01[7] == True:
-			
-			Group04Button01[7] = False
-			Group04Button01[8] = UI_button_color
-			
-			Group04Button02[7] = True
-			Group04Button03[7] = True	
 
-			### -------------------------- ###
-			# UPDATE Group04Button01 button
-			button_name =  "Group04Button01"
-			button_origin_x = 0									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   A   "
-			buttonType = "group"
-			buttonEnabled = Group04Button01[7]
-			buttonColor = Group04Button01[8]
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-
-
-			# updates the OTHER button in the group			
-			button_name =  "Group04Button02"
-			button_origin_x = UI_sideBar_width / 3									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   B   "
-			buttonType = "group"
-			buttonEnabled = Group04Button02[7]
-			buttonColor = Group04Button02[8]
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-
-
-			button_name =  "Group04Button03"
-			button_origin_x = (UI_sideBar_width / 3) + (UI_sideBar_width / 3)		#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   C   "
-			buttonType = "group"
-			buttonEnabled = Group04Button03[7]
-			buttonColor = Group04Button03[8]
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-			### -------------------------- ###	
-
-			for i, button in enumerate(my_buttons):
-				button.display()
-			
-			return
-			
-		"""
 
 
 
@@ -392,69 +335,7 @@ def matchButton(selected_button):
 						
 			return
 		
-		"""	
-		if Group04Button02[7] == True:
-			Group04Button02[7] = False
-			Group04Button01[7] = True
-			Group04Button03[7] = True
-			Group04Button02[8] = UI_button_color
 
-			### -------------------------- ###
-			# UPDATE Group04Button02 button
-			
-			button_name =  "Group04Button02"
-			button_origin_x = UI_sideBar_width / 3									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   B   "
-			buttonType = "group"
-			buttonEnabled = Group04Button02[7]
-			buttonColor = Group04Button02[8]
-
-					
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-			### -------------------------- ###	
-
-			# updates the OTHER button in the group			
-			button_name =  "Group04Button01"
-			button_origin_x = 0									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   A   "
-			buttonType = "group"
-			buttonEnabled = Group04Button01[7]
-			buttonColor = Group04Button01[8]
-
-					
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-			### -------------------------- ###
-
-			button_name =  "Group04Button03"
-			button_origin_x = (UI_sideBar_width /3) * 2									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   C   "
-			buttonType = "group"
-			buttonEnabled = Group04Button01[7]
-			buttonColor = Group04Button01[8]
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-
-
-
-			for i, button in enumerate(my_buttons):
-				button.display()
-			
-			return
-		"""
 
 
 	############################################################
@@ -537,72 +418,7 @@ def matchButton(selected_button):
 	
 
 
-		"""	
-		if Group04Button03[7] == True:
 
-			Group04Button03[7] = False
-			Group04Button03[8] = UI_button_color
-			
-			Group04Button01[7] = True
-			Group04Button02[7] = True
-
-
-			### -------------------------- ###
-			# UPDATE Group04Button02 button
-			
-			button_name =  "Group04Button03"
-			button_origin_x = (UI_sideBar_width / 3) * 2								#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   C   "
-			buttonType = "group"
-			buttonEnabled = Group04Button03[7]
-			buttonColor = Group04Button03[8]
-
-					
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-			### -------------------------- ###	
-
-			# updates the OTHER button in the group			
-			button_name =  "Group04Button01"
-			button_origin_x = 0									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   A   "
-			buttonType = "group"
-			buttonEnabled = Group04Button01[7]
-			buttonColor = Group04Button01[8]
-
-					
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-			### -------------------------- ###
-
-			button_name =  "Group04Button02"
-			button_origin_x = UI_sideBar_width /3									#x0, y0 is upper left corner
-			button_origin_y = pygame_window_height - 420
-			button_width = UI_sideBar_width / 3
-			button_height = 20
-			button_label_txt = "   B   "
-			buttonType = "group"
-			buttonEnabled = Group04Button02[7]
-			buttonColor = Group04Button02[8]
-			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
-			my_buttons.append(created_button)
-
-
-
-			for i, button in enumerate(my_buttons):
-				button.display()
-			
-			return
-		"""
 
 
 	#####################################################################
