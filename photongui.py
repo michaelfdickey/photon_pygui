@@ -11,7 +11,8 @@
 #************************************************************************************
 #	MODIFYING YOUR UI
 #	- ADD A BUTTON - PUSHY 
-#		- pushy is a temporary button active only while it is being clicked on, typically to invoke a command
+#		1) pushy is a temporary button active only while it is being clicked on, typically to invoke a command
+#		2) under "# 	define buttons" copy and paste another button, modifying values accordingly
 #	- ADD A BUTTON - STICKY
 #		1) under "# 	define buttons" copy and paste another button, modifying values accordingly
 #		2a) if a button is sticky, the 'matchButton' funtion is run to check if the button is enabled and toggle it's state
@@ -417,6 +418,37 @@ for n in range(1):
 
 	### these are all the buttons, the my_buttons.append(created_button) iterates through displaying them and
 	### a seperate dictionary is created for each button
+
+	### -------------------------- ###
+	# create Label 01 Group Button
+	button_name =  "Group01Button01"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 220
+	button_width = UI_sideBar_width 					
+	button_height = 20
+	button_label_txt = "Button A"
+	buttonType = "pushy"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Group01Button01 = {}
+	Group01Button01[0] = button_name
+	Group01Button01[1] = button_origin_x
+	Group01Button01[2] = button_origin_y
+	Group01Button01[3] = button_width
+	Group01Button01[4] = button_height
+	Group01Button01[5] = button_label_txt
+	Group01Button01[6] = buttonType
+	Group01Button01[7] = buttonEnabled
+	Group01Button01[8] = buttonColor
+
+	### -------------------------- ###
+
 
 	### -------------------------- ###
 	# create Label 01 
