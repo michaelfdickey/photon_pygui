@@ -419,9 +419,41 @@ for n in range(1):
 	### these are all the buttons, the my_buttons.append(created_button) iterates through displaying them and
 	### a seperate dictionary is created for each button
 
+
+	### -------------------------- ###
+	# create Goup 02 Label  
+	button_name =  "Group02Label"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 320
+	button_width = UI_sideBar_width 					
+	button_height = 20
+	button_label_txt = "Group 02"
+	buttonType = "label"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Group02Label = {}
+	Group02Label[0] = button_name
+	Group02Label[1] = button_origin_x
+	Group02Label[2] = button_origin_y
+	Group02Label[3] = button_width
+	Group02Label[4] = button_height
+	Group02Label[5] = button_label_txt
+	Group02Label[6] = buttonType
+	Group02Label[7] = buttonEnabled
+	Group02Label[8] = buttonColor
+
+	### -------------------------- ###
+
+
 	### -------------------------- ###
 	# create Label 01 Group Button
-	button_name =  "Group01Button01"
+	button_name =  "Label01ButtonA"
 	button_origin_x = 0								#x0, y0 is upper left corner
 	button_origin_y = pygame_window_height - 220
 	button_width = UI_sideBar_width 					
@@ -742,14 +774,15 @@ while running:
 
 		if event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
-				selected_button.color = UI_button_color #reverts button back to normal color after letting go of mouse
+				selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
 			selected_button = None
-		
+
 
 	if selected_button != None:
 		(mouseX, mouseY) = pygame.mouse.get_pos()
 		selected_button.color = UI_button_click_color
 		pygame.display.flip()
+
 
 		if selected_button.button_label_txt == "EXIT":
 			print "you pressed exit"
