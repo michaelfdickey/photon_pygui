@@ -442,6 +442,38 @@ for n in range(1):
 	### a seperate dictionary is created for each button
 
 	### -------------------------- ###
+	# create Goup 02 Button 02 
+	button_name =  "Group02Button02"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 280
+	button_width = UI_sideBar_width 					
+	button_height = 20
+	button_label_txt = "Option B"
+	buttonType = "group"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Group02Button02 = {}
+	Group02Button02[0] = button_name
+	Group02Button02[1] = button_origin_x
+	Group02Button02[2] = button_origin_y
+	Group02Button02[3] = button_width
+	Group02Button02[4] = button_height
+	Group02Button02[5] = button_label_txt
+	Group02Button02[6] = buttonType
+	Group02Button02[7] = buttonEnabled
+	Group02Button02[8] = buttonColor
+
+	### -------------------------- ###
+
+
+
+	### -------------------------- ###
 	# create Goup 02 Button 01  
 	button_name =  "Group02Button01"
 	button_origin_x = 0								#x0, y0 is upper left corner
