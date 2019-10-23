@@ -27,6 +27,7 @@
 #		2) under main program loop \  if selected_button != None: add a new group for that button type
 #	- ADD A GROUP BUTTON
 #		group buttons are part of an option group, when one is selected, the others are disabled
+#		0) if not done allready and necessary, create a label for the button group
 #		1) under "# 	define buttons" copy and paste another button, modifying values accordingly
 #		2) 
 #	- MOVE A BUTTON
@@ -329,7 +330,7 @@ def matchButton(selected_button):
 		if Group02Button02[7] == True:
 			print "Group02Button02 enabled was ", Group02Button02[7]
 			Group02Button02[7] = False
-			Group02Button01[7] = False
+			Group02Button01[7] = True
 			print "Group02Button02 enabled now", Group02Button02[7]
 			print "old color", Group02Button02[8]
 			Group02Button02[8] = UI_button_color
@@ -676,6 +677,71 @@ for n in range(1):
 
 	### these are all the buttons, the my_buttons.append(created_button) iterates through displaying them and
 	### a seperate dictionary is created for each button
+
+	"""
+	### -------------------------- ###
+	# create Group 03 Button 01  
+	button_name =  "Group03Button01"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 360
+	button_width = UI_sideBar_width / 2 					
+	button_height = 20
+	button_label_txt = "Option A"
+	buttonType = "group"
+	buttonEnabled = True 
+	buttonColor = UI_button_color
+	buttonGroup = "Group03"
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Group03Button01 = {}
+	Group03Button01[0] = button_name
+	Group03Button01[1] = button_origin_x
+	Group03Button01[2] = button_origin_y
+	Group03Button01[3] = button_width
+	Group03Button01[4] = button_height
+	Group03Button01[5] = button_label_txt
+	Group03Button01[6] = buttonType
+	Group03Button01[7] = buttonEnabled
+	Group03Button01[8] = buttonColor
+	Group03Button01[9] = buttonGroup
+	### -------------------------- ###
+
+
+	### -------------------------- ###
+	# create Group 03 Label  
+	button_name =  "Group03Label"
+	button_origin_x = 0								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 380
+	button_width = UI_sideBar_width 					
+	button_height = 20
+	button_label_txt = "Group 03"
+	buttonType = "label"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Group03Label = {}
+	Group03Label[0] = button_name
+	Group03Label[1] = button_origin_x
+	Group03Label[2] = button_origin_y
+	Group03Label[3] = button_width
+	Group03Label[4] = button_height
+	Group03Label[5] = button_label_txt
+	Group03Label[6] = buttonType
+	Group03Label[7] = buttonEnabled
+	Group03Label[8] = buttonColor
+
+	### -------------------------- ###
+	"""
+
 
 	### -------------------------- ###
 	# create Goup 02 Button 02 
