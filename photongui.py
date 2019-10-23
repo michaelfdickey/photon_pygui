@@ -25,6 +25,10 @@
 #	- ADD A NEW BUTTON TYPE
 #		1) under 	button class ## displays buttons def display(self): copy and paste button type into new section, update values
 #		2) under main program loop \  if selected_button != None: add a new group for that button type
+#	- ADD A GROUP BUTTON
+#		group buttons are part of an option group, when one is selected, the others are disabled
+#		1) under "# 	define buttons" copy and paste another button, modifying values accordingly
+#		2) 
 #	- MOVE A BUTTON
 #	- 
 
@@ -148,7 +152,7 @@ def findButton(buttons, x, y):
 	return None
 
 
-def matchButton(selected_button):					# for sticky buttons to find and update buttonEnabled =
+def matchButton(selected_button):					# for sticky and group buttons to find and update buttonEnabled = then redraw buttons
 
 	### --- check sticky01 button, enable / disable when clicked --- ###
 
@@ -406,6 +410,11 @@ class Button:
 
 		# render "group" type buttons
 		if self.buttonType == "group":		
+			if self.buttonEnabled == True:
+				self.color = UI_button_selected_color
+			if self.buttonEnabled == False:
+				self.color = UI_button_color
+			
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
@@ -482,7 +491,7 @@ for n in range(1):
 	button_height = 20
 	button_label_txt = "Option A"
 	buttonType = "group"
-	buttonEnabled = False 
+	buttonEnabled = True 
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
