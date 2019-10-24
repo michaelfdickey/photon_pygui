@@ -162,6 +162,88 @@ def findButton(buttons, x, y):
 # for sticky and group buttons to find and update buttonEnabled = then redraw buttons
 def matchButton(selected_button):					
 
+
+	# # # Check Dropdown 01  button
+	if selected_button == Dropdown01opener[0]:
+		if Dropdown01opener[7] == False:
+			Dropdown01opener[7] = True
+			Dropdown01opener[8] = UI_button_selected_color
+			
+			### -------------------------- ###
+			# UPDATE Dropdown01opener button
+			
+			button_name =  "Dropdown01opener"
+			button_origin_x = UI_sideBar_width - 20									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 480
+			button_width = 20
+			button_height = 20
+			button_label_txt = ">>"
+			buttonType = "sticky"
+			buttonEnabled = Dropdown01opener[7]
+			buttonColor = Dropdown01opener[8]
+
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+						
+			return
+		
+		if Dropdown01opener[7] == True:
+			Dropdown01opener[7] = False
+			Dropdown01opener[8] = UI_button_color
+
+			### -------------------------- ###
+			# UPDATE Dropdown01opener button
+			
+			button_name =  "Dropdown01opener"
+			button_origin_x = UI_sideBar_width - 20									#x0, y0 is upper left corner
+			button_origin_y = pygame_window_height - 480
+			button_width = 20
+			button_height = 20
+			button_label_txt = ">>"
+			buttonType = "sticky"
+			buttonEnabled = Dropdown01opener[7]
+			buttonColor = Dropdown01opener[8]
+
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+			
+			return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	#####################################################################
 	# # # ------------------------- START BUTTON GROUP04 ------------------ # # # 
 	#####################################################################		
@@ -1160,6 +1242,14 @@ class Button:
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
+		# render "dropdown - lists" type buttons
+		if self.buttonType == "dropdown_option":		
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
 # ************************************************************************************
 
 
@@ -1192,13 +1282,112 @@ for n in range(1):
 
 	### -------------------------- ###
 	# create Dropdown 01  
+	button_name =  "Dropdown01option03"
+	button_origin_x = UI_sideBar_width								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 440
+	button_width = 100					
+	button_height = 20
+	button_label_txt = "Option 3"
+	buttonType = "dropdown_option"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	buttonGroup = "Dropdown01"
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Dropdown01option03 = {}
+	Dropdown01option03[0] = button_name
+	Dropdown01option03[1] = button_origin_x
+	Dropdown01option03[2] = button_origin_y
+	Dropdown01option03[3] = button_width
+	Dropdown01option03[4] = button_height
+	Dropdown01option03[5] = button_label_txt
+	Dropdown01option03[6] = buttonType
+	Dropdown01option03[7] = buttonEnabled
+	Dropdown01option03[8] = buttonColor
+	Dropdown01option03[9] = buttonGroup
+
+	### -------------------------- ###
+
+
+	### -------------------------- ###
+	# create Dropdown 01  
+	button_name =  "Dropdown01option02"
+	button_origin_x = UI_sideBar_width								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 460
+	button_width = 100					
+	button_height = 20
+	button_label_txt = "Option 2"
+	buttonType = "dropdown_option"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	buttonGroup = "Dropdown01"
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Dropdown01option02 = {}
+	Dropdown01option02[0] = button_name
+	Dropdown01option02[1] = button_origin_x
+	Dropdown01option02[2] = button_origin_y
+	Dropdown01option02[3] = button_width
+	Dropdown01option02[4] = button_height
+	Dropdown01option02[5] = button_label_txt
+	Dropdown01option02[6] = buttonType
+	Dropdown01option02[7] = buttonEnabled
+	Dropdown01option02[8] = buttonColor
+	Dropdown01option02[9] = buttonGroup
+
+	### -------------------------- ###
+
+
+	### -------------------------- ###
+	# create Dropdown 01  
+	button_name =  "Dropdown01option01"
+	button_origin_x = UI_sideBar_width								#x0, y0 is upper left corner
+	button_origin_y = pygame_window_height - 480
+	button_width = 100 					
+	button_height = 20
+	button_label_txt = "Option 1"
+	buttonType = "dropdown_option"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	buttonGroup = "Dropdown01"
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Dropdown01option01 = {}
+	Dropdown01option01[0] = button_name
+	Dropdown01option01[1] = button_origin_x
+	Dropdown01option01[2] = button_origin_y
+	Dropdown01option01[3] = button_width
+	Dropdown01option01[4] = button_height
+	Dropdown01option01[5] = button_label_txt
+	Dropdown01option01[6] = buttonType
+	Dropdown01option01[7] = buttonEnabled
+	Dropdown01option01[8] = buttonColor
+	Dropdown01option01[9] = buttonGroup
+
+	### -------------------------- ###
+
+
+	### -------------------------- ###
+	# create Dropdown 01  
 	button_name =  "Dropdown01opener"
 	button_origin_x = UI_sideBar_width - 20								#x0, y0 is upper left corner
 	button_origin_y = pygame_window_height - 480
 	button_width = 20 					
 	button_height = 20
 	button_label_txt = ">>"
-	buttonType = "dropdown"
+	buttonType = "sticky"
 	buttonEnabled = False 
 	buttonColor = UI_button_color
 	buttonGroup = "Dropdown01"
