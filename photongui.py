@@ -173,6 +173,38 @@ def findButton(buttons, x, y):
 # for sticky and group buttons to find and update buttonEnabled = then redraw buttons
 def matchButton(selected_button):					
 
+	print "selected_button = ", selected_button
+	print "Dropdown01option01[0] = ", Dropdown01option01[0]
+
+	if selected_button == Dropdown01option01[0]:								# if the selected button is Dropdown01option01
+		print "dropdown 01 option 01 selected, running..."
+		if Dropdown01opener[7] == True:									# AND Dropdown01opener is enabled and displayed
+			print "Dropdown01Display[5] was:", Dropdown01Display[5]
+			Dropdown01Display[5] = Dropdown01option01[5]					# the label text for Dropdown01Display is updated with the label text of option01
+			print "Dropdown01Display[5] is:", Dropdown01Display[5]
+
+			button_name =  Dropdown01Display[0]							# button variables updated to prepare for updating display
+			button_origin_x = Dropdown01Display[1]									
+			button_origin_y = Dropdown01Display[2]
+			button_width = Dropdown01Display[3]
+			button_height = Dropdown01Display[4]
+			button_label_txt = Dropdown01Display[5]
+			buttonType = Dropdown01Display[6]
+			buttonEnabled = Dropdown01Display[7]
+			buttonColor = Dropdown01Display[8]
+			buttonVisible = Dropdown01Display[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+						
+			return
+
+
+
 
 	# # # Check Dropdown 01  button
 	if selected_button == Dropdown01opener[0]:
@@ -1577,6 +1609,7 @@ for n in range(1):
 	buttonEnabled = False 
 	buttonColor = UI_button_color
 	buttonGroup = "Dropdown01"
+	buttonVisible = True
 	
 	# define button then add button to display list
 	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
@@ -1594,6 +1627,7 @@ for n in range(1):
 	Dropdown01Display[7] = buttonEnabled
 	Dropdown01Display[8] = buttonColor
 	Dropdown01Display[9] = buttonGroup
+	Dropdown01Display[10] = buttonVisible
 
 	### -------------------------- ###
 
@@ -2274,6 +2308,9 @@ while running:
 					matchButton(selected_button.button_name)
 
 				if selected_button.buttonType == "group":
+					matchButton(selected_button.button_name)
+
+				if selected_button.buttonType == "dropdown_option":
 					matchButton(selected_button.button_name)
 
 				if selected_button.buttonType == "pushy":
