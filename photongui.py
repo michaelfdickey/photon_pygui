@@ -173,10 +173,62 @@ def findButton(buttons, x, y):
 # for sticky and group buttons to find and update buttonEnabled = then redraw buttons
 def matchButton(selected_button):					
 
+	# updates the displayed text of dropdown01display when an option is selected
+	if selected_button == Dropdown01option03[0]:							# if the selected button is Dropdown01option03
+		if Dropdown01opener[7] == True:									# AND Dropdown01opener is enabled and displayed
+			Dropdown01Display[5] = Dropdown01option03[5]					# the label text for Dropdown01Display is updated with the label text of option01
+
+			button_name =  Dropdown01Display[0]							# button variables updated to prepare for updating display
+			button_origin_x = Dropdown01Display[1]									
+			button_origin_y = Dropdown01Display[2]
+			button_width = Dropdown01Display[3]
+			button_height = Dropdown01Display[4]
+			button_label_txt = Dropdown01Display[5]
+			buttonType = Dropdown01Display[6]
+			buttonEnabled = Dropdown01Display[7]
+			buttonColor = Dropdown01Display[8]
+			buttonVisible = Dropdown01Display[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+						
+			return
+
+
+	# updates the displayed text of dropdown01display when an option is selected
+	if selected_button == Dropdown01option02[0]:							# if the selected button is Dropdown01option02
+		if Dropdown01opener[7] == True:									# AND Dropdown01opener is enabled and displayed
+			Dropdown01Display[5] = Dropdown01option02[5]					# the label text for Dropdown01Display is updated with the label text of option01
+
+			button_name =  Dropdown01Display[0]							# button variables updated to prepare for updating display
+			button_origin_x = Dropdown01Display[1]									
+			button_origin_y = Dropdown01Display[2]
+			button_width = Dropdown01Display[3]
+			button_height = Dropdown01Display[4]
+			button_label_txt = Dropdown01Display[5]
+			buttonType = Dropdown01Display[6]
+			buttonEnabled = Dropdown01Display[7]
+			buttonColor = Dropdown01Display[8]
+			buttonVisible = Dropdown01Display[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+						
+			return
+
+	# updates the displayed text of dropdown01display when an option is selected
 	print "selected_button = ", selected_button
 	print "Dropdown01option01[0] = ", Dropdown01option01[0]
 
-	if selected_button == Dropdown01option01[0]:								# if the selected button is Dropdown01option01
+	if selected_button == Dropdown01option01[0]:							# if the selected button is Dropdown01option01
 		print "dropdown 01 option 01 selected, running..."
 		if Dropdown01opener[7] == True:									# AND Dropdown01opener is enabled and displayed
 			print "Dropdown01Display[5] was:", Dropdown01Display[5]
