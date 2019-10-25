@@ -141,7 +141,12 @@ def count_fps():
 		cSec = time.strftime("%S")
 
 
+
+
+
 # # Button Related Functions
+
+# # # this finds what button you clicked on
 def findButton(buttons, x, y):
 	for b in buttons:
 		print "x = ", x, "y = ", y
@@ -159,6 +164,12 @@ def findButton(buttons, x, y):
 	return None
 
 
+
+
+
+
+
+
 # for sticky and group buttons to find and update buttonEnabled = then redraw buttons
 def matchButton(selected_button):					
 
@@ -168,7 +179,12 @@ def matchButton(selected_button):
 		if Dropdown01opener[7] == False:
 			Dropdown01opener[7] = True
 			Dropdown01opener[8] = UI_button_selected_color
-			
+
+			# Update the other buttons in the group			
+			Dropdown01option01[10] = True
+			Dropdown01option02[10] = True
+			Dropdown01option03[10] = True
+
 			### -------------------------- ###
 			# UPDATE Dropdown01opener button
 			
@@ -177,15 +193,64 @@ def matchButton(selected_button):
 			button_origin_y = pygame_window_height - 480
 			button_width = 20
 			button_height = 20
-			button_label_txt = ">>"
+			button_label_txt = "<<"
 			buttonType = "sticky"
 			buttonEnabled = Dropdown01opener[7]
 			buttonColor = Dropdown01opener[8]
+			buttonVisible = True
 
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
+			# UPDATE related option buttons to visible
+			### ### ------------------- ### ###
+			button_name =  Dropdown01option01[0]
+			button_origin_x = Dropdown01option01[1]									#x0, y0 is upper left corner
+			button_origin_y = Dropdown01option01[2]
+			button_width = Dropdown01option01[3]
+			button_height = Dropdown01option01[4]
+			button_label_txt = Dropdown01option01[5]
+			buttonType = Dropdown01option01[6]
+			buttonEnabled = Dropdown01option01[7]
+			buttonColor = Dropdown01option01[8]
+			buttonVisible = Dropdown01option01[10]
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
+
+			button_name =  Dropdown01option02[0]
+			button_origin_x = Dropdown01option02[1]									#x0, y0 is upper left corner
+			button_origin_y = Dropdown01option02[2]
+			button_width = Dropdown01option02[3]
+			button_height = Dropdown01option02[4]
+			button_label_txt = Dropdown01option02[5]
+			buttonType = Dropdown01option02[6]
+			buttonEnabled = Dropdown01option02[7]
+			buttonColor = Dropdown01option02[8]
+			buttonVisible = Dropdown01option02[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
+
+			button_name =  Dropdown01option03[0]
+			button_origin_x = Dropdown01option03[1]									#x0, y0 is upper left corner
+			button_origin_y = Dropdown01option03[2]
+			button_width = Dropdown01option03[3]
+			button_height = Dropdown01option03[4]
+			button_label_txt = Dropdown01option03[5]
+			buttonType = Dropdown01option03[6]
+			buttonEnabled = Dropdown01option03[7]
+			buttonColor = Dropdown01option03[8]
+			buttonVisible = Dropdown01option03[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+			### ### ------------------- ### ###
 			### -------------------------- ###	
 
 			for i, button in enumerate(my_buttons):
@@ -193,9 +258,18 @@ def matchButton(selected_button):
 						
 			return
 		
+
+
 		if Dropdown01opener[7] == True:
 			Dropdown01opener[7] = False
 			Dropdown01opener[8] = UI_button_color
+
+			# Update the other buttons in the group			
+			print "Dropdown01option01[10] before", Dropdown01option01[10]
+			Dropdown01option01[10] = False
+			Dropdown01option02[10] = False
+			Dropdown01option03[10] = False
+			print "Dropdown01option01[10] after", Dropdown01option01[10]
 
 			### -------------------------- ###
 			# UPDATE Dropdown01opener button
@@ -209,39 +283,67 @@ def matchButton(selected_button):
 			buttonType = "sticky"
 			buttonEnabled = Dropdown01opener[7]
 			buttonColor = Dropdown01opener[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
+	
 			### -------------------------- ###	
+
+			button_name =  Dropdown01option01[0]
+			button_origin_x = Dropdown01option01[1]									#x0, y0 is upper left corner
+			button_origin_y = Dropdown01option01[2]
+			button_width = Dropdown01option01[3]
+			button_height = Dropdown01option01[4]
+			button_label_txt = Dropdown01option01[5]
+			buttonType = Dropdown01option01[6]
+			buttonEnabled = Dropdown01option01[7]
+			buttonColor = Dropdown01option01[8]
+			buttonVisible = Dropdown01option01[10]
+			print "Dropdown01option01[10] 305", Dropdown01option01[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
+			button_name =  Dropdown01option02[0]
+			button_origin_x = Dropdown01option02[1]									#x0, y0 is upper left corner
+			button_origin_y = Dropdown01option02[2]
+			button_width = Dropdown01option02[3]
+			button_height = Dropdown01option02[4]
+			button_label_txt = Dropdown01option02[5]
+			buttonType = Dropdown01option02[6]
+			buttonEnabled = Dropdown01option02[7]
+			buttonColor = Dropdown01option02[8]
+			buttonVisible = Dropdown01option02[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
+
+			button_name =  Dropdown01option03[0]
+			button_origin_x = Dropdown01option03[1]									#x0, y0 is upper left corner
+			button_origin_y = Dropdown01option03[2]
+			button_width = Dropdown01option03[3]
+			button_height = Dropdown01option03[4]
+			button_label_txt = Dropdown01option03[5]
+			buttonType = Dropdown01option03[6]
+			buttonEnabled = Dropdown01option03[7]
+			buttonColor = Dropdown01option03[8]
+			buttonVisible = Dropdown01option03[10]
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+
 
 			for i, button in enumerate(my_buttons):
 				button.display()
 			
 			return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	#####################################################################
@@ -288,9 +390,10 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button01[7]
 			buttonColor = Group04Button01[8]
+			buttonVisible = True
 
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			# NOTE HERE:
@@ -305,10 +408,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button02[7]
 			buttonColor = Group04Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			
 			button_name =  "Group04Button03"
@@ -320,10 +424,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button03[7]
 			buttonColor = Group04Button03[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			### -------------------------- ###	
@@ -375,10 +480,10 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button02[7]
 			buttonColor = Group04Button02[8]
-
+			buttonVisible = True
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -392,8 +497,10 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button01[7]
 			buttonColor = Group04Button01[8]
+			buttonVisible = True
+
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			button_name =  "Group04Button03"
@@ -405,8 +512,10 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button01[7]
 			buttonColor = Group04Button01[8]
+			buttonVisible = True
+
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			### -------------------------- ###
@@ -456,10 +565,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button03[7]
 			buttonColor = Group04Button03[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -473,8 +583,10 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button01[7]
 			buttonColor = Group04Button01[8]
+			buttonVisible = True
+
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			button_name =  "Group04Button02"
@@ -486,8 +598,10 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group04Button01[7]
 			buttonColor = Group04Button01[8]
+			buttonVisible = True
+
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			### -------------------------- ###
@@ -498,9 +612,6 @@ def matchButton(selected_button):
 						
 			return
 	
-
-
-
 
 
 	#####################################################################
@@ -552,10 +663,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button01[7]
 			buttonColor = Group03Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			# NOTE HERE:
@@ -570,10 +682,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button02[7]
 			buttonColor = Group03Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -604,10 +717,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button01[7]
 			buttonColor = Group03Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -621,10 +735,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button02[7]
 			buttonColor = Group03Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -656,10 +771,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button02[7]
 			buttonColor = Group03Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -673,10 +789,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button01[7]
 			buttonColor = Group03Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###
 
@@ -707,10 +824,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button02[7]
 			buttonColor = Group03Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -724,10 +842,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group03Button01[7]
 			buttonColor = Group03Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###
 
@@ -777,10 +896,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button01[7]
 			buttonColor = Group02Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
 			# NOTE HERE:
@@ -795,10 +915,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button02[7]
 			buttonColor = Group02Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -829,10 +950,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button01[7]
 			buttonColor = Group02Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -846,10 +968,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button02[7]
 			buttonColor = Group02Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -881,10 +1004,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button02[7]
 			buttonColor = Group02Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -898,10 +1022,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button01[7]
 			buttonColor = Group02Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###
 
@@ -932,10 +1057,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button02[7]
 			buttonColor = Group02Button02[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -949,10 +1075,11 @@ def matchButton(selected_button):
 			buttonType = "group"
 			buttonEnabled = Group02Button01[7]
 			buttonColor = Group02Button01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###
 
@@ -989,10 +1116,11 @@ def matchButton(selected_button):
 			buttonType = "sticky"
 			buttonEnabled = fps[7]
 			buttonColor = fps[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -1021,10 +1149,11 @@ def matchButton(selected_button):
 			buttonType = "sticky"
 			buttonEnabled = fps[7]
 			buttonColor = fps[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -1057,10 +1186,11 @@ def matchButton(selected_button):
 			buttonType = "sticky"
 			buttonEnabled = sticky01[7]
 			buttonColor = sticky01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -1091,10 +1221,11 @@ def matchButton(selected_button):
 			buttonType = "sticky"
 			buttonEnabled = sticky01[7]
 			buttonColor = sticky01[8]
+			buttonVisible = True
 
 					
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -1127,9 +1258,10 @@ def matchButton(selected_button):
 			buttonType = "sticky"
 			buttonEnabled = sticky02[7]
 			buttonColor = sticky02[8]
+			buttonVisible = True
 		
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -1160,9 +1292,10 @@ def matchButton(selected_button):
 			buttonType = "sticky"
 			buttonEnabled = sticky02[7]
 			buttonColor = sticky02[8]
+			buttonVisible = True
 		
 			# define button then add button to display list
-			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 			### -------------------------- ###	
 
@@ -1179,7 +1312,7 @@ def matchButton(selected_button):
 
 ## takes button info and prepares it for displaying
 class Button:
-	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled, buttonColor):
+	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled, buttonColor, buttonVisible):
 		self.button_name = button_name
 		self.x = x
 		self.x_width = x_width
@@ -1191,6 +1324,7 @@ class Button:
 		self.colorBorder = UI_button_border_color
 		self.buttonType = buttonType  
 		self.buttonEnabled = buttonEnabled
+		self.buttonVisible = buttonVisible
 
 	## displays buttons
 	def display(self):
@@ -1243,12 +1377,26 @@ class Button:
 			screen.blit(label, (self.x + 5, self.y))
 
 		# render "dropdown - lists" type buttons
-		if self.buttonType == "dropdown_option":		
-			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
-			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
+		if self.buttonType == "dropdown_option":
+			if self.buttonVisible == True:		
+				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
 
-			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
-			screen.blit(label, (self.x + 5, self.y))
+				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+				screen.blit(label, (self.x + 5, self.y))
+		
+			if self.buttonVisible == False:
+				self.color = black
+				self.colorBorder = black
+				self.button_label_txt = ""
+
+				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
+
+				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+				screen.blit(label, (self.x + 5, self.y))
+
+
 
 # ************************************************************************************
 
@@ -1281,7 +1429,7 @@ for n in range(1):
 	### a seperate dictionary is created for each button
 
 	### -------------------------- ###
-	# create Dropdown 01  
+	# create Dropdown 01  option 03
 	button_name =  "Dropdown01option03"
 	button_origin_x = UI_sideBar_width								#x0, y0 is upper left corner
 	button_origin_y = pygame_window_height - 440
@@ -1292,9 +1440,10 @@ for n in range(1):
 	buttonEnabled = False 
 	buttonColor = UI_button_color
 	buttonGroup = "Dropdown01"
+	buttonVisible = False
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1309,6 +1458,7 @@ for n in range(1):
 	Dropdown01option03[7] = buttonEnabled
 	Dropdown01option03[8] = buttonColor
 	Dropdown01option03[9] = buttonGroup
+	Dropdown01option03[10] = buttonVisible
 
 	### -------------------------- ###
 
@@ -1325,9 +1475,10 @@ for n in range(1):
 	buttonEnabled = False 
 	buttonColor = UI_button_color
 	buttonGroup = "Dropdown01"
+	buttonVisible = False
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1342,6 +1493,7 @@ for n in range(1):
 	Dropdown01option02[7] = buttonEnabled
 	Dropdown01option02[8] = buttonColor
 	Dropdown01option02[9] = buttonGroup
+	Dropdown01option02[10] = buttonVisible
 
 	### -------------------------- ###
 
@@ -1358,9 +1510,10 @@ for n in range(1):
 	buttonEnabled = False 
 	buttonColor = UI_button_color
 	buttonGroup = "Dropdown01"
+	buttonVisible = False
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1375,6 +1528,7 @@ for n in range(1):
 	Dropdown01option01[7] = buttonEnabled
 	Dropdown01option01[8] = buttonColor
 	Dropdown01option01[9] = buttonGroup
+	Dropdown01option01[10] = buttonVisible
 
 	### -------------------------- ###
 
@@ -1393,7 +1547,7 @@ for n in range(1):
 	buttonGroup = "Dropdown01"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1425,7 +1579,7 @@ for n in range(1):
 	buttonGroup = "Dropdown01"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1457,7 +1611,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1489,7 +1643,7 @@ for n in range(1):
 	buttonGroup = "Group04"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1523,7 +1677,7 @@ for n in range(1):
 	buttonGroup = "Group04"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1556,7 +1710,7 @@ for n in range(1):
 	buttonGroup = "Group04"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1589,7 +1743,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1623,7 +1777,7 @@ for n in range(1):
 	buttonGroup = "Group03"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1655,7 +1809,7 @@ for n in range(1):
 	buttonGroup = "Group03"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1686,7 +1840,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1719,7 +1873,7 @@ for n in range(1):
 	buttonGroup = "Group02"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1755,7 +1909,7 @@ for n in range(1):
 	buttonGroup = "Group02"
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1789,7 +1943,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1820,7 +1974,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1851,7 +2005,7 @@ for n in range(1):
 	buttonColor = UI_label_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1881,7 +2035,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1912,7 +2066,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1948,7 +2102,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 	
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -1985,7 +2139,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -2017,7 +2171,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
@@ -2050,7 +2204,7 @@ for n in range(1):
 	buttonColor = UI_button_color
 
 	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled, buttonColor)
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
