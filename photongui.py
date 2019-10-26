@@ -173,6 +173,71 @@ def findButton(buttons, x, y):
 # for sticky and group buttons to find and update buttonEnabled = then redraw buttons
 def matchButton(selected_button):					
 
+
+	# # # Check Dropdown01Display  button
+	if selected_button == Dropdown01Display[0]:
+		print "clicked button is", Dropdown01Display[0]
+		if Dropdown01Display[7] == False:
+			Dropdown01Display[7] = True
+			Dropdown01Display[8] = UI_button_selected_color
+			
+			### -------------------------- ###
+			# UPDATE Dropdown01Display button
+			
+			button_name =  Dropdown01Display[0]							# button variables updated to prepare for updating display
+			button_origin_x = Dropdown01Display[1]									
+			button_origin_y = Dropdown01Display[2]
+			button_width = Dropdown01Display[3]
+			button_height = Dropdown01Display[4]
+			button_label_txt = Dropdown01Display[5]
+			buttonType = Dropdown01Display[6]
+			buttonEnabled = Dropdown01Display[7]
+			buttonColor = Dropdown01Display[8]
+			buttonVisible = Dropdown01Display[10]
+
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+						
+			return
+		
+		if Dropdown01Display[7] == True:
+			Dropdown01Display[7] = False
+			Dropdown01Display[8] = UI_button_color
+
+			### -------------------------- ###
+			# UPDATE Dropdown01Display button
+			
+			button_name =  Dropdown01Display[0]							# button variables updated to prepare for updating display
+			button_origin_x = Dropdown01Display[1]									
+			button_origin_y = Dropdown01Display[2]
+			button_width = Dropdown01Display[3]
+			button_height = Dropdown01Display[4]
+			button_label_txt = Dropdown01Display[5]
+			buttonType = Dropdown01Display[6]
+			buttonEnabled = Dropdown01Display[7]
+			buttonColor = Dropdown01Display[8]
+			buttonVisible = Dropdown01Display[10]
+
+					
+			# define button then add button to display list
+			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+			my_buttons.append(created_button)
+			### -------------------------- ###	
+
+			for i, button in enumerate(my_buttons):
+				button.display()
+			
+			return
+
+
+
+
 	# updates the displayed text of dropdown01display when an option is selected
 	if selected_button == Dropdown01option03[0]:							# if the selected button is Dropdown01option03
 		if Dropdown01opener[7] == True:									# AND Dropdown01opener is enabled and displayed
@@ -1512,6 +1577,11 @@ for n in range(1):
 	### these are all the buttons, the my_buttons.append(created_button) iterates through displaying them and
 	### a seperate dictionary is created for each button
 
+	###################################################################
+	######                                            START OF DROPDOWN01 GROUP                                  ######
+	###################################################################
+
+
 	### -------------------------- ###
 	# create Dropdown 01  option 03
 	button_name =  "Dropdown01option03"
@@ -1657,7 +1727,7 @@ for n in range(1):
 	button_width = UI_sideBar_width - 20 					
 	button_height = 20
 	button_label_txt = "select option"
-	buttonType = "dropdown"
+	buttonType = "sticky"							# this should be sticky, but no fucntionality for it yet in match button. 
 	buttonEnabled = False 
 	buttonColor = UI_button_color
 	buttonGroup = "Dropdown01"
@@ -1713,6 +1783,11 @@ for n in range(1):
 	Dropdown01[8] = buttonColor
 
 	### -------------------------- ###
+
+	###################################################################
+	######                                            END OF DROPDOWN01 GROUP                                       ######
+	###################################################################
+
 
 
 	### -------------------------- ###
