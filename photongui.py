@@ -126,6 +126,9 @@ selectedButton = {}
 # ************************************************************************************
 #	functions	#
 
+# # Button Related Functions
+# # This is where you would add functions related to specific button clicks / actions
+
 # # FPS related Functions
 def show_fps():
 	fps_overlay = fps_font.render("FPS:"+str(FPS), True, UI_button_txt_color)
@@ -140,11 +143,13 @@ def count_fps():
 		cFrame = 0
 		cSec = time.strftime("%S")
 
+# # command01 function
+def command01():
+	command01_overlay =  fps_font.render("Command01", True, UI_button_txt_color)
+	screen.blit(command01_overlay, (pygame_window_width - 300,pygame_window_height - 30))
 
 
 
-
-# # Button Related Functions
 
 # # # this finds what button you clicked on
 def findButton(buttons, x, y):
@@ -2578,8 +2583,19 @@ for n in range(1):
 
 
 
-# ************************************************************************************
+
+
+
+
+# ************************************************************************************************************************
+# ************************************************************************************************************************
 # 	MAIN code	#
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+
+
+
+
 
 
 # Pygame display
@@ -2602,9 +2618,18 @@ while running:
 	screen.fill(background_color)
 
 	# # draw reference or background lines, like grids here
+	
+
+	# # excecute / call button functions
+
+	# # # display FPS
 	if fps[7] == True:
 		count_fps()
 		show_fps()
+
+	# # # command01
+	if cmd01[7] == True:
+		command01()
 
 	# # draw borders & frames for interface
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
@@ -2635,8 +2660,15 @@ while running:
 					matchButton(selected_button.button_name)
 
 				if selected_button.buttonType == "pushy":
+					#matchButton(selected_button.button_name)
 					selected_button.color = UI_button_click_color
+					selected_button.buttonEnabled = True
 					print "clicked button is a pushy temporary button"
+					if selected_button.button_name == "Command01":
+						print "you clicked Command01"
+						command01()
+
+
 
 				if selected_button.buttonType == "label":
 					selected_button.color = UI_label_color
