@@ -3022,12 +3022,7 @@ while running:
 	
 
 	
-	# # # Display Origin Lines if Sticky Button 01 is enabled
-	if sticky01[7] == True:
-		displayOrigin()
-		for i, button in enumerate(display_overlay_origin):
-			button.display()
-		updateInterface()
+
 	
 
 
@@ -3108,6 +3103,14 @@ while running:
 				if selected_button.buttonType == "label":
 					selected_button.color = UI_label_color
 					print "clicked button is a label, not a button"
+
+				# # # Display Origin Lines if Sticky Button 01 is enabled
+				if sticky01[7] == True:
+					displayOrigin()
+					for i, button in enumerate(display_overlay_origin):
+						button.display()
+					updateInterface()					
+
 
 		if event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
