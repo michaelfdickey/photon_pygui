@@ -744,7 +744,7 @@ def matchButton(selected_button):
 			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 	
-			"""
+			
 			### -------------------------- ###	
 
 			button_name =  Dropdown01option01[0]
@@ -794,7 +794,7 @@ def matchButton(selected_button):
 			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
-			"""
+			
 
 			for i, button in enumerate(my_buttons):
 				button.display()
@@ -1864,7 +1864,8 @@ class Button:
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
 			
-			"""					
+
+
 			if self.buttonVisible == False:
 				self.color = black
 				self.colorBorder = black
@@ -1875,7 +1876,8 @@ class Button:
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
-			"""
+			
+
 
 		# render "sticky" type buttons
 		if self.buttonType == "menu":		
@@ -3013,15 +3015,6 @@ while running:
 
 	# # draw reference or background lines, like grids here
 	
-	
-
-	
-
-	
-
-	
-
-
 	# # draw borders & frames for interface
 	#pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 	#pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
