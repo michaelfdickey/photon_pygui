@@ -3013,22 +3013,22 @@ while running:
 
 	# # draw reference or background lines, like grids here
 	
-	"""
+	
 	# # # Display GRID if Sticky Button 02 is enabled
 	if sticky02[7] == True:
 		displayGrid()
 		for i, button in enumerate(display_overlay_grid):
 			button.display()	
-	"""
+	
 
-	"""
+	
 	# # # Display Origin Lines if Sticky Button 01 is enabled
 	if sticky01[7] == True:
 		displayOrigin()
 		for i, button in enumerate(display_overlay_origin):
 			button.display()
 		updateInterface()
-	"""
+	
 
 
 	# # draw borders & frames for interface
@@ -3109,48 +3109,26 @@ while running:
 					selected_button.color = UI_label_color
 					print "clicked button is a label, not a button"
 
-				# # # Display GRID if Sticky Button 02 is enabled
-				if sticky02[7] == True:
-					displayGrid()
-					for i, button in enumerate(display_overlay_grid):
-						button.display()	
-					updateInterface()
-
-				# # # Display Origin Lines if Sticky Button 01 is enabled
-				if sticky01[7] == True:
-					displayOrigin()
-					for i, button in enumerate(display_overlay_origin):
-						button.display()
-					updateInterface()
-
-				# # draw buttons!
-				for i, button in enumerate(my_buttons):
-					button.display()
-
-
 		if event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
 				selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
 			selected_button = None
 
-		"""
-		if selected_button != None:
-			(mouseX, mouseY) = pygame.mouse.get_pos()
-			selected_button.color = UI_button_click_color
-			pygame.display.flip()
-		"""
 
-	
-	if selected_button.button_label_txt == "EXIT":
-		print "you pressed exit"
-		running = False
-		
-	
-	"""
+	if selected_button != None:
+		(mouseX, mouseY) = pygame.mouse.get_pos()
+		selected_button.color = UI_button_click_color
+		pygame.display.flip()
+
+
+		if selected_button.button_label_txt == "EXIT":
+			print "you pressed exit"
+			running = False
+
 	# # draw buttons!
 	for i, button in enumerate(my_buttons):
 		button.display()
-	"""
+
 
 	pygame.display.flip()		 # updates and draws the screen & launch pygame window
 
