@@ -142,6 +142,12 @@ def updateScreen():
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
+	print "updateScreen() was run"
+
+def updateInterface():
+	# # draw borders & frames for interface
+	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
+	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
 # # Button Related Functions
 # # This is where you would add functions related to specific button clicks / actions
@@ -738,6 +744,7 @@ def matchButton(selected_button):
 			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 	
+			"""
 			### -------------------------- ###	
 
 			button_name =  Dropdown01option01[0]
@@ -787,9 +794,13 @@ def matchButton(selected_button):
 			created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 			my_buttons.append(created_button)
 
+			"""
 
 			for i, button in enumerate(my_buttons):
 				button.display()
+
+			updateScreen()
+			print "screen was updated"	
 			
 			return
 
@@ -1852,7 +1863,8 @@ class Button:
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
-					
+			
+			"""					
 			if self.buttonVisible == False:
 				self.color = black
 				self.colorBorder = black
@@ -1863,7 +1875,7 @@ class Button:
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
-			
+			"""
 
 		# render "sticky" type buttons
 		if self.buttonType == "menu":		
@@ -1883,6 +1895,7 @@ class Button:
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
 		
+			
 			if self.buttonVisible == False:
 				self.color = black
 				self.colorBorder = black
@@ -1893,7 +1906,7 @@ class Button:
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
-
+			
 
 # # Display Origin Lines
 class DisplayOverlayGrid:
@@ -2976,7 +2989,9 @@ screen.fill(background_color)
 pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
-
+# # draw buttons!
+for i, button in enumerate(my_buttons):
+	button.display()
 
 
 
@@ -2998,18 +3013,22 @@ while running:
 
 	# # draw reference or background lines, like grids here
 	
+	"""
 	# # # Display GRID if Sticky Button 02 is enabled
 	if sticky02[7] == True:
 		displayGrid()
 		for i, button in enumerate(display_overlay_grid):
 			button.display()	
+	"""
 
-
+	"""
 	# # # Display Origin Lines if Sticky Button 01 is enabled
 	if sticky01[7] == True:
 		displayOrigin()
 		for i, button in enumerate(display_overlay_origin):
 			button.display()
+		updateInterface()
+	"""
 
 
 	# # draw borders & frames for interface
@@ -3042,7 +3061,9 @@ while running:
 		else: 
 			cmd02[7] = False
 			pygame.draw.rect(screen, blue, (pygame_window_width - 500, pygame_window_height - 30, 160, 20))   
-			# updateScreen()
+
+
+
 
 
 
@@ -3088,26 +3109,48 @@ while running:
 					selected_button.color = UI_label_color
 					print "clicked button is a label, not a button"
 
+				# # # Display GRID if Sticky Button 02 is enabled
+				if sticky02[7] == True:
+					displayGrid()
+					for i, button in enumerate(display_overlay_grid):
+						button.display()	
+					updateInterface()
+
+				# # # Display Origin Lines if Sticky Button 01 is enabled
+				if sticky01[7] == True:
+					displayOrigin()
+					for i, button in enumerate(display_overlay_origin):
+						button.display()
+					updateInterface()
+
+				# # draw buttons!
+				for i, button in enumerate(my_buttons):
+					button.display()
+
+
 		if event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
 				selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
 			selected_button = None
 
+		"""
+		if selected_button != None:
+			(mouseX, mouseY) = pygame.mouse.get_pos()
+			selected_button.color = UI_button_click_color
+			pygame.display.flip()
+		"""
 
-	if selected_button != None:
-		(mouseX, mouseY) = pygame.mouse.get_pos()
-		selected_button.color = UI_button_click_color
-		pygame.display.flip()
-
-
-		if selected_button.button_label_txt == "EXIT":
-			print "you pressed exit"
-			running = False
-
+	
+	if selected_button.button_label_txt == "EXIT":
+		print "you pressed exit"
+		running = False
+		
+	
+	"""
 	# # draw buttons!
 	for i, button in enumerate(my_buttons):
 		button.display()
-
+	"""
 
 	pygame.display.flip()		 # updates and draws the screen & launch pygame window
 
