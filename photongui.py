@@ -1545,6 +1545,34 @@ class Button:
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
 
+		# render "sticky" type buttons
+		if self.buttonType == "menu":		
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
+
+		# render "dropdown - lists" type buttons
+		if self.buttonType == "menu_option":
+			if self.buttonVisible == True:		
+				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
+
+				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+				screen.blit(label, (self.x + 5, self.y))
+		
+			if self.buttonVisible == False:
+				self.color = black
+				self.colorBorder = black
+				self.button_label_txt = ""
+
+				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
+
+				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+				screen.blit(label, (self.x + 5, self.y))
 
 
 # ************************************************************************************
@@ -1576,6 +1604,164 @@ for n in range(1):
 
 	### these are all the buttons, the my_buttons.append(created_button) iterates through displaying them and
 	### a seperate dictionary is created for each button
+
+
+
+
+
+	### -------------------------- ###
+	# create Menu02 button
+	button_name = "Menu02"
+	button_origin_x = UI_sideBar_width + 100								#x0, y0 is upper left corner
+	button_origin_y = 0
+	button_width = 100
+	button_height = 20
+	button_label_txt = "Menu 02"
+	buttonType = "menu"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	buttonGroup = "Menu02"
+	buttonVisible = True
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	# create button dictionary
+	menu02 = {}
+	menu02[0] = button_name
+	menu02[1] = button_origin_x
+	menu02[2] = button_origin_y
+	menu02[3] = button_width
+	menu02[4] = button_height
+	menu02[5] = button_label_txt
+	menu02[6] = buttonType
+	menu02[7] = buttonEnabled
+	menu02[8] = buttonColor
+	menu02[9] = buttonGroup
+	menu02[10] = buttonVisible
+	### -------------------------- ###
+
+
+
+	###################################################################
+	######                                           START OF MENU 01 GROUP                                            ######
+	###################################################################
+
+	### -------------------------- ###
+
+	# create Menu 01  option 02
+	button_name =  "Menu01option02"
+	button_origin_x = UI_sideBar_width								#x0, y0 is upper left corner
+	button_origin_y = 40
+	button_width = 150				
+	button_height = 20
+	button_label_txt = "Menu Option 2"
+	buttonType = "menu_option"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	buttonGroup = "Menu01"
+	buttonVisible = True
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Menu01option02 = {}
+	Menu01option02[0] = button_name
+	Menu01option02[1] = button_origin_x
+	Menu01option02[2] = button_origin_y
+	Menu01option02[3] = button_width
+	Menu01option02[4] = button_height
+	Menu01option02[5] = button_label_txt
+	Menu01option02[6] = buttonType
+	Menu01option02[7] = buttonEnabled
+	Menu01option02[8] = buttonColor
+	Menu01option02[9] = buttonGroup
+	Menu01option02[10] = buttonVisible
+
+	### -------------------------- ###
+
+
+
+	# create Menu 01  option 01
+	button_name =  "Menu01option01"
+	button_origin_x = UI_sideBar_width								#x0, y0 is upper left corner
+	button_origin_y = 20
+	button_width = 150				
+	button_height = 20
+	button_label_txt = "Menu Option 1"
+	buttonType = "menu_option"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	buttonGroup = "Menu01"
+	buttonVisible = True
+	
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	Menu01option01 = {}
+	Menu01option01[0] = button_name
+	Menu01option01[1] = button_origin_x
+	Menu01option01[2] = button_origin_y
+	Menu01option01[3] = button_width
+	Menu01option01[4] = button_height
+	Menu01option01[5] = button_label_txt
+	Menu01option01[6] = buttonType
+	Menu01option01[7] = buttonEnabled
+	Menu01option01[8] = buttonColor
+	Menu01option01[9] = buttonGroup
+	Menu01option01[10] = buttonVisible
+
+	### -------------------------- ###
+
+
+
+	### -------------------------- ###
+	# create Menu01 button
+	button_name = "Menu01"
+	button_origin_x = UI_sideBar_width								#x0, y0 is upper left corner
+	button_origin_y = 0
+	button_width = 100
+	button_height = 20
+	button_label_txt = "Menu 01"
+	buttonType = "menu"
+	buttonEnabled = False 
+	buttonColor = UI_button_color
+	buttonGroup = "Menu01"
+	buttonVisible = True
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+	# create button dictionary
+	menu01 = {}
+	menu01[0] = button_name
+	menu01[1] = button_origin_x
+	menu01[2] = button_origin_y
+	menu01[3] = button_width
+	menu01[4] = button_height
+	menu01[5] = button_label_txt
+	menu01[6] = buttonType
+	menu01[7] = buttonEnabled
+	menu01[8] = buttonColor
+	menu01[9] = buttonGroup
+	menu01[10] = buttonVisible
+	### -------------------------- ###
+
+	###################################################################
+	######                                            END OF MENU 01 GROUP                                               ######
+	###################################################################
+
+
+
+
 
 	###################################################################
 	######                                            START OF DROPDOWN01 GROUP                                  ######
@@ -2330,6 +2516,8 @@ for n in range(1):
 	buttonType = "pushy"
 	buttonEnabled = False 
 	buttonColor = UI_button_color
+	buttonGroup = "Command01"
+	buttonVisible = True
 
 	# define button then add button to display list
 	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
@@ -2347,6 +2535,8 @@ for n in range(1):
 	cmd01[6] = buttonType
 	cmd01[7] = buttonEnabled
 	cmd01[8] = buttonColor
+	cmd01[9] = buttonGroup
+	cmd01[10] = buttonVisible
 	### -------------------------- ###
 
 
@@ -2363,6 +2553,8 @@ for n in range(1):
 	buttonType = "pushy"
 	buttonEnabled = False
 	buttonColor = UI_button_color
+	buttonGroup = "exit"
+	buttonVisible = True
 
 	# define button then add button to display list
 	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
@@ -2380,6 +2572,8 @@ for n in range(1):
 	exit[6] = buttonType
 	exit[7] = buttonEnabled
 	exit[8] = buttonColor
+	exit[9] = buttonGroup
+	exit[10] = buttonVisible
 	### -------------------------- ###
 
 
