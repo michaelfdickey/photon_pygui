@@ -3114,12 +3114,19 @@ while running:
 						button.display()	
 					updateInterface()
 
+				# # draw buttons!
+				for i, button in enumerate(my_buttons):
+					button.display()
+
+
 
 		if event.type == pygame.MOUSEBUTTONUP:
 			if selected_button != None:
 				selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
 			selected_button = None
-
+			# # re draw buttons!
+			for i, button in enumerate(my_buttons):
+				button.display()
 
 	if selected_button != None:
 		(mouseX, mouseY) = pygame.mouse.get_pos()
@@ -3131,9 +3138,6 @@ while running:
 			print "you pressed exit"
 			running = False
 
-	# # draw buttons!
-	for i, button in enumerate(my_buttons):
-		button.display()
 
 
 	pygame.display.flip()		 # updates and draws the screen & launch pygame window
