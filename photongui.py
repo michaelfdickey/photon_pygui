@@ -134,6 +134,15 @@ selectedButton = {}
 # ************************************************************************************
 #	functions	#
 
+def updateScreen():
+	# # #  draw background
+	screen.fill(background_color)
+
+	# # draw borders & frames for interface
+	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
+	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
+
+
 # # Button Related Functions
 # # This is where you would add functions related to specific button clicks / actions
 
@@ -295,7 +304,7 @@ def displayGrid():
 	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
 	display_overlay_grid.append(created_line)
 
-	
+
 	## Display Overlay - Grid X axis -1
 	x_start = 0
 	x_end = pygame_window_width
@@ -1746,8 +1755,26 @@ def matchButton(selected_button):
 # ************************************************************************************
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ************************************************************************************
 # ************************************************************************************
 #	classes		#
+# ************************************************************************************
 # ************************************************************************************
 
 
@@ -1825,7 +1852,7 @@ class Button:
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
-		
+					
 			if self.buttonVisible == False:
 				self.color = black
 				self.colorBorder = black
@@ -1836,6 +1863,7 @@ class Button:
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
+			
 
 		# render "sticky" type buttons
 		if self.buttonType == "menu":		
@@ -1909,6 +1937,15 @@ class DisplayOverlayOrigin:
 			screen.blit(label, (self.x_origin, self.y_origin))
 
 # ************************************************************************************
+# ************************************************************************************
+
+
+
+
+
+
+
+
 
 
 
@@ -1919,6 +1956,10 @@ class DisplayOverlayOrigin:
 #	sticky 	- a button that when click stays on, like a check box, when clicked again, turns off
 #	label 	- label is just text, not a button)
 #	group 	- a button that is part of an option group, when clicked, only that one button enables, and disables the others in the group
+
+
+
+
 
 
 
@@ -2921,15 +2962,25 @@ for n in range(1):
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 
-
-
-
-
-
-# Pygame display
+# # Pygame display
 screen = pygame.display.set_mode((pygame_window_width, pygame_window_height))
 pygame.display.set_caption('My Program Name')
 
+
+# # Builds the Screen and UI elements the first time
+
+# # #  draw background
+screen.fill(background_color)
+
+# # draw borders & frames for interface
+pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
+pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
+
+
+
+
+
+# # ACTIVE GAME / EVENT MONITORING
 running = True
 
 while running:
@@ -2943,7 +2994,7 @@ while running:
 
 
 	# # draw background
-	screen.fill(background_color)
+	#screen.fill(background_color)
 
 	# # draw reference or background lines, like grids here
 	
@@ -2962,8 +3013,8 @@ while running:
 
 
 	# # draw borders & frames for interface
-	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
-	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
+	#pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
+	#pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
 
 
@@ -2971,11 +3022,14 @@ while running:
 
 	# # # display FPS
 	if fps[7] == True:
+		# next line draws a small black box behind the FPS display to refresh the background
+		pygame.draw.rect(screen, blue, (pygame_window_width - 100, pygame_window_height - 30, 80, 20))   
 		count_fps()
 		show_fps()
 
 	# # # command01
 	if cmd01[7] == True:
+		# updateScreen()							# redraw only behind the cmd 01 display, not the whole screen. 
 		command01()
 
 	# # # command02
@@ -2986,6 +3040,7 @@ while running:
 			command02Display_count = command02Display_count + 1
 		else: 
 			cmd02[7] = False
+			updateScreen()
 
 
 
@@ -3003,6 +3058,8 @@ while running:
 			print "selected button = ", selected_button
 
 			if selected_button != None:
+
+				updateScreen()	
 
 				if selected_button.buttonType == "sticky":
 					matchButton(selected_button.button_name)
@@ -3024,8 +3081,6 @@ while running:
 						print "you clicked Command02"
 						cmd02[7] = True
 						command02Display_count = 0
-
-
 
 				if selected_button.buttonType == "label":
 					selected_button.color = UI_label_color
