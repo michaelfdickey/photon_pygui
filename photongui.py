@@ -145,10 +145,13 @@ def count_fps():
 
 # # command01 function
 def command01():
-	command01_overlay =  fps_font.render("Command01", True, UI_button_txt_color)
+	command01_overlay =  fps_font.render("cmd 01 stays here", True, UI_button_txt_color)
 	screen.blit(command01_overlay, (pygame_window_width - 300,pygame_window_height - 30))
 
 
+def command02Display():
+	command01_overlay =  fps_font.render("cmd02 100 frames", True, UI_button_txt_color)
+	screen.blit(command01_overlay, (pygame_window_width - 500,pygame_window_height - 30))
 
 
 # # # this finds what button you clicked on
@@ -2631,6 +2634,15 @@ while running:
 	if cmd01[7] == True:
 		command01()
 
+	# # # command02
+	# # # This is the main game loop, cmd02 is displayed for 100 frames of the main game loop, the set to button enabled is set to false
+	if cmd02[7] == True:
+		if command02Display_count < 100:
+			command02Display()
+			command02Display_count = command02Display_count + 1
+		else: 
+			cmd02[7] = False
+
 	# # draw borders & frames for interface
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
@@ -2660,13 +2672,16 @@ while running:
 					matchButton(selected_button.button_name)
 
 				if selected_button.buttonType == "pushy":
-					#matchButton(selected_button.button_name)
 					selected_button.color = UI_button_click_color
 					selected_button.buttonEnabled = True
 					print "clicked button is a pushy temporary button"
 					if selected_button.button_name == "Command01":
 						print "you clicked Command01"
-						command01()
+						cmd01[7] = True
+					if selected_button.button_name == "Command02":
+						print "you clicked Command02"
+						cmd02[7] = True
+						command02Display_count = 0
 
 
 
