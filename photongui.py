@@ -73,6 +73,8 @@ darkBlue = (0,0,128)
 white = (255,255,255)
 pink = (255,200,200)
 gray = (128,128,128)
+yellow = (255,255,0)
+gridYellow = (128,128,0)
 
 
 # interface colors
@@ -117,7 +119,8 @@ FPS = 0
 #	initial lists	#
 
 my_uiObjects = []							# this list will hold all the UI elements
-display_overlay = []						# things drawn over the background in the first layer, like grid and origin
+display_overlay_origin = []				# list containing the origin line elements
+display_overlay_grid = []					# list containing the grid line elements
 # ************************************************************************************
 
 
@@ -149,6 +152,255 @@ def count_fps():
 		cSec = time.strftime("%S")
 
 
+def displayGrid():
+
+	## display grid reference values
+	grid_width = pygame_window_width / 10
+	grid_height = pygame_window_height / 10
+	display_x_origin = pygame_window_width / 2
+	display_y_origin = pygame_window_height / 2
+
+	# # GRID
+
+	## Display Overlay - Grid Y axis
+	x_start = display_x_origin
+	x_end = x_start
+	y_start = 0
+	y_end = pygame_window_height
+	color = gridYellow
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_start), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid Y axis -1
+	x_start = display_x_origin - grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid Y axis -2
+	x_start = display_x_origin - 2 * grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+
+	## Display Overlay - Grid Y axis -3
+	x_start = display_x_origin - 3 * grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid Y axis -4
+	x_start = display_x_origin - 4 * grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid Y axis +1
+	x_start = display_x_origin + grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid Y axis +2
+	x_start = display_x_origin + 2 * grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid Y axis +3
+	x_start = display_x_origin + 3 * grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid Y axis +4
+	x_start = display_x_origin + 4 * grid_width
+	x_end = x_start 
+	y_origin = 0
+	y_end = pygame_window_height
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Grid X axis
+
+	## Display Overlay - Grid X axis
+	x_start = 0
+	x_end = pygame_window_width 
+	y_origin = display_y_origin
+	y_end = y_origin
+	color = gridYellow
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	
+	## Display Overlay - Grid X axis -1
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin - grid_height
+	y_end = y_origin
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid X axis -2
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin - 2 * grid_height
+	y_end = y_origin	
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid X axis -3
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin - 3 * grid_height
+	y_end = y_origin	
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid X axis -4
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin - 4 * grid_height
+	y_end = y_origin	
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid X axis +1
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin + grid_height
+	y_end = y_origin
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid X axis +2
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin + 2 * grid_height
+	y_end = y_origin	
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid X axis +3
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin + 3 * grid_height
+	y_end = y_origin	
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+	## Display Overlay - Grid X axis +4
+	x_start = 0
+	x_end = pygame_window_width
+	y_origin = display_y_origin + 4 * grid_height
+	y_end = y_origin	
+	color = gridYellow 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlayGrid((x_start,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_grid.append(created_line)
+
+
 def displayOrigin():
 
 	## Display Overlay - Origin Line X axis
@@ -161,8 +413,8 @@ def displayOrigin():
 	label_txt = ""
 	DisplayType = "line"
 	visible = True
-	created_line = DisplayOverlay((x_start,y_start), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
-	display_overlay.append(created_line)
+	created_line = DisplayOverlayOrigin((x_start,y_start), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_origin.append(created_line)
 
 	## Display Overlay - Origin Line Y axis
 	x_start = pygame_window_width/2
@@ -174,13 +426,8 @@ def displayOrigin():
 	label_txt = ""
 	DisplayType = "line"
 	visible = True
-	created_line = DisplayOverlay((x_start,y_start), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
-	display_overlay.append(created_line)
-
-
-#def sticky01():
-
-
+	created_line = DisplayOverlayOrigin((x_start,y_start), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay_origin.append(created_line)
 
 
 # # command01 function
@@ -1620,8 +1867,29 @@ class Button:
 				screen.blit(label, (self.x + 5, self.y))
 
 
-# # For displaying lines like grid and origin
-class DisplayOverlay:
+# # Display Origin Lines
+class DisplayOverlayGrid:
+	def __init__ (self, (x_origin,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible):
+		self.x_origin = x_origin
+		self.x_end = x_end
+		self.y_origin = y_origin
+		self.y_end = y_end
+		self.DisplayType = DisplayType
+		self.label_txt = label_txt
+		self.color = color
+		self.thickness = thickness
+		self.visible = visible
+
+	def display(self):
+		if self.DisplayType == "line":
+			pygame.draw.lines(screen, self.color, False, [(self.x_origin,self.y_origin), (self.x_end,self.y_end)], self.thickness)
+		if self.DisplayType == "text":
+			label = myfont.render(str(self.label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x_origin, self.y_origin))
+
+
+# # Display Origin Lines
+class DisplayOverlayOrigin:
 	def __init__ (self, (x_origin,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible):
 		self.x_origin = x_origin
 		self.x_end = x_end
@@ -2678,9 +2946,18 @@ while running:
 	screen.fill(background_color)
 
 	# # draw reference or background lines, like grids here
+	
+	# # # Display GRID if Sticky Button 02 is enabled
+	if sticky02[7] == True:
+		displayGrid()
+		for i, button in enumerate(display_overlay_grid):
+			button.display()	
+
+
+	# # # Display Origin Lines if Sticky Button 01 is enabled
 	if sticky01[7] == True:
 		displayOrigin()
-		for i, button in enumerate(display_overlay):
+		for i, button in enumerate(display_overlay_origin):
 			button.display()
 
 
