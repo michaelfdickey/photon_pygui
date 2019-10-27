@@ -3014,11 +3014,7 @@ while running:
 	# # draw reference or background lines, like grids here
 	
 	
-	# # # Display GRID if Sticky Button 02 is enabled
-	if sticky02[7] == True:
-		displayGrid()
-		for i, button in enumerate(display_overlay_grid):
-			button.display()	
+
 	
 
 	
@@ -3110,6 +3106,13 @@ while running:
 					for i, button in enumerate(display_overlay_origin):
 						button.display()
 					updateInterface()					
+
+				# # # Display GRID if Sticky Button 02 is enabled
+				if sticky02[7] == True:
+					displayGrid()
+					for i, button in enumerate(display_overlay_grid):
+						button.display()	
+					updateInterface()
 
 
 		if event.type == pygame.MOUSEBUTTONUP:
