@@ -446,7 +446,7 @@ def command01():
 
 # # command02 function
 def command02Display():
-	command01_overlay =  fps_font.render("cmd02 100 frames", True, UI_button_txt_color)
+	command01_overlay =  fps_font.render("cmd02 500 frames", True, UI_button_txt_color)
 	screen.blit(command01_overlay, (pygame_window_width - 500,pygame_window_height - 30))
 
 
@@ -3029,18 +3029,20 @@ while running:
 
 	# # # command01
 	if cmd01[7] == True:
-		# updateScreen()							# redraw only behind the cmd 01 display, not the whole screen. 
+		pygame.draw.rect(screen, blue, (pygame_window_width - 300, pygame_window_height - 30, 160, 20))   
 		command01()
 
 	# # # command02
 	# # # This is the main game loop, cmd02 is displayed for 100 frames of the main game loop, the set to button enabled is set to false
 	if cmd02[7] == True:
-		if command02Display_count < 100:
+		if command02Display_count < 500:
+			pygame.draw.rect(screen, blue, (pygame_window_width - 500, pygame_window_height - 30, 160, 20))   
 			command02Display()
 			command02Display_count = command02Display_count + 1
 		else: 
 			cmd02[7] = False
-			updateScreen()
+			pygame.draw.rect(screen, blue, (pygame_window_width - 500, pygame_window_height - 30, 160, 20))   
+			# updateScreen()
 
 
 
