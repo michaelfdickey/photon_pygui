@@ -5,6 +5,7 @@
 #	10-21-2019 - working on getting it to not close when you click somewhere else. it's trying to find the button type attrib for no button
 # 	10-22-2019 - sticky buttons working
 #	10-22-2019 - get command button to do something - add FPS display (menu_physics_garage_007.py)
+#	10-26-2019 - adding button functionality
 
 
 
@@ -41,22 +42,25 @@
 
 # ************************************************************************************
 # 	import modules	#
+# ************************************************************************************
 
 import pygame
 import random
 import math
 import sys
 import time 			# for FPS functions
+
 # ************************************************************************************
 
 
 # ************************************************************************************
 #	initial variables	#
+# ************************************************************************************
 
 #py game font
 pygame.font.init()							# needs to be called at the start of the program
 myfont = pygame.font.SysFont('Arial',15)		# GUI font type and size
-
+fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 15)
 
 #pre-defined colors
 black = (0,0,0)
@@ -89,7 +93,7 @@ UI_topBar_height = 20
 UI_sideBar_width = 120  
 
 # Screen size
-pygame_window_width = 1200
+pygame_window_width = 1800
 pygame_window_height = 1200
 
 # by default, no UI objects are selected at start
@@ -100,7 +104,7 @@ selected_button = None
 cSec = 0
 cFrame = 0
 FPS = 0
-fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 15)
+
 
 # global button_clicked
 # button_clicked = False
@@ -113,6 +117,7 @@ fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 15)
 #	initial lists	#
 
 my_uiObjects = []							# this list will hold all the UI elements
+display_overlay = []						# things drawn over the background in the first layer, like grid and origin
 # ************************************************************************************
 
 
@@ -143,12 +148,50 @@ def count_fps():
 		cFrame = 0
 		cSec = time.strftime("%S")
 
+def displayOrigin():
+
+	# reference values for origin
+	#display_x_origin = ((pygame_window_width - UI_sideBar_width) / 2 + UI_sideBar_width)
+	#display_y_origin = ((pygame_window_height - UI_topBar_height)/ 2 + UI_topBar_height)
+
+	## Display Overlay - Origin Line X axis
+	x_start = 0
+	x_end = pygame_window_width 
+	y_start = pygame_window_height/2
+	y_end = pygame_window_height/2
+	color = red 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlay((x_start,y_start), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay.append(created_line)
+
+	## Display Overlay - Origin Line Y axis
+	x_start = pygame_window_width/2
+	x_end = pygame_window_width/2
+	y_start = 0
+	y_end = pygame_window_height
+	color = red 
+	thickness = 1
+	label_txt = ""
+	DisplayType = "line"
+	visible = True
+	created_line = DisplayOverlay((x_start,y_start), x_end, y_end, DisplayType, label_txt, color, thickness, visible)
+	display_overlay.append(created_line)
+
+
+
+
+
+
+
 # # command01 function
 def command01():
 	command01_overlay =  fps_font.render("cmd 01 stays here", True, UI_button_txt_color)
 	screen.blit(command01_overlay, (pygame_window_width - 300,pygame_window_height - 30))
 
-
+# # command02 function
 def command02Display():
 	command01_overlay =  fps_font.render("cmd02 100 frames", True, UI_button_txt_color)
 	screen.blit(command01_overlay, (pygame_window_width - 500,pygame_window_height - 30))
@@ -172,13 +215,7 @@ def findButton(buttons, x, y):
 	return None
 
 
-
-
-
-
-
-
-# for sticky and group buttons to find and update buttonEnabled = then redraw buttons
+# # # for sticky and group buttons to find and update buttonEnabled = then redraw buttons
 def matchButton(selected_button):					
 
 
@@ -1466,8 +1503,10 @@ def matchButton(selected_button):
 
 # ************************************************************************************
 #	classes		#
+# ************************************************************************************
 
-## takes button info and prepares it for displaying
+
+# # takes button info and prepares it for displaying
 class Button:
 	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled, buttonColor, buttonVisible):
 		self.button_name = button_name
@@ -1483,7 +1522,7 @@ class Button:
 		self.buttonEnabled = buttonEnabled
 		self.buttonVisible = buttonVisible
 
-	## displays buttons
+	# # displays buttons
 	def display(self):
 
 		# render "pushy" type buttons
@@ -1582,6 +1621,26 @@ class Button:
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
 
+
+# # For displaying lines like grid and origin
+class DisplayOverlay:
+	def __init__ (self, (x_origin,y_origin), x_end, y_end, DisplayType, label_txt, color, thickness, visible):
+		self.x_origin = x_origin
+		self.x_end = x_end
+		self.y_origin = y_origin
+		self.y_end = y_end
+		self.DisplayType = DisplayType
+		self.label_txt = label_txt
+		self.color = color
+		self.thickness = thickness
+		self.visible = visible
+
+	def display(self):
+		if self.DisplayType == "line":
+			pygame.draw.lines(screen, self.color, False, [(self.x_origin,self.y_origin), (self.x_end,self.y_end)], self.thickness)
+		if self.DisplayType == "text":
+			label = myfont.render(str(self.label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x_origin, self.y_origin))
 
 # ************************************************************************************
 
@@ -2621,7 +2680,16 @@ while running:
 	screen.fill(background_color)
 
 	# # draw reference or background lines, like grids here
-	
+	displayOrigin()
+	for i, button in enumerate(display_overlay):
+		button.display()
+
+
+	# # draw borders & frames for interface
+	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
+	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
+
+
 
 	# # excecute / call button functions
 
@@ -2643,9 +2711,7 @@ while running:
 		else: 
 			cmd02[7] = False
 
-	# # draw borders & frames for interface
-	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
-	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
+
 
 	# pygame event monitoring
 	# pygame scans for mouse and keyboard events and takes actions accordingly
