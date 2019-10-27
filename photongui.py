@@ -148,11 +148,8 @@ def count_fps():
 		cFrame = 0
 		cSec = time.strftime("%S")
 
-def displayOrigin():
 
-	# reference values for origin
-	#display_x_origin = ((pygame_window_width - UI_sideBar_width) / 2 + UI_sideBar_width)
-	#display_y_origin = ((pygame_window_height - UI_topBar_height)/ 2 + UI_topBar_height)
+def displayOrigin():
 
 	## Display Overlay - Origin Line X axis
 	x_start = 0
@@ -181,7 +178,7 @@ def displayOrigin():
 	display_overlay.append(created_line)
 
 
-
+#def sticky01():
 
 
 
@@ -195,6 +192,7 @@ def command01():
 def command02Display():
 	command01_overlay =  fps_font.render("cmd02 100 frames", True, UI_button_txt_color)
 	screen.blit(command01_overlay, (pygame_window_width - 500,pygame_window_height - 30))
+
 
 
 # # # this finds what button you clicked on
@@ -2680,9 +2678,10 @@ while running:
 	screen.fill(background_color)
 
 	# # draw reference or background lines, like grids here
-	displayOrigin()
-	for i, button in enumerate(display_overlay):
-		button.display()
+	if sticky01[7] == True:
+		displayOrigin()
+		for i, button in enumerate(display_overlay):
+			button.display()
 
 
 	# # draw borders & frames for interface
