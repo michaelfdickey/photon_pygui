@@ -149,6 +149,12 @@ def updateInterface():
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
+def updateButtons():
+	# # draw buttons!
+	for i, button in enumerate(my_buttons):
+		button.display()
+	pygame.display.flip()
+
 # # Button Related Functions
 # # This is where you would add functions related to specific button clicks / actions
 
@@ -709,7 +715,7 @@ def matchButton(selected_button):
 
 			for i, button in enumerate(my_buttons):
 				button.display()
-						
+			
 			return
 		
 
@@ -801,7 +807,8 @@ def matchButton(selected_button):
 
 			updateScreen()
 			print "screen was updated"	
-			
+
+			displayGrid()			
 			return
 
 
@@ -1864,19 +1871,26 @@ class Button:
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
 			
-
-
 			if self.buttonVisible == False:
+				
+				#updateScreen()
+				#updateInterface()
+				#updateButtons()
+				#screen.fill(background_color)
+				
 				self.color = black
 				self.colorBorder = black
 				self.button_label_txt = ""
+				#self.x_width = 0
+				#self.y_height = 0
 
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
-			
+				
+				displayGrid()
 
 
 		# render "sticky" type buttons
@@ -1897,10 +1911,9 @@ class Button:
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
 		
-			
 			if self.buttonVisible == False:
-				self.color = black
-				self.colorBorder = black
+				self.color = (0,0,0,0)
+				self.colorBorder = (0,0,0,0)
 				self.button_label_txt = ""
 
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
@@ -3005,22 +3018,8 @@ while running:
 	# DRAW SCREEN
 	# py grame will draw the elements from start to finish based on the order below, background first
 	# then foreground elements. Each one will draw over the one before it. if you draw the background last
-	# the whole screen is overwritten
 
-	# # always running logic (like count FPS)
-
-
-	# # draw background
-	#screen.fill(background_color)
-
-	# # draw reference or background lines, like grids here
 	
-	# # draw borders & frames for interface
-	#pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
-	#pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
-
-
-
 	# # excecute / call button functions
 
 	# # # display FPS
@@ -3045,11 +3044,6 @@ while running:
 		else: 
 			cmd02[7] = False
 			pygame.draw.rect(screen, blue, (pygame_window_width - 500, pygame_window_height - 30, 160, 20))   
-
-
-
-
-
 
 	# pygame event monitoring
 	# pygame scans for mouse and keyboard events and takes actions accordingly
@@ -3093,19 +3087,20 @@ while running:
 					selected_button.color = UI_label_color
 					print "clicked button is a label, not a button"
 
+				# # # Display GRID if Sticky Button 02 is enabled
+				if sticky02[7] == True:
+
+					for i, button in enumerate(display_overlay_grid):
+						button.display()	
+					displayGrid()
+					updateInterface()
+					
 				# # # Display Origin Lines if Sticky Button 01 is enabled
 				if sticky01[7] == True:
 					displayOrigin()
 					for i, button in enumerate(display_overlay_origin):
 						button.display()
-					updateInterface()					
-
-				# # # Display GRID if Sticky Button 02 is enabled
-				if sticky02[7] == True:
-					displayGrid()
-					for i, button in enumerate(display_overlay_grid):
-						button.display()	
-					updateInterface()
+					updateInterface()		
 
 				# # draw buttons!
 				for i, button in enumerate(my_buttons):
