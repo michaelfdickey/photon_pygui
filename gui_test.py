@@ -76,17 +76,39 @@ display_overlay_grid = []					# list containing the grid line elements
 selectedButton = {}
 
 
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+# 	functions  
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+
+
+
+def findButton(buttons, x, y):
+	for b in buttons:
+		print "x = ", x, "y = ", y
+		print "b.x = ", b.x, "b.x width = ", b.x + b.x_width
+		print "b.y = ", b.y, "b.y height = ", b.y + b.y_height
+		if x <= b.x + b.x_width:
+			if x >= b.x:
+				print "x ok"
+				if y >= b.y:
+					if y <= b.y + b.y_height:
+						print "Y ok, button found"
+						print "selected button label_txt = ", b.button_name
+						print "this is return b", b 
+						return b
+	return None
 
 
 
 
 
-
-
-
-
-
-
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+# 	Classes                    #
+# ************************************************************************************************************************
+# ************************************************************************************************************************
 
 
 
@@ -196,6 +218,24 @@ while running:
 		if event.type == pygame.QUIT:
 			running = False
 
+	if event.type == pygame.MOUSEBUTTONDOWN:					#mousebuttondown only runs once, things run outside if this if loop
+		(mouseX, mouseY) = pygame.mouse.get_pos()				# will run continually while button is held down
+		print "mouseX = ", mouseX, "mouseY = ", mouseY
+		selected_button = findButton(my_buttons, mouseX, mouseY)
+		print "selected button = ", selected_button
 
+		#if selected_button != None:
+		# process clicked buttons
+
+
+	if selected_button != None:
+		(mouseX, mouseY) = pygame.mouse.get_pos()
+		selected_button.color = UI_button_click_color
+		pygame.display.flip()
+
+
+		if selected_button.button_label_txt == "EXIT":
+			print "you pressed exit"
+			running = False
 
 	pygame.display.flip()
