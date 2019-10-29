@@ -155,6 +155,47 @@ my_buttons = []
 
 for n in range(1):
 
+	### -------------------------- ###
+	# drop down button
+	button_name = "Dropdown01option"
+	button_origin_x = UI_sideBar_width - 20
+	button_origin_y = pygame_window_height - 300
+	button_width = 20
+	button_height = 20
+	button_label_txt = ">>"
+	buttonType = "pushy"
+	buttonEnabled = False
+	buttonColor = UI_button_color
+	buttonGroup = "Dropdown01"
+	buttonVisible = True
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+
+	### -------------------------- ###
+	# drop down button
+	button_name = "Dropdown01option"
+	button_origin_x = 0
+	button_origin_y = pygame_window_height - 300
+	button_width = UI_sideBar_width - 20
+	button_height = 20
+	button_label_txt = "select option"
+	buttonType = "pushy"
+	buttonEnabled = False
+	buttonColor = UI_button_color
+	buttonGroup = "Dropdown01"
+	buttonVisible = True
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+
+
 
 	### -------------------------- ###
 	# create exit button
