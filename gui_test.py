@@ -141,7 +141,75 @@ class Button:
 
 
 
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+# 	button dictionaries	#
+# ************************************************************************************************************************
+# ************************************************************************************************************************
 
+button02 = {}
+button02[0] = "button02"
+button02[1] = 0
+button02[2] = 300
+button02[3] = UI_sideBar_width
+button02[4] = 20
+button02[5] = "Button 02 HA"
+button02[6] = "pushy"
+button02[7] = True
+button02[8] = UI_button_color
+button02[9] = "button02"
+button02[10] = True
+
+button03 = {}
+button03[0] = "button03"
+button03[1] = 0
+button03[2] = 320
+button03[3] = UI_sideBar_width
+button03[4] = 20
+button03[5] = "Button 03 BLA"
+button03[6] = "pushy"
+button03[7] = True
+button03[8] = UI_button_color
+button03[9] = "button03"
+button03[10] = True
+
+print "button 03 = ", button03
+
+button04 = {}
+button04[0] = "button04"
+button04[1] = 0
+button04[2] = 340
+button04[3] = UI_sideBar_width
+button04[4] = 20
+button04[5] = "Button 04 BLA"
+button04[6] = "pushy"
+button04[7] = True
+button04[8] = UI_button_color
+button04[9] = "button04"
+button04[10] = True
+
+
+allButtons = {}
+allButtons[0] = button02
+allButtons[1] = button03
+allButtons[2] = button04
+
+print "ALL BUTTONS = ", allButtons
+
+"""
+button02 = {}
+button02[0] = button_name
+button02[1] = button_origin_x
+button02[2] = button_origin_y
+button02[3] = button_width
+button02[4] = button_height
+button02[5] = button_label_txt
+button02[6] = buttonType
+button02[7] = buttonEnabled
+button02[8] = buttonColor
+button02[9] = buttonGroup
+button02[10] = buttonVisible
+"""
 
 
 # ************************************************************************************************************************
@@ -150,10 +218,72 @@ class Button:
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 
-number_of_buttons = 20
+buttonToDraw = {}
+#number_of_buttons = 2
 my_buttons = []
 
 for n in range(1):
+
+	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
+
+	print "now running for key in allButtons"
+
+	for key in allButtons:
+		print "key is", key
+
+
+	print "now running for key,value in allButtons.items()"
+
+	for key, value in allButtons.items():
+		print "key:", key,  "value", value
+		buttonToDraw = key[value]
+		print "buttonToDraw:", buttonToDraw
+		print "buttonToDraw[1]", buttonToDraw[1]
+
+	buttonToDraw = button02
+
+	### -------------------------- ###
+	# button02 
+	button_name = buttonToDraw[0]
+	button_origin_x = buttonToDraw[1]
+	button_origin_y = buttonToDraw[2]
+	button_width = buttonToDraw[3]
+	button_height = buttonToDraw[4]
+	button_label_txt = buttonToDraw[5]
+	buttonType = buttonToDraw[6]
+	buttonEnabled = buttonToDraw[7]
+	buttonColor = buttonToDraw[8]
+	buttonGroup = buttonToDraw[9]
+	buttonVisible = buttonToDraw[10]
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+
+	buttonToDraw = button03
+
+	### -------------------------- ###
+	# button02 
+	button_name = buttonToDraw[0]
+	button_origin_x = buttonToDraw[1]
+	button_origin_y = buttonToDraw[2]
+	button_width = buttonToDraw[3]
+	button_height = buttonToDraw[4]
+	button_label_txt = buttonToDraw[5]
+	buttonType = buttonToDraw[6]
+	buttonEnabled = buttonToDraw[7]
+	buttonColor = buttonToDraw[8]
+	buttonGroup = buttonToDraw[9]
+	buttonVisible = buttonToDraw[10]
+
+	# define button then add button to display list
+	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+	my_buttons.append(created_button)
+	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
+
+
 
 	### -------------------------- ###
 	# drop down button
@@ -279,4 +409,5 @@ while running:
 			print "you pressed exit"
 			running = False
 
+	# always do this last
 	pygame.display.flip()
