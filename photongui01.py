@@ -385,10 +385,11 @@ while running:
 
 
 
-
+	# not sure if this section is needed
 	if selected_button != None:
 		(mouseX, mouseY) = pygame.mouse.get_pos()
-		selected_button.color = UI_button_click_color
+		#selected_button.color = UI_button_click_color
+		print "this is running"
 		pygame.display.flip()
 
 
