@@ -251,7 +251,7 @@ allButtons[1] = button01
 allButtons[2] = button02
 allButtons[3] = button03
 allButtons[4] = button04
-allButtons[5] = button05
+allButtons[5] = button05		# exit button
 
 
 
@@ -262,9 +262,8 @@ allButtons[5] = button05
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 
-buttonToDraw = {}
-#number_of_buttons = 2
-my_buttons = []
+my_buttons = []			#initializes my_buttons list, each button is added to this for display
+buttonToDraw = {}			#each button is loaded into this dictionary, added to my_buttons list
 
 for n in range(1):
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
@@ -290,75 +289,6 @@ for n in range(1):
 		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 		my_buttons.append(created_button)
 		print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
-
-"""
-	buttonToDraw = button03
-
-	### -------------------------- ###
-	# button02 
-	button_name = buttonToDraw[0]
-	button_origin_x = buttonToDraw[1]
-	button_origin_y = buttonToDraw[2]
-	button_width = buttonToDraw[3]
-	button_height = buttonToDraw[4]
-	button_label_txt = buttonToDraw[5]
-	buttonType = buttonToDraw[6]
-	buttonEnabled = buttonToDraw[7]
-	buttonColor = buttonToDraw[8]
-	buttonGroup = buttonToDraw[9]
-	buttonVisible = buttonToDraw[10]
-
-	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
-	my_buttons.append(created_button)
-	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
-
-
-
-	### -------------------------- ###
-	# drop down button
-	button_name = "Dropdown01option"
-	button_origin_x = UI_sideBar_width - 20
-	button_origin_y = pygame_window_height - 300
-	button_width = 20
-	button_height = 20
-	button_label_txt = ">>"
-	buttonType = "pushy"
-	buttonEnabled = False
-	buttonColor = UI_button_color
-	buttonGroup = "Dropdown01"
-	buttonVisible = True
-
-	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
-	my_buttons.append(created_button)
-	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
-
-
-	### -------------------------- ###
-	# drop down button
-	button_name = "Dropdown01option"
-	button_origin_x = 0
-	button_origin_y = pygame_window_height - 300
-	button_width = UI_sideBar_width - 20
-	button_height = 20
-	button_label_txt = "select option"
-	buttonType = "pushy"
-	buttonEnabled = False
-	buttonColor = UI_button_color
-	buttonGroup = "Dropdown01"
-	buttonVisible = True
-
-	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
-	my_buttons.append(created_button)
-	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
-
-
-"""
-
-
-
 
 
 
