@@ -53,8 +53,8 @@ UI_topBar_height = 20
 UI_sideBar_width = 120  
 
 # Screen size
-pygame_window_width = 800
-pygame_window_height = 800
+pygame_window_width = 1200
+pygame_window_height = 1200
 
 # by default, no UI objects are selected at start
 selected_uiObject = None					
@@ -84,19 +84,14 @@ selectedButton = {}
 
 
 
+# # This figures out which button was clicked
 def findButton(buttons, x, y):
 	for b in buttons:
-		#print "x = ", x, "y = ", y
-		#print "b.x = ", b.x, "b.x width = ", b.x + b.x_width
-		#print "b.y = ", b.y, "b.y height = ", b.y + b.y_height
 		if x <= b.x + b.x_width:
 			if x >= b.x:
-				#print "x ok"
 				if y >= b.y:
 					if y <= b.y + b.y_height:
-						#print "Y ok, button found"
 						print "selected button label_txt = ", b.button_name
-						#print "this is return b", b 
 						return b
 	return None
 
@@ -147,13 +142,31 @@ class Button:
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 
+"""
+#for reference adding buttons - leave commented out
+# add button above ^
+# then add to allbuttons below  
+button02 = {}
+button02[0] = button_name
+button02[1] = button_origin_x
+button02[2] = button_origin_y
+button02[3] = button_width
+button02[4] = button_height
+button02[5] = button_label_txt
+button02[6] = buttonType
+button02[7] = buttonEnabled
+button02[8] = buttonColor
+button02[9] = buttonGroup
+button02[10] = buttonVisible
+"""
+
 button00 = {}
-button00[0] = "button00"
+button00[0] = "exit"
 button00[1] = 0
-button00[2] = 100
+button00[2] = pygame_window_height - 20
 button00[3] = UI_sideBar_width
 button00[4] = 20
-button00[5] = "Button 00"
+button00[5] = "EXIT"
 button00[6] = "pushy"
 button00[7] = True
 button00[8] = UI_button_color
@@ -213,16 +226,16 @@ button04[9] = "button04"
 button04[10] = True
 
 button05 = {}
-button05[0] = "exit"
+button05[0] = "button05"
 button05[1] = 0
-button05[2] = pygame_window_height - 20
+button05[2] = pygame_window_height - 40
 button05[3] = UI_sideBar_width
 button05[4] = 20
-button05[5] = "EXIT"
+button05[5] = " EXPLODE "
 button05[6] = "pushy"
 button05[7] = True
 button05[8] = UI_button_color
-button05[9] = "exit"
+button05[9] = "button05"
 button05[10] = True
 
 """

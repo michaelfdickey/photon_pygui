@@ -49,3 +49,31 @@ for allButtonsID, allButtonsValue in allButtons.items():
 
 print "newButton dict  : ", newButton
 print "newButton dict[0] : ", newButton[0]
+
+# # # result:
+
+print "GOOD!"
+
+"""
+$ python27 nested_tst.py
+allButtons Dict:  {0: {0: 'button01', 1: 0, 2: 100, 3: 100, 4: True}, 1: {0: 'button02', 1: 0, 2: 100, 3: 100, 4: True}, 2: {0: 'button03', 1: 0, 2: 100, 3: 100, 4: True}}
+allButtons[0]    :  {0: 'button01', 1: 0, 2: 100, 3: 100, 4: True}
+allButtons[0][0] button01
+newButton iterated key:  0 value:  button01
+newButton iterated key:  1 value:  0
+newButton iterated key:  2 value:  100
+newButton iterated key:  3 value:  100
+newButton iterated key:  4 value:  True
+newButton iterated key:  0 value:  button02
+newButton iterated key:  1 value:  0
+newButton iterated key:  2 value:  100
+newButton iterated key:  3 value:  100
+newButton iterated key:  4 value:  True
+newButton iterated key:  0 value:  button03
+newButton iterated key:  1 value:  0
+newButton iterated key:  2 value:  100
+newButton iterated key:  3 value:  100
+newButton iterated key:  4 value:  True
+newButton dict  :  {0: 'button03', 1: 0, 2: 100, 3: 100, 4: True}
+newButton dict[0] :  button03
+"""
