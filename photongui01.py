@@ -349,8 +349,28 @@ while running:
 		selected_button = findButton(my_buttons, mouseX, mouseY)
 		print "selected button = ", selected_button
 
-		#if selected_button != None:
-		# process clicked buttons
+		if selected_button != None:
+
+			if selected_button.buttonType == "pushy":
+				selected_button.color = UI_button_click_color
+				selected_button.buttonEnabled = True			
+
+
+			# # redraw buttons!
+			for i, button in enumerate(my_buttons):
+				button.display()
+
+
+
+	if event.type == pygame.MOUSEBUTTONUP:
+		if selected_button != None:
+			selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
+		selected_button = None
+		# # re draw buttons!
+		for i, button in enumerate(my_buttons):
+			button.display()	
+
+
 
 
 	if selected_button != None:
