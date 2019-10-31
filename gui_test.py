@@ -86,17 +86,17 @@ selectedButton = {}
 
 def findButton(buttons, x, y):
 	for b in buttons:
-		print "x = ", x, "y = ", y
-		print "b.x = ", b.x, "b.x width = ", b.x + b.x_width
-		print "b.y = ", b.y, "b.y height = ", b.y + b.y_height
+		#print "x = ", x, "y = ", y
+		#print "b.x = ", b.x, "b.x width = ", b.x + b.x_width
+		#print "b.y = ", b.y, "b.y height = ", b.y + b.y_height
 		if x <= b.x + b.x_width:
 			if x >= b.x:
-				print "x ok"
+				#print "x ok"
 				if y >= b.y:
 					if y <= b.y + b.y_height:
-						print "Y ok, button found"
+						#print "Y ok, button found"
 						print "selected button label_txt = ", b.button_name
-						print "this is return b", b 
+						#print "this is return b", b 
 						return b
 	return None
 
@@ -232,13 +232,40 @@ for n in range(1):
 		print "key is", key
 
 
+	print "--------------------------------------------"
 	print "now running for key,value in allButtons.items()"
+	print "--------------------------------------------"
 
 	for key, value in allButtons.items():
 		print "key:", key,  "value", value
-		buttonToDraw = key[value]
+		buttonToDraw = key, value
 		print "buttonToDraw:", buttonToDraw
 		print "buttonToDraw[1]", buttonToDraw[1]
+
+	print "--------------------------------------------"
+	print "now running for key in allButtons.items()AAAAAAAAA"
+	print "--------------------------------------------"
+
+	for key in allButtons.items():
+		print "key:", key, allButtons[key]
+		buttonToDraw = key
+		print "buttonToDraw:", buttonToDraw
+		print "buttonToDraw[1]", buttonToDraw[1]
+
+
+	print "--------------------------------------------"
+	print "now running for key in allButtons.items()BBBBBBB"
+	print "--------------------------------------------"
+
+	for key in allButtons.items():
+		print "key", key
+		buttonToDraw = key
+		print "buttonToDraw:", buttonToDraw
+		print "--------------------------------"
+		print "buttonToDraw[1]", buttonToDraw[1]
+		print "--------------------------------"	
+
+
 
 	buttonToDraw = button02
 
