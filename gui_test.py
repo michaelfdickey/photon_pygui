@@ -147,13 +147,39 @@ class Button:
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 
+button00 = {}
+button00[0] = "button00"
+button00[1] = 0
+button00[2] = 100
+button00[3] = UI_sideBar_width
+button00[4] = 20
+button00[5] = "Button 00"
+button00[6] = "pushy"
+button00[7] = True
+button00[8] = UI_button_color
+button00[9] = "button00"
+button00[10] = True
+
+button01 = {}
+button01[0] = "button01"
+button01[1] = 0
+button01[2] = 200
+button01[3] = UI_sideBar_width
+button01[4] = 20
+button01[5] = "Button 01"
+button01[6] = "pushy"
+button01[7] = True
+button01[8] = UI_button_color
+button01[9] = "button01"
+button01[10] = True
+
 button02 = {}
 button02[0] = "button02"
 button02[1] = 0
 button02[2] = 300
 button02[3] = UI_sideBar_width
 button02[4] = 20
-button02[5] = "Button 02 HA"
+button02[5] = "Button 02"
 button02[6] = "pushy"
 button02[7] = True
 button02[8] = UI_button_color
@@ -163,25 +189,23 @@ button02[10] = True
 button03 = {}
 button03[0] = "button03"
 button03[1] = 0
-button03[2] = 320
+button03[2] = 400
 button03[3] = UI_sideBar_width
 button03[4] = 20
-button03[5] = "Button 03 BLA"
+button03[5] = "Button 03"
 button03[6] = "pushy"
 button03[7] = True
 button03[8] = UI_button_color
 button03[9] = "button03"
 button03[10] = True
 
-print "button 03 = ", button03
-
 button04 = {}
 button04[0] = "button04"
 button04[1] = 0
-button04[2] = 340
+button04[2] = 500
 button04[3] = UI_sideBar_width
 button04[4] = 20
-button04[5] = "Button 04 BLA"
+button04[5] = "Button 04"
 button04[6] = "pushy"
 button04[7] = True
 button04[8] = UI_button_color
@@ -190,13 +214,14 @@ button04[10] = True
 
 
 allButtons = {}
-allButtons[0] = button02
-allButtons[1] = button03
-allButtons[2] = button04
-
-print "ALL BUTTONS = ", allButtons
+allButtons[0] = button00
+allButtons[1] = button01
+allButtons[2] = button02
+allButtons[3] = button03
+allButtons[4] = button04
 
 """
+#for reference only
 button02 = {}
 button02[0] = button_name
 button02[1] = button_origin_x
@@ -223,72 +248,31 @@ buttonToDraw = {}
 my_buttons = []
 
 for n in range(1):
-
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
 
-	print "now running for key in allButtons"
+	for allButtonsID, allButtonsValue in allButtons.items():
+		for key in allButtonsValue:
+			buttonToDraw[key] = allButtonsValue[key]
 
-	for key in allButtons:
-		print "key is", key
+		### -------------------------- ###
+		button_name = buttonToDraw[0]
+		button_origin_x = buttonToDraw[1]
+		button_origin_y = buttonToDraw[2]
+		button_width = buttonToDraw[3]
+		button_height = buttonToDraw[4]
+		button_label_txt = buttonToDraw[5]
+		buttonType = buttonToDraw[6]
+		buttonEnabled = buttonToDraw[7]
+		buttonColor = buttonToDraw[8]
+		buttonGroup = buttonToDraw[9]
+		buttonVisible = buttonToDraw[10]
 
+		# define button then add button to display list
+		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+		my_buttons.append(created_button)
+		print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
-	print "--------------------------------------------"
-	print "now running for key,value in allButtons.items()"
-	print "--------------------------------------------"
-
-	for key, value in allButtons.items():
-		print "key:", key,  "value", value
-		buttonToDraw = key, value
-		print "buttonToDraw:", buttonToDraw
-		print "buttonToDraw[1]", buttonToDraw[1]
-
-	print "--------------------------------------------"
-	print "now running for key in allButtons.items()AAAAAAAAA"
-	print "--------------------------------------------"
-
-	for key in allButtons.items():
-		print "key:", key, allButtons[key]
-		buttonToDraw = key
-		print "buttonToDraw:", buttonToDraw
-		print "buttonToDraw[1]", buttonToDraw[1]
-
-
-	print "--------------------------------------------"
-	print "now running for key in allButtons.items()BBBBBBB"
-	print "--------------------------------------------"
-
-	for key in allButtons.items():
-		print "key", key
-		buttonToDraw = key
-		print "buttonToDraw:", buttonToDraw
-		print "--------------------------------"
-		print "buttonToDraw[1]", buttonToDraw[1]
-		print "--------------------------------"	
-
-
-
-	buttonToDraw = button02
-
-	### -------------------------- ###
-	# button02 
-	button_name = buttonToDraw[0]
-	button_origin_x = buttonToDraw[1]
-	button_origin_y = buttonToDraw[2]
-	button_width = buttonToDraw[3]
-	button_height = buttonToDraw[4]
-	button_label_txt = buttonToDraw[5]
-	buttonType = buttonToDraw[6]
-	buttonEnabled = buttonToDraw[7]
-	buttonColor = buttonToDraw[8]
-	buttonGroup = buttonToDraw[9]
-	buttonVisible = buttonToDraw[10]
-
-	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
-	my_buttons.append(created_button)
-	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
-
-
+"""
 	buttonToDraw = button03
 
 	### -------------------------- ###
@@ -373,7 +357,7 @@ for n in range(1):
 	my_buttons.append(created_button)
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
-
+"""
 
 
 
