@@ -212,16 +212,23 @@ button04[8] = UI_button_color
 button04[9] = "button04"
 button04[10] = True
 
-
-allButtons = {}
-allButtons[0] = button00
-allButtons[1] = button01
-allButtons[2] = button02
-allButtons[3] = button03
-allButtons[4] = button04
+button05 = {}
+button05[0] = "exit"
+button05[1] = 0
+button05[2] = pygame_window_height - 20
+button05[3] = UI_sideBar_width
+button05[4] = 20
+button05[5] = "EXIT"
+button05[6] = "pushy"
+button05[7] = True
+button05[8] = UI_button_color
+button05[9] = "exit"
+button05[10] = True
 
 """
-#for reference only
+#for reference adding buttons - leave commented out
+# add button above ^
+# then add to allbuttons below  
 button02 = {}
 button02[0] = button_name
 button02[1] = button_origin_x
@@ -235,6 +242,18 @@ button02[8] = buttonColor
 button02[9] = buttonGroup
 button02[10] = buttonVisible
 """
+
+
+
+allButtons = {}
+allButtons[0] = button00
+allButtons[1] = button01
+allButtons[2] = button02
+allButtons[3] = button03
+allButtons[4] = button04
+allButtons[5] = button05
+
+
 
 
 # ************************************************************************************************************************
@@ -336,28 +355,9 @@ for n in range(1):
 	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
 
 
-
-
-	### -------------------------- ###
-	# create exit button
-	button_name = "EXIT"
-	button_origin_x = 0
-	button_origin_y = pygame_window_height - 20
-	button_width = UI_sideBar_width
-	button_height = 20
-	button_label_txt = "EXIT"
-	buttonType = "pushy"
-	buttonEnabled = False
-	buttonColor = UI_button_color
-	buttonGroup = "exit"
-	buttonVisible = True
-
-	# define button then add button to display list
-	created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
-	my_buttons.append(created_button)
-	print "button origin x", button_origin_x, "button width pos", button_origin_x + button_width
-
 """
+
+
 
 
 
