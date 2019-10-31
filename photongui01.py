@@ -76,65 +76,6 @@ display_overlay_grid = []					# list containing the grid line elements
 selectedButton = {}
 
 
-# ************************************************************************************************************************
-# ************************************************************************************************************************
-# 	functions  
-# ************************************************************************************************************************
-# ************************************************************************************************************************
-
-
-
-# # This figures out which button was clicked
-def findButton(buttons, x, y):
-	for b in buttons:
-		if x <= b.x + b.x_width:
-			if x >= b.x:
-				if y >= b.y:
-					if y <= b.y + b.y_height:
-						print "selected button label_txt = ", b.button_name
-						return b
-	return None
-
-
-
-
-
-# ************************************************************************************************************************
-# ************************************************************************************************************************
-# 	Classes                    #
-# ************************************************************************************************************************
-# ************************************************************************************************************************
-
-
-
-
-class Button:
-	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled, buttonColor, buttonVisible):
-		self.button_name = button_name
-		self.x = x
-		self.x_width = x_width
-		self.y = y
-		self.y_height = y_height
-		self.color = buttonColor
-		self.thickness = 0
-		self.button_label_txt = button_label_txt
-		self.colorBorder = UI_button_border_color
-		self.buttonType = buttonType  
-		self.buttonEnabled = buttonEnabled
-		self.buttonVisible = buttonVisible
-
-	# # displays buttons
-	def display(self):
-
-		# render "pushy" type buttons
-		if self.buttonType == "pushy":
-			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
-			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
-
-			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
-			screen.blit(label, (self.x + 5, self.y))
-
-
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -213,58 +154,129 @@ button03[9] = "command03"
 button03[10] = True
 
 button04 = {}
-button04[0] = "button04"
+button04[0] = "sticky01"
 button04[1] = 0
-button04[2] = 500
+button04[2] = pygame_window_height - 140
 button04[3] = UI_sideBar_width
 button04[4] = 20
-button04[5] = "Button 04"
-button04[6] = "pushy"
+button04[5] = "Sticky 01"
+button04[6] = "sticky"
 button04[7] = True
 button04[8] = UI_button_color
-button04[9] = "button04"
+button04[9] = "sticky01"
 button04[10] = True
 
 button05 = {}
-button05[0] = "button05"
+button05[0] = "sticky02"
 button05[1] = 0
-button05[2] = pygame_window_height - 400
+button05[2] = pygame_window_height - 160
 button05[3] = UI_sideBar_width
 button05[4] = 20
-button05[5] = " EXPLODE "
-button05[6] = "pushy"
+button05[5] = "Sticky 02"
+button05[6] = "sticky"
 button05[7] = True
 button05[8] = UI_button_color
-button05[9] = "button05"
+button05[9] = "sticky02"
 button05[10] = True
 
-"""
-#for reference adding buttons - leave commented out
-# add button above ^
-# then add to allbuttons below  
-button02 = {}
-button02[0] = button_name
-button02[1] = button_origin_x
-button02[2] = button_origin_y
-button02[3] = button_width
-button02[4] = button_height
-button02[5] = button_label_txt
-button02[6] = buttonType
-button02[7] = buttonEnabled
-button02[8] = buttonColor
-button02[9] = buttonGroup
-button02[10] = buttonVisible
-"""
+
+button06 = {}
+button06[0] = "sticky03"						# button_name
+button06[1] = 0								# button_origin_x
+button06[2] = pygame_window_height - 180		# button_origin_y
+button06[3] = UI_sideBar_width				# button_width
+button06[4] = 20								# button_height
+button06[5] = "Sticky 03"						# button_label_txt
+button06[6] = "sticky"						# buttonType
+button06[7] = True							# buttonEnabled
+button06[8] = UI_button_color 				# buttonColor
+button06[9] = "sticky03"						# buttonGroup
+button06[10] = True							# buttonVisible
 
 
 
 allButtons = {}
-allButtons[0] = button00
-allButtons[1] = button01
-allButtons[2] = button02
-allButtons[3] = button03
-allButtons[4] = button04
-allButtons[5] = button05		# exit button
+allButtons[0] = button00		# exit button
+allButtons[1] = button01		# command 01
+allButtons[2] = button02		# command 02
+allButtons[3] = button03		# command 03
+allButtons[4] = button04		# sticky 01
+allButtons[5] = button05		# sticky 02
+allButtons[6] = button06		# sticky 03
+
+
+
+
+
+
+
+
+
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+# 	functions  
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+
+
+
+# # This figures out which button was clicked
+def findButton(buttons, x, y):
+	for b in buttons:
+		if x <= b.x + b.x_width:
+			if x >= b.x:
+				if y >= b.y:
+					if y <= b.y + b.y_height:
+						print "selected button label_txt = ", b.button_name
+						return b
+	return None
+
+
+
+
+
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+# 	Classes                    #
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+
+
+
+
+class Button:
+	def __init__ (self, (x,y), button_name, x_width, y_height, button_label_txt, buttonType, buttonEnabled, buttonColor, buttonVisible):
+		self.button_name = button_name
+		self.x = x
+		self.x_width = x_width
+		self.y = y
+		self.y_height = y_height
+		self.color = buttonColor
+		self.thickness = 0
+		self.button_label_txt = button_label_txt
+		self.colorBorder = UI_button_border_color
+		self.buttonType = buttonType  
+		self.buttonEnabled = buttonEnabled
+		self.buttonVisible = buttonVisible
+
+	# # displays buttons
+	def display(self):
+
+		# render "pushy" type buttons
+		if self.buttonType == "pushy":
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
+		# render "sticky" type buttons
+		if self.buttonType == "sticky":		
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
 
 
 
@@ -353,7 +365,8 @@ while running:
 
 			if selected_button.buttonType == "pushy":
 				selected_button.color = UI_button_click_color
-				selected_button.buttonEnabled = True			
+				selected_button.buttonEnabled = True
+				print "running pushy event"			
 
 
 			# # redraw buttons!
