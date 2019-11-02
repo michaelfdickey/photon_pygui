@@ -1,2 +1,2 @@
 # photon_pygui
-graphical user interface for pygame
+`in progress` graphical user interface for pygame
