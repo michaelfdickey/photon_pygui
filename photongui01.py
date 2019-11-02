@@ -261,6 +261,7 @@ def updateButton(selected_button):
 				#print "buttonToCheck", key, allButtonsValue[key]
 	"""
 
+	"""
 	if selected_button == "sticky01":
 		if button04[7] == False:
 			print "sticky 01 button found"
@@ -270,8 +271,10 @@ def updateButton(selected_button):
 			defineButtons()
 			for i, button in enumerate(my_buttons):
 				button.display()
-			return
+		return
+	"""
 
+	"""
 		if button04[7] == True:
 			print "sticky 01 button found"
 			button04[7] = False
@@ -281,6 +284,7 @@ def updateButton(selected_button):
 			for i, button in enumerate(my_buttons):
 				button.display()
 			return
+	"""
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
