@@ -380,6 +380,7 @@ for n in range(1):
 # ************************************************************************************************************************
 
 ####### INITIALIZE DISPLAY ##########
+## If this is in the main loop, FPS goes way down, only refresh what's needed ##
 
 # # Pygame display
 print "initializing pygame display"
@@ -410,50 +411,59 @@ running = True
 
 while running:
 
-
 	for event in pygame.event.get():
+
 		if event.type == pygame.QUIT:
 			running = False
 
-	if event.type == pygame.MOUSEBUTTONDOWN:					#mousebuttondown only runs once, things run outside if this if loop
-		(mouseX, mouseY) = pygame.mouse.get_pos()				# will run continually while button is held down
-		print "mouseX = ", mouseX, "mouseY = ", mouseY
-		selected_button = findButton(my_buttons, mouseX, mouseY)
-		print "selected button = ", selected_button
+		if event.type == pygame.MOUSEBUTTONDOWN:					#mousebuttondown only runs once, things run outside if this if loop
+			(mouseX, mouseY) = pygame.mouse.get_pos()				# will run continually while button is held down
+			print "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
+			selected_button = findButton(my_buttons, mouseX, mouseY)
+			print "selected button = ", selected_button
 
-		if selected_button.button_label_txt == "EXIT":
-			print "you pressed exit"
-			running = False
+			if selected_button.button_label_txt == "EXIT":
+				print "you pressed exit"
+				running = False
+
+			if selected_button != None:
+				if selected_button.buttonType == "pushy":
+					print "running MOUSEBUTTONDOWN pushy event"
+					print "selected_button.color  was :", selected_button.color	
+					selected_button.color = UI_button_click_color
+					print "selected_button.color now : ", selected_button.color			
+					# selected_button.buttonEnabled = True
+
+				
+				if selected_button.buttonType == "sticky":
+					print "running sticky event"
+					updateButton(selected_button.button_name)
+					
 
 
-		if selected_button != None:
 
-			if selected_button.buttonType == "pushy":
-				selected_button.color = UI_button_click_color
-				selected_button.buttonEnabled = True
-				print "running pushy event"			
+
+				# # redraw buttons!
+				for i, button in enumerate(my_buttons):
+					button.display()
+
+
+
+		if event.type == pygame.MOUSEBUTTONUP:
 
 			
-			if selected_button.buttonType == "sticky":
-				print "running sticky event"
-				updateButton(selected_button.button_name)
+			if selected_button != None:
+				if selected_button.buttonType == "pushy":
+					print "running MOUSEBUTTONUP pushy event"
+					print "selected_button.color  was :", selected_button.color	
+					selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
+					print "selected_button.color now : ", selected_button.color	
+			selected_button = None
 			
 
-
-			# # redraw buttons!
+			# # re draw buttons!
 			for i, button in enumerate(my_buttons):
-				button.display()
-
-
-
-	if event.type == pygame.MOUSEBUTTONUP:
-		if selected_button != None:
-			if selected_button.buttonType == "pushy":
-				selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
-		selected_button = None
-		# # re draw buttons!
-		for i, button in enumerate(my_buttons):
-			button.display()	
+				button.display()	
 
 
 	"""
