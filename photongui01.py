@@ -139,7 +139,7 @@ button03[10] = True
 button04 = {}
 button04[0] = "sticky01"
 button04[1] = 0
-button04[2] = pygame_window_height - 140
+button04[2] = pygame_window_height - 160
 button04[3] = UI_sideBar_width
 button04[4] = 20
 button04[5] = "Sticky 01"
@@ -152,7 +152,7 @@ button04[10] = True
 button05 = {}
 button05[0] = "sticky02"
 button05[1] = 0
-button05[2] = pygame_window_height - 160
+button05[2] = pygame_window_height - 180
 button05[3] = UI_sideBar_width
 button05[4] = 20
 button05[5] = "Sticky 02"
@@ -166,7 +166,7 @@ button05[10] = True
 button06 = {}
 button06[0] = "sticky03"						# button_name
 button06[1] = 0								# button_origin_x
-button06[2] = pygame_window_height - 180		# button_origin_y
+button06[2] = pygame_window_height - 200		# button_origin_y
 button06[3] = UI_sideBar_width				# button_width
 button06[4] = 20								# button_height
 button06[5] = "Sticky 03"						# button_label_txt
@@ -175,6 +175,32 @@ button06[7] = False							# buttonEnabled
 button06[8] = UI_button_color 				# buttonColor
 button06[9] = "sticky03"						# buttonGroup
 button06[10] = True							# buttonVisible
+
+button07 = {}
+button07[0] = "pushy_label"
+button07[1] = 0
+button07[2] = pygame_window_height - 120
+button07[3] = UI_sideBar_width
+button07[4] = 20
+button07[5] = "Pushy Buttons"
+button07[6] = "label"
+button07[7] = True
+button07[8] = UI_label_color
+button07[9] = "pushy_buttons"
+button07[10] = True
+
+button08 = {}
+button08[0] = "sticky_label"
+button08[1] = 0
+button08[2] = pygame_window_height - 220
+button08[3] = UI_sideBar_width
+button08[4] = 20
+button08[5] = "Sticky Buttons"
+button08[6] = "label"
+button08[7] = True
+button08[8] = UI_label_color
+button08[9] = "sticky_buttons"
+button08[10] = True
 
 
 
@@ -186,6 +212,8 @@ allButtons[3] = button03		# command 03
 allButtons[4] = button04		# sticky 01
 allButtons[5] = button05		# sticky 02
 allButtons[6] = button06		# sticky 03
+allButtons[7] = button07		# pushy button group label
+allButtons[8] = button08		# stick button group label
 
 
 
@@ -335,7 +363,14 @@ class Button:
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
+		# render "label" type buttons
+		if self.buttonType == "label":
+			self.color = UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			#pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
 
 
 # ************************************************************************************************************************
