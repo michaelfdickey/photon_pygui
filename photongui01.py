@@ -207,7 +207,7 @@ buttonToDraw = {}			#each button is loaded into this dictionary, added to my_but
 
 def defineButtons():
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
-
+	print "running defineButtons()"
 	# iterates through the nested button dictionary, dumps each button into buttonToDraw, then displays ads to the list
 	for allButtonsID, allButtonsValue in allButtons.items():
 		for key in allButtonsValue:
@@ -230,6 +230,10 @@ def defineButtons():
 		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 		my_buttons.append(created_button)
 
+	print "completed run of defineButtons()"
+
+
+
 
 # # This figures out which button was clicked
 def findButton(buttons, x, y):
@@ -242,10 +246,13 @@ def findButton(buttons, x, y):
 						return b
 	return None
 
+
+
+
 # # this updates buttons and any buttons in the same button group based on actions taken
 buttonToCheck = {}
 def updateButton(selected_button):
-	print "running updateButton"
+	print "updateButton() - started"
 	print "selected_button = ", selected_button
 
 	"""
@@ -261,7 +268,7 @@ def updateButton(selected_button):
 				#print "buttonToCheck", key, allButtonsValue[key]
 	"""
 
-	"""
+	
 	if selected_button == "sticky01":
 		if button04[7] == False:
 			print "sticky 01 button found"
@@ -271,11 +278,8 @@ def updateButton(selected_button):
 			defineButtons()
 			for i, button in enumerate(my_buttons):
 				button.display()
-		return
-	"""
-
-	"""
-		if button04[7] == True:
+		
+		elif button04[7] == True:
 			print "sticky 01 button found"
 			button04[7] = False
 			button04[8] = UI_button_color
@@ -283,8 +287,10 @@ def updateButton(selected_button):
 			defineButtons()
 			for i, button in enumerate(my_buttons):
 				button.display()
-			return
-	"""
+
+	print "updateButton() - completed"
+	#return
+	
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -427,31 +433,35 @@ while running:
 				running = False
 
 			if selected_button != None:
+
 				if selected_button.buttonType == "pushy":
 					print "running MOUSEBUTTONDOWN pushy event"
 					print "selected_button.color  was :", selected_button.color	
 					selected_button.color = UI_button_click_color
 					print "selected_button.color now : ", selected_button.color			
-					# selected_button.buttonEnabled = True
+					selected_button.buttonEnabled = True
+					print "clicked button is a pushy temporary button"
+					if selected_button.button_name == "command01":
+						print "you clicked command01"
+						button01[7] = True
 
-				
+
 				if selected_button.buttonType == "sticky":
 					print "running sticky event"
 					updateButton(selected_button.button_name)
+				
+
 					
 
-
-
-
+				
 				# # redraw buttons!
 				for i, button in enumerate(my_buttons):
 					button.display()
-
+				
 
 
 		if event.type == pygame.MOUSEBUTTONUP:
 
-			
 			if selected_button != None:
 				if selected_button.buttonType == "pushy":
 					print "running MOUSEBUTTONUP pushy event"
@@ -459,7 +469,7 @@ while running:
 					selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
 					print "selected_button.color now : ", selected_button.color	
 			selected_button = None
-			
+			print "selected_button = ", selected_button
 
 			# # re draw buttons!
 			for i, button in enumerate(my_buttons):
