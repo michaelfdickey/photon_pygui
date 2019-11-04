@@ -305,7 +305,7 @@ def updateButton(selected_button):
 			button04[8] = UI_button_selected_color
 			print "flipped sticky01 from false to true"
 			
-			defineButtons()	#if this is uncommented, sticky buttons work, but stop pushy buttons from working. 
+			defineButtons()	
 			
 		elif button04[7] == True:
 			print "sticky 01 button found"
@@ -458,6 +458,18 @@ while running:
 							button.display()
 
 
+					if selected_button.button_name == "command02":
+						print "you clicked command02"
+						button02[7] = True
+						button02[8] = UI_button_click_color
+						defineButtons()
+
+						print "____drawing buttons from pushy event"
+						for i, button in enumerate(my_buttons):
+							button.display()
+
+
+
 				if selected_button.buttonType == "sticky":
 					print "running sticky event"
 					updateButton(selected_button.button_name)
@@ -483,9 +495,21 @@ while running:
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-
-					if selected_button.button_name == "command01":
 						print "running code for Command01"
+						# command01 function call goes here:
+
+					if selected_button.button_name == "command02":
+						print "you clicked command02"
+						button02[7] = False
+						button02[8] = UI_button_color
+						defineButtons()
+
+						print "____drawing buttons from pushy event"
+						for i, button in enumerate(my_buttons):
+							button.display()
+
+						print "running code for Command02"
+						#command02 function call goes here:
 
 
 			selected_button = None
