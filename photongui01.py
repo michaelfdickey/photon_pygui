@@ -162,7 +162,6 @@ button05[8] = UI_button_color
 button05[9] = "sticky02"
 button05[10] = True
 
-
 button06 = {}
 button06[0] = "sticky03"						# button_name
 button06[1] = 0								# button_origin_x
@@ -203,6 +202,21 @@ button08[9] = "sticky_buttons"
 button08[10] = True
 
 
+button09 = {}
+button09[0] = "group01_label"					# button_name
+button09[1] = 0								# button_origin_x
+button09[2] = pygame_window_height - 300		# button_origin_y
+button09[3] = UI_sideBar_width				# button_width
+button09[4] = 20								# button_height
+button09[5] = "Group 01"						# button_label_txt
+button09[6] = "label"							# buttonType
+button09[7] = False							# buttonEnabled
+button09[8] = UI_label_color 					# buttonColor
+button09[9] = "group01"						# buttonGroup
+button09[10] = True							# buttonVisible
+
+
+
 
 allButtons = {}
 allButtons[0] = button00		# exit button
@@ -214,6 +228,7 @@ allButtons[5] = button05		# sticky 02
 allButtons[6] = button06		# sticky 03
 allButtons[7] = button07		# pushy button group label
 allButtons[8] = button08		# stick button group label
+allButtons[9] = button09		# group01 label
 
 
 
@@ -382,7 +397,7 @@ class Button:
 
 		# render "pushy" type buttons
 		if self.buttonType == "pushy":
-			print "drawing pushy button: ", self.button_name
+			#print "drawing pushy button: ", self.button_name
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
@@ -391,7 +406,7 @@ class Button:
 
 		# render "sticky" type buttons
 		elif self.buttonType == "sticky":	
-			print "drawing sticky button: ", self.button_name	
+			#print "drawing sticky button: ", self.button_name	
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
@@ -400,7 +415,7 @@ class Button:
 
 		# render "label" type buttons
 		elif self.buttonType == "label":
-			print "drawing label: ", self.button_name
+			#print "drawing label: ", self.button_name
 			self.color = UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			#pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
@@ -542,7 +557,7 @@ while running:
 						button01[8] = UI_button_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event"
+						print "____drawing buttons from pushy event command01"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
@@ -554,7 +569,7 @@ while running:
 						button02[8] = UI_button_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event"
+						print "____drawing buttons from pushy event command02"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
@@ -566,7 +581,7 @@ while running:
 						button03[8] = UI_button_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event"
+						print "____drawing buttons from pushy event command03"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
