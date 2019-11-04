@@ -1,4 +1,7 @@
-# gui test
+# DEV LOG
+# 2019-11-03 - next, move pushy button processing out of main loop into it's own function call
+# - will need a call in mousebuttondown and mousebutton up
+# - then create function for group processing
 
 # ************************************************************************************
 # 	import modules	#
@@ -318,10 +321,22 @@ def findButton(buttons, x, y):
 
 
 
-# # this updates buttons and any buttons in the same button group based on actions taken
+# # #########################################################################################
+# # this updates pushy buttons
+def updatePushyButtons(selected_button):
+	print "updating pushy buttons"
+
+"""
+	MOVE PUSHY BUTTON PROCESSING HERE
+"""
+
+
+
+############################################################################################
+# # this updates sticky buttons  based on actions taken
 buttonToCheck = {}
-def updateButton(selected_button):
-	print "updateButton() - started"
+def updateStickyButtons(selected_button):
+	print "updateStickyButtons() - started"
 	print "selected_button = ", selected_button
 
 	"""
@@ -343,7 +358,6 @@ def updateButton(selected_button):
 			button04[7] = True
 			button04[8] = UI_button_selected_color
 			print "flipped sticky01 from false to true"
-			
 			defineButtons()	
 			
 		elif button04[7] == True:
@@ -351,7 +365,6 @@ def updateButton(selected_button):
 			button04[7] = False
 			button04[8] = UI_button_color
 			print "flipped stick01 from true to false"
-			
 			defineButtons()
 
 	if selected_button == "sticky02":
@@ -360,7 +373,6 @@ def updateButton(selected_button):
 			button05[7] = True
 			button05[8] = UI_button_selected_color
 			print "flipped sticky02 from false to true"
-			
 			defineButtons()	
 			
 		elif button05[7] == True:
@@ -368,7 +380,6 @@ def updateButton(selected_button):
 			button05[7] = False
 			button05[8] = UI_button_color
 			print "flipped sticky02 from true to false"
-			
 			defineButtons()
 
 
@@ -378,7 +389,6 @@ def updateButton(selected_button):
 			button06[7] = True
 			button06[8] = UI_button_selected_color
 			print "flipped sticky03 from false to true"
-			
 			defineButtons()	
 			
 		elif button06[7] == True:
@@ -386,12 +396,15 @@ def updateButton(selected_button):
 			button06[7] = False
 			button06[8] = UI_button_color
 			print "flipped sticky03 from true to false"
-			
 			defineButtons()			
 
-	print "updateButton() - completed"
+	print "updateStickyButtons() - completed"
 	return
 	
+
+def updateGroupButtons(selected_button):
+	print "running update group buttons"
+
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -448,7 +461,7 @@ class Button:
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
-		# render "sticky" type buttons
+		# render "group" type buttons
 		elif self.buttonType == "group":	
 			#print "drawing sticky button: ", self.button_name	
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
@@ -570,7 +583,7 @@ while running:
 
 				if selected_button.buttonType == "sticky":
 					print "running sticky event"
-					updateButton(selected_button.button_name)
+					updateStickyButtons(selected_button.button_name)
 				
 
 		if event.type == pygame.MOUSEBUTTONUP:
