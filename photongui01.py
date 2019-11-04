@@ -215,7 +215,31 @@ button09[8] = UI_label_color 					# buttonColor
 button09[9] = "group01"						# buttonGroup
 button09[10] = True							# buttonVisible
 
+button10 = {}
+button10[0] = "Group01Button01"				# button_name
+button10[1] = 0								# button_origin_x
+button10[2] = pygame_window_height - 280		# button_origin_y
+button10[3] = UI_sideBar_width				# button_width
+button10[4] = 20								# button_height
+button10[5] = "Goup 01 Button 01"				# button_label_txt
+button10[6] = "group"							# buttonType
+button10[7] = False							# buttonEnabled
+button10[8] = UI_button_color					# buttonColor
+button10[9] = "group01"						# buttonGroup
+button10[10] = True							# buttonVisible
 
+button11 = {}
+button11[0] = "Group01Button02"				# button_name
+button11[1] = 0								# button_origin_x
+button11[2] = pygame_window_height - 260		# button_origin_y
+button11[3] = UI_sideBar_width				# button_width
+button11[4] = 20								# button_height
+button11[5] = "Goup 01 Button 02"				# button_label_txt
+button11[6] = "group"							# buttonType
+button11[7] = False							# buttonEnabled
+button11[8] = UI_button_color					# buttonColor
+button11[9] = "group01"						# buttonGroup
+button11[10] = True							# buttonVisible
 
 
 allButtons = {}
@@ -229,7 +253,8 @@ allButtons[6] = button06		# sticky 03
 allButtons[7] = button07		# pushy button group label
 allButtons[8] = button08		# stick button group label
 allButtons[9] = button09		# group01 label
-
+allButtons[10] = button10 	# group01 button 01
+allButtons[11] = button11		# group01 button 02
 
 
 
@@ -423,7 +448,14 @@ class Button:
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
+		# render "sticky" type buttons
+		elif self.buttonType == "group":	
+			#print "drawing sticky button: ", self.button_name	
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
 
 
 
@@ -480,11 +512,11 @@ while running:
 			selected_button = findButton(my_buttons, mouseX, mouseY)
 			print "selected button = ", selected_button
 
-			if selected_button.button_label_txt == "EXIT":
-				print "you pressed exit"
-				running = False
-
 			if selected_button != None:
+
+				if selected_button.button_label_txt == "EXIT":
+					print "you pressed exit"
+					running = False
 
 				if selected_button.buttonType == "pushy":
 					print "running MOUSEBUTTONDOWN pushy event"
