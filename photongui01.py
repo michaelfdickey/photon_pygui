@@ -457,6 +457,9 @@ while running:
 						for i, button in enumerate(my_buttons):
 							button.display()
 
+						print "running code for Command01"
+						# command01 function call goes here:
+
 
 					if selected_button.button_name == "command02":
 						print "you clicked command02"
@@ -468,7 +471,22 @@ while running:
 						for i, button in enumerate(my_buttons):
 							button.display()
 
+						print "running code for Command02"
+						#command02 function call goes here:
 
+
+					if selected_button.button_name == "command03":
+						print "you clicked command03"
+						button03[7] = True
+						button03[8] = UI_button_click_color
+						defineButtons()
+
+						print "____drawing buttons from pushy event"
+						for i, button in enumerate(my_buttons):
+							button.display()
+
+						print "running code for Command03"
+						#command03 function call goes here:		
 
 				if selected_button.buttonType == "sticky":
 					print "running sticky event"
@@ -495,8 +513,7 @@ while running:
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print "running code for Command01"
-						# command01 function call goes here:
+
 
 					if selected_button.button_name == "command02":
 						print "you clicked command02"
@@ -508,9 +525,19 @@ while running:
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print "running code for Command02"
-						#command02 function call goes here:
 
+
+					if selected_button.button_name == "command03":
+						print "you clicked command03"
+						button03[7] = False
+						button03[8] = UI_button_color
+						defineButtons()
+
+						print "____drawing buttons from pushy event"
+						for i, button in enumerate(my_buttons):
+							button.display()
+
+			
 
 			selected_button = None
 			print "selected_button = ", selected_button
