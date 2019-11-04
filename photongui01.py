@@ -258,12 +258,6 @@ def defineButtons():
 		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 		my_buttons.append(created_button)
 
-	"""
-	# redraw all buttons
-	print "redraw buttons from defineButtons()"
-	for i, button in enumerate(my_buttons):
-		button.display()
-	"""
 
 	print "defineButtons() - completed"
 
@@ -313,9 +307,6 @@ def updateButton(selected_button):
 			
 			defineButtons()	#if this is uncommented, sticky buttons work, but stop pushy buttons from working. 
 			
-			#for i, button in enumerate(my_buttons):
-			#	button.display()
-		
 		elif button04[7] == True:
 			print "sticky 01 button found"
 			button04[7] = False
@@ -324,11 +315,6 @@ def updateButton(selected_button):
 			
 			defineButtons()
 			
-		"""
-		print "____drawing buttons in updateButton()"
-		for i, button in enumerate(my_buttons):
-			button.display()
-		"""
 
 	print "updateButton() - completed"
 	return
@@ -390,43 +376,7 @@ class Button:
 			screen.blit(label, (self.x + 5, self.y))
 
 
-# ************************************************************************************************************************
-# ************************************************************************************************************************
-# 	create buttons	#
-# ************************************************************************************************************************
-# ************************************************************************************************************************
 
-
-# moved this to a function to call specifically when needed, once when initializing, then whenever any button is updated. 
-"""
-my_buttons = []			#initializes my_buttons list, each button is added to this for display
-buttonToDraw = {}			#each button is loaded into this dictionary, added to my_buttons list
-
-for n in range(1):
-	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
-
-	# iterates through the nested button dictionary, dumps each button into buttonToDraw, then displays ads to the list
-	for allButtonsID, allButtonsValue in allButtons.items():
-		for key in allButtonsValue:
-			buttonToDraw[key] = allButtonsValue[key]
-
-		### -------------------------- ###
-		button_name = buttonToDraw[0]
-		button_origin_x = buttonToDraw[1]
-		button_origin_y = buttonToDraw[2]
-		button_width = buttonToDraw[3]
-		button_height = buttonToDraw[4]
-		button_label_txt = buttonToDraw[5]
-		buttonType = buttonToDraw[6]
-		buttonEnabled = buttonToDraw[7]
-		buttonColor = buttonToDraw[8]
-		buttonGroup = buttonToDraw[9]
-		buttonVisible = buttonToDraw[10]
-
-		# define button then add button to display list
-		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
-		my_buttons.append(created_button)
-"""
 
 
 
@@ -496,11 +446,6 @@ while running:
 					selected_button.buttonEnabled = True
 					print "clicked button is a pushy temporary button"
 					
-					"""
-					print "____drawing buttons from pushy event"
-					for i, button in enumerate(my_buttons):
-						button.display()
-					"""
 
 					if selected_button.button_name == "command01":
 						print "you clicked command01"
@@ -517,16 +462,6 @@ while running:
 					print "running sticky event"
 					updateButton(selected_button.button_name)
 				
-
-					
-
-				"""
-				# # redraw buttons!
-				print "____drawing buttons from main loops MOUSEBUTTONDOWN selected_button != None"
-				for i, button in enumerate(my_buttons):
-					button.display()
-				"""
-
 
 		if event.type == pygame.MOUSEBUTTONUP:
 
@@ -564,19 +499,6 @@ while running:
 				button.display()		
 			
 			
-
-		
-
-	"""
-	# not sure if this section is needed
-	if selected_button != None:
-		(mouseX, mouseY) = pygame.mouse.get_pos()
-		selected_button.color = UI_button_click_color
-		print "this is running and may not be needed"
-		pygame.display.flip()
-	"""
-
-
 
 	# always do this last
 	pygame.display.flip()
