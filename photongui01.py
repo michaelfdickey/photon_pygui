@@ -296,11 +296,10 @@ def updateButton(selected_button):
 				print "key, ", key, "value", allButtonsValue[key]
 				#print "buttonToCheck", key, allButtonsValue[key]
 	"""
-
 	
 	if selected_button == "sticky01":
 		if button04[7] == False:
-			print "sticky 01 button found"
+			print "sticky01 button found"
 			button04[7] = True
 			button04[8] = UI_button_selected_color
 			print "flipped sticky01 from false to true"
@@ -308,13 +307,47 @@ def updateButton(selected_button):
 			defineButtons()	
 			
 		elif button04[7] == True:
-			print "sticky 01 button found"
+			print "sticky01 button found"
 			button04[7] = False
 			button04[8] = UI_button_color
 			print "flipped stick01 from true to false"
 			
 			defineButtons()
+
+	if selected_button == "sticky02":
+		if button05[7] == False:
+			print "sticky02 button found"
+			button05[7] = True
+			button05[8] = UI_button_selected_color
+			print "flipped sticky02 from false to true"
 			
+			defineButtons()	
+			
+		elif button05[7] == True:
+			print "sticky02 button found"
+			button05[7] = False
+			button05[8] = UI_button_color
+			print "flipped sticky02 from true to false"
+			
+			defineButtons()
+
+
+	if selected_button == "sticky03":
+		if button06[7] == False:
+			print "sticky03 button found"
+			button06[7] = True
+			button06[8] = UI_button_selected_color
+			print "flipped sticky03 from false to true"
+			
+			defineButtons()	
+			
+		elif button06[7] == True:
+			print "sticky03 button found"
+			button06[7] = False
+			button06[8] = UI_button_color
+			print "flipped sticky03 from true to false"
+			
+			defineButtons()			
 
 	print "updateButton() - completed"
 	return
