@@ -226,8 +226,8 @@ button10[3] = UI_sideBar_width				# button_width
 button10[4] = 20								# button_height
 button10[5] = "Goup 01 Button 01"				# button_label_txt
 button10[6] = "group"							# buttonType
-button10[7] = False							# buttonEnabled
-button10[8] = UI_button_color					# buttonColor
+button10[7] = True							# buttonEnabled
+button10[8] = UI_button_selected_color		# buttonColor
 button10[9] = "group01"						# buttonGroup
 button10[10] = True							# buttonVisible
 
@@ -404,6 +404,21 @@ def updateStickyButtons(selected_button):
 
 def updateGroupButtons(selected_button):
 	print "running update group buttons"
+	if selected_button == "Group01Button01":
+		
+		if button10[7] == True:
+			button10[7] = False
+			button10[8] = UI_button_color
+			button11[7] = True
+			button11[8] = UI_button_selected_color
+			defineButtons()	
+		
+		elif button10[7] == False:
+			button10[7] = True
+			button10[8] = UI_button_selected_color
+			button11[7] = False
+			button11[8] = UI_button_color
+			defineButtons()	
 
 
 # ************************************************************************************************************************
@@ -584,6 +599,10 @@ while running:
 				if selected_button.buttonType == "sticky":
 					print "running sticky event"
 					updateStickyButtons(selected_button.button_name)
+
+				if selected_button.buttonType == "group":
+					print "running group type button event"
+					updateGroupButtons(selected_button.button_name)
 				
 
 		if event.type == pygame.MOUSEBUTTONUP:
