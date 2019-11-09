@@ -283,6 +283,60 @@ button14[8] = UI_button_color					# buttonColor
 button14[9] = "group02"						# buttonGroup
 button14[10] = True							# buttonVisible
 
+button15 = {}
+button15[0] = "group03_label"					# button_name
+button15[1] = 0								# button_origin_x
+button15[2] = pygame_window_height - 420		# button_origin_y
+button15[3] = UI_sideBar_width				# button_width
+button15[4] = 20								# button_height
+button15[5] = "Group 03"						# button_label_txt
+button15[6] = "label"							# buttonType
+button15[7] = False							# buttonEnabled
+button15[8] = UI_label_color 					# buttonColor
+button15[9] = "group03"						# buttonGroup
+button15[10] = True							# buttonVisible
+
+button16 = {}
+button16[0] = "Group03Button01"				# button_name
+button16[1] = 0								# button_origin_x
+button16[2] = pygame_window_height - 400		# button_origin_y
+button16[3] = UI_sideBar_width / 3				# button_width
+button16[4] = 20								# button_height
+button16[5] = " A "							# button_label_txt
+button16[6] = "group"							# buttonType
+button16[7] = True							# buttonEnabled
+button16[8] = UI_button_selected_color		# buttonColor
+button16[9] = "group03"						# buttonGroup
+button16[10] = True							# buttonVisible
+
+button17 = {}
+button17[0] = "Group03Button02"				# button_name
+button17[1] = UI_sideBar_width / 3				# button_origin_x
+button17[2] = pygame_window_height - 400		# button_origin_y
+button17[3] = UI_sideBar_width / 3				# button_width
+button17[4] = 20								# button_height
+button17[5] = " B "					 		# button_label_txt
+button17[6] = "group"							# buttonType
+button17[7] = False							# buttonEnabled
+button17[8] = UI_button_color					# buttonColor
+button17[9] = "group03"						# buttonGroup
+button17[10] = True							# buttonVisible
+
+button18 = {}
+button18[0] = "Group03Button03"				# button_name
+button18[1] = (UI_sideBar_width / 3) * 2		# button_origin_x
+button18[2] = pygame_window_height - 400		# button_origin_y
+button18[3] = UI_sideBar_width / 3				# button_width
+button18[4] = 20								# button_height
+button18[5] = " C "							# button_label_txt
+button18[6] = "group"							# buttonType
+button18[7] = False							# buttonEnabled
+button18[8] = UI_button_color					# buttonColor
+button18[9] = "group03"						# buttonGroup
+button18[10] = True							# buttonVisible
+
+
+
 allButtons = {}
 allButtons[0] = button00		# exit button
 allButtons[1] = button01		# command 01
@@ -299,8 +353,10 @@ allButtons[11] = button11		# group01 button 02
 allButtons[12] = button12		# group02 label
 allButtons[13] = button13 	# group02 button 01
 allButtons[14] = button14		# group02 button 02
-
-
+allButtons[15] = button15		# group03 label
+allButtons[16] = button16 	# group03 button 01
+allButtons[17] = button17		# group03 button 02
+allButtons[18] = button18		# group03 button 03
 
 
 
@@ -444,6 +500,8 @@ def updateStickyButtons(selected_button):
 
 def updateGroupButtons(selected_button):
 	print "running update group buttons"
+
+	# # Group 01 processing
 	if selected_button == "Group01Button01":
 		
 		if button10[7] == True:
@@ -476,6 +534,8 @@ def updateGroupButtons(selected_button):
 			button10[8] = UI_button_color
 			defineButtons()
 
+
+	# # Group 02 processing
 	if selected_button == "Group02Button01":
 		
 		if button13[7] == True:
@@ -507,6 +567,9 @@ def updateGroupButtons(selected_button):
 			button13[7] = False
 			button13[8] = UI_button_color
 			defineButtons()
+
+
+
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
