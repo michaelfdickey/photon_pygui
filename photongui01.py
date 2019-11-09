@@ -22,6 +22,8 @@ import time 			# for FPS functions
 #py game font
 pygame.font.init()							# needs to be called at the start of the program
 myfont = pygame.font.SysFont('Arial',15)		# GUI font type and size
+fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 15)
+
 
 #pre-defined colors
 black = (0,0,0)
@@ -62,6 +64,11 @@ pygame_window_height = 1200
 # by default, no UI objects are selected at start
 selected_uiObject = None					
 selected_button = None
+
+# FPS related variables
+cSec = 0
+cFrame = 0
+FPS = 0
 
 
 # ************************************************************************************
@@ -390,6 +397,8 @@ allButtons[19] = button19		# FPS display
 my_buttons = []			#initializes my_buttons list, each button is added to this for display
 buttonToDraw = {}			#each button is loaded into this dictionary, added to my_buttons list
 
+
+# # #########################################################################################
 def defineButtons():
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
 	print "defineButtons() - started"
@@ -420,7 +429,7 @@ def defineButtons():
 
 
 
-
+# # #########################################################################################
 # # This figures out which button was clicked
 def findButton(buttons, x, y):
 	for b in buttons:
@@ -643,6 +652,27 @@ def updateGroupButtons(selected_button):
 
 			defineButtons()	
 
+
+# # FPS related Functions
+def show_fps():
+	fps_overlay = fps_font.render("FPS:"+str(FPS), True, UI_button_txt_color)
+	screen.blit(fps_overlay, (pygame_window_width - 100,pygame_window_height - 30))
+
+def count_fps():
+	global cSec, cFrame, FPS, deltatime
+	if cSec == time.strftime("%S"):
+		cFrame += 1
+	else:
+		FPS = cFrame
+		cFrame = 0
+		cSec = time.strftime("%S")
+
+
+
+
+
+
+
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 # 	Classes                    #
@@ -748,6 +778,12 @@ for i, button in enumerate(my_buttons):
 running = True
 
 while running:
+
+	if button19[7] == True:
+		pygame.draw.rect(screen, blue, (pygame_window_width - 100, pygame_window_height - 30, 80, 20))   
+		count_fps()
+		show_fps()
+
 
 	for event in pygame.event.get():
 
