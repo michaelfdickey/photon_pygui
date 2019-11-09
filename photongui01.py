@@ -335,6 +335,23 @@ button18[8] = UI_button_color					# buttonColor
 button18[9] = "group03"						# buttonGroup
 button18[10] = True							# buttonVisible
 
+button19 = {}
+button19[0] = "fps"							# button_name
+button19[1] = 0								# button_origin_x
+button19[2] = pygame_window_height - 460		# button_origin_y
+button19[3] = UI_sideBar_width				# button_width
+button19[4] = 20								# button_height
+button19[5] = " FPS "							# button_label_txt
+button19[6] = "sticky"						# buttonType
+button19[7] = False							# buttonEnabled
+button19[8] = UI_button_color					# buttonColor
+button19[9] = "fps"							# buttonGroup
+button19[10] = True							# buttonVisible
+
+
+
+
+
 
 
 allButtons = {}
@@ -357,6 +374,7 @@ allButtons[15] = button15		# group03 label
 allButtons[16] = button16 	# group03 button 01
 allButtons[17] = button17		# group03 button 02
 allButtons[18] = button18		# group03 button 03
+allButtons[19] = button19		# FPS display
 
 
 
@@ -493,6 +511,19 @@ def updateStickyButtons(selected_button):
 			button06[8] = UI_button_color
 			print "flipped sticky03 from true to false"
 			defineButtons()			
+
+
+	if selected_button == "fps":
+		if button19[7] == False:
+			button19[7] = True
+			button19[8] = UI_button_selected_color
+			defineButtons()	
+			
+		elif button19[7] == True:
+			button19[7] = False
+			button19[8] = UI_button_color
+			defineButtons()	
+
 
 	print "updateStickyButtons() - completed"
 	return
