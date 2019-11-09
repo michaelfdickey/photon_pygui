@@ -224,7 +224,7 @@ button10[1] = 0								# button_origin_x
 button10[2] = pygame_window_height - 280		# button_origin_y
 button10[3] = UI_sideBar_width				# button_width
 button10[4] = 20								# button_height
-button10[5] = "Goup 01 Button 01"				# button_label_txt
+button10[5] = "Group 01 Button 01"				# button_label_txt
 button10[6] = "group"							# buttonType
 button10[7] = True							# buttonEnabled
 button10[8] = UI_button_selected_color		# buttonColor
@@ -237,13 +237,51 @@ button11[1] = 0								# button_origin_x
 button11[2] = pygame_window_height - 260		# button_origin_y
 button11[3] = UI_sideBar_width				# button_width
 button11[4] = 20								# button_height
-button11[5] = "Goup 01 Button 02"				# button_label_txt
+button11[5] = "Group 01 Button 02"				# button_label_txt
 button11[6] = "group"							# buttonType
 button11[7] = False							# buttonEnabled
 button11[8] = UI_button_color					# buttonColor
 button11[9] = "group01"						# buttonGroup
 button11[10] = True							# buttonVisible
 
+button12 = {}
+button12[0] = "group02_label"					# button_name
+button12[1] = 0								# button_origin_x
+button12[2] = pygame_window_height - 360		# button_origin_y
+button12[3] = UI_sideBar_width				# button_width
+button12[4] = 20								# button_height
+button12[5] = "Group 02"						# button_label_txt
+button12[6] = "label"							# buttonType
+button12[7] = False							# buttonEnabled
+button12[8] = UI_label_color 					# buttonColor
+button12[9] = "group02"						# buttonGroup
+button12[10] = True							# buttonVisible
+
+button13 = {}
+button13[0] = "Group02Button01"				# button_name
+button13[1] = 0								# button_origin_x
+button13[2] = pygame_window_height - 340		# button_origin_y
+button13[3] = UI_sideBar_width / 2				# button_width
+button13[4] = 20								# button_height
+button13[5] = "OptionA"						# button_label_txt
+button13[6] = "group"							# buttonType
+button13[7] = True							# buttonEnabled
+button13[8] = UI_button_selected_color		# buttonColor
+button13[9] = "group02"						# buttonGroup
+button13[10] = True							# buttonVisible
+
+button14 = {}
+button14[0] = "Group02Button02"				# button_name
+button14[1] = UI_sideBar_width / 2				# button_origin_x
+button14[2] = pygame_window_height - 340		# button_origin_y
+button14[3] = UI_sideBar_width / 2				# button_width
+button14[4] = 20								# button_height
+button14[5] = "OptionB"						# button_label_txt
+button14[6] = "group"							# buttonType
+button14[7] = False							# buttonEnabled
+button14[8] = UI_button_color					# buttonColor
+button14[9] = "group02"						# buttonGroup
+button14[10] = True							# buttonVisible
 
 allButtons = {}
 allButtons[0] = button00		# exit button
@@ -258,7 +296,9 @@ allButtons[8] = button08		# stick button group label
 allButtons[9] = button09		# group01 label
 allButtons[10] = button10 	# group01 button 01
 allButtons[11] = button11		# group01 button 02
-
+allButtons[12] = button12		# group02 label
+allButtons[13] = button13 	# group02 button 01
+allButtons[14] = button14		# group02 button 02
 
 
 
@@ -434,6 +474,38 @@ def updateGroupButtons(selected_button):
 			button11[8] = UI_button_selected_color
 			button10[7] = False
 			button10[8] = UI_button_color
+			defineButtons()
+
+	if selected_button == "Group02Button01":
+		
+		if button13[7] == True:
+			button13[7] = False
+			button13[8] = UI_button_color
+			button14[7] = True
+			button14[8] = UI_button_selected_color
+			defineButtons()	
+		
+		elif button13[7] == False:
+			button13[7] = True
+			button13[8] = UI_button_selected_color
+			button14[7] = False
+			button14[8] = UI_button_color
+			defineButtons()	
+
+	if selected_button == "Group02Button02":
+		
+		if button14[7] == True:
+			button14[7] = False
+			button14[8] = UI_button_color
+			button13[7] = True
+			button13[8] = UI_button_selected_color
+			defineButtons()	
+		
+		elif button14[7] == False:
+			button14[7] = True
+			button14[8] = UI_button_selected_color
+			button13[7] = False
+			button13[8] = UI_button_color
 			defineButtons()
 
 # ************************************************************************************************************************
