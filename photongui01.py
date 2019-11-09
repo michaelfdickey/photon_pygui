@@ -444,6 +444,11 @@ def findButton(buttons, x, y):
 
 
 
+
+
+
+
+
 # # #########################################################################################
 # # this updates pushy buttons
 def updatePushyButtons(selected_button):
@@ -531,13 +536,18 @@ def updateStickyButtons(selected_button):
 		elif button19[7] == True:
 			button19[7] = False
 			button19[8] = UI_button_color
-			defineButtons()	
+			redrawEverything()
+			#defineButtons()	
 
 
 	print "updateStickyButtons() - completed"
 	return
 	
 
+
+
+## ############################################################################################
+## UPDATE GROUP BUTTONS
 def updateGroupButtons(selected_button):
 	print "running update group buttons"
 
@@ -668,7 +678,18 @@ def count_fps():
 		cSec = time.strftime("%S")
 
 
+def redrawEverything():
+	print "drawing background"
+	screen.fill(background_color)
 
+	print "drawing borders and frames"
+	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
+	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
+
+	print "redifining buttons and redrawing"
+	defineButtons()
+	for i, button in enumerate(my_buttons):
+		button.display()
 
 
 
