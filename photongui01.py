@@ -355,10 +355,44 @@ button19[8] = UI_button_color					# buttonColor
 button19[9] = "fps"							# buttonGroup
 button19[10] = True							# buttonVisible
 
+button20 = {}
+button20[0] = "scale"							# button_name
+button20[1] = 0								# button_origin_x
+button20[2] = pygame_window_height - 480		# button_origin_y
+button20[3] = UI_sideBar_width				# button_width
+button20[4] = 20								# button_height
+button20[5] = "Scale          |<-  --  ->|"			# button_label_txt
+button20[6] = "sticky"						# buttonType
+button20[7] = False							# buttonEnabled
+button20[8] = UI_button_color					# buttonColor
+button20[9] = "scale"							# buttonGroup
+button20[10] = True							# buttonVisible
 
+button21 = {}
+button21[0] = "grid"							# button_name
+button21[1] = 0								# button_origin_x
+button21[2] = pygame_window_height - 500		# button_origin_y
+button21[3] = UI_sideBar_width				# button_width
+button21[4] = 20								# button_height
+button21[5] = "Grid                          #"				# button_label_txt
+button21[6] = "sticky"						# buttonType
+button21[7] = False							# buttonEnabled
+button21[8] = UI_button_color					# buttonColor
+button21[9] = "grid"							# buttonGroup
+button21[10] = True							# buttonVisible
 
-
-
+button22 = {}
+button22[0] = "origin"						# button_name
+button22[1] = 0								# button_origin_x
+button22[2] = pygame_window_height - 520		# button_origin_y
+button22[3] = UI_sideBar_width				# button_width
+button22[4] = 20								# button_height
+button22[5] = "Origin                      +"				# button_label_txt
+button22[6] = "sticky"						# buttonType
+button22[7] = False							# buttonEnabled
+button22[8] = UI_button_color					# buttonColor
+button22[9] = "origin"						# buttonGroup
+button22[10] = True							# buttonVisible
 
 
 allButtons = {}
@@ -382,6 +416,9 @@ allButtons[16] = button16 	# group03 button 01
 allButtons[17] = button17		# group03 button 02
 allButtons[18] = button18		# group03 button 03
 allButtons[19] = button19		# FPS display
+allButtons[20] = button20 	# display scale
+allButtons[21] = button21 	# display grid
+allButtons[22] = button22 	# display origin
 
 
 
