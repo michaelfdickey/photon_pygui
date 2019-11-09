@@ -569,7 +569,48 @@ def updateGroupButtons(selected_button):
 			defineButtons()
 
 
+	# # Group 03 processing
+	if selected_button == "Group03Button01":
+		
+		if button16[7] == False:
+			button16[7] = True
+			button16[8] = UI_button_selected_color
+			
+			button17[7] = False
+			button17[8] = UI_button_color
+			
+			button18[7] = False
+			button18[8] = UI_button_color
 
+			defineButtons()	
+
+	if selected_button == "Group03Button02":
+		
+		if button17[7] == False:
+			button17[7] = True
+			button17[8] = UI_button_selected_color
+			
+			button16[7] = False
+			button16[8] = UI_button_color
+			
+			button18[7] = False
+			button18[8] = UI_button_color
+
+			defineButtons()	
+
+	if selected_button == "Group03Button03":
+		
+		if button18[7] == False:
+			button18[7] = True
+			button18[8] = UI_button_selected_color
+			
+			button16[7] = False
+			button16[8] = UI_button_color
+			
+			button17[7] = False
+			button17[8] = UI_button_color
+
+			defineButtons()	
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
