@@ -406,6 +406,83 @@ button23[8] = UI_button_color					# buttonColor
 button23[9] = "origin"						# buttonGroup
 button23[10] = True							# buttonVisible
 
+button24 = {}
+button24[0] = "dropdownLabel"					# button_name
+button24[1] = 0								# button_origin_x
+button24[2] = pygame_window_height - 600		# button_origin_y
+button24[3] = UI_sideBar_width				# button_width
+button24[4] = 20								# button_height
+button24[5] = "Dropdown 01"					# button_label_txt
+button24[6] = "label"							# buttonType
+button24[7] = False							# buttonEnabled
+button24[8] = UI_button_color					# buttonColor
+button24[9] = "dropdown01"					# buttonGroup
+button24[10] = True							# buttonVisible
+
+button25 = {}
+button25[0] = "dropdown01Label"				# button_name
+button25[1] = 0								# button_origin_x
+button25[2] = pygame_window_height - 580		# button_origin_y
+button25[3] = UI_sideBar_width - 20			# button_width
+button25[4] = 20								# button_height
+button25[5] = "- select -"						# button_label_txt
+button25[6] = "dropdown"						# buttonType
+button25[7] = False							# buttonEnabled
+button25[8] = UI_button_color					# buttonColor
+button25[9] = "dropdown01"					# buttonGroup
+button25[10] = True							# buttonVisible
+
+button26 = {}
+button26[0] = "dropdown01opener"				# button_name
+button26[1] = UI_sideBar_width - 20			# button_origin_x
+button26[2] = pygame_window_height - 580		# button_origin_y
+button26[3] = 20								# button_width
+button26[4] = 20								# button_height
+button26[5] = ">>"							# button_label_txt
+button26[6] = "dropdown"						# buttonType
+button26[7] = False							# buttonEnabled
+button26[8] = UI_button_color					# buttonColor
+button26[9] = "dropdown01"					# buttonGroup
+button26[10] = True							# buttonVisible
+
+button27 = {}
+button27[0] = "dropdown01option01"			# button_name
+button27[1] = UI_sideBar_width				# button_origin_x
+button27[2] = pygame_window_height - 580		# button_origin_y
+button27[3] = 140								# button_width
+button27[4] = 20								# button_height
+button27[5] = " Option 1"						# button_label_txt
+button27[6] = "dropdown"						# buttonType
+button27[7] = False							# buttonEnabled
+button27[8] = UI_button_color					# buttonColor
+button27[9] = "dropdown01"					# buttonGroup
+button27[10] = True							# buttonVisible
+
+button28 = {}
+button28[0] = "dropdown01option02"			# button_name
+button28[1] = UI_sideBar_width				# button_origin_x
+button28[2] = pygame_window_height - 560		# button_origin_y
+button28[3] = 140								# button_width
+button28[4] = 20								# button_height
+button28[5] = " Option 2"						# button_label_txt
+button28[6] = "dropdown"						# buttonType
+button28[7] = False							# buttonEnabled
+button28[8] = UI_button_color					# buttonColor
+button28[9] = "dropdown01"					# buttonGroup
+button28[10] = True							# buttonVisible
+
+button29 = {}
+button29[0] = "dropdown01option03"			# button_name
+button29[1] = UI_sideBar_width				# button_origin_x
+button29[2] = pygame_window_height - 540		# button_origin_y
+button29[3] = 140								# button_width
+button29[4] = 20								# button_height
+button29[5] = " Option 3"						# button_label_txt
+button29[6] = "dropdown"						# buttonType
+button29[7] = False							# buttonEnabled
+button29[8] = UI_button_color					# buttonColor
+button29[9] = "dropdown01"					# buttonGroup
+button29[10] = True							# buttonVisible
 
 
 allButtons = {}
@@ -433,8 +510,12 @@ allButtons[20] = button20 	# display scale
 allButtons[21] = button21 	# display grid
 allButtons[22] = button22 	# display origin
 allButtons[23] = button23		# display options label
-
-
+allButtons[24] = button24 	# Dropdown01 - Label
+allButtons[25] = button25		# Dropdown01 - selected display
+allButtons[26] = button26		# Dropdown01 - opener
+allButtons[27] = button27		# Dropdown01 - option1
+allButtons[28] = button28		# Dropdown01 - option2
+allButtons[29] = button29		# Dropdown01 - option3
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -847,7 +928,6 @@ class Button:
 
 		# render "pushy" type buttons
 		if self.buttonType == "pushy":
-			#print "drawing pushy button: ", self.button_name
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
@@ -856,7 +936,6 @@ class Button:
 
 		# render "sticky" type buttons
 		elif self.buttonType == "sticky":	
-			#print "drawing sticky button: ", self.button_name	
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
@@ -865,23 +944,27 @@ class Button:
 
 		# render "label" type buttons
 		elif self.buttonType == "label":
-			#print "drawing label: ", self.button_name
 			self.color = UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
-			#pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
 		# render "group" type buttons
 		elif self.buttonType == "group":	
-			#print "drawing sticky button: ", self.button_name	
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
+		# render "dropdown" type buttons
+		elif self.buttonType == "dropdown":	
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
 
 
 # ************************************************************************************************************************
