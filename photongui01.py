@@ -543,7 +543,7 @@ def defineStaticElements():
 		elementVisible = elementToDraw[9]
 
 		# define element then add element to display list
-		created_element = Button((element_x_start,element_y_start), element_name, element_x_end, element_y_end, element_thickness, elementColor, ElementType, elementGroup, elementVisible)
+		created_element = StaticElements((element_x_start,element_y_start), element_name, element_x_end, element_y_end, element_thickness, elementColor, elementType, elementGroup, elementVisible)
 		my_staticElements.append(created_element)
 
 
@@ -663,11 +663,13 @@ def updateStickyButtons(selected_button):
 			button22[7] = True
 			button22[8] = UI_button_selected_color
 			defineButtons()	
+			redrawEverything()
 			
 		elif button22[7] == True:
 			button22[7] = False
 			button22[8] = UI_button_color
 			defineButtons()
+			redrawEverything()
 
 
 
@@ -813,6 +815,10 @@ def redrawEverything():
 	print "drawing background"
 	screen.fill(background_color)
 
+	# check if draw origin is enabled, and draw if so. 
+	if button22[7] == True:
+		drawOrigin()
+
 	print "drawing borders and frames"
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
@@ -823,7 +829,10 @@ def redrawEverything():
 		button.display()
 
 
-
+# # Draw origin grid lines
+def drawOrigin():
+	pygame.draw.lines(screen, red, False, [((pygame_window_width / 2),0),((pygame_window_width / 2 ),pygame_window_height)],1)
+	pygame.draw.lines(screen, red, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],1)
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -890,8 +899,26 @@ class Button:
 			screen.blit(label, (self.x + 5, self.y))
 
 
+# # DisplayStatic Elements
 
+class StaticElements:
+	def __init__ (self, (element_x_start,element_y_start), element_x_end, element_y_end, element_name, element_thickness, elementColor, elementType, elementGroup, elementVisible):
+		self.element_x_start = element_x_start
+		self.element_y_start = element_y_start
+		self.element_x_end = element_x_end
+		self.element_y_end = element_y_end
+		self.element_name = element_name
+		self.element_thickness = element_thickness
+		self.elementColor = elementColor
+		self.elementType = elementType
+		self.elementGroup = elementGroup
+		self.elementVisible = elementVisible
 
+	def display(self):
+		print "drawing static element line"
+		print "self.element_x_start = ", self.element_x_start
+		if self.elementType == "line":
+			pygame.draw.lines(screen, self.elementColor, True, [(self.element_x_start,self.element_y_start), (self.element_x_end,self.element_y_end)], self.element_thickness)
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -907,10 +934,12 @@ print "initializing pygame display"
 screen = pygame.display.set_mode((pygame_window_width, pygame_window_height))
 pygame.display.set_caption('My Program Name')
 
-
 # # #  draw background
 print "drawing background"
 screen.fill(background_color)
+
+
+
 
 # # draw borders & frames for interface
 print "drawing borders and frames"
@@ -922,6 +951,13 @@ print "____drawing buttons in initialization"
 defineButtons()
 for i, button in enumerate(my_buttons):
 	button.display()
+
+"""
+# # test draw origin
+defineStaticElements()
+for i, element in enumerate(my_staticElements):
+	element.display()
+"""
 
 
 ########## EVENT MONITORING / UPDATE DISPLAY ########### 
@@ -935,6 +971,7 @@ while running:
 		pygame.draw.rect(screen, blue, (pygame_window_width - 100, pygame_window_height - 30, 80, 20))   
 		count_fps()
 		show_fps()
+
 
 
 	for event in pygame.event.get():
