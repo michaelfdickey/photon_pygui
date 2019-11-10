@@ -211,7 +211,6 @@ button08[8] = UI_label_color
 button08[9] = "sticky_buttons"
 button08[10] = True
 
-
 button09 = {}
 button09[0] = "group01_label"					# button_name
 button09[1] = 0								# button_origin_x
@@ -394,6 +393,20 @@ button22[8] = UI_button_color					# buttonColor
 button22[9] = "origin"						# buttonGroup
 button22[10] = True							# buttonVisible
 
+button23 = {}
+button23[0] = "displayLabel"					# button_name
+button23[1] = 0								# button_origin_x
+button23[2] = pygame_window_height - 540		# button_origin_y
+button23[3] = UI_sideBar_width				# button_width
+button23[4] = 20								# button_height
+button23[5] = "Display"						# button_label_txt
+button23[6] = "label"							# buttonType
+button23[7] = False							# buttonEnabled
+button23[8] = UI_button_color					# buttonColor
+button23[9] = "origin"						# buttonGroup
+button23[10] = True							# buttonVisible
+
+
 
 allButtons = {}
 allButtons[0] = button00		# exit button
@@ -419,9 +432,45 @@ allButtons[19] = button19		# FPS display
 allButtons[20] = button20 	# display scale
 allButtons[21] = button21 	# display grid
 allButtons[22] = button22 	# display origin
+allButtons[23] = button23		# display options label
 
 
 
+
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+# 	Static Element dictionary 	#
+# ************************************************************************************************************************
+# ************************************************************************************************************************
+
+
+staticElement0 = {}
+staticElement0[0] = "originHorizontal"			# elementName
+staticElement0[1] = 0								# x_start
+staticElement0[2] = pygame_window_width			# x_end or x_width
+staticElement0[3] = pygame_window_height / 2		# y_start
+staticElement0[4] = pygame_window_height / 2		# y_end or y_width
+staticElement0[5] = 1								# thickness or...
+staticElement0[6] = red							# color
+staticElement0[7] = "line"						# elementType (line, box, circle, etc)
+staticElement0[8] = "origin"						# elementGroup
+staticElement0[9] = True							# elementVisible
+
+staticElement1 = {}
+staticElement1[0] = "originVertical"				# elementName
+staticElement1[1] = pygame_window_width / 2		# x_start
+staticElement1[2] = pygame_window_width / 2		# x_end or x_width
+staticElement1[3] = 0								# y_start
+staticElement1[4] = pygame_window_height			# y_end or y_width
+staticElement1[5] = 1								# thickness or...
+staticElement1[6] = red							# color
+staticElement1[7] = "line"						# elementType (line, box, circle, etc)
+staticElement1[8] = "origin"						# elementGroup
+staticElement1[9] = True							# elementVisible
+
+allStaticElements = {}
+allStaticElements[0] = staticElement0				# origin X axis
+allStaticElements[1] = staticElement1				# origin Y axis
 
 
 # ************************************************************************************************************************
@@ -436,6 +485,7 @@ buttonToDraw = {}			#each button is loaded into this dictionary, added to my_but
 
 
 # # #########################################################################################
+# # # DEFINE BUTTONS
 def defineButtons():
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
 	print "defineButtons() - started"
@@ -466,6 +516,42 @@ def defineButtons():
 
 
 
+
+# # #########################################################################################
+# # # DEFINE STATIC ELEMENTS
+my_staticElements = []			#initializes my_staticElements list, each element is added to this for display
+elementToDraw = {}			#each element is loaded into this dictionary, added to my_elements list
+
+def defineStaticElements():
+	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
+	print "defineStaticElements() - started"
+	# iterates through the nested element dictionary, dumps each element into elementToDraw, then displays ads to the list
+	for allStaticElementsID, allStaticElementsValue in allStaticElements.items():
+		for key in allStaticElementsValue:
+			elementToDraw[key] = allStaticElementsValue[key]
+
+		### -------------------------- ###
+		element_name = elementToDraw[0]
+		element_x_start = elementToDraw[1]
+		element_x_end = elementToDraw[2]
+		element_y_start = elementToDraw[3]
+		element_y_end = elementToDraw[4]
+		element_thickness = elementToDraw[5]
+		elementColor= elementToDraw[6]
+		elementType = elementToDraw[7]
+		elementGroup = elementToDraw[8]
+		elementVisible = elementToDraw[9]
+
+		# define element then add element to display list
+		created_element = Button((element_x_start,element_y_start), element_name, element_x_end, element_y_end, element_thickness, elementColor, ElementType, elementGroup, elementVisible)
+		my_staticElements.append(created_element)
+
+
+	print "defineStaticElements() - completed"
+
+
+
+
 # # #########################################################################################
 # # This figures out which button was clicked
 def findButton(buttons, x, y):
@@ -477,11 +563,6 @@ def findButton(buttons, x, y):
 						print "selected button label_txt = ", b.button_name
 						return b
 	return None
-
-
-
-
-
 
 
 
@@ -564,6 +645,7 @@ def updateStickyButtons(selected_button):
 			defineButtons()			
 
 
+	# # # FPS BUTTON
 	if selected_button == "fps":
 		if button19[7] == False:
 			button19[7] = True
@@ -574,7 +656,19 @@ def updateStickyButtons(selected_button):
 			button19[7] = False
 			button19[8] = UI_button_color
 			redrawEverything()
-			#defineButtons()	
+
+	# # # ORIGIN BUTTON
+	if selected_button == "origin":
+		if button22[7] == False:
+			button22[7] = True
+			button22[8] = UI_button_selected_color
+			defineButtons()	
+			
+		elif button22[7] == True:
+			button22[7] = False
+			button22[8] = UI_button_color
+			defineButtons()
+
 
 
 	print "updateStickyButtons() - completed"
@@ -714,7 +808,7 @@ def count_fps():
 		cFrame = 0
 		cSec = time.strftime("%S")
 
-
+# # Redraw the backgroundm, buttons, screen, etc. 
 def redrawEverything():
 	print "drawing background"
 	screen.fill(background_color)
