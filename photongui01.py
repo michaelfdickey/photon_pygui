@@ -602,6 +602,20 @@ def updateStickyButtons(selected_button):
 			redrawEverything()
 
 
+	# # # GRID BUTTON
+	if selected_button == "grid":
+		if button21[7] == False:
+			button21[7] = True
+			button21[8] = UI_button_selected_color
+			defineButtons()	
+			redrawEverything()
+			
+		elif button21[7] == True:
+			button21[7] = False
+			button21[8] = UI_button_color
+			defineButtons()
+			redrawEverything()
+
 
 	print "updateStickyButtons() - completed"
 	return
@@ -747,6 +761,10 @@ def redrawEverything():
 	print "drawing background"
 	screen.fill(background_color)
 
+	# check if draw grids is enabled, and draw if so
+	if button21[7] == True:
+		drawGrid()
+
 	# check if draw origin is enabled, and draw if so. 
 	if button22[7] == True:
 		drawOrigin()
@@ -761,10 +779,44 @@ def redrawEverything():
 		button.display()
 
 
-# # Draw origin grid lines
+# # Draw origin lines
 def drawOrigin():
-	pygame.draw.lines(screen, red, False, [((pygame_window_width / 2),0),((pygame_window_width / 2 ),pygame_window_height)],1)
-	pygame.draw.lines(screen, red, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],1)
+	pygame.draw.lines(screen, red, False, [((pygame_window_width / 2),0),((pygame_window_width / 2 ),pygame_window_height)],2)
+	pygame.draw.lines(screen, red, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],2)
+
+
+# # Draw grid lines
+def drawGrid():
+	# # Draw grid
+	grid_width = pygame_window_width / 10
+	grid_height = pygame_window_height / 10
+
+	pygame.draw.lines(screen, yellow, False, [((pygame_window_width / 2),0),((pygame_window_width / 2 ),pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width,0),(grid_width,pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width * 2,0),(grid_width * 2,pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width * 3,0),(grid_width * 3,pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width * 4,0),(grid_width * 4,pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width * 6,0),(grid_width * 6,pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width * 7,0),(grid_width * 7,pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width * 8,0),(grid_width * 8,pygame_window_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(grid_width * 9,0),(grid_width * 9,pygame_window_height)],1)
+
+	pygame.draw.lines(screen, yellow, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height), (pygame_window_height,grid_height)],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 2), (pygame_window_height,grid_height * 2)],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 3), (pygame_window_height,grid_height * 3)],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 4), (pygame_window_height,grid_height * 4)],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 6), (pygame_window_height,grid_height * 6)],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 7), (pygame_window_height,grid_height * 7)],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 8), (pygame_window_height,grid_height * 8)],1)
+	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 9), (pygame_window_height,grid_height * 9)],1)	
+
+
+
+
+
+
+
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -861,14 +913,18 @@ defineButtons()
 for i, button in enumerate(my_buttons):
 	button.display()
 
+
+
+
+
 """
 # # test draw origin
 defineStaticElements()
 for i, element in enumerate(my_staticElements):
 	element.display()
 """
-
-
+ 
+ 
 ########## EVENT MONITORING / UPDATE DISPLAY ########### 
 
 
