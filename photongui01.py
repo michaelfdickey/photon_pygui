@@ -12,6 +12,7 @@ import random
 import math
 import sys
 import time 			# for FPS functions
+import inspect		# for displaying the line number of the code in print commands
 
 
 # ************************************************************************************
@@ -456,7 +457,7 @@ button27[6] = "dropdown"						# buttonType
 button27[7] = False							# buttonEnabled
 button27[8] = UI_button_color					# buttonColor
 button27[9] = "dropdown01"					# buttonGroup
-button27[10] = True							# buttonVisible
+button27[10] = False							# buttonVisible
 
 button28 = {}
 button28[0] = "dropdown01option02"			# button_name
@@ -469,7 +470,7 @@ button28[6] = "dropdown"						# buttonType
 button28[7] = False							# buttonEnabled
 button28[8] = UI_button_color					# buttonColor
 button28[9] = "dropdown01"					# buttonGroup
-button28[10] = True							# buttonVisible
+button28[10] = False						# buttonVisible
 
 button29 = {}
 button29[0] = "dropdown01option03"			# button_name
@@ -479,10 +480,10 @@ button29[3] = 140								# button_width
 button29[4] = 20								# button_height
 button29[5] = " Option 3"						# button_label_txt
 button29[6] = "dropdown"						# buttonType
-button29[7] = False							# buttonEnabled
+button29[7] = False							# buttonEnabledsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 button29[8] = UI_button_color					# buttonColor
 button29[9] = "dropdown01"					# buttonGroup
-button29[10] = True							# buttonVisible
+button29[10] = False							# buttonVisible
 
 
 allButtons = {}
@@ -528,13 +529,18 @@ my_buttons = []			#initializes my_buttons list, each button is added to this for
 buttonToDraw = {}			#each button is loaded into this dictionary, added to my_buttons list
 
 
+def lineNum():
+    """Returns the current line number in our program."""
+    return inspect.currentframe().f_back.f_lineno
+
+
 # # #########################################################################################
 # # # DEFINE BUTTONS
 # # #########################################################################################
 
 def defineButtons():
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
-	print "defineButtons() - started"
+	print "defineButtons() - started", lineNum()
 	# iterates through the nested button dictionary, dumps each button into buttonToDraw, then displays ads to the list
 	for allButtonsID, allButtonsValue in allButtons.items():
 		for key in allButtonsValue:
@@ -590,7 +596,9 @@ def updatePushyButtons(selected_button):
 
 
 ############################################################################################
+# # UPDATE STICKY BUTTONS
 # # this updates sticky buttons  based on actions taken
+############################################################################################
 buttonToCheck = {}
 def updateStickyButtons(selected_button):
 	print "updateStickyButtons() - started"
@@ -823,6 +831,49 @@ def updateGroupButtons(selected_button):
 			defineButtons()	
 
 
+## ############################################################################################
+## UPDATE DROPDOWN BUTTONS
+## ############################################################################################
+
+def updateDropdownButtons(selected_button):
+	print "running update Dropdown buttons"
+
+	if selected_button == "dropdown01opener":
+		if button26[7] == False:
+			# update this button
+			button26[7] = True
+			button26[8] = UI_button_selected_color
+			button26[5] = "<<"
+
+			# update associated buttons
+			button27[10] = True	
+			button28[10] = True
+			button29[10] = True
+
+			defineButtons()	
+			
+		elif button26[7] == True:
+			# udapte this button
+			print button26[0], "enabled was: ", button26[7]
+			button26[7] = False
+			button26[8] = UI_button_color
+			button26[5] = ">>"
+			print button26[0], "enabled:", button26[7], "visible:", button26[10]
+
+			# update associated buttons
+			button27[10] = False
+			button28[10] = False
+			button29[10] = False
+			print "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+
+			defineButtons()
+			#redrawEverything()
+
+
+
+
+
+
 # # FPS related Functions
 def show_fps():
 	fps_overlay = fps_font.render("FPS:"+str(FPS), True, UI_button_txt_color)
@@ -839,6 +890,8 @@ def count_fps():
 
 # # Redraw the backgroundm, buttons, screen, etc. 
 def redrawEverything():
+	print "redrawEverything() - started"
+	
 	print "drawing background"
 	screen.fill(background_color)
 
@@ -859,6 +912,7 @@ def redrawEverything():
 	for i, button in enumerate(my_buttons):
 		button.display()
 
+	print "redrawEverything() - completed"
 
 # # Draw origin lines
 def drawOrigin():
@@ -960,11 +1014,17 @@ class Button:
 
 		# render "dropdown" type buttons
 		elif self.buttonType == "dropdown":	
-			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
-			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+			if self.buttonVisible == True:
+				print "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
+				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
-			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
-			screen.blit(label, (self.x + 5, self.y))
+				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)						# set label
+				screen.blit(label, (self.x + 5, self.y))														# draw label
+
+			elif self.buttonVisible == False:
+				print self.button_name, "visible is: ", self.buttonVisible
+
 
 
 # ************************************************************************************************************************
@@ -977,39 +1037,31 @@ class Button:
 ## If this is in the main loop, FPS goes way down, only refresh what's needed ##
 
 # # Pygame display
-print "initializing pygame display"
+print "starting MAIN code"
+
+print "- initializing pygame display"
 screen = pygame.display.set_mode((pygame_window_width, pygame_window_height))
 pygame.display.set_caption('My Program Name')
 
 # # #  draw background
-print "drawing background"
+print "- drawing background"
 screen.fill(background_color)
 
 # # draw borders & frames for interface
-print "drawing borders and frames"
+print "- drawing borders and frames"
 pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
 # # draw buttons!
-print "____drawing buttons in initialization"
+print "- drawing buttons"
 defineButtons()
 for i, button in enumerate(my_buttons):
 	button.display()
 
+print "initializing display completed"
 
 
-
-
-"""
-# # test draw origin
-defineStaticElements()
-for i, element in enumerate(my_staticElements):
-	element.display()
-"""
- 
- 
 ########## EVENT MONITORING / UPDATE DISPLAY ########### 
-
 
 running = True
 
@@ -1098,6 +1150,10 @@ while running:
 				if selected_button.buttonType == "group":
 					print "running group type button event"
 					updateGroupButtons(selected_button.button_name)
+
+				if selected_button.buttonType == "dropdown":
+					print "running dropdown button event"
+					updateDropdownButtons(selected_button.button_name)
 				
 
 		if event.type == pygame.MOUSEBUTTONUP:
