@@ -891,28 +891,38 @@ def updateDropdownButtons(selected_button):
 
 	if selected_button == "dropdown01option01":
 		button25[5] = "Option 01"
+		button27[8] = UI_button_selected_color
+		button28[8] = UI_button_color
+		button29[8] = UI_button_color
 		defineButtons()
 
 	if selected_button == "dropdown01option02":
 		button25[5] = "Option 02"
+		button27[8] = UI_button_color
+		button28[8] = UI_button_selected_color
+		button29[8] = UI_button_color		
 		defineButtons()
 
 	if selected_button == "dropdown01option03":
 		button25[5] = "Option 03"
+		button27[8] = UI_button_color
+		button28[8] = UI_button_color
+		button29[8] = UI_button_selected_color
 		defineButtons()
 
 	if selected_button == "dropdown01Label":
-		if button25[7] == False:
-			button25[7] = True
-			button25[8] = UI_button_selected_color
-			defineButtons()	
-			redrawEverything()
-			
-		elif button25[7] == True:
-			button25[7] = False
-			button25[8] = UI_button_color
-			defineButtons()
-			redrawEverything()
+		if button25[5] != "- select -":
+			if button25[7] == False:
+				button25[7] = True
+				button25[8] = UI_button_selected_color
+				defineButtons()	
+				redrawEverything()
+				
+			elif button25[7] == True:
+				button25[7] = False
+				button25[8] = UI_button_color
+				defineButtons()
+				redrawEverything()
 
 # # FPS related Functions
 def show_fps():
