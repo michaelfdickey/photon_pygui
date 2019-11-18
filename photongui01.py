@@ -875,8 +875,8 @@ def updateDropdownButtons(selected_button):
 			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 
 			screen.fill(background_color)
-			#defineButtons()
-			#redrawEverything()
+			defineButtons()
+			redrawEverything()
 
 			print lineNum(), button26[0], "enabled:", button26[7], "visible:", button26[10]
 			print " --------------------------------------- "
@@ -1025,27 +1025,35 @@ class Button:
 			screen.blit(label, (self.x + 5, self.y))
 
 		# checking when this flips back to true
-		print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+		#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 
 		# render "dropdown" type buttons
 		if self.buttonType == "dropdown":	
+			
+			# next three are added because for some reason buttonVisible flips from false to true during iteration through class. 
+			# figure the cause our later, for now it works. 
 			if self.button_name == "dropdown01option01":
 				self.buttonVisible = button27[10]
-			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
-			print lineNum(), self.button_name, "buttonVisible?:", self.buttonVisible
+			if self.button_name == "dropdown01option02":
+				self.buttonVisible = button28[10]
+			if self.button_name == "dropdown01option03":
+				self.buttonVisible = button29[10]
+			
+			#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+			#print lineNum(), self.button_name, "buttonVisible?:", self.buttonVisible
 			#raw_input("Press Enter to continue...")
 			print "self.buttonVisible type = ", type(self.buttonVisible)
 			if self.buttonVisible == True:
-				print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
+				#print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)						# set label
 				screen.blit(label, (self.x + 5, self.y))														# draw label
 
-			elif self.buttonVisible == False:
-				print lineNum(), self.button_name, "visible is: ", self.buttonVisible
-				print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+			#elif self.buttonVisible == False:
+			#	print lineNum(), self.button_name, "visible is: ", self.buttonVisible
+				#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 
 
 # ************************************************************************************************************************
