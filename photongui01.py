@@ -540,7 +540,7 @@ def lineNum():
 
 def defineButtons():
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
-	print "defineButtons() - started", lineNum()
+	print lineNum(), "defineButtons() - started" 
 	# iterates through the nested button dictionary, dumps each button into buttonToDraw, then displays ads to the list
 	for allButtonsID, allButtonsValue in allButtons.items():
 		for key in allButtonsValue:
@@ -564,7 +564,7 @@ def defineButtons():
 		my_buttons.append(created_button)
 
 
-	print "defineButtons() - completed"
+	print lineNum(), "defineButtons() - completed"
 
 
 
@@ -577,7 +577,7 @@ def findButton(buttons, x, y):
 			if x >= b.x:
 				if y >= b.y:
 					if y <= b.y + b.y_height:
-						print "selected button label_txt = ", b.button_name
+						print lineNum(), "selected button label_txt = ", b.button_name
 						return b
 	return None
 
@@ -587,7 +587,7 @@ def findButton(buttons, x, y):
 # # #########################################################################################
 # # this updates pushy buttons
 def updatePushyButtons(selected_button):
-	print "updating pushy buttons"
+	print lineNum(), "updating pushy buttons"
 
 """
 	MOVE PUSHY BUTTON PROCESSING HERE
@@ -601,66 +601,66 @@ def updatePushyButtons(selected_button):
 ############################################################################################
 buttonToCheck = {}
 def updateStickyButtons(selected_button):
-	print "updateStickyButtons() - started"
-	print "selected_button = ", selected_button
+	print lineNum(), "updateStickyButtons() - started"
+	print lineNum(), "selected_button = ", selected_button
 
 	"""
 	# for sticky buttons, iterate through nested allButtons dictionary and flip buttonEnabled
 	for allButtonsID, allButtonsValue in allButtons.items():
 		for key in allButtonsValue:
-			#print "key", key
+			#print lineNum(), "key", key
 			#buttonToCheck[key] = allButtonsValue[key]
-			#print "buttonToCheck", key, allButtonsValue[key]
+			#print lineNum(), "buttonToCheck", key, allButtonsValue[key]
 			if allButtonsValue[key] == "sticky":
-				print "found a sticky button"
-				print "key, ", key, "value", allButtonsValue[key]
-				#print "buttonToCheck", key, allButtonsValue[key]
+				print lineNum(), "found a sticky button"
+				print lineNum(), "key, ", key, "value", allButtonsValue[key]
+				#print lineNum(), "buttonToCheck", key, allButtonsValue[key]
 	"""
 	
 	if selected_button == "sticky01":
 		if button04[7] == False:
-			print "sticky01 button found"
+			print lineNum(), "sticky01 button found"
 			button04[7] = True
 			button04[8] = UI_button_selected_color
-			print "flipped sticky01 from false to true"
+			print lineNum(), "flipped sticky01 from false to true"
 			defineButtons()	
 			
 		elif button04[7] == True:
-			print "sticky01 button found"
+			print lineNum(), "sticky01 button found"
 			button04[7] = False
 			button04[8] = UI_button_color
-			print "flipped stick01 from true to false"
+			print lineNum(), "flipped stick01 from true to false"
 			defineButtons()
 
 	if selected_button == "sticky02":
 		if button05[7] == False:
-			print "sticky02 button found"
+			print lineNum(), "sticky02 button found"
 			button05[7] = True
 			button05[8] = UI_button_selected_color
-			print "flipped sticky02 from false to true"
+			print lineNum(), "flipped sticky02 from false to true"
 			defineButtons()	
 			
 		elif button05[7] == True:
-			print "sticky02 button found"
+			print lineNum(), "sticky02 button found"
 			button05[7] = False
 			button05[8] = UI_button_color
-			print "flipped sticky02 from true to false"
+			print lineNum(), "flipped sticky02 from true to false"
 			defineButtons()
 
 
 	if selected_button == "sticky03":
 		if button06[7] == False:
-			print "sticky03 button found"
+			print lineNum(), "sticky03 button found"
 			button06[7] = True
 			button06[8] = UI_button_selected_color
-			print "flipped sticky03 from false to true"
+			print lineNum(), "flipped sticky03 from false to true"
 			defineButtons()	
 			
 		elif button06[7] == True:
-			print "sticky03 button found"
+			print lineNum(), "sticky03 button found"
 			button06[7] = False
 			button06[8] = UI_button_color
-			print "flipped sticky03 from true to false"
+			print lineNum(), "flipped sticky03 from true to false"
 			defineButtons()			
 
 
@@ -706,7 +706,7 @@ def updateStickyButtons(selected_button):
 			redrawEverything()
 
 
-	print "updateStickyButtons() - completed"
+	print lineNum(), "updateStickyButtons() - completed"
 	return
 	
 
@@ -717,7 +717,7 @@ def updateStickyButtons(selected_button):
 ## ############################################################################################
 
 def updateGroupButtons(selected_button):
-	print "running update group buttons"
+	print lineNum(), "running update group buttons"
 
 	# # Group 01 processing
 	if selected_button == "Group01Button01":
@@ -836,10 +836,11 @@ def updateGroupButtons(selected_button):
 ## ############################################################################################
 
 def updateDropdownButtons(selected_button):
-	print "running update Dropdown buttons"
+	print lineNum(), "running update Dropdown buttons"
 
 	if selected_button == "dropdown01opener":
 		if button26[7] == False:
+			print lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
 			# update this button
 			button26[7] = True
 			button26[8] = UI_button_selected_color
@@ -851,26 +852,37 @@ def updateDropdownButtons(selected_button):
 			button29[10] = True
 
 			defineButtons()	
+
+			print lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
+			print lineNum(), button26[0], "enabled:", button26[7], "visible:", button26[10]
 			
 		elif button26[7] == True:
+			print " --------------------------------------- "
+			print lineNum(), "STARTED dropdown true to false "
+			print " --------------------------------------- "
+
 			# udapte this button
-			print button26[0], "enabled was: ", button26[7]
+			print lineNum(), button26[0], "enabled was: ", button26[7]
 			button26[7] = False
 			button26[8] = UI_button_color
 			button26[5] = ">>"
-			print button26[0], "enabled:", button26[7], "visible:", button26[10]
+			print lineNum(), button26[0], "enabled:", button26[7], "visible:", button26[10]
 
 			# update associated buttons
 			button27[10] = False
 			button28[10] = False
 			button29[10] = False
-			print "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 
-			defineButtons()
+			screen.fill(background_color)
+			#defineButtons()
 			#redrawEverything()
 
-
-
+			print lineNum(), button26[0], "enabled:", button26[7], "visible:", button26[10]
+			print " --------------------------------------- "
+			print lineNum(), "FINISHED dropdown true to false "
+			print " --------------------------------------- "
+			print type(button27[10])
 
 
 
@@ -890,9 +902,9 @@ def count_fps():
 
 # # Redraw the backgroundm, buttons, screen, etc. 
 def redrawEverything():
-	print "redrawEverything() - started"
+	print lineNum(), "redrawEverything() - started"
 	
-	print "drawing background"
+	print lineNum(), "drawing background"
 	screen.fill(background_color)
 
 	# check if draw grids is enabled, and draw if so
@@ -903,16 +915,16 @@ def redrawEverything():
 	if button22[7] == True:
 		drawOrigin()
 
-	print "drawing borders and frames"
+	print lineNum(), "drawing borders and frames"
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
-	print "redifining buttons and redrawing"
+	print lineNum(), "redifining buttons and redrawing"
 	defineButtons()
 	for i, button in enumerate(my_buttons):
 		button.display()
 
-	print "redrawEverything() - completed"
+	print lineNum(), "redrawEverything() - completed"
 
 # # Draw origin lines
 def drawOrigin():
@@ -1012,10 +1024,19 @@ class Button:
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
+		# checking when this flips back to true
+		print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+
 		# render "dropdown" type buttons
-		elif self.buttonType == "dropdown":	
+		if self.buttonType == "dropdown":	
+			if self.button_name == "dropdown01option01":
+				self.buttonVisible = button27[10]
+			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+			print lineNum(), self.button_name, "buttonVisible?:", self.buttonVisible
+			#raw_input("Press Enter to continue...")
+			print "self.buttonVisible type = ", type(self.buttonVisible)
 			if self.buttonVisible == True:
-				print "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
+				print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
@@ -1023,8 +1044,8 @@ class Button:
 				screen.blit(label, (self.x + 5, self.y))														# draw label
 
 			elif self.buttonVisible == False:
-				print self.button_name, "visible is: ", self.buttonVisible
-
+				print lineNum(), self.button_name, "visible is: ", self.buttonVisible
+				print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 
 
 # ************************************************************************************************************************
@@ -1037,28 +1058,28 @@ class Button:
 ## If this is in the main loop, FPS goes way down, only refresh what's needed ##
 
 # # Pygame display
-print "starting MAIN code"
+print lineNum(), "starting MAIN code"
 
-print "- initializing pygame display"
+print lineNum(), "- initializing pygame display"
 screen = pygame.display.set_mode((pygame_window_width, pygame_window_height))
 pygame.display.set_caption('My Program Name')
 
 # # #  draw background
-print "- drawing background"
+print lineNum(), "- drawing background"
 screen.fill(background_color)
 
 # # draw borders & frames for interface
-print "- drawing borders and frames"
+print lineNum(), "- drawing borders and frames"
 pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
 # # draw buttons!
-print "- drawing buttons"
+print lineNum(), "- drawing buttons"
 defineButtons()
 for i, button in enumerate(my_buttons):
 	button.display()
 
-print "initializing display completed"
+print lineNum(), "initializing display completed"
 
 
 ########## EVENT MONITORING / UPDATE DISPLAY ########### 
@@ -1083,76 +1104,76 @@ while running:
 
 		if event.type == pygame.MOUSEBUTTONDOWN:					#mousebuttondown only runs once, things run outside if this if loop
 			(mouseX, mouseY) = pygame.mouse.get_pos()				# will run continually while button is held down
-			print "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
+			print lineNum(), "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
 			selected_button = findButton(my_buttons, mouseX, mouseY)
-			print "selected button = ", selected_button
+			print lineNum(), "selected button = ", selected_button
 
 			if selected_button != None:
 
 				if selected_button.button_label_txt == "EXIT":
-					print "you pressed exit"
+					print lineNum(), "you pressed exit"
 					running = False
 
 				if selected_button.buttonType == "pushy":
-					print "running MOUSEBUTTONDOWN pushy event"
-					print "selected_button.color  was :", selected_button.color	
+					print lineNum(), "running MOUSEBUTTONDOWN pushy event"
+					print lineNum(), "selected_button.color  was :", selected_button.color	
 					selected_button.color = UI_button_click_color
-					print "selected_button.color now : ", selected_button.color			
+					print lineNum(), "selected_button.color now : ", selected_button.color			
 					selected_button.buttonEnabled = True
-					print "clicked button is a pushy temporary button"
+					print lineNum(), "clicked button is a pushy temporary button"
 					
 
 					if selected_button.button_name == "command01":
-						print "you clicked command01"
+						print lineNum(), "you clicked command01"
 						button01[7] = True
 						button01[8] = UI_button_click_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event"
+						print lineNum(), "____drawing buttons from pushy event"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print "running code for Command01"
+						print lineNum(), "running code for Command01"
 						# command01 function call goes here:
 
 
 					if selected_button.button_name == "command02":
-						print "you clicked command02"
+						print lineNum(), "you clicked command02"
 						button02[7] = True
 						button02[8] = UI_button_click_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event"
+						print lineNum(), "____drawing buttons from pushy event"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print "running code for Command02"
+						print lineNum(), "running code for Command02"
 						#command02 function call goes here:
 
 
 					if selected_button.button_name == "command03":
-						print "you clicked command03"
+						print lineNum(), "you clicked command03"
 						button03[7] = True
 						button03[8] = UI_button_click_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event"
+						print lineNum(), "____drawing buttons from pushy event"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print "running code for Command03"
+						print lineNum(), "running code for Command03"
 						#command03 function call goes here:		
 
 				if selected_button.buttonType == "sticky":
-					print "running sticky event"
+					print lineNum(), "running sticky event"
 					updateStickyButtons(selected_button.button_name)
 
 				if selected_button.buttonType == "group":
-					print "running group type button event"
+					print lineNum(), "running group type button event"
 					updateGroupButtons(selected_button.button_name)
 
 				if selected_button.buttonType == "dropdown":
-					print "running dropdown button event"
+					print lineNum(), "running dropdown button event"
 					updateDropdownButtons(selected_button.button_name)
 				
 
@@ -1161,57 +1182,59 @@ while running:
 			if selected_button != None:
 				
 				if selected_button.buttonType == "pushy":
-					print "running MOUSEBUTTONUP pushy event"
-					print "selected_button.color  was :", selected_button.color	
+					print lineNum(), "running MOUSEBUTTONUP pushy event"
+					print lineNum(), "selected_button.color  was :", selected_button.color	
 					selected_button.color = UI_button_color 			#reverts button back to normal color after letting go of mouse
-					print "selected_button.color now : ", selected_button.color	
+					print lineNum(), "selected_button.color now : ", selected_button.color	
 			
 					if selected_button.button_name == "command01":
-						print "you clicked command01"
+						print lineNum(), "you clicked command01"
 						button01[7] = False
 						button01[8] = UI_button_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event command01"
+						print lineNum(), "____drawing buttons from pushy event command01"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
 
 
 					if selected_button.button_name == "command02":
-						print "you clicked command02"
+						print lineNum(), "you clicked command02"
 						button02[7] = False
 						button02[8] = UI_button_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event command02"
+						print lineNum(), "____drawing buttons from pushy event command02"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
 
 
 					if selected_button.button_name == "command03":
-						print "you clicked command03"
+						print lineNum(), "you clicked command03"
 						button03[7] = False
 						button03[8] = UI_button_color
 						defineButtons()
 
-						print "____drawing buttons from pushy event command03"
+						print lineNum(), "____drawing buttons from pushy event command03"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
 			
 
 			selected_button = None
-			print "selected_button = ", selected_button
-
+			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+			print lineNum(), "selected_button = ", selected_button
+			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 			
 			# # re draw buttons!
 			# # without this here, pushy buttons don't return to normal on mouseup
-			print "____drawing buttons in MOUSEBUTTONUP call"
+			print lineNum(), "____drawing buttons in MOUSEBUTTONUP call"
+			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 			for i, button in enumerate(my_buttons):
 				button.display()		
-			
+			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 			
 
 	# always do this last
