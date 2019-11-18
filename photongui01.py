@@ -480,10 +480,11 @@ button29[3] = 140								# button_width
 button29[4] = 20								# button_height
 button29[5] = " Option 3"						# button_label_txt
 button29[6] = "dropdown"						# buttonType
-button29[7] = False							# buttonEnabledsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+button29[7] = False							# buttonEnabled
 button29[8] = UI_button_color					# buttonColor
 button29[9] = "dropdown01"					# buttonGroup
 button29[10] = False							# buttonVisible
+
 
 
 allButtons = {}
@@ -517,6 +518,9 @@ allButtons[26] = button26		# Dropdown01 - opener
 allButtons[27] = button27		# Dropdown01 - option1
 allButtons[28] = button28		# Dropdown01 - option2
 allButtons[29] = button29		# Dropdown01 - option3
+
+
+
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -599,6 +603,7 @@ def updatePushyButtons(selected_button):
 # # UPDATE STICKY BUTTONS
 # # this updates sticky buttons  based on actions taken
 ############################################################################################
+
 buttonToCheck = {}
 def updateStickyButtons(selected_button):
 	print lineNum(), "updateStickyButtons() - started"
@@ -884,7 +889,30 @@ def updateDropdownButtons(selected_button):
 			print " --------------------------------------- "
 			print type(button27[10])
 
+	if selected_button == "dropdown01option01":
+		button25[5] = "Option 01"
+		defineButtons()
 
+	if selected_button == "dropdown01option02":
+		button25[5] = "Option 02"
+		defineButtons()
+
+	if selected_button == "dropdown01option03":
+		button25[5] = "Option 03"
+		defineButtons()
+
+	if selected_button == "dropdown01Label":
+		if button25[7] == False:
+			button25[7] = True
+			button25[8] = UI_button_selected_color
+			defineButtons()	
+			redrawEverything()
+			
+		elif button25[7] == True:
+			button25[7] = False
+			button25[8] = UI_button_color
+			defineButtons()
+			redrawEverything()
 
 # # FPS related Functions
 def show_fps():
@@ -1024,9 +1052,6 @@ class Button:
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
 
-		# checking when this flips back to true
-		#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
-
 		# render "dropdown" type buttons
 		if self.buttonType == "dropdown":	
 			
@@ -1039,10 +1064,7 @@ class Button:
 			if self.button_name == "dropdown01option03":
 				self.buttonVisible = button29[10]
 			
-			#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
-			#print lineNum(), self.button_name, "buttonVisible?:", self.buttonVisible
-			#raw_input("Press Enter to continue...")
-			#print "self.buttonVisible type = ", type(self.buttonVisible)
+
 			if self.buttonVisible == True:
 				#print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
