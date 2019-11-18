@@ -486,14 +486,14 @@ button29[9] = "dropdown01"					# buttonGroup
 button29[10] = False							# buttonVisible
 
 button30 = {}
-button30[0] = "Menu01"						# button_name
+button30[0] = "menu01"						# button_name
 button30[1] = UI_sideBar_width				# button_origin_x
 button30[2] = 0								# button_origin_y
 button30[3] = 100								# button_width
 button30[4] = 20								# button_height
 button30[5] = " Menu 01 "						# button_label_txt
 button30[6] = "menu"							# buttonType
-button30[7] = True							# buttonEnabled
+button30[7] = False							# buttonEnabled
 button30[8] = UI_button_color					# buttonColor
 button30[9] = "menu01"						# buttonGroup
 button30[10] = True							# buttonVisible
@@ -506,10 +506,10 @@ button31[3] = 150								# button_width
 button31[4] = 20								# button_height
 button31[5] = " Monday "						# button_label_txt
 button31[6] = "menu"							# buttonType
-button31[7] = True							# buttonEnabled
+button31[7] = False							# buttonEnabled
 button31[8] = UI_button_color					# buttonColor
 button31[9] = "menu01"						# buttonGroup
-button31[10] = True							# buttonVisible
+button31[10] = False							# buttonVisible
 
 button32 = {}
 button32[0] = "menu01option02"				# button_name
@@ -519,10 +519,10 @@ button32[3] = 150								# button_width
 button32[4] = 20								# button_height
 button32[5] = " Tuesday "						# button_label_txt
 button32[6] = "menu"							# buttonType
-button32[7] = True							# buttonEnabled
+button32[7] = False							# buttonEnabled
 button32[8] = UI_button_color					# buttonColor
 button32[9] = "menu01"						# buttonGroup
-button32[10] = True							# buttonVisible
+button32[10] = False							# buttonVisible
 
 button33 = {}
 button33[0] = "menu01option03"				# button_name
@@ -532,10 +532,10 @@ button33[3] = 150								# button_width
 button33[4] = 20								# button_height
 button33[5] = " Wednesday "					# button_label_txt
 button33[6] = "menu"							# buttonType
-button33[7] = True							# buttonEnabled
+button33[7] = False							# buttonEnabled
 button33[8] = UI_button_color					# buttonColor
 button33[9] = "menu01"						# buttonGroup
-button33[10] = True							# buttonVisible
+button33[10] = False							# buttonVisible
 
 button34 = {}
 button34[0] = "menu01option04"				# button_name
@@ -545,10 +545,10 @@ button34[3] = 150								# button_width
 button34[4] = 20								# button_height
 button34[5] = " Thursday "						# button_label_txt
 button34[6] = "menu"							# buttonType
-button34[7] = True							# buttonEnabled
+button34[7] = False 							# buttonEnabled
 button34[8] = UI_button_color					# buttonColor
 button34[9] = "menu01"						# buttonGroup
-button34[10] = True							# buttonVisible
+button34[10] = False							# buttonVisible
 
 button35 = {}
 button35[0] = "menu01option05"				# button_name
@@ -558,10 +558,10 @@ button35[3] = 150								# button_width
 button35[4] = 20								# button_height
 button35[5] = " Friday "						# button_label_txt
 button35[6] = "menu"							# buttonType
-button35[7] = True							# buttonEnabled
+button35[7] = False							# buttonEnabled
 button35[8] = UI_button_color					# buttonColor
 button35[9] = "menu01"						# buttonGroup
-button35[10] = True							# buttonVisible
+button35[10] = False							# buttonVisible
 
 
 allButtons = {}
@@ -1007,6 +1007,34 @@ def updateDropdownButtons(selected_button):
 				defineButtons()
 				redrawEverything()
 
+
+## ############################################################################################
+## UPDATE MENU BUTTONS
+## ############################################################################################
+
+def updateMenuButtons(selected_button):
+	print lineNum(), "running updateMenuButtons"
+	if selected_button == "menu01":
+		print lineNum(), "menu01 was clicked on"
+		print lineNum(), button30[0], "is ", button30[7]
+		if button30[7] == False:
+			print "was false, turning to true"
+			button30[7] = True
+			button30[8] = UI_button_selected_color
+			defineButtons()	
+			
+		elif button30[7] == True:
+			print "was true, turning to false"
+			button30[7] = False
+			button30[8] = UI_button_color
+			defineButtons()
+
+
+
+## ############################################################################################
+## OTHER FUNCTIONS
+## ############################################################################################
+
 # # FPS related Functions
 def show_fps():
 	fps_overlay = fps_font.render("FPS:"+str(FPS), True, UI_button_txt_color)
@@ -1306,7 +1334,13 @@ while running:
 				if selected_button.buttonType == "dropdown":
 					print lineNum(), "running dropdown button event"
 					updateDropdownButtons(selected_button.button_name)
-				
+
+				if selected_button.buttonType == "menu":
+					print lineNum(), "running menu button event"
+					updateMenuButtons(selected_button.button_name)
+
+
+
 
 		if event.type == pygame.MOUSEBUTTONUP:
 
@@ -1362,7 +1396,7 @@ while running:
 			# # re draw buttons!
 			# # without this here, pushy buttons don't return to normal on mouseup
 			print lineNum(), "____drawing buttons in MOUSEBUTTONUP call"
-			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+			#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 			for i, button in enumerate(my_buttons):
 				button.display()		
 			print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
