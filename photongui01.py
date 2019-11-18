@@ -1042,7 +1042,7 @@ class Button:
 			#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
 			#print lineNum(), self.button_name, "buttonVisible?:", self.buttonVisible
 			#raw_input("Press Enter to continue...")
-			print "self.buttonVisible type = ", type(self.buttonVisible)
+			#print "self.buttonVisible type = ", type(self.buttonVisible)
 			if self.buttonVisible == True:
 				#print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
