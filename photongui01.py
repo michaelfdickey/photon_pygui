@@ -48,6 +48,7 @@ UI_button_border_color = (153, 127, 76)		# color of the border box around the bu
 UI_button_color = (204, 0, 102)				# the default color of the button
 UI_button_click_color = (255, 128 , 255)		# the color a button turns temporarily when clicked on
 UI_label_color = (150,50,100)					# label color 
+UI_text_entry_box_color = (100,0,50)			# the color of text entry boxes
 
 # interface colors 2
 UI_button_group_color = (125, 50, 100)			
@@ -489,9 +490,9 @@ button30 = {}
 button30[0] = "menu01"						# button_name
 button30[1] = UI_sideBar_width				# button_origin_x
 button30[2] = 0								# button_origin_y
-button30[3] = 100								# button_width
+button30[3] = 125								# button_width
 button30[4] = 20								# button_height
-button30[5] = " Menu 01 "						# button_label_txt
+button30[5] = " Menu 01 Sticky"				# button_label_txt
 button30[6] = "menu"							# buttonType
 button30[7] = False							# buttonEnabled
 button30[8] = UI_button_color					# buttonColor
@@ -563,6 +564,57 @@ button35[8] = UI_button_color					# buttonColor
 button35[9] = "menu01"						# buttonGroup
 button35[10] = False							# buttonVisible
 
+button36 = {}
+button36[0] = "menu02"						# button_name
+button36[1] = UI_sideBar_width * 2				# button_origin_x
+button36[2] = 0								# button_origin_y
+button36[3] = 125								# button_width
+button36[4] = 20								# button_height
+button36[5] = " Menu 02 Pushy"					# button_label_txt
+button36[6] = "menu"							# buttonType
+button36[7] = False							# buttonEnabled
+button36[8] = UI_button_color					# buttonColor
+button36[9] = "menu02"						# buttonGroup
+button36[10] = True							# buttonVisible
+
+button37 = {}
+button37[0] = "menu03"						# button_name
+button37[1] = UI_sideBar_width * 3				# button_origin_x
+button37[2] = 0								# button_origin_y
+button37[3] = 125								# button_width
+button37[4] = 20								# button_height
+button37[5] = " Menu 03 Popup"					# button_label_txt
+button37[6] = "menu"							# buttonType
+button37[7] = False							# buttonEnabled
+button37[8] = UI_button_color					# buttonColor
+button37[9] = "menu03"						# buttonGroup
+button37[10] = True							# buttonVisible
+
+button38 = {}
+button38[0] = "textField01Label"				# button_name
+button38[1] = 0								# button_origin_x
+button38[2] = pygame_window_height - 660		# button_origin_y
+button38[3] = UI_sideBar_width				# button_width
+button38[4] = 20								# button_height
+button38[5] = "Enter Text:"					# button_label_txt
+button38[6] = "label"							# buttonType
+button38[7] = False							# buttonEnabled
+button38[8] = UI_label_color					# buttonColor
+button38[9] = "text01"						# buttonGroup
+button38[10] = True							# buttonVisible
+
+button39 = {}
+button39[0] = "textField01"					# button_name
+button39[1] = 0								# button_origin_x
+button39[2] = pygame_window_height - 640		# button_origin_y
+button39[3] = UI_sideBar_width				# button_width
+button39[4] = 20								# button_height
+button39[5] = ""								# button_label_txt
+button39[6] = "textEntry"						# buttonType
+button39[7] = False							# buttonEnabled
+button39[8] = UI_text_entry_box_color			# buttonColor
+button39[9] = "text01"						# buttonGroup
+button39[10] = True							# buttonVisible
 
 allButtons = {}
 allButtons[0] = button00		# exit button
@@ -601,6 +653,11 @@ allButtons[32] = button32		# Menu 01 - option 02 - Tuesday
 allButtons[33] = button33		# Menu 01 - option 03 - Wednesday
 allButtons[34] = button34		# Menu 01 - option 04 - Thursday
 allButtons[35] = button35		# Menu 01 - option 05 - Friday
+allButtons[36] = button36		# Menu 02
+allButtons[37] = button37		# Menu 03
+allButtons[38] = button38		# Text Field - label
+allButtons[39] = button39		# Text Field - text entry box
+
 
 
 
@@ -1304,6 +1361,15 @@ class Button:
 
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 				screen.blit(label, (self.x + 5, self.y))
+
+
+		elif self.buttonType == "textEntry":	
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
