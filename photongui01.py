@@ -1056,6 +1056,17 @@ def updateMenuButtons(selected_button):
 			defineButtons()
 			redrawEverything()
 
+	if selected_button == "menu01option01":
+		if button30[7] == True:
+			print "~~ you clicked Monday ~~"
+			if button31[7] == False:
+				button31[7] = True
+				button31[8] = UI_button_selected_color
+				defineButtons()
+			elif button31[7] == True:
+				button31[7] = False
+				button31[8] = UI_button_color
+				defineButtons()
 
 ## ############################################################################################
 ## OTHER FUNCTIONS
