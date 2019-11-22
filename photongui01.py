@@ -1068,6 +1068,55 @@ def updateMenuButtons(selected_button):
 				button31[8] = UI_button_color
 				defineButtons()
 
+	if selected_button == "menu01option02":
+		if button30[7] == True:
+			print "~~ you clicked Tuesday ~~"
+			if button32[7] == False:
+				button32[7] = True
+				button32[8] = UI_button_selected_color
+				defineButtons()
+			elif button32[7] == True:
+				button32[7] = False
+				button32[8] = UI_button_color
+				defineButtons()
+
+	if selected_button == "menu01option03":
+		if button30[7] == True:
+			print "~~ you clicked Wednesday ~~"
+			if button33[7] == False:
+				button33[7] = True
+				button33[8] = UI_button_selected_color
+				defineButtons()
+			elif button33[7] == True:
+				button33[7] = False
+				button33[8] = UI_button_color
+				defineButtons()
+
+	if selected_button == "menu01option04":
+		if button30[7] == True:
+			print "~~ you clicked Thursday ~~"
+			if button34[7] == False:
+				button34[7] = True
+				button34[8] = UI_button_selected_color
+				defineButtons()
+			elif button34[7] == True:
+				button34[7] = False
+				button34[8] = UI_button_color
+				defineButtons()
+
+	if selected_button == "menu01option05":
+		if button30[7] == True:
+			print "~~ you clicked Friday ~~"
+			if button35[7] == False:
+				button35[7] = True
+				button35[8] = UI_button_selected_color
+				defineButtons()
+			elif button35[7] == True:
+				button35[7] = False
+				button35[8] = UI_button_color
+				defineButtons()
+
+
 ## ############################################################################################
 ## OTHER FUNCTIONS
 ## ############################################################################################
