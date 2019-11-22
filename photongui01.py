@@ -1017,18 +1017,44 @@ def updateMenuButtons(selected_button):
 	if selected_button == "menu01":
 		print lineNum(), "menu01 was clicked on"
 		print lineNum(), button30[0], "is ", button30[7]
+		
 		if button30[7] == False:
 			print "was false, turning to true"
+			
 			button30[7] = True
 			button30[8] = UI_button_selected_color
+			button31[10] = True
+			button32[10] = True
+			button33[10] = True			
+			button34[10] = True
+			button35[10] = True
+
+			print lineNum(), "~", button31[0], "Visible=", button31[10]
+			print lineNum(), "~", button32[0], "Visible=", button32[10]
+			print lineNum(), "~", button33[0], "Visible=", button33[10]			
+			print lineNum(), "~", button34[0], "Visible=", button34[10]
+			print lineNum(), "~", button35[0], "Visible=", button35[10]
+
 			defineButtons()	
 			
 		elif button30[7] == True:
-			print "was true, turning to false"
+			print lineNum(), "was true, turning to false"
 			button30[7] = False
 			button30[8] = UI_button_color
-			defineButtons()
+			button31[10] = False
+			button32[10] = False
+			button33[10] = False			
+			button34[10] = False
+			button35[10] = False		
+			
+			print lineNum(), "~", button31[0], "Visible=", button31[10]
+			print lineNum(), "~", button32[0], "Visible=", button32[10]
+			print lineNum(), "~", button33[0], "Visible=", button33[10]			
+			print lineNum(), "~", button34[0], "Visible=", button34[10]
+			print lineNum(), "~", button35[0], "Visible=", button35[10]
 
+			defineButtons()
+			redrawEverything()
 
 
 ## ############################################################################################
@@ -1185,7 +1211,6 @@ class Button:
 			if self.button_name == "dropdown01option03":
 				self.buttonVisible = button29[10]
 			
-
 			if self.buttonVisible == True:
 				#print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
@@ -1200,6 +1225,19 @@ class Button:
 
 		# render "Menu" type buttons
 		elif self.buttonType == "menu":	
+			
+			if self.button_name == "menu01option01":
+				self.buttonVisible = button31[10]
+			if self.button_name == "menu01option02":
+				self.buttonVisible = button32[10]
+			if self.button_name == "menu01option03":
+				self.buttonVisible = button33[10]
+			if self.button_name == "menu01option04":
+				self.buttonVisible = button34[10]
+			if self.button_name == "menu01option05":
+				self.buttonVisible = button35[10]
+			
+
 			if self.buttonVisible == True:
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
