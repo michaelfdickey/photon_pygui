@@ -1047,25 +1047,28 @@ def updateDropdownButtons(selected_button):
 			print type(button27[10])
 
 	if selected_button == "dropdown01option01":
-		button25[5] = "Option 01"
-		button27[8] = UI_button_selected_color
-		button28[8] = UI_button_color
-		button29[8] = UI_button_color
-		defineButtons()
+		if button26[7] == True:
+			button25[5] = "Option 01"
+			button27[8] = UI_button_selected_color
+			button28[8] = UI_button_color
+			button29[8] = UI_button_color
+			defineButtons()
 
 	if selected_button == "dropdown01option02":
-		button25[5] = "Option 02"
-		button27[8] = UI_button_color
-		button28[8] = UI_button_selected_color
-		button29[8] = UI_button_color		
-		defineButtons()
+		if button26[7] == True:
+			button25[5] = "Option 02"
+			button27[8] = UI_button_color
+			button28[8] = UI_button_selected_color
+			button29[8] = UI_button_color		
+			defineButtons()
 
 	if selected_button == "dropdown01option03":
-		button25[5] = "Option 03"
-		button27[8] = UI_button_color
-		button28[8] = UI_button_color
-		button29[8] = UI_button_selected_color
-		defineButtons()
+		if button26[7] == True:
+			button25[5] = "Option 03"
+			button27[8] = UI_button_color
+			button28[8] = UI_button_color
+			button29[8] = UI_button_selected_color
+			defineButtons()
 
 	if selected_button == "dropdown01Label":
 		if button25[5] != "- select -":
