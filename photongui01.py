@@ -1,7 +1,20 @@
 # DEV LOG
-# 2019-11-03 - next, move pushy button processing out of main loop into it's own function call
-# - will need a call in mousebuttondown and mousebutton up
-# - then create function for group processing
+# functionality by button:
+# Command01 - 
+# Command02 - 
+# Command03 - 
+# etc
+# 
+
+
+# Button Types
+# Pushy - temporary based on button push, like a "shoot" button
+# Sticky - a button that sticks on when clicked, then turns off when clicked again, aka radio button
+# DropDown - opens up another dropdown list
+# Menu - opens another menu of buttons
+# text - enter text in this field. 
+# 
+
 
 # ************************************************************************************
 # 	import modules	#
@@ -49,6 +62,7 @@ UI_button_color = (204, 0, 102)				# the default color of the button
 UI_button_click_color = (255, 128 , 255)		# the color a button turns temporarily when clicked on
 UI_label_color = (150,50,100)					# label color 
 UI_text_entry_box_color = (100,0,50)			# the color of text entry boxes
+UI_text_entry_box_color_active = (125,50,50)	# the color of text entry boxes
 
 # interface colors 2
 UI_button_group_color = (125, 50, 100)			
@@ -72,6 +86,8 @@ cSec = 0
 cFrame = 0
 FPS = 0
 
+# other
+entered_text = ""
 
 # ************************************************************************************
 #	initial lists	#
@@ -609,7 +625,7 @@ button39[1] = 0								# button_origin_x
 button39[2] = pygame_window_height - 640		# button_origin_y
 button39[3] = UI_sideBar_width				# button_width
 button39[4] = 20								# button_height
-button39[5] = ""								# button_label_txt
+button39[5] = "abc123"								# button_label_txt
 button39[6] = "textEntry"						# buttonType
 button39[7] = False							# buttonEnabled
 button39[8] = UI_text_entry_box_color			# buttonColor
@@ -710,8 +726,9 @@ def defineButtons():
 
 	print lineNum(), "defineButtons() - completed"
 
-
-
+def enumerateButtons():
+	for i, button in enumerate(my_buttons):
+		button.display()	
 
 # # #########################################################################################
 # # This figures out which button was clicked
@@ -1173,6 +1190,28 @@ def updateMenuButtons(selected_button):
 				button35[8] = UI_button_color
 				defineButtons()
 
+## ############################################################################################
+## UPDATE TEXT ENTRY BUTTONS
+## ############################################################################################
+
+def updateTextEntry(selected_button):
+	if selected_button == "textField01":
+		if button39[7] == False:
+			button39[7] = True
+			button39[8] = UI_text_entry_box_color_active
+			defineButtons()
+			#enumerateButtons()
+
+		elif button39[7] == True:
+			button39[7] = False
+			button39[8] = UI_text_entry_box_color
+			defineButtons()
+
+
+
+
+
+
 
 ## ############################################################################################
 ## OTHER FUNCTIONS
@@ -1230,25 +1269,25 @@ def drawGrid():
 	grid_width = pygame_window_width / 10
 	grid_height = pygame_window_height / 10
 
-	pygame.draw.lines(screen, yellow, False, [((pygame_window_width / 2),0),((pygame_window_width / 2 ),pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width,0),(grid_width,pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width * 2,0),(grid_width * 2,pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width * 3,0),(grid_width * 3,pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width * 4,0),(grid_width * 4,pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width * 6,0),(grid_width * 6,pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width * 7,0),(grid_width * 7,pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width * 8,0),(grid_width * 8,pygame_window_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(grid_width * 9,0),(grid_width * 9,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [((pygame_window_width / 2),0),((pygame_window_width / 2 ),pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width,0),(grid_width,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width * 2,0),(grid_width * 2,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width * 3,0),(grid_width * 3,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width * 4,0),(grid_width * 4,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width * 6,0),(grid_width * 6,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width * 7,0),(grid_width * 7,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width * 8,0),(grid_width * 8,pygame_window_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(grid_width * 9,0),(grid_width * 9,pygame_window_height)],1)
 
-	pygame.draw.lines(screen, yellow, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height), (pygame_window_height,grid_height)],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 2), (pygame_window_height,grid_height * 2)],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 3), (pygame_window_height,grid_height * 3)],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 4), (pygame_window_height,grid_height * 4)],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 6), (pygame_window_height,grid_height * 6)],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 7), (pygame_window_height,grid_height * 7)],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 8), (pygame_window_height,grid_height * 8)],1)
-	pygame.draw.lines(screen, yellow, False, [(0,grid_height * 9), (pygame_window_height,grid_height * 9)],1)	
+	pygame.draw.lines(screen, gridYellow, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height), (pygame_window_height,grid_height)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 2), (pygame_window_height,grid_height * 2)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 3), (pygame_window_height,grid_height * 3)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 4), (pygame_window_height,grid_height * 4)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 6), (pygame_window_height,grid_height * 6)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 7), (pygame_window_height,grid_height * 7)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 8), (pygame_window_height,grid_height * 8)],1)
+	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 9), (pygame_window_height,grid_height * 9)],1)	
 
 
 
@@ -1503,7 +1542,36 @@ while running:
 					print lineNum(), "running menu button event"
 					updateMenuButtons(selected_button.button_name)
 
+				if selected_button.buttonType == "textEntry":
+					print lineNum(), "running text entry event"
+					updateTextEntry(selected_button.button_name)
 
+		if event.type == pygame.KEYDOWN:
+		 	print "you pressed a key"
+		 	if button39[7] == True:
+
+			 	if event.key == pygame.K_RETURN:
+			 		print(entered_text)
+			 		#entered_text = ""
+					button39[5] = entered_text
+					button39[7] = False
+					button39[8] = UI_text_entry_box_color
+					defineButtons()
+					enumerateButtons()
+
+				elif event.key == pygame.K_BACKSPACE:
+					entered_text = entered_text[:-1]
+					button39[5] = entered_text
+					defineButtons()
+					enumerateButtons()
+
+				else:
+			 		if len(entered_text) <= 15:
+						entered_text += event.unicode
+						print "entered_text", entered_text
+						button39[5] = entered_text
+						defineButtons()
+						enumerateButtons()
 
 
 		if event.type == pygame.MOUSEBUTTONUP:
