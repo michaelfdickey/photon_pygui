@@ -63,20 +63,28 @@ UI_button_click_color = (255, 128 , 255)		# the color a button turns temporarily
 UI_label_color = (150,50,100)					# label color 
 UI_text_entry_box_color = (100,0,50)			# the color of text entry boxes
 UI_text_entry_box_color_active = (125,50,50)	# the color of text entry boxes
-
-# interface colors 2
 UI_button_group_color = (125, 50, 100)			
 UI_button_txt_color = (255,255,0)				# color of text label of button
 UI_button_selected_color = (225,100,225)		# color button turns to when toggled on 
+
+# Screen size
+pygame_window_width = 1200
+pygame_window_height = 1200
 
 ## interface formatting
 UI_topBar_height = 20
 UI_sideBar_width = 120  
 UI_menuButton_width = 120
+UI_popup_small_width = 200
+UI_popup_small_height = 200
+UI_popup_small_origin_x = (pygame_window_width / 2) - (UI_popup_small_width / 2)
+UI_popup_small_origin_y = (pygame_window_height / 2) - (UI_popup_small_height / 2)
+UI_popup_medium_width = 400
+UI_popup_medium_height = 400
+UI_popup_large_width = 600
+UI_popup_large_height = 600
 
-# Screen size
-pygame_window_width = 1200
-pygame_window_height = 1200
+
 
 # by default, no UI objects are selected at start
 selected_uiObject = None					
@@ -488,7 +496,7 @@ button28[6] = "dropdown"						# buttonType
 button28[7] = False							# buttonEnabled
 button28[8] = UI_button_color					# buttonColor
 button28[9] = "dropdown01"					# buttonGroup
-button28[10] = False						# buttonVisible
+button28[10] = False							# buttonVisible
 
 button29 = {}
 button29[0] = "dropdown01option03"			# button_name
@@ -660,6 +668,114 @@ button42[8] = UI_button_color							# buttonColor
 button42[9] = "menu02"								# buttonGroup
 button42[10] = False									# buttonVisible
 
+button43 = {}
+button43[0] = "menu02popup01element01"				# button_name
+button43[1] = UI_popup_small_origin_x					# button_origin_x
+button43[2] = UI_popup_small_origin_y					# button_origin_y
+button43[3] = UI_popup_small_width					# button_width
+button43[4] = UI_popup_small_height					# button_height
+button43[5] = " Small Popup"							# button_label_txt
+button43[6] = "popup"									# buttonType
+button43[7] = False									# buttonEnabled
+button43[8] = UI_background_color						# buttonColor
+button43[9] = "menu02popup01"							# buttonGroup
+button43[10] = True									# buttonVisible
+
+button44 = {}
+button44[0] = "menu02popup01element02"				# button_name
+button44[1] = UI_popup_small_origin_x					# button_origin_x
+button44[2] = UI_popup_small_origin_y					# button_origin_y
+button44[3] = UI_popup_small_width					# button_width
+button44[4] = 20										# button_height
+button44[5] = " Menu 02 >> Small Popup"					# button_label_txt
+button44[6] = "popup"									# buttonType
+button44[7] = False									# buttonEnabled
+button44[8] = UI_button_selected_color				# buttonColor
+button44[9] = "menu02popup01"								# buttonGroup
+button44[10] = True									# buttonVisible
+
+button45 = {}
+button45[0] = "menu02popup01element03"				# button_name
+button45[1] = UI_popup_small_origin_x					# button_origin_x
+button45[2] = UI_popup_small_origin_y + 40				# button_origin_y
+button45[3] = UI_popup_small_width					# button_width
+button45[4] = 20										# button_height
+button45[5] = " Do Something Interesting:"				# button_label_txt
+button45[6] = "popup_element"							# buttonType
+button45[7] = False									# buttonEnabled
+button45[8] = UI_label_color							# buttonColor
+button45[9] = "menu02popup01"								# buttonGroup
+button45[10] = True									# buttonVisible
+
+button46 = {}
+button46[0] = "menu02popup01element04"				# button_name
+button46[1] = UI_popup_small_origin_x + 20				# button_origin_x
+button46[2] = UI_popup_small_origin_y + 80				# button_origin_y
+button46[3] = 80										# button_width
+button46[4] = 20										# button_height
+button46[5] = "Something"								# button_label_txt
+button46[6] = "popup_element_button"					# buttonType
+button46[7] = False									# buttonEnabled
+button46[8] = UI_button_color							# buttonColor
+button46[9] = "menu02popup01"								# buttonGroup
+button46[10] = True									# buttonVisible
+
+button47 = {}
+button47[0] = "menu02popup01element05"				# button_name
+button47[1] = UI_popup_small_origin_x + 20				# button_origin_x
+button47[2] = UI_popup_small_origin_y + 100			# button_origin_y
+button47[3] = 80										# button_width
+button47[4] = 20										# button_height
+button47[5] = "Interesting"							# button_label_txt
+button47[6] = "popup_element_button"					# buttonType
+button47[7] = False									# buttonEnabled
+button47[8] = UI_button_color							# buttonColor
+button47[9] = "menu02popup01"								# buttonGroup
+button47[10] = True									# buttonVisible
+
+button48 = {}
+button48[0] = "menu02popup01element06"							# button_name
+button48[1] = UI_popup_small_origin_x								# button_origin_x
+button48[2] = UI_popup_small_origin_y + UI_popup_small_height - 60 	# button_origin_y
+button48[3] = UI_popup_small_width								# button_width
+button48[4] = 60													# button_height
+button48[5] = ""													# button_label_txt
+button48[6] = "popup_element"										# buttonType
+button48[7] = False												# buttonEnabled
+button48[8] = UI_label_color										# buttonColor
+button48[9] = "menu02popup01"											# buttonGroup
+button48[10] = True												# buttonVisible
+
+button49 = {}
+button49[0] = "menu02popup01element07"							# button_name
+button49[1] = UI_popup_small_origin_x + 20							# button_origin_x
+button49[2] = UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
+button49[3] = 60													# button_width
+button49[4] = 20													# button_height
+button49[5] = " OK "												# button_label_txt
+button49[6] = "popup_element_button"								# buttonType
+button49[7] = False												# buttonEnabled
+button49[8] = UI_button_color 									# buttonColor
+button49[9] = "menu02popup01"											# buttonGroup
+button49[10] = True												# buttonVisible
+
+button50 = {}
+button50[0] = "menu02popup01element08"							# button_name
+button50[1] = UI_popup_small_origin_x + UI_popup_small_width -80	# button_origin_x
+button50[2] = UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
+button50[3] = 60													# button_width
+button50[4] = 20													# button_height
+button50[5] = "Cancel"												# button_label_txt
+button50[6] = "popup_element_button"								# buttonType
+button50[7] = False												# buttonEnabled
+button50[8] = UI_button_color 									# buttonColor
+button50[9] = "menu02popup01"											# buttonGroup
+button50[10] = True												# buttonVisible
+
+
+
+
+
 
 button37 = {}
 button37[0] = "menu03"						# button_name
@@ -673,6 +789,8 @@ button37[7] = False							# buttonEnabled
 button37[8] = UI_button_color					# buttonColor
 button37[9] = "menu03"						# buttonGroup
 button37[10] = False							# buttonVisible
+
+
 
 
 
@@ -720,6 +838,15 @@ allButtons[39] = button39		# Text Field - text entry box
 allButtons[40] = button40		# Menu 02  - small popup
 allButtons[41] = button41		# Menu 02  - Medium popup
 allButtons[42] = button42		# Menu 02  - Large popup
+allButtons[43] = button43		# Menu 02  - small popup - element 01 - background box
+allButtons[44] = button44		# Menu 02  - small popup - element 02 - title bar
+allButtons[45] = button45		# Menu 02  - small popup - element 03 - option description
+allButtons[46] = button46		# Menu 02  - small popup - element 04 - something button
+allButtons[47] = button47		# Menu 02  - small popup - element 05 - interesting button
+allButtons[48] = button48		# Menu 02  - small popup - element 06 - ok / cancel background
+allButtons[49] = button49		# Menu 02  - small popup - element 06 - ok button
+allButtons[50] = button50		# Menu 02  - small popup - element 06 - cancel button
+
 
 
 # ************************************************************************************************************************
@@ -1270,6 +1397,27 @@ def updateMenuButtons(selected_button):
 			defineButtons()
 			redrawEverything()	
 
+	if selected_button == "menu02popup01":
+		if button40[7] == False:
+			#flop this menu buttone
+			button40[7] = True
+			button40[8] = UI_button_selected_color
+
+			defineButtons()
+			redrawEverything()	
+	
+		if button40[7] == True:
+			#flop this menu buttone
+			button40[7] = False
+			button40[8] = UI_button_selected_color
+
+			defineButtons()
+			redrawEverything()	
+
+	## END START MENU 02 HANDLING
+
+
+
 ## ############################################################################################
 ## UPDATE TEXT ENTRY BUTTONS
 ## ############################################################################################
@@ -1436,7 +1584,7 @@ class Button:
 			screen.blit(label, (self.x + 5, self.y))
 
 		# render "dropdown" type buttons
-		if self.buttonType == "dropdown":	
+		elif self.buttonType == "dropdown":	
 			
 			# next three are added because for some reason buttonVisible flips from false to true during iteration through class. 
 			# figure the cause our later, for now it works. 
@@ -1494,6 +1642,28 @@ class Button:
 		elif self.buttonType == "textEntry":	
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
+		# render "popup" type buttons
+		elif self.buttonType == "popup":
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
+		elif self.buttonType == "popup_element":
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			#pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
+
+			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
+			screen.blit(label, (self.x + 5, self.y))
+
+		elif self.buttonType == "popup_element_button":
+			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
+			pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 1)  	#border
 
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
 			screen.blit(label, (self.x + 5, self.y))
