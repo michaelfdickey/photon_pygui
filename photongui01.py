@@ -72,6 +72,7 @@ UI_button_selected_color = (225,100,225)		# color button turns to when toggled o
 ## interface formatting
 UI_topBar_height = 20
 UI_sideBar_width = 120  
+UI_menuButton_width = 120
 
 # Screen size
 pygame_window_width = 1200
@@ -580,32 +581,6 @@ button35[8] = UI_button_color					# buttonColor
 button35[9] = "menu01"						# buttonGroup
 button35[10] = False							# buttonVisible
 
-button36 = {}
-button36[0] = "menu02"						# button_name
-button36[1] = UI_sideBar_width * 2				# button_origin_x
-button36[2] = 0								# button_origin_y
-button36[3] = 125								# button_width
-button36[4] = 20								# button_height
-button36[5] = " Menu 02 Pushy"					# button_label_txt
-button36[6] = "menu"							# buttonType
-button36[7] = False							# buttonEnabled
-button36[8] = UI_button_color					# buttonColor
-button36[9] = "menu02"						# buttonGroup
-button36[10] = True							# buttonVisible
-
-button37 = {}
-button37[0] = "menu03"						# button_name
-button37[1] = UI_sideBar_width * 3				# button_origin_x
-button37[2] = 0								# button_origin_y
-button37[3] = 125								# button_width
-button37[4] = 20								# button_height
-button37[5] = " Menu 03 Popup"					# button_label_txt
-button37[6] = "menu"							# buttonType
-button37[7] = False							# buttonEnabled
-button37[8] = UI_button_color					# buttonColor
-button37[9] = "menu03"						# buttonGroup
-button37[10] = True							# buttonVisible
-
 button38 = {}
 button38[0] = "textField01Label"				# button_name
 button38[1] = 0								# button_origin_x
@@ -625,12 +600,81 @@ button39[1] = 0								# button_origin_x
 button39[2] = pygame_window_height - 640		# button_origin_y
 button39[3] = UI_sideBar_width				# button_width
 button39[4] = 20								# button_height
-button39[5] = "abc123"								# button_label_txt
+button39[5] = "abc123"						# button_label_txt
 button39[6] = "textEntry"						# buttonType
 button39[7] = False							# buttonEnabled
 button39[8] = UI_text_entry_box_color			# buttonColor
 button39[9] = "text01"						# buttonGroup
 button39[10] = True							# buttonVisible
+
+button36 = {}
+button36[0] = "menu02"									# button_name
+button36[1] = UI_sideBar_width + UI_menuButton_width		# button_origin_x
+button36[2] = 0											# button_origin_y
+button36[3] = 125											# button_width
+button36[4] = 20											# button_height
+button36[5] = " Menu 02"									# button_label_txt
+button36[6] = "menu"										# buttonType
+button36[7] = False										# buttonEnabled
+button36[8] = UI_button_color								# buttonColor
+button36[9] = "menu02"									# buttonGroup
+button36[10] = True										# buttonVisible
+
+button40 = {}
+button40[0] = "menu02popup01"							# button_name
+button40[1] = UI_sideBar_width + UI_menuButton_width	# button_origin_x
+button40[2] = 20										# button_origin_y
+button40[3] = 150										# button_width
+button40[4] = 20										# button_height
+button40[5] = " Small Popup"							# button_label_txt
+button40[6] = "menu"									# buttonType
+button40[7] = False									# buttonEnabled
+button40[8] = UI_button_color							# buttonColor
+button40[9] = "menu02"								# buttonGroup
+button40[10] = False									# buttonVisible
+
+
+button41 = {}
+button41[0] = "menu02popup02"							# button_name
+button41[1] = UI_sideBar_width + UI_menuButton_width	# button_origin_x
+button41[2] = 40										# button_origin_y
+button41[3] = 150										# button_width
+button41[4] = 20										# button_height
+button41[5] = " Medium Popup"							# button_label_txt
+button41[6] = "menu"									# buttonType
+button41[7] = False									# buttonEnabled
+button41[8] = UI_button_color							# buttonColor
+button41[9] = "menu02"								# buttonGroup
+button41[10] = False									# buttonVisible
+
+button42 = {}
+button42[0] = "menu02popup03"							# button_name
+button42[1] = UI_sideBar_width + UI_menuButton_width	# button_origin_x
+button42[2] = 60										# button_origin_y
+button42[3] = 150										# button_width
+button42[4] = 20										# button_height
+button42[5] = " Large Popup"							# button_label_txt
+button42[6] = "menu"									# buttonType
+button42[7] = False									# buttonEnabled
+button42[8] = UI_button_color							# buttonColor
+button42[9] = "menu02"								# buttonGroup
+button42[10] = False									# buttonVisible
+
+
+button37 = {}
+button37[0] = "menu03"						# button_name
+button37[1] = UI_sideBar_width * 250			# button_origin_x
+button37[2] = 0								# button_origin_y
+button37[3] = 125								# button_width
+button37[4] = 20								# button_height
+button37[5] = " Menu 03 Popup"					# button_label_txt
+button37[6] = "menu"							# buttonType
+button37[7] = False							# buttonEnabled
+button37[8] = UI_button_color					# buttonColor
+button37[9] = "menu03"						# buttonGroup
+button37[10] = False							# buttonVisible
+
+
 
 allButtons = {}
 allButtons[0] = button00		# exit button
@@ -673,9 +717,9 @@ allButtons[36] = button36		# Menu 02
 allButtons[37] = button37		# Menu 03
 allButtons[38] = button38		# Text Field - label
 allButtons[39] = button39		# Text Field - text entry box
-
-
-
+allButtons[40] = button40		# Menu 02  - small popup
+allButtons[41] = button41		# Menu 02  - Medium popup
+allButtons[42] = button42		# Menu 02  - Large popup
 
 
 # ************************************************************************************************************************
@@ -1055,7 +1099,7 @@ def updateDropdownButtons(selected_button):
 			defineButtons()
 
 	if selected_button == "dropdown01option02":
-		if button26[7] == True:
+		if button26[7] == True: 
 			button25[5] = "Option 02"
 			button27[8] = UI_button_color
 			button28[8] = UI_button_selected_color
@@ -1091,6 +1135,9 @@ def updateDropdownButtons(selected_button):
 
 def updateMenuButtons(selected_button):
 	print lineNum(), "running updateMenuButtons"
+
+	## START MENU 01 HANDLING
+
 	if selected_button == "menu01":
 		print lineNum(), "menu01 was clicked on"
 		print lineNum(), button30[0], "is ", button30[7]
@@ -1192,6 +1239,36 @@ def updateMenuButtons(selected_button):
 				button35[7] = False
 				button35[8] = UI_button_color
 				defineButtons()
+
+	## END MENU 01 HANDLING
+
+	## START MENU 02 HANDLING
+
+	if selected_button == "menu02":
+		if button36[7] == False:
+			# flip this menu button
+			button36[7] = True
+			button36[8] = UI_button_selected_color
+			
+			# flip related buttons in the group
+			button40[10] = True
+			button41[10] = True
+			button42[10] = True			
+
+			defineButtons()	
+
+		elif button36[7] == True:
+			# flip this menu button
+			button36[7] = False
+			button36[8] = UI_button_color
+			
+			# flip related buttons in the group
+			button40[10] = False
+			button41[10] = False
+			button42[10] = False			
+
+			defineButtons()
+			redrawEverything()	
 
 ## ############################################################################################
 ## UPDATE TEXT ENTRY BUTTONS
@@ -1385,6 +1462,7 @@ class Button:
 		# render "Menu" type buttons
 		elif self.buttonType == "menu":	
 			
+			# # Menu 01 hacky fix for some reason visible is flipped to true before redrawing everything
 			if self.button_name == "menu01option01":
 				self.buttonVisible = button31[10]
 			if self.button_name == "menu01option02":
@@ -1395,6 +1473,14 @@ class Button:
 				self.buttonVisible = button34[10]
 			if self.button_name == "menu01option05":
 				self.buttonVisible = button35[10]
+			
+			# # Menu 02 hacky fix
+			if self.button_name == "menu02popup01":
+				self.buttonVisible = button40[10]
+			if self.button_name == "menu02popup02":
+				self.buttonVisible = button41[10]
+			if self.button_name == "menu02popup03":
+				self.buttonVisible = button42[10]
 			
 
 			if self.buttonVisible == True:
