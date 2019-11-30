@@ -122,7 +122,7 @@ selectedButton = {}
 
 
 button00 = {}
-button00[0] = "exit"
+button00["name"] = "exit"
 button00[1] = 0
 button00[2] = pygame_window_height - 20
 button00[3] = UI_sideBar_width
@@ -135,7 +135,7 @@ button00[9] = "button00"
 button00[10] = True
 
 button01 = {}
-button01[0] = "command01"
+button01["name"] = "command01"
 button01[1] = 0
 button01[2] = pygame_window_height - 60
 button01[3] = UI_sideBar_width
@@ -148,7 +148,7 @@ button01[9] = "command01"
 button01[10] = True
 
 button02 = {}
-button02[0] = "command02"
+button02["name"] = "command02"
 button02[1] = 0
 button02[2] = pygame_window_height - 80
 button02[3] = UI_sideBar_width
@@ -161,7 +161,7 @@ button02[9] = "command02"
 button02[10] = True
 
 button03 = {}
-button03[0] = "command03"
+button03["name"] = "command03"
 button03[1] = 0
 button03[2] = pygame_window_height - 100
 button03[3] = UI_sideBar_width
@@ -174,7 +174,7 @@ button03[9] = "command03"
 button03[10] = True
 
 button04 = {}
-button04[0] = "sticky01"
+button04["name"] = "sticky01"
 button04[1] = 0
 button04[2] = pygame_window_height - 160
 button04[3] = UI_sideBar_width
@@ -187,7 +187,7 @@ button04[9] = "sticky01"
 button04[10] = True
 
 button05 = {}
-button05[0] = "sticky02"
+button05["name"] = "sticky02"
 button05[1] = 0
 button05[2] = pygame_window_height - 180
 button05[3] = UI_sideBar_width
@@ -200,7 +200,7 @@ button05[9] = "sticky02"
 button05[10] = True
 
 button06 = {}
-button06[0] = "sticky03"						# button_name
+button06["name"] = "sticky03"						# button_name
 button06[1] = 0								# button_origin_x
 button06[2] = pygame_window_height - 200		# button_origin_y
 button06[3] = UI_sideBar_width				# button_width
@@ -213,7 +213,7 @@ button06[9] = "sticky03"						# buttonGroup
 button06[10] = True							# buttonVisible
 
 button07 = {}
-button07[0] = "pushy_label"
+button07["name"] = "pushy_label"
 button07[1] = 0
 button07[2] = pygame_window_height - 120
 button07[3] = UI_sideBar_width
@@ -226,7 +226,7 @@ button07[9] = "pushy_buttons"
 button07[10] = True
 
 button08 = {}
-button08[0] = "sticky_label"
+button08["name"] = "sticky_label"
 button08[1] = 0
 button08[2] = pygame_window_height - 220
 button08[3] = UI_sideBar_width
@@ -239,7 +239,7 @@ button08[9] = "sticky_buttons"
 button08[10] = True
 
 button09 = {}
-button09[0] = "group01_label"					# button_name
+button09["name"] = "group01_label"					# button_name
 button09[1] = 0								# button_origin_x
 button09[2] = pygame_window_height - 300		# button_origin_y
 button09[3] = UI_sideBar_width				# button_width
@@ -252,7 +252,7 @@ button09[9] = "group01"						# buttonGroup
 button09[10] = True							# buttonVisible
 
 button10 = {}
-button10[0] = "Group01Button01"				# button_name
+button10["name"] = "Group01Button01"				# button_name
 button10[1] = 0								# button_origin_x
 button10[2] = pygame_window_height - 280		# button_origin_y
 button10[3] = UI_sideBar_width				# button_width
@@ -265,7 +265,7 @@ button10[9] = "group01"						# buttonGroup
 button10[10] = True							# buttonVisible
 
 button11 = {}
-button11[0] = "Group01Button02"				# button_name
+button11["name"] = "Group01Button02"				# button_name
 button11[1] = 0								# button_origin_x
 button11[2] = pygame_window_height - 260		# button_origin_y
 button11[3] = UI_sideBar_width				# button_width
@@ -278,7 +278,7 @@ button11[9] = "group01"						# buttonGroup
 button11[10] = True							# buttonVisible
 
 button12 = {}
-button12[0] = "group02_label"					# button_name
+button12["name"] = "group02_label"					# button_name
 button12[1] = 0								# button_origin_x
 button12[2] = pygame_window_height - 360		# button_origin_y
 button12[3] = UI_sideBar_width				# button_width
@@ -291,7 +291,7 @@ button12[9] = "group02"						# buttonGroup
 button12[10] = True							# buttonVisible
 
 button13 = {}
-button13[0] = "Group02Button01"				# button_name
+button13["name"] = "Group02Button01"				# button_name
 button13[1] = 0								# button_origin_x
 button13[2] = pygame_window_height - 340		# button_origin_y
 button13[3] = UI_sideBar_width / 2				# button_width
@@ -304,7 +304,7 @@ button13[9] = "group02"						# buttonGroup
 button13[10] = True							# buttonVisible
 
 button14 = {}
-button14[0] = "Group02Button02"				# button_name
+button14["name"] = "Group02Button02"				# button_name
 button14[1] = UI_sideBar_width / 2				# button_origin_x
 button14[2] = pygame_window_height - 340		# button_origin_y
 button14[3] = UI_sideBar_width / 2				# button_width
@@ -317,7 +317,7 @@ button14[9] = "group02"						# buttonGroup
 button14[10] = True							# buttonVisible
 
 button15 = {}
-button15[0] = "group03_label"					# button_name
+button15["name"] = "group03_label"					# button_name
 button15[1] = 0								# button_origin_x
 button15[2] = pygame_window_height - 420		# button_origin_y
 button15[3] = UI_sideBar_width				# button_width
@@ -330,7 +330,7 @@ button15[9] = "group03"						# buttonGroup
 button15[10] = True							# buttonVisible
 
 button16 = {}
-button16[0] = "Group03Button01"				# button_name
+button16["name"] = "Group03Button01"				# button_name
 button16[1] = 0								# button_origin_x
 button16[2] = pygame_window_height - 400		# button_origin_y
 button16[3] = UI_sideBar_width / 3				# button_width
@@ -343,7 +343,7 @@ button16[9] = "group03"						# buttonGroup
 button16[10] = True							# buttonVisible
 
 button17 = {}
-button17[0] = "Group03Button02"				# button_name
+button17["name"] = "Group03Button02"				# button_name
 button17[1] = UI_sideBar_width / 3				# button_origin_x
 button17[2] = pygame_window_height - 400		# button_origin_y
 button17[3] = UI_sideBar_width / 3				# button_width
@@ -356,7 +356,7 @@ button17[9] = "group03"						# buttonGroup
 button17[10] = True							# buttonVisible
 
 button18 = {}
-button18[0] = "Group03Button03"				# button_name
+button18["name"] = "Group03Button03"				# button_name
 button18[1] = (UI_sideBar_width / 3) * 2		# button_origin_x
 button18[2] = pygame_window_height - 400		# button_origin_y
 button18[3] = UI_sideBar_width / 3				# button_width
@@ -369,7 +369,7 @@ button18[9] = "group03"						# buttonGroup
 button18[10] = True							# buttonVisible
 
 button19 = {}
-button19[0] = "fps"							# button_name
+button19["name"] = "fps"							# button_name
 button19[1] = 0								# button_origin_x
 button19[2] = pygame_window_height - 460		# button_origin_y
 button19[3] = UI_sideBar_width				# button_width
@@ -382,7 +382,7 @@ button19[9] = "fps"							# buttonGroup
 button19[10] = True							# buttonVisible
 
 button20 = {}
-button20[0] = "scale"							# button_name
+button20["name"] = "scale"							# button_name
 button20[1] = 0								# button_origin_x
 button20[2] = pygame_window_height - 480		# button_origin_y
 button20[3] = UI_sideBar_width				# button_width
@@ -395,7 +395,7 @@ button20[9] = "scale"							# buttonGroup
 button20[10] = True							# buttonVisible
 
 button21 = {}
-button21[0] = "grid"							# button_name
+button21["name"] = "grid"							# button_name
 button21[1] = 0								# button_origin_x
 button21[2] = pygame_window_height - 500		# button_origin_y
 button21[3] = UI_sideBar_width				# button_width
@@ -408,7 +408,7 @@ button21[9] = "grid"							# buttonGroup
 button21[10] = True							# buttonVisible
 
 button22 = {}
-button22[0] = "origin"						# button_name
+button22["name"] = "origin"						# button_name
 button22[1] = 0								# button_origin_x
 button22[2] = pygame_window_height - 520		# button_origin_y
 button22[3] = UI_sideBar_width				# button_width
@@ -421,7 +421,7 @@ button22[9] = "origin"						# buttonGroup
 button22[10] = True							# buttonVisible
 
 button23 = {}
-button23[0] = "displayLabel"					# button_name
+button23["name"] = "displayLabel"					# button_name
 button23[1] = 0								# button_origin_x
 button23[2] = pygame_window_height - 540		# button_origin_y
 button23[3] = UI_sideBar_width				# button_width
@@ -434,7 +434,7 @@ button23[9] = "origin"						# buttonGroup
 button23[10] = True							# buttonVisible
 
 button24 = {}
-button24[0] = "dropdownLabel"					# button_name
+button24["name"] = "dropdownLabel"					# button_name
 button24[1] = 0								# button_origin_x
 button24[2] = pygame_window_height - 600		# button_origin_y
 button24[3] = UI_sideBar_width				# button_width
@@ -447,7 +447,7 @@ button24[9] = "dropdown01"					# buttonGroup
 button24[10] = True							# buttonVisible
 
 button25 = {}
-button25[0] = "dropdown01Label"				# button_name
+button25["name"] = "dropdown01Label"				# button_name
 button25[1] = 0								# button_origin_x
 button25[2] = pygame_window_height - 580		# button_origin_y
 button25[3] = UI_sideBar_width - 20			# button_width
@@ -460,7 +460,7 @@ button25[9] = "dropdown01"					# buttonGroup
 button25[10] = True							# buttonVisible
 
 button26 = {}
-button26[0] = "dropdown01opener"				# button_name
+button26["name"] = "dropdown01opener"				# button_name
 button26[1] = UI_sideBar_width - 20			# button_origin_x
 button26[2] = pygame_window_height - 580		# button_origin_y
 button26[3] = 20								# button_width
@@ -473,7 +473,7 @@ button26[9] = "dropdown01"					# buttonGroup
 button26[10] = True							# buttonVisible
 
 button27 = {}
-button27[0] = "dropdown01option01"			# button_name
+button27["name"] = "dropdown01option01"			# button_name
 button27[1] = UI_sideBar_width				# button_origin_x
 button27[2] = pygame_window_height - 580		# button_origin_y
 button27[3] = 140								# button_width
@@ -486,7 +486,7 @@ button27[9] = "dropdown01"					# buttonGroup
 button27[10] = False							# buttonVisible
 
 button28 = {}
-button28[0] = "dropdown01option02"			# button_name
+button28["name"] = "dropdown01option02"			# button_name
 button28[1] = UI_sideBar_width				# button_origin_x
 button28[2] = pygame_window_height - 560		# button_origin_y
 button28[3] = 140								# button_width
@@ -499,7 +499,7 @@ button28[9] = "dropdown01"					# buttonGroup
 button28[10] = False							# buttonVisible
 
 button29 = {}
-button29[0] = "dropdown01option03"			# button_name
+button29["name"] = "dropdown01option03"			# button_name
 button29[1] = UI_sideBar_width				# button_origin_x
 button29[2] = pygame_window_height - 540		# button_origin_y
 button29[3] = 140								# button_width
@@ -512,7 +512,7 @@ button29[9] = "dropdown01"					# buttonGroup
 button29[10] = False							# buttonVisible
 
 button30 = {}
-button30[0] = "menu01"						# button_name
+button30["name"] = "menu01"						# button_name
 button30[1] = UI_sideBar_width				# button_origin_x
 button30[2] = 0								# button_origin_y
 button30[3] = 125								# button_width
@@ -525,7 +525,7 @@ button30[9] = "menu01"						# buttonGroup
 button30[10] = True							# buttonVisible
 
 button31 = {}
-button31[0] = "menu01option01"				# button_name
+button31["name"] = "menu01option01"				# button_name
 button31[1] = UI_sideBar_width				# button_origin_x
 button31[2] = 20								# button_origin_y
 button31[3] = 150								# button_width
@@ -538,7 +538,7 @@ button31[9] = "menu01"						# buttonGroup
 button31[10] = False							# buttonVisible
 
 button32 = {}
-button32[0] = "menu01option02"				# button_name
+button32["name"] = "menu01option02"				# button_name
 button32[1] = UI_sideBar_width				# button_origin_x
 button32[2] = 40								# button_origin_y
 button32[3] = 150								# button_width
@@ -551,7 +551,7 @@ button32[9] = "menu01"						# buttonGroup
 button32[10] = False							# buttonVisible
 
 button33 = {}
-button33[0] = "menu01option03"				# button_name
+button33["name"] = "menu01option03"				# button_name
 button33[1] = UI_sideBar_width				# button_origin_x
 button33[2] = 60								# button_origin_y
 button33[3] = 150								# button_width
@@ -564,7 +564,7 @@ button33[9] = "menu01"						# buttonGroup
 button33[10] = False							# buttonVisible
 
 button34 = {}
-button34[0] = "menu01option04"				# button_name
+button34["name"] = "menu01option04"				# button_name
 button34[1] = UI_sideBar_width				# button_origin_x
 button34[2] = 80								# button_origin_y
 button34[3] = 150								# button_width
@@ -577,7 +577,7 @@ button34[9] = "menu01"						# buttonGroup
 button34[10] = False							# buttonVisible
 
 button35 = {}
-button35[0] = "menu01option05"				# button_name
+button35["name"] = "menu01option05"				# button_name
 button35[1] = UI_sideBar_width				# button_origin_x
 button35[2] = 100								# button_origin_y
 button35[3] = 150								# button_width
@@ -590,7 +590,7 @@ button35[9] = "menu01"						# buttonGroup
 button35[10] = False							# buttonVisible
 
 button38 = {}
-button38[0] = "textField01Label"				# button_name
+button38["name"] = "textField01Label"				# button_name
 button38[1] = 0								# button_origin_x
 button38[2] = pygame_window_height - 660		# button_origin_y
 button38[3] = UI_sideBar_width				# button_width
@@ -603,7 +603,7 @@ button38[9] = "text01"						# buttonGroup
 button38[10] = True							# buttonVisible
 
 button39 = {}
-button39[0] = "textField01"					# button_name
+button39["name"] = "textField01"					# button_name
 button39[1] = 0								# button_origin_x
 button39[2] = pygame_window_height - 640		# button_origin_y
 button39[3] = UI_sideBar_width				# button_width
@@ -616,7 +616,7 @@ button39[9] = "text01"						# buttonGroup
 button39[10] = True							# buttonVisible
 
 button36 = {}
-button36[0] = "menu02"									# button_name
+button36["name"] = "menu02"									# button_name
 button36[1] = UI_sideBar_width + UI_menuButton_width		# button_origin_x
 button36[2] = 0											# button_origin_y
 button36[3] = 125											# button_width
@@ -629,7 +629,7 @@ button36[9] = "menu02"									# buttonGroup
 button36[10] = True										# buttonVisible
 
 button40 = {}
-button40[0] = "menu02popup01"							# button_name
+button40["name"] = "menu02popup01"							# button_name
 button40[1] = UI_sideBar_width + UI_menuButton_width	# button_origin_x
 button40[2] = 20										# button_origin_y
 button40[3] = 150										# button_width
@@ -643,7 +643,7 @@ button40[10] = False									# buttonVisible
 
 
 button41 = {}
-button41[0] = "menu02popup02"							# button_name
+button41["name"] = "menu02popup02"							# button_name
 button41[1] = UI_sideBar_width + UI_menuButton_width	# button_origin_x
 button41[2] = 40										# button_origin_y
 button41[3] = 150										# button_width
@@ -656,7 +656,7 @@ button41[9] = "menu02"								# buttonGroup
 button41[10] = False									# buttonVisible
 
 button42 = {}
-button42[0] = "menu02popup03"							# button_name
+button42["name"] = "menu02popup03"							# button_name
 button42[1] = UI_sideBar_width + UI_menuButton_width	# button_origin_x
 button42[2] = 60										# button_origin_y
 button42[3] = 150										# button_width
@@ -669,7 +669,7 @@ button42[9] = "menu02"								# buttonGroup
 button42[10] = False									# buttonVisible
 
 button43 = {}
-button43[0] = "menu02popup01element01"				# button_name
+button43["name"] = "menu02popup01element01"				# button_name
 button43[1] = UI_popup_small_origin_x					# button_origin_x
 button43[2] = UI_popup_small_origin_y					# button_origin_y
 button43[3] = UI_popup_small_width					# button_width
@@ -682,7 +682,7 @@ button43[9] = "menu02popup01"							# buttonGroup
 button43[10] = False									# buttonVisible
 
 button44 = {}
-button44[0] = "menu02popup01element02"				# button_name
+button44["name"] = "menu02popup01element02"				# button_name
 button44[1] = UI_popup_small_origin_x					# button_origin_x
 button44[2] = UI_popup_small_origin_y					# button_origin_y
 button44[3] = UI_popup_small_width					# button_width
@@ -695,7 +695,7 @@ button44[9] = "menu02popup01"							# buttonGroup
 button44[10] = False									# buttonVisible
 
 button45 = {}
-button45[0] = "menu02popup01element03"				# button_name
+button45["name"] = "menu02popup01element03"				# button_name
 button45[1] = UI_popup_small_origin_x					# button_origin_x
 button45[2] = UI_popup_small_origin_y + 40				# button_origin_y
 button45[3] = UI_popup_small_width					# button_width
@@ -708,7 +708,7 @@ button45[9] = "menu02popup01"							# buttonGroup
 button45[10] = False									# buttonVisible
 
 button46 = {}
-button46[0] = "menu02popup01element04"				# button_name
+button46["name"] = "menu02popup01element04"				# button_name
 button46[1] = UI_popup_small_origin_x + 20				# button_origin_x
 button46[2] = UI_popup_small_origin_y + 80				# button_origin_y
 button46[3] = 80										# button_width
@@ -721,7 +721,7 @@ button46[9] = "menu02popup01"							# buttonGroup
 button46[10] = False									# buttonVisible
 
 button47 = {}
-button47[0] = "menu02popup01element05"				# button_name
+button47["name"] = "menu02popup01element05"				# button_name
 button47[1] = UI_popup_small_origin_x + 20				# button_origin_x
 button47[2] = UI_popup_small_origin_y + 100			# button_origin_y
 button47[3] = 80										# button_width
@@ -734,7 +734,7 @@ button47[9] = "menu02popup01"							# buttonGroup
 button47[10] = False									# buttonVisible
 
 button48 = {}
-button48[0] = "menu02popup01element06"							# button_name
+button48["name"] = "menu02popup01element06"							# button_name
 button48[1] = UI_popup_small_origin_x								# button_origin_x
 button48[2] = UI_popup_small_origin_y + UI_popup_small_height - 60 	# button_origin_y
 button48[3] = UI_popup_small_width								# button_width
@@ -747,7 +747,7 @@ button48[9] = "menu02popup01"										# buttonGroup
 button48[10] = False												# buttonVisible
 
 button49 = {}
-button49[0] = "menu02popup01element07"							# button_name
+button49["name"] = "menu02popup01element07"							# button_name
 button49[1] = UI_popup_small_origin_x + 20							# button_origin_x
 button49[2] = UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
 button49[3] = 60													# button_width
@@ -760,7 +760,7 @@ button49[9] = "menu02popup01"										# buttonGroup
 button49[10] = False												# buttonVisible
 
 button50 = {}
-button50[0] = "menu02popup01element08"							# button_name
+button50["name"] = "menu02popup01element08"							# button_name
 button50[1] = UI_popup_small_origin_x + UI_popup_small_width -80	# button_origin_x
 button50[2] = UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
 button50[3] = 60													# button_width
@@ -778,7 +778,7 @@ button50[10] = False												# buttonVisible
 
 
 button37 = {}
-button37[0] = "menu03"						# button_name
+button37["name"] = "menu03"						# button_name
 button37[1] = UI_sideBar_width * 250			# button_origin_x
 button37[2] = 0								# button_origin_y
 button37[3] = 125								# button_width
@@ -795,7 +795,7 @@ button37[10] = False							# buttonVisible
 
 
 allButtons = {}
-allButtons[0] = button00		# exit button
+allButtons["name"] = button00		# exit button
 allButtons[1] = button01		# command 01
 allButtons[2] = button02		# command 02
 allButtons[3] = button03		# command 03
@@ -880,7 +880,7 @@ def defineButtons():
 			buttonToDraw[key] = allButtonsValue[key]
 
 		### -------------------------- ###
-		button_name = buttonToDraw[0]
+		button_name = buttonToDraw["name"]
 		button_origin_x = buttonToDraw[1]
 		button_origin_y = buttonToDraw[2]
 		button_width = buttonToDraw[3]
@@ -1192,7 +1192,7 @@ def updateDropdownButtons(selected_button):
 			defineButtons()	
 
 			print lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
-			print lineNum(), button26[0], "enabled:", button26[7], "visible:", button26[10]
+			print lineNum(), button26["name"], "enabled:", button26[7], "visible:", button26[10]
 			
 		elif button26[7] == True:
 			print " --------------------------------------- "
@@ -1200,11 +1200,11 @@ def updateDropdownButtons(selected_button):
 			print " --------------------------------------- "
 
 			# udapte this button
-			print lineNum(), button26[0], "enabled was: ", button26[7]
+			print lineNum(), button26["name"], "enabled was: ", button26[7]
 			button26[7] = False
 			button26[8] = UI_button_color
 			button26[5] = ">>"
-			print lineNum(), button26[0], "enabled:", button26[7], "visible:", button26[10]
+			print lineNum(), button26["name"], "enabled:", button26[7], "visible:", button26[10]
 
 			# update associated buttons
 			button27[10] = False
@@ -1216,7 +1216,7 @@ def updateDropdownButtons(selected_button):
 			defineButtons()
 			redrawEverything()
 
-			print lineNum(), button26[0], "enabled:", button26[7], "visible:", button26[10]
+			print lineNum(), button26["name"], "enabled:", button26[7], "visible:", button26[10]
 			print " --------------------------------------- "
 			print lineNum(), "FINISHED dropdown true to false "
 			print " --------------------------------------- "
@@ -1272,7 +1272,7 @@ def updateMenuButtons(selected_button):
 
 	if selected_button == "menu01":
 		print lineNum(), "menu01 was clicked on"
-		print lineNum(), button30[0], "is ", button30[7]
+		print lineNum(), button30["name"], "is ", button30[7]
 		
 		if button30[7] == False:
 			print "was false, turning to true"
@@ -1285,11 +1285,11 @@ def updateMenuButtons(selected_button):
 			button34[10] = True
 			button35[10] = True
 
-			print lineNum(), "~", button31[0], "Visible=", button31[10]
-			print lineNum(), "~", button32[0], "Visible=", button32[10]
-			print lineNum(), "~", button33[0], "Visible=", button33[10]			
-			print lineNum(), "~", button34[0], "Visible=", button34[10]
-			print lineNum(), "~", button35[0], "Visible=", button35[10]
+			print lineNum(), "~", button31["name"], "Visible=", button31[10]
+			print lineNum(), "~", button32["name"], "Visible=", button32[10]
+			print lineNum(), "~", button33["name"], "Visible=", button33[10]			
+			print lineNum(), "~", button34["name"], "Visible=", button34[10]
+			print lineNum(), "~", button35["name"], "Visible=", button35[10]
 
 			defineButtons()	
 			
@@ -1303,11 +1303,11 @@ def updateMenuButtons(selected_button):
 			button34[10] = False
 			button35[10] = False		
 			
-			print lineNum(), "~", button31[0], "Visible=", button31[10]
-			print lineNum(), "~", button32[0], "Visible=", button32[10]
-			print lineNum(), "~", button33[0], "Visible=", button33[10]			
-			print lineNum(), "~", button34[0], "Visible=", button34[10]
-			print lineNum(), "~", button35[0], "Visible=", button35[10]
+			print lineNum(), "~", button31["name"], "Visible=", button31[10]
+			print lineNum(), "~", button32["name"], "Visible=", button32[10]
+			print lineNum(), "~", button33["name"], "Visible=", button33[10]			
+			print lineNum(), "~", button34["name"], "Visible=", button34[10]
+			print lineNum(), "~", button35["name"], "Visible=", button35[10]
 
 			defineButtons()
 			redrawEverything()
