@@ -870,6 +870,8 @@ def lineNum():
 # # #########################################################################################
 
 def defineButtons():
+	del my_buttons[:] 	# this clears and resets the my_buttons list, other it just keeps getting appended
+
 	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
 	print lineNum(), "defineButtons() - started" 
 	# iterates through the nested button dictionary, dumps each button into buttonToDraw, then displays ads to the list
@@ -893,6 +895,7 @@ def defineButtons():
 		# define button then add button to display list
 		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 		my_buttons.append(created_button)
+		#print " my_buttons length: ", len(my_buttons)
 
 
 	print lineNum(), "defineButtons() - completed"
@@ -900,6 +903,8 @@ def defineButtons():
 def enumerateButtons():
 	for i, button in enumerate(my_buttons):
 		button.display()	
+
+
 
 # # #########################################################################################
 # # This figures out which button was clicked
@@ -1606,15 +1611,6 @@ class Button:
 		# render "dropdown" type buttons
 		elif self.buttonType == "dropdown":	
 			
-			# next three are added because for some reason buttonVisible flips from false to true during iteration through class. 
-			# figure the cause our later, for now it works. 
-			if self.button_name == "dropdown01option01":
-				self.buttonVisible = button27[10]
-			if self.button_name == "dropdown01option02":
-				self.buttonVisible = button28[10]
-			if self.button_name == "dropdown01option03":
-				self.buttonVisible = button29[10]
-			
 			if self.buttonVisible == True:
 				#print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
@@ -1623,34 +1619,11 @@ class Button:
 				label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)						# set label
 				screen.blit(label, (self.x + 5, self.y))														# draw label
 
-			#elif self.buttonVisible == False:
-			#	print lineNum(), self.button_name, "visible is: ", self.buttonVisible
-				#print lineNum(), "buttons27,28,29 visible:", button27[10], button28[10], button29[10]
+
 
 		# render "Menu" type buttons
 		elif self.buttonType == "menu":	
 			
-			# # Menu 01 hacky fix for some reason visible is flipped to true before redrawing everything
-			if self.button_name == "menu01option01":
-				self.buttonVisible = button31[10]
-			if self.button_name == "menu01option02":
-				self.buttonVisible = button32[10]
-			if self.button_name == "menu01option03":
-				self.buttonVisible = button33[10]
-			if self.button_name == "menu01option04":
-				self.buttonVisible = button34[10]
-			if self.button_name == "menu01option05":
-				self.buttonVisible = button35[10]
-			
-			# # Menu 02 hacky fix
-			if self.button_name == "menu02popup01":
-				self.buttonVisible = button40[10]
-			if self.button_name == "menu02popup02":
-				self.buttonVisible = button41[10]
-			if self.button_name == "menu02popup03":
-				self.buttonVisible = button42[10]
-			
-
 			if self.buttonVisible == True:
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
@@ -1668,15 +1641,6 @@ class Button:
 
 		# render "popup" type buttons
 		elif self.buttonType == "popup":
-			
-			if self.button_name == "menu02popup01element01":
-				self.buttonVisible = button43[10]
-			if self.button_name == "menu02popup01element02":
-				self.buttonVisible = button44[10]
-
-
-
-
 
 			if self.buttonVisible == True:
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
@@ -1701,16 +1665,6 @@ class Button:
 				screen.blit(label, (self.x + 5, self.y))
 
 		elif self.buttonType == "popup_element_button":
-
-			if self.button_name == "menu02popup01element04":
-				self.buttonVisible = button46[10]
-			if self.button_name == "menu02popup01element05":
-				self.buttonVisible = button47[10]
-			if self.button_name == "menu02popup01element07":
-				self.buttonVisible = button49[10]
-			if self.button_name == "menu02popup01element08":
-				self.buttonVisible = button50[10]
-
 
 			if self.buttonVisible == True:
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
