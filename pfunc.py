@@ -35,6 +35,7 @@ buttonToDraw = {}			#each button is loaded into this dictionary, added to my_but
 ####### -------------------------------------##########
 ####### for printing Linu Number when debugging  ##########
 ####### -------------------------------------##########
+
 def lineNum():
     """Returns the current line number in our program."""
     return inspect.currentframe().f_back.f_lineno
@@ -69,7 +70,6 @@ def initializeDisplay():
 	for i, button in enumerate(my_buttons):
 		button.display()
 	
-
 	print moduleName, lineNum(), "initializing display completed"
 
 
@@ -118,6 +118,6 @@ def findButton(buttons, x, y):
 			if x >= b.x:
 				if y >= b.y:
 					if y <= b.y + b.y_height:
-						print lineNum(), "selected button label_txt = ", b.button_name
+						print moduleName, lineNum(), "selected button label_txt = ", b.button_name
 						return b
 	return None

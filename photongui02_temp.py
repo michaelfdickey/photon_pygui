@@ -5,12 +5,6 @@
 # ************************************************************************************
 
 
-
-
-
-
-
-
 # ************************************************************************************
 #	initial lists	#
 # ************************************************************************************
@@ -23,25 +17,7 @@
 
 
 
-# ************************************************************************************************************************
-# ************************************************************************************************************************
-# 	button dictionaries	#
-# ************************************************************************************************************************
-# ************************************************************************************************************************
 
-
-buttonExit = {}
-buttonExit["name"] = "exit"
-buttonExit["origin_x"] = 0
-buttonExit["origin_y"] = pygame_window_height - 20
-buttonExit["width"] = UI_sideBar_width
-buttonExit["height"] = 20
-buttonExit["label_txt"] = "EXIT"
-buttonExit["type"] = "pushy"
-buttonExit["enabled"] = True
-buttonExit["color"] = UI_button_color
-buttonExit["group"] = "buttonExit"
-buttonExit["visible"] = True
 
 buttonCommand01 = {}
 buttonCommand01["name"] = "command01"
@@ -698,15 +674,6 @@ button50["visible"] = False												# buttonVisible
 
 
 
-
-
-
-
-
-
-
-allButtons = {}
-allButtons[0] = buttonExit			# exit button
 allButtons[1] = buttonCommand01		# command 01
 allButtons[2] = buttonCommand02		# command 02
 allButtons[3] = buttonCommand03		# command 03
@@ -771,52 +738,20 @@ my_buttons = []			#initializes my_buttons list, each button is added to this for
 buttonToDraw = {}			#each button is loaded into this dictionary, added to my_buttons list
 
 
-def lineNum():
-    """Returns the current line number in our program."""
-    return inspect.currentframe().f_back.f_lineno
 
 
 # # #########################################################################################
 # # # DEFINE BUTTONS
 # # #########################################################################################
 
-def defineButtons():
-	del my_buttons[:] 	# this clears and resets the my_buttons list, other it just keeps getting appended
 
-	# source info for this part: https://realpython.com/iterate-through-dictionary-python/
-	print lineNum(), "defineButtons() - started" 
-	# iterates through the nested button dictionary, dumps each button into buttonToDraw, then displays ads to the list
-	for allButtonsID, allButtonsValue in allButtons.items():
-		for key in allButtonsValue:
-			buttonToDraw[key] = allButtonsValue[key]
-
-		### -------------------------- ###
-		button_name = buttonToDraw["name"]
-		button_origin_x = buttonToDraw["origin_x"]
-		button_origin_y = buttonToDraw["origin_y"]
-		button_width = buttonToDraw["width"]
-		button_height = buttonToDraw["height"]
-		button_label_txt = buttonToDraw["label_txt"]
-		buttonType = buttonToDraw["type"]
-		buttonEnabled = buttonToDraw["enabled"]
-		buttonColor = buttonToDraw["color"]
-		buttonGroup = buttonToDraw["group"]
-		buttonVisible = buttonToDraw["visible"]
-
-		# define button then add button to display list
-		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
-		my_buttons.append(created_button)
-		#print " my_buttons length: ", len(my_buttons)
-
-
-	print lineNum(), "defineButtons() - completed"
 
 def enumerateButtons():
 	for i, button in enumerate(my_buttons):
 		button.display()	
 
 
-
+"""
 # # #########################################################################################
 # # This figures out which button was clicked
 def findButton(buttons, x, y):
@@ -828,7 +763,7 @@ def findButton(buttons, x, y):
 						print lineNum(), "selected button label_txt = ", b.button_name
 						return b
 	return None
-
+"""
 
 
 
@@ -1585,6 +1520,7 @@ class Button:
 				screen.blit(label, (self.x + 5, self.y))
 
 
+
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 # 	MAIN code	#
@@ -1592,13 +1528,13 @@ class Button:
 # ************************************************************************************************************************
 
 
-
-
 ########## EVENT MONITORING / UPDATE DISPLAY ########### 
 
+"""
 running = True
 
 while running:
+"""
 
 	if button19["enabled"] == True:
 		pygame.draw.rect(screen, blue, (pygame_window_width - 100, pygame_window_height - 30, 80, 20))   
@@ -1609,13 +1545,14 @@ while running:
 
 	for event in pygame.event.get():
 
+		"""
 		if event.type == pygame.QUIT:
 			running = False
-		
+		"""	
 		
 
-		if event.type == pygame.MOUSEBUTTONDOWN:					#mousebuttondown only runs once, things run outside if this if loop
-			(mouseX, mouseY) = pygame.mouse.get_pos()				# will run continually while button is held down
+		if event.type == pygame.MOUSEBUTTONDOWN:							#mousebuttondown only runs once, things run outside if this if loop
+			(mouseX, mouseY) = pygame.mouse.get_pos()						# will run continually while button is held down
 			print lineNum(), "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
 			selected_button = findButton(my_buttons, mouseX, mouseY)
 			print lineNum(), "selected button = ", selected_button

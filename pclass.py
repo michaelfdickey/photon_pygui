@@ -75,7 +75,7 @@ class Button:
 
 		# render "label" type buttons
 		elif self.buttonType == "label":
-			self.color = UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
+			self.color = pgvar.UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 
 			label = myfont.render(str(self.button_label_txt), 0, pgvar.UI_button_txt_color)
