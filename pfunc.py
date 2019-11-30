@@ -15,6 +15,7 @@ import inspect		# for displaying the line number of the code in print commands
 # # unique modules for this app
 import pgvar
 import pgui
+import pclass
 
 # ************************************************************************************************#
 # ************************************************************************************************#
@@ -64,10 +65,10 @@ def initializeDisplay():
 	print moduleName, lineNum(), "- drawing buttons"
 
 	defineButtons()
-	"""
+	
 	for i, button in enumerate(my_buttons):
 		button.display()
-	"""
+	
 
 	print moduleName, lineNum(), "initializing display completed"
 
@@ -100,9 +101,23 @@ def defineButtons():
 		buttonVisible = buttonToDraw["visible"]
 
 		# define button then add button to display list
-		created_button = Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
+		created_button = pclass.Button((button_origin_x,button_origin_y), button_name, button_width, button_height, button_label_txt, buttonType, buttonEnabled,  buttonColor, buttonVisible)
 		my_buttons.append(created_button)
 		#print " my_buttons length: ", len(my_buttons)
 
 
 	print moduleName, lineNum(), "defineButtons() - completed"
+
+
+####### ---------------------------------------------------------------------##########
+####### this determines what button has been clicked on                                                                ##########
+####### ---------------------------------------------------------------------##########
+def findButton(buttons, x, y):
+	for b in buttons:
+		if x <= b.x + b.x_width:
+			if x >= b.x:
+				if y >= b.y:
+					if y <= b.y + b.y_height:
+						print lineNum(), "selected button label_txt = ", b.button_name
+						return b
+	return None

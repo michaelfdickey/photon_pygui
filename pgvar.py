@@ -18,8 +18,8 @@ import pygame
 
 # # pygame font
 pygame.font.init()																# needs to be called at the start of the program
-v_myfont = pygame.font.SysFont('Arial',15)										# GUI font type and size
-v_fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 15)
+myfont = pygame.font.SysFont('Arial',15)										# GUI font type and size
+fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 15)
 
 # # pre-defined colors
 color_black = (0,0,0)
