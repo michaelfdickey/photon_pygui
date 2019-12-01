@@ -17,47 +17,6 @@
 
 
 
-
-
-buttonCommand01 = {}
-buttonCommand01["name"] = "command01"
-buttonCommand01["origin_x"] = 0
-buttonCommand01["origin_y"] = pygame_window_height - 60
-buttonCommand01["width"] = UI_sideBar_width
-buttonCommand01["height"] = 20
-buttonCommand01["label_txt"] = "Command 01"
-buttonCommand01["type"] = "pushy"
-buttonCommand01["enabled"] = True
-buttonCommand01["color"] = UI_button_color
-buttonCommand01["group"] = "command01"
-buttonCommand01["visible"] = True
-
-buttonCommand02 = {}
-buttonCommand02["name"] = "command02"
-buttonCommand02["origin_x"] = 0
-buttonCommand02["origin_y"] = pygame_window_height - 80
-buttonCommand02["width"] = UI_sideBar_width
-buttonCommand02["height"] = 20
-buttonCommand02["label_txt"] = "Command 02"
-buttonCommand02["type"] = "pushy"
-buttonCommand02["enabled"] = True
-buttonCommand02["color"] = UI_button_color
-buttonCommand02["group"] = "command02"
-buttonCommand02["visible"] = True
-
-buttonCommand03 = {}
-buttonCommand03["name"] = "command03"
-buttonCommand03["origin_x"] = 0
-buttonCommand03["origin_y"] = pygame_window_height - 100
-buttonCommand03["width"] = UI_sideBar_width
-buttonCommand03["height"] = 20
-buttonCommand03["label_txt"] = "Command 03"
-buttonCommand03["type"] = "pushy"
-buttonCommand03["enabled"] = True
-buttonCommand03["color"] = UI_button_color
-buttonCommand03["group"] = "command03"
-buttonCommand03["visible"] = True
-
 buttonSticky01 = {}
 buttonSticky01["name"] = "sticky01"
 buttonSticky01["origin_x"] = 0
@@ -97,18 +56,7 @@ buttonSticky03["color"] = UI_button_color 					# buttonColor
 buttonSticky03["group"] = "sticky03"						# buttonGroup
 buttonSticky03["visible"] = True							# buttonVisible
 
-labelPushy = {}
-labelPushy["name"] = "pushy_label"
-labelPushy["origin_x"] = 0
-labelPushy["origin_y"] = pygame_window_height - 120
-labelPushy["width"] = UI_sideBar_width
-labelPushy["height"] = 20
-labelPushy["label_txt"] = "Pushy Buttons"
-labelPushy["type"] = "label"
-labelPushy["enabled"] = True
-labelPushy["color"] = UI_label_color
-labelPushy["group"] = "pushy_buttons"
-labelPushy["visible"] = True
+
 
 labelSticky = {}
 labelSticky["name"] = "sticky_label"
@@ -674,13 +622,11 @@ button50["visible"] = False												# buttonVisible
 
 
 
-allButtons[1] = buttonCommand01		# command 01
-allButtons[2] = buttonCommand02		# command 02
-allButtons[3] = buttonCommand03		# command 03
+
 allButtons[4] = buttonSticky01		# sticky 01
 allButtons[5] = buttonSticky02		# sticky 02
 allButtons[6] = buttonSticky03		# sticky 03
-allButtons[7] = labelPushy		# pushy button group label
+
 allButtons[8] = labelSticky		# stick button group label
 allButtons[9] = labelGroup01		# group01 label
 allButtons[10] = button10 	# group01 button 01
@@ -1550,7 +1496,7 @@ while running:
 			running = False
 		"""	
 		
-
+		"""
 		if event.type == pygame.MOUSEBUTTONDOWN:							#mousebuttondown only runs once, things run outside if this if loop
 			(mouseX, mouseY) = pygame.mouse.get_pos()						# will run continually while button is held down
 			print lineNum(), "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
@@ -1558,11 +1504,13 @@ while running:
 			print lineNum(), "selected button = ", selected_button
 
 			if selected_button != None:
-
+		
 				if selected_button.button_label_txt == "EXIT":
 					print lineNum(), "you pressed exit"
 					running = False
+		"""
 
+				"""		
 				if selected_button.buttonType == "pushy":
 					print lineNum(), "running MOUSEBUTTONDOWN pushy event"
 					print lineNum(), "selected_button.color  was :", selected_button.color	
@@ -1570,8 +1518,9 @@ while running:
 					print lineNum(), "selected_button.color now : ", selected_button.color			
 					selected_button.buttonEnabled = True
 					print lineNum(), "clicked button is a pushy temporary button"
-					
+				"""
 
+				"""
 					if selected_button.button_name == "command01":
 						print lineNum(), "you clicked command01"
 						buttonCommand01["enabled"] = True
@@ -1584,6 +1533,7 @@ while running:
 
 						print lineNum(), "running code for Command01"
 						# command01 function call goes here:
+				"""
 
 
 					if selected_button.button_name == "command02":
@@ -1661,6 +1611,7 @@ while running:
 						enumerateButtons()
 
 
+"""
 		if event.type == pygame.MOUSEBUTTONUP:
 
 			if selected_button != None:
@@ -1680,7 +1631,7 @@ while running:
 						print lineNum(), "____drawing buttons from pushy event command01"
 						for i, button in enumerate(my_buttons):
 							button.display()
-
+"""
 
 
 					if selected_button.button_name == "command02":

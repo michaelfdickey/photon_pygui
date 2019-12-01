@@ -61,8 +61,11 @@ while running:
 		if event.type == pygame.QUIT:
 			running = False
 
+
+
+
 		if event.type == pygame.MOUSEBUTTONDOWN:		
-			(mouseX, mouseY) = pygame.mouse.get_pos()						# will run continually while button is held down
+			(mouseX, mouseY) = pygame.mouse.get_pos()											# will run continually while button is held down
 			print moduleName, pfunc.lineNum(), "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
 			selected_button = pfunc.findButton(pfunc.my_buttons, mouseX, mouseY)
 			print moduleName, pfunc.lineNum(), "selected button = ", selected_button
@@ -72,6 +75,54 @@ while running:
 				if selected_button.button_label_txt == "EXIT":
 					print moduleName,  pfunc.lineNum(), "you pressed exit"
 					running = False
+
+				if selected_button.buttonType == "pushy":
+					print moduleName, pfunc.lineNum(), "running MOUSEBUTTONDOWN pushy event"
+					print moduleName, pfunc.lineNum(), "selected_button.color  was :", selected_button.color	
+					selected_button.color = pgvar.UI_button_click_color
+					print moduleName, pfunc.lineNum(), "selected_button.color now : ", selected_button.color			
+					selected_button.buttonEnabled = True
+					print moduleName, pfunc.lineNum(), "clicked button is a pushy temporary button"
+
+					if selected_button.button_name == "command01":
+						print moduleName, pfunc.lineNum(), "you clicked command01"
+						pgui.buttonCommand01["enabled"] = True
+						pgui.buttonCommand01["color"] = pgvar.UI_button_click_color
+
+						pfunc.defineButtons()
+
+						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event"
+						for i, button in enumerate(pfunc.my_buttons):
+							button.display()
+
+						print moduleName, pfunc.lineNum(), "running code for Command01"
+						# command01 function call goes here:
+
+
+
+
+
+		if event.type == pygame.MOUSEBUTTONUP:
+
+			if selected_button != None:
+				
+				if selected_button.buttonType == "pushy":
+					print moduleName,pfunc.lineNum(), "running MOUSEBUTTONUP pushy event"
+					print moduleName, pfunc.lineNum(), "selected_button.color  was :", selected_button.color	
+					selected_button.color = pgvar.UI_button_color 			#reverts button back to normal color after letting go of mouse
+					print moduleName, pfunc.lineNum(), "selected_button.color now : ", selected_button.color	
+			
+					if selected_button.button_name == "command01":
+						print moduleName, pfunc.lineNum(), "you clicked command01"
+						pgui.buttonCommand01["enabled"] = False
+						pgui.buttonCommand01["color"] = pgvar.UI_button_color
+						pfunc.defineButtons()
+
+						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event command01"
+						for i, button in enumerate(pfunc.my_buttons):
+							button.display()
+
+
 
 
 	# always do this last
