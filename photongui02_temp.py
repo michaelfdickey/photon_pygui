@@ -23,44 +23,9 @@
 
 
 
-labelGroup01 = {}
-labelGroup01["name"] = "group01_label"					# button_name
-labelGroup01["origin_x"] = 0								# button_origin_x
-labelGroup01["origin_y"] = pgvar.pygame_window_height - 300		# button_origin_y
-labelGroup01["width"] = pgvar.UI_sideBar_width					# button_width
-labelGroup01["height"] = 20								# button_height
-labelGroup01["label_txt"] = "Group 01"					# button_label_txt
-labelGroup01["type"] = "label"							# buttonType
-labelGroup01["enabled"] = False							# buttonEnabled
-labelGroup01["color"] = UI_label_color 					# buttonColor
-labelGroup01["group"] = "group01"							# buttonGroup
-labelGroup01["visible"] = True							# buttonVisible
 
-button10 = {}
-button10["name"] = "Group01Button01"					# button_name
-button10["origin_x"] = 0								# button_origin_x
-button10["origin_y"] = pgvar.pygame_window_height - 280		# button_origin_y
-button10["width"] = pgvar.UI_sideBar_width					# button_width
-button10["height"] = 20								# button_height
-button10["label_txt"] = "Group 01 Button 01"			# button_label_txt
-button10["type"] = "group"							# buttonType
-button10["enabled"] = True							# buttonEnabled
-button10["color"] = UI_button_selected_color			# buttonColor
-button10["group"] = "group01"							# buttonGroup
-button10["visible"] = True							# buttonVisible
 
-button11 = {}
-button11["name"] = "Group01Button02"					# button_name
-button11["origin_x"] = 0								# button_origin_x
-button11["origin_y"] = pgvar.pygame_window_height - 260		# button_origin_y
-button11["width"] = pgvar.UI_sideBar_width					# button_width
-button11["height"] = 20								# button_height
-button11["label_txt"] = "Group 01 Button 02"			# button_label_txt
-button11["type"] = "group"							# buttonType
-button11["enabled"] = False							# buttonEnabled
-button11["color"] = pgvar.UI_button_color					# buttonColor
-button11["group"] = "group01"							# buttonGroup
-button11["visible"] = True							# buttonVisible
+
 
 button12 = {}
 button12["name"] = "group02_label"					# button_name
@@ -71,7 +36,7 @@ button12["height"] = 20								# button_height
 button12["label_txt"] = "Group 02"					# button_label_txt
 button12["type"] = "label"							# buttonType
 button12["enabled"] = False							# buttonEnabled
-button12["color"] = UI_label_color 					# buttonColor
+button12["color"] = pgvar.UI_label_color 					# buttonColor
 button12["group"] = "group02"							# buttonGroup
 button12["visible"] = True							# buttonVisible
 
@@ -110,7 +75,7 @@ button15["height"] = 20								# button_height
 button15["label_txt"] = "Group 03"					# button_label_txt
 button15["type"] = "label"							# buttonType
 button15["enabled"] = False							# buttonEnabled
-button15["color"] = UI_label_color 					# buttonColor
+button15["color"] = pgvar.UI_label_color 					# buttonColor
 button15["group"] = "group03"							# buttonGroup
 button15["visible"] = True							# buttonVisible
 
@@ -409,7 +374,7 @@ button38["height"] = 20								# button_height
 button38["label_txt"] = "Enter Text:"					# button_label_txt
 button38["type"] = "label"							# buttonType
 button38["enabled"] = False							# buttonEnabled
-button38["color"] = UI_label_color					# buttonColor
+button38["color"] = pgvar.UI_label_color					# buttonColor
 button38["group"] = "text01"							# buttonGroup
 button38["visible"] = True							# buttonVisible
 
@@ -502,7 +467,7 @@ button45["height"] = 20										# button_height
 button45["label_txt"] = " Do Something Interesting:"			# button_label_txt
 button45["type"] = "popup_element"							# buttonType
 button45["enabled"] = False									# buttonEnabled
-button45["color"] = UI_label_color							# buttonColor
+button45["color"] = pgvar.UI_label_color							# buttonColor
 button45["group"] = "menu02popup01"							# buttonGroup
 button45["visible"] = False									# buttonVisible
 
@@ -541,7 +506,7 @@ button48["height"] = 60													# button_height
 button48["label_txt"] = ""												# button_label_txt
 button48["type"] = "popup_element"										# buttonType
 button48["enabled"] = False												# buttonEnabled
-button48["color"] = UI_label_color										# buttonColor
+button48["color"] = pgvar.UI_label_color										# buttonColor
 button48["group"] = "menu02popup01"										# buttonGroup
 button48["visible"] = False												# buttonVisible
 
@@ -576,9 +541,8 @@ button50["visible"] = False												# buttonVisible
 
 
 
-allButtons[9] = labelGroup01		# group01 label
-allButtons[10] = button10 	# group01 button 01
-allButtons[11] = button11		# group01 button 02
+
+
 allButtons[12] = button12		# group02 label
 allButtons[13] = button13 	# group02 button 01
 allButtons[14] = button14		# group02 button 02
@@ -678,10 +642,12 @@ def updatePushyButtons(selected_button):
 ############################################################################################
 
 buttonToCheck = {}
+
+"""
 def updateStickyButtons(selected_button):
 	print lineNum(), "updateStickyButtons() - started"
 	print lineNum(), "selected_button = ", selected_button
-
+"""
 	"""
 	# for sticky buttons, iterate through nested allButtons dictionary and flip buttonEnabled
 	for allButtonsID, allButtonsValue in allButtons.items():
@@ -694,7 +660,7 @@ def updateStickyButtons(selected_button):
 				print lineNum(), "key, ", key, "value", allButtonsValue[key]
 				#print lineNum(), "buttonToCheck", key, allButtonsValue[key]
 	"""
-	
+"""	
 	if selected_button == "sticky01":
 		if buttonSticky01["enabled"] == False:
 			print lineNum(), "sticky01 button found"
@@ -709,7 +675,9 @@ def updateStickyButtons(selected_button):
 			buttonSticky01["color"] = pgvar.UI_button_color
 			print lineNum(), "flipped stick01 from true to false"
 			defineButtons()
+"""
 
+"""
 	if selected_button == "sticky02":
 		if buttonSticky02["enabled"] == False:
 			print lineNum(), "sticky02 button found"
@@ -724,8 +692,8 @@ def updateStickyButtons(selected_button):
 			buttonSticky02["color"] = pgvar.UI_button_color
 			print lineNum(), "flipped sticky02 from true to false"
 			defineButtons()
-
-
+"""
+"""
 	if selected_button == "sticky03":
 		if buttonSticky03["enabled"] == False:
 			print lineNum(), "sticky03 button found"
@@ -740,7 +708,7 @@ def updateStickyButtons(selected_button):
 			buttonSticky03["color"] = pgvar.UI_button_color
 			print lineNum(), "flipped sticky03 from true to false"
 			defineButtons()			
-
+"""
 
 	# # # FPS BUTTON
 	if selected_button == "fps":
@@ -794,42 +762,43 @@ def updateStickyButtons(selected_button):
 ## UPDATE GROUP BUTTONS
 ## ############################################################################################
 
+"""
 def updateGroupButtons(selected_button):
 	print lineNum(), "running update group buttons"
 
 	# # Group 01 processing
 	if selected_button == "Group01Button01":
 		
-		if button10["enabled"] == True:
-			button10["enabled"] = False
-			button10["color"] = pgvar.UI_button_color
-			button11["enabled"] = True
-			button11["color"] = UI_button_selected_color
-			defineButtons()	
+		if bGroup01Button01["enabled"] == True:
+			bGroup01Button01["enabled"] = False
+			bGroup01Button01["color"] = pgvar.UI_button_color
+			bGroup01Button02["enabled"] = True
+			bGroup01Button02["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
 		
-		elif button10["enabled"] == False:
-			button10["enabled"] = True
-			button10["color"] = UI_button_selected_color
-			button11["enabled"] = False
-			button11["color"] = pgvar.UI_button_color
-			defineButtons()	
+		elif bGroup01Button01["enabled"] == False:
+			bGroup01Button01["enabled"] = True
+			bGroup01Button01["color"] = UI_button_selected_color
+			bGroup01Button02["enabled"] = False
+			bGroup01Button02["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()	
 
 	if selected_button == "Group01Button02":
 		
-		if button11["enabled"] == True:
-			button11["enabled"] = False
-			button11["color"] = pgvar.UI_button_color
-			button10["enabled"] = True
-			button10["color"] = UI_button_selected_color
-			defineButtons()	
+		if bGroup01Button02["enabled"] == True:
+			bGroup01Button02["enabled"] = False
+			bGroup01Button02["color"] = pgvar.UI_button_color
+			bGroup01Button01["enabled"] = True
+			bGroup01Button01["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
 		
-		elif button11["enabled"] == False:
-			button11["enabled"] = True
-			button11["color"] = UI_button_selected_color
-			button10["enabled"] = False
-			button10["color"] = pgvar.UI_button_color
-			defineButtons()
-
+		elif bGroup01Button02["enabled"] == False:
+			bGroup01Button02["enabled"] = True
+			bGroup01Button02["color"] = pgvar.UI_button_selected_color
+			bGroup01Button01["enabled"] = False
+			bGroup01Button01["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()
+"""
 
 	# # Group 02 processing
 	if selected_button == "Group02Button01":
@@ -1334,7 +1303,7 @@ class Button:
 
 		# render "label" type buttons
 		elif self.buttonType == "label":
-			self.color = UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
+			self.color = pgvar.UI_label_color																	# since self.color = buttonColor by default, this overwrites that for labels
 			pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 
 			label = myfont.render(str(self.button_label_txt), 0, UI_button_txt_color)
@@ -1617,6 +1586,7 @@ while running:
 			#print lineNum(), "buttons27,28,29 visible:", button27["visible"], button28["visible"], button29["visible"]
 			for i, button in enumerate(my_buttons):
 				button.display()		
+			
 			print lineNum(), "buttons27,28,29 visible:", button27["visible"], button28["visible"], button29["visible"]
 			
 

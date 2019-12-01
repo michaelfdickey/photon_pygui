@@ -128,6 +128,9 @@ while running:
 					print moduleName, pfunc.lineNum(), "running sticky event"
 					pbproc.updateStickyButtons(selected_button.button_name)
 
+				if selected_button.buttonType == "group":
+					print moduleName, pfunc.lineNum(), "running group type button event"
+					pbproc.updateGroupButtons(selected_button.button_name)
 
 
 		if event.type == pygame.MOUSEBUTTONUP:
@@ -171,7 +174,7 @@ while running:
 			
 			for i, button in enumerate(pfunc.my_buttons):
 				button.display()	
-	
+
 			
 
 	# always do this last

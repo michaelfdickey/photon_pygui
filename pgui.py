@@ -161,7 +161,44 @@ labelSticky["color"] = pgvar.UI_label_color
 labelSticky["group"] = "sticky_buttons"
 labelSticky["visible"] = True
 
+labelGroup01 = {}
+labelGroup01["name"] = "group01_label"					# button_name
+labelGroup01["origin_x"] = 0								# button_origin_x
+labelGroup01["origin_y"] = pgvar.pygame_window_height - 300		# button_origin_y
+labelGroup01["width"] = pgvar.UI_sideBar_width					# button_width
+labelGroup01["height"] = 20								# button_height
+labelGroup01["label_txt"] = "Group 01"					# button_label_txt
+labelGroup01["type"] = "label"							# buttonType
+labelGroup01["enabled"] = False							# buttonEnabled
+labelGroup01["color"] = pgvar.UI_label_color 					# buttonColor
+labelGroup01["group"] = "group01"							# buttonGroup
+labelGroup01["visible"] = True							# buttonVisible
 
+bGroup01Button01 = {}
+bGroup01Button01["name"] = "Group01Button01"					# button_name
+bGroup01Button01["origin_x"] = 0								# button_origin_x
+bGroup01Button01["origin_y"] = pgvar.pygame_window_height - 280		# button_origin_y
+bGroup01Button01["width"] = pgvar.UI_sideBar_width					# button_width
+bGroup01Button01["height"] = 20								# button_height
+bGroup01Button01["label_txt"] = "Group 01 Button 01"			# button_label_txt
+bGroup01Button01["type"] = "group"							# buttonType
+bGroup01Button01["enabled"] = True							# buttonEnabled
+bGroup01Button01["color"] = pgvar.UI_button_selected_color			# buttonColor
+bGroup01Button01["group"] = "group01"							# buttonGroup
+bGroup01Button01["visible"] = True							# buttonVisible
+
+bGroup01Button02 = {}
+bGroup01Button02["name"] = "Group01Button02"						# button_name
+bGroup01Button02["origin_x"] = 0									# button_origin_x
+bGroup01Button02["origin_y"] = pgvar.pygame_window_height - 260	# button_origin_y
+bGroup01Button02["width"] = pgvar.UI_sideBar_width				# button_width
+bGroup01Button02["height"] = 20									# button_height
+bGroup01Button02["label_txt"] = "Group 01 Button 02"				# button_label_txt
+bGroup01Button02["type"] = "group"								# buttonType
+bGroup01Button02["enabled"] = False								# buttonEnabled
+bGroup01Button02["color"] = pgvar.UI_button_color					# buttonColor
+bGroup01Button02["group"] = "group01"								# buttonGroup
+bGroup01Button02["visible"] = True								# buttonVisible
 
 
 allButtons = {}
@@ -174,3 +211,6 @@ allButtons[5] = buttonSticky02		# sticky 02
 allButtons[6] = buttonSticky03		# sticky 03
 allButtons[7] = labelPushy			# pushy button group label
 allButtons[8] = labelSticky			# stick button group label
+allButtons[9] = labelGroup01			# group01 label
+allButtons[10] = bGroup01Button01 	# group01 button 01
+allButtons[11] = bGroup01Button02		# group01 button 02

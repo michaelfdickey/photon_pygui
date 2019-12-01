@@ -44,6 +44,11 @@ import pgui
 # ************************************************************************************************#
 # ************************************************************************************************#
 
+
+####### -------------------------------------##########
+####### Sticky Buttons 					           ##########
+####### -------------------------------------##########
+
 def updateStickyButtons(selected_button):
 	print moduleName, pfunc.lineNum(), "updateStickyButtons() - started"
 	print moduleName, pfunc.lineNum(), "selected_button = ", selected_button
@@ -105,3 +110,44 @@ def updateStickyButtons(selected_button):
 			pgui.buttonSticky03["color"] = pgvar.UI_button_color
 			print moduleName, pfunc.lineNum(), "flipped sticky03 from true to false"
 			pfunc.defineButtons()		
+
+
+####### -------------------------------------##########
+####### Group Buttons 					           ##########
+####### -------------------------------------##########
+
+def updateGroupButtons(selected_button):
+	print moduleName, pfunc.lineNum(), "running update group buttons"
+
+	# # Group 01 processing
+	if selected_button == "Group01Button01":
+		
+		if pgui.bGroup01Button01["enabled"] == True:
+			pgui.bGroup01Button01["enabled"] = False
+			pgui.bGroup01Button01["color"] = pgvar.UI_button_color
+			pgui.bGroup01Button02["enabled"] = True
+			pgui.bGroup01Button02["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+		
+		elif pgui.bGroup01Button01["enabled"] == False:
+			pgui.bGroup01Button01["enabled"] = True
+			pgui.bGroup01Button01["color"] = pgvar.UI_button_selected_color
+			pgui.bGroup01Button02["enabled"] = False
+			pgui.bGroup01Button02["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()	
+
+	if selected_button == "Group01Button02":
+		
+		if pgui.bGroup01Button02["enabled"] == True:
+			pgui.bGroup01Button02["enabled"] = False
+			pgui.bGroup01Button02["color"] = pgvar.UI_button_color
+			pgui.bGroup01Button01["enabled"] = True
+			pgui.bGroup01Button01["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+		
+		elif pgui.bGroup01Button02["enabled"] == False:
+			pgui.bGroup01Button02["enabled"] = True
+			pgui.bGroup01Button02["color"] = pgvar.UI_button_selected_color
+			pgui.bGroup01Button01["enabled"] = False
+			pgui.bGroup01Button01["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()
