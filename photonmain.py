@@ -122,6 +122,13 @@ while running:
 						print moduleName, pfunc.lineNum(), "running code for Command03"
 						# command03 function call goes here:
 
+				# # # OTHER BUTTON TYPES # # #
+
+				if selected_button.buttonType == "sticky":
+					print moduleName, pfunc.lineNum(), "running sticky event"
+					pbproc.updateStickyButtons(selected_button.button_name)
+
+
 
 		if event.type == pygame.MOUSEBUTTONUP:
 
@@ -160,6 +167,12 @@ while running:
 						for i, button in enumerate(pfunc.my_buttons):
 							button.display()
 
+
+			
+			for i, button in enumerate(pfunc.my_buttons):
+				button.display()	
+	
+			
 
 	# always do this last
 	pygame.display.flip()

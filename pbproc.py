@@ -34,5 +34,59 @@ import inspect		# for displaying the line number of the code in print commands
 import pgvar
 import pfunc
 import pgui
-import pclass
+#import pclass
 #import pbproc
+
+
+# ************************************************************************************************#
+# ************************************************************************************************#
+#	Button Processing
+# ************************************************************************************************#
+# ************************************************************************************************#
+
+def updateStickyButtons(selected_button):
+	print moduleName, pfunc.lineNum(), "updateStickyButtons() - started"
+	print moduleName, pfunc.lineNum(), "selected_button = ", selected_button
+
+	"""
+	# for sticky buttons, iterate through nested allButtons dictionary and flip buttonEnabled
+	for allButtonsID, allButtonsValue in allButtons.items():
+		for key in allButtonsValue:
+			#print moduleName, pfunc.lineNum(), "key", key
+			#buttonToCheck[key] = allButtonsValue[key]
+			#print moduleName, pfunc.lineNum(), "buttonToCheck", key, allButtonsValue[key]
+			if allButtonsValue[key] == "sticky":
+				print moduleName, pfunc.lineNum(), "found a sticky button"
+				print moduleName, pfunc.lineNum(), "key, ", key, "value", allButtonsValue[key]
+				#print moduleName, pfunc.lineNum(), "buttonToCheck", key, allButtonsValue[key]
+	"""
+	
+	if selected_button == "sticky01":
+		if pgui.buttonSticky01["enabled"] == False:
+			print moduleName, pfunc.lineNum(), "sticky01 button found"
+			pgui.buttonSticky01["enabled"] = True
+			pgui.buttonSticky01["color"] = pgvar.UI_button_selected_color
+			print moduleName, pfunc.lineNum(), "flipped sticky01 from false to true"
+			pfunc.defineButtons()	
+			
+		elif pgui.buttonSticky01["enabled"] == True:
+			print moduleName, pfunc.lineNum(), "sticky01 button found"
+			pgui.buttonSticky01["enabled"] = False
+			pgui.buttonSticky01["color"] = pgvar.UI_button_color
+			print moduleName, pfunc.lineNum(), "flipped stick01 from true to false"
+			pfunc.defineButtons()
+
+	if selected_button == "sticky02":
+		if pgui.buttonSticky02["enabled"] == False:
+			print moduleName, pfunc.lineNum(), "sticky02 button found"
+			pgui.buttonSticky02["enabled"] = True
+			pgui.buttonSticky02["color"] = pgvar.UI_button_selected_color
+			print moduleName, pfunc.lineNum(), "flipped sticky02 from false to true"
+			pfunc.defineButtons()	
+			
+		elif pgui.buttonSticky02["enabled"] == True:
+			print moduleName, pfunc.lineNum(), "sticky02 button found"
+			pgui.buttonSticky02["enabled"] = False
+			pgui.buttonSticky02["color"] = pgvar.UI_button_color
+			print moduleName, pfunc.lineNum(), "flipped sticky02 from true to false"
+			pfunc.defineButtons()
