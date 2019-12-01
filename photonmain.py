@@ -9,6 +9,7 @@
 #	/pgui.py 			# photon gui elements and buttons
 #	/pfunc.py 			# functions
 #	/pclass.py 			# button processing class that handles drawing / displaying UI
+#	/pbproc.py 			# processing sticky, group, dropdown etc button actions
 #	/photon_ref.py 		# references, dev notes, style guide, modification instructions
 
 # ************************************************************************************************#
@@ -27,9 +28,10 @@ import inspect		# for displaying the line number of the code in print commands
 
 # # unique modules for this app
 import pgvar
-import pgui
 import pfunc
+import pgui
 import pclass
+import pbproc
 
 # ************************************************************************************************#
 # ************************************************************************************************#
@@ -76,6 +78,9 @@ while running:
 					print moduleName,  pfunc.lineNum(), "you pressed exit"
 					running = False
 
+				
+				# # # PUSHY EVENT processing # # # 
+
 				if selected_button.buttonType == "pushy":
 					print moduleName, pfunc.lineNum(), "running MOUSEBUTTONDOWN pushy event"
 					print moduleName, pfunc.lineNum(), "selected_button.color  was :", selected_button.color	
@@ -88,18 +93,34 @@ while running:
 						print moduleName, pfunc.lineNum(), "you clicked command01"
 						pgui.buttonCommand01["enabled"] = True
 						pgui.buttonCommand01["color"] = pgvar.UI_button_click_color
-
 						pfunc.defineButtons()
-
 						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event"
 						for i, button in enumerate(pfunc.my_buttons):
 							button.display()
-
 						print moduleName, pfunc.lineNum(), "running code for Command01"
 						# command01 function call goes here:
 
+					if selected_button.button_name == "command02":
+						print moduleName, pfunc.lineNum(), "you clicked command02"
+						pgui.buttonCommand02["enabled"] = True
+						pgui.buttonCommand02["color"] = pgvar.UI_button_click_color
+						pfunc.defineButtons()
+						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event"
+						for i, button in enumerate(pfunc.my_buttons):
+							button.display()
+						print moduleName, pfunc.lineNum(), "running code for Command02"
+						# command02 function call goes here:
 
-
+					if selected_button.button_name == "command03":
+						print moduleName, pfunc.lineNum(), "you clicked command03"
+						pgui.buttonCommand03["enabled"] = True
+						pgui.buttonCommand03["color"] = pgvar.UI_button_click_color
+						pfunc.defineButtons()
+						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event"
+						for i, button in enumerate(pfunc.my_buttons):
+							button.display()
+						print moduleName, pfunc.lineNum(), "running code for Command03"
+						# command03 function call goes here:
 
 
 		if event.type == pygame.MOUSEBUTTONUP:
@@ -117,12 +138,27 @@ while running:
 						pgui.buttonCommand01["enabled"] = False
 						pgui.buttonCommand01["color"] = pgvar.UI_button_color
 						pfunc.defineButtons()
-
 						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event command01"
 						for i, button in enumerate(pfunc.my_buttons):
 							button.display()
 
+					if selected_button.button_name == "command02":
+						print moduleName, pfunc.lineNum(), "you clicked command02"
+						pgui.buttonCommand02["enabled"] = False
+						pgui.buttonCommand02["color"] = pgvar.UI_button_color
+						pfunc.defineButtons()
+						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event command02"
+						for i, button in enumerate(pfunc.my_buttons):
+							button.display()
 
+					if selected_button.button_name == "command03":
+						print moduleName, pfunc.lineNum(), "you clicked command03"
+						pgui.buttonCommand03["enabled"] = False
+						pgui.buttonCommand03["color"] = pgvar.UI_button_color
+						pfunc.defineButtons()
+						print moduleName, pfunc.lineNum(), "____drawing buttons from pushy event command03"
+						for i, button in enumerate(pfunc.my_buttons):
+							button.display()
 
 
 	# always do this last

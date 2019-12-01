@@ -1,3 +1,17 @@
+# ************************************************************************************************#
+# ************************************************************************************************#
+#	Directory Structure
+# ************************************************************************************************#
+# ************************************************************************************************#
+
+#	/photonmain.py 		# primary program
+#	/pgvar.py 			# global variable declarations
+#	/pgui.py 			# photon gui elements and buttons
+#	/pfunc.py 			# functions
+#	/pclass.py 			# button processing class that handles drawing / displaying UI
+#	/pbproc.py 			# processing sticky, group, dropdown etc button actions
+#	/photon_ref.py 		# references, dev notes, style guide, modification instructions
+
 # pclass.py
 
 moduleName = "pclass.py"
@@ -18,8 +32,10 @@ import inspect		# for displaying the line number of the code in print commands
 
 # # unique modules for this app
 import pgvar
-import pgui
-import pfunc
+#import pfunc
+#import pgui
+#import pclass
+#import pbproc
 
 
 # ************************************************************************************************#

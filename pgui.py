@@ -1,3 +1,17 @@
+# ************************************************************************************************#
+# ************************************************************************************************#
+#	Directory Structure
+# ************************************************************************************************#
+# ************************************************************************************************#
+
+#	/photonmain.py 		# primary program
+#	/pgvar.py 			# global variable declarations
+#	/pgui.py 			# photon gui elements and buttons
+#	/pfunc.py 			# functions
+#	/pclass.py 			# button processing class that handles drawing / displaying UI
+#	/pbproc.py 			# processing sticky, group, dropdown etc button actions
+#	/photon_ref.py 		# references, dev notes, style guide, modification instructions
+
 # pgui.py
 
 moduleName = "pgui.py"
@@ -18,8 +32,10 @@ import inspect		# for displaying the line number of the code in print commands
 
 # # unique modules for this app
 import pgvar
-import pgui
-import pfunc
+#import pfunc
+#import pgui
+#import pclass
+#import pbproc
 
 # ************************************************************************************************************************
 # ************************************************************************************************************************
@@ -93,10 +109,68 @@ labelPushy["color"] = pgvar.UI_label_color
 labelPushy["group"] = "pushy_buttons"
 labelPushy["visible"] = True
 
+buttonSticky01 = {}
+buttonSticky01["name"] = "sticky01"
+buttonSticky01["origin_x"] = 0
+buttonSticky01["origin_y"] = pgvar.pygame_window_height - 160
+buttonSticky01["width"] = pgvar.UI_sideBar_width
+buttonSticky01["height"] = 20
+buttonSticky01["label_txt"] = "Sticky 01"
+buttonSticky01["type"] = "sticky"
+buttonSticky01["enabled"] = False
+buttonSticky01["color"] = pgvar.UI_button_color
+buttonSticky01["group"] = "sticky01"
+buttonSticky01["visible"] = True
+
+buttonSticky02 = {}
+buttonSticky02["name"] = "sticky02"
+buttonSticky02["origin_x"] = 0
+buttonSticky02["origin_y"] = pgvar.pygame_window_height - 180
+buttonSticky02["width"] = pgvar.UI_sideBar_width
+buttonSticky02["height"] = 20
+buttonSticky02["label_txt"] = "Sticky 02"
+buttonSticky02["type"] = "sticky"
+buttonSticky02["enabled"] = False
+buttonSticky02["color"] = pgvar.UI_button_color
+buttonSticky02["group"] = "sticky02"
+buttonSticky02["visible"] = True
+
+buttonSticky03 = {}
+buttonSticky03["name"] = "sticky03"								# button_name
+buttonSticky03["origin_x"] = 0									# button_origin_x
+buttonSticky03["origin_y"] = pgvar.pygame_window_height - 200		# button_origin_y
+buttonSticky03["width"] = pgvar.UI_sideBar_width					# button_width
+buttonSticky03["height"] = 20										# button_height
+buttonSticky03["label_txt"] = "Sticky 03"							# button_label_txt
+buttonSticky03["type"] = "sticky"									# buttonType
+buttonSticky03["enabled"] = False									# buttonEnabled
+buttonSticky03["color"] = pgvar.UI_button_color 					# buttonColor
+buttonSticky03["group"] = "sticky03"								# buttonGroup
+buttonSticky03["visible"] = True									# buttonVisible
+
+labelSticky = {}
+labelSticky["name"] = "sticky_label"
+labelSticky["origin_x"] = 0
+labelSticky["origin_y"] = pgvar.pygame_window_height - 220
+labelSticky["width"] = pgvar.UI_sideBar_width
+labelSticky["height"] = 20
+labelSticky["label_txt"] = "Sticky Buttons"
+labelSticky["type"] = "label"
+labelSticky["enabled"] = True
+labelSticky["color"] = pgvar.UI_label_color
+labelSticky["group"] = "sticky_buttons"
+labelSticky["visible"] = True
+
+
+
+
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
 allButtons[1] = buttonCommand01		# command 01
 allButtons[2] = buttonCommand02		# command 02
 allButtons[3] = buttonCommand03		# command 03
-
-allButtons[7] = labelPushy		# pushy button group label
+allButtons[4] = buttonSticky01		# sticky 01
+allButtons[5] = buttonSticky02		# sticky 02
+allButtons[6] = buttonSticky03		# sticky 03
+allButtons[7] = labelPushy			# pushy button group label
+allButtons[8] = labelSticky			# stick button group label
