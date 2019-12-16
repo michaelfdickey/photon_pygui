@@ -200,6 +200,46 @@ bGroup01Button02["color"] = pgvar.UI_button_color					# buttonColor
 bGroup01Button02["group"] = "group01"								# buttonGroup
 bGroup01Button02["visible"] = True								# buttonVisible
 
+labelGroup02 = {}
+labelGroup02["name"] = "group02_label"							# button_name
+labelGroup02["origin_x"] = 0										# button_origin_x
+labelGroup02["origin_y"] = pgvar.pygame_window_height - 360		# button_origin_y
+labelGroup02["width"] = pgvar.UI_sideBar_width					# button_width
+labelGroup02["height"] = 20										# button_height
+labelGroup02["label_txt"] = "Group 02"							# button_label_txt
+labelGroup02["type"] = "label"									# buttonType
+labelGroup02["enabled"] = False									# buttonEnabled
+labelGroup02["color"] = pgvar.UI_label_color 						# buttonColor
+labelGroup02["group"] = "group02"									# buttonGroup
+labelGroup02["visible"] = True									# buttonVisible
+
+bGroup02Button01 = {}
+bGroup02Button01["name"] = "Group02Button01"						# button_name
+bGroup02Button01["origin_x"] = 0									# button_origin_x
+bGroup02Button01["origin_y"] = pgvar.pygame_window_height - 340	# button_origin_y
+bGroup02Button01["width"] = pgvar.UI_sideBar_width / 2				# button_width
+bGroup02Button01["height"] = 20									# button_height
+bGroup02Button01["label_txt"] = "OptionA"							# button_label_txt
+bGroup02Button01["type"] = "group"								# buttonType
+bGroup02Button01["enabled"] = True								# buttonEnabled
+bGroup02Button01["color"] = pgvar.UI_button_selected_color		# buttonColor
+bGroup02Button01["group"] = "group02"								# buttonGroup
+bGroup02Button01["visible"] = True								# buttonVisible
+
+bGroup02Button02 = {}
+bGroup02Button02["name"] = "Group02Button02"						# button_name
+bGroup02Button02["origin_x"] = pgvar.UI_sideBar_width / 2			# button_origin_x
+bGroup02Button02["origin_y"] = pgvar.pygame_window_height - 340	# button_origin_y
+bGroup02Button02["width"] = pgvar.UI_sideBar_width / 2				# button_width
+bGroup02Button02["height"] = 20									# button_height
+bGroup02Button02["label_txt"] = "OptionB"							# button_label_txt
+bGroup02Button02["type"] = "group"								# buttonType
+bGroup02Button02["enabled"] = False								# buttonEnabled
+bGroup02Button02["color"] = pgvar.UI_button_color					# buttonColor
+bGroup02Button02["group"] = "group02"								# buttonGroup
+bGroup02Button02["visible"] = True								# buttonVisible
+
+
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
@@ -214,3 +254,6 @@ allButtons[8] = labelSticky			# stick button group label
 allButtons[9] = labelGroup01			# group01 label
 allButtons[10] = bGroup01Button01 	# group01 button 01
 allButtons[11] = bGroup01Button02		# group01 button 02
+allButtons[12] = labelGroup02 		# group02 label
+allButtons[13] = bGroup02Button01 	# group02 Button 01
+allButtons[14] = bGroup02Button02 	# group02 Button 02
