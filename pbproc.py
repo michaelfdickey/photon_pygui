@@ -151,3 +151,36 @@ def updateGroupButtons(selected_button):
 			pgui.bGroup01Button01["enabled"] = False
 			pgui.bGroup01Button01["color"] = pgvar.UI_button_color
 			pfunc.defineButtons()
+
+	# # Group 02 processing
+	if selected_button == "Group02Button01":
+		
+		if pgui.bGroup02Button01["enabled"] == True:
+			pgui.bGroup02Button01["enabled"] = False
+			pgui.bGroup02Button01["color"] = pgvar.UI_button_color
+			pgui.bGroup02Button02["enabled"] = True
+			pgui.bGroup02Button02["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+		
+		elif pgui.bGroup02Button01["enabled"] == False:
+			pgui.bGroup02Button01["enabled"] = True
+			pgui.bGroup02Button01["color"] = pgvar.UI_button_selected_color
+			pgui.bGroup02Button02["enabled"] = False
+			pgui.bGroup02Button02["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()	
+
+	if selected_button == "Group02Button02":
+		
+		if pgui.bGroup02Button02["enabled"] == True:
+			pgui.bGroup02Button02["enabled"] = False
+			pgui.bGroup02Button02["color"] = pgvar.UI_button_color
+			pgui.bGroup02Button01["enabled"] = True
+			pgui.bGroup02Button01["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+		
+		elif pgui.bGroup02Button02["enabled"] == False:
+			pgui.bGroup02Button02["enabled"] = True
+			pgui.bGroup02Button02["color"] = pgvar.UI_button_selected_color
+			pgui.bGroup02Button01["enabled"] = False
+			pgui.bGroup02Button01["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()
