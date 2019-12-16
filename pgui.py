@@ -43,6 +43,7 @@ import pgvar
 # ************************************************************************************************************************
 # ************************************************************************************************************************
 
+# # Exit Button:
 
 buttonExit = {}
 buttonExit["name"] = "exit"
@@ -56,6 +57,22 @@ buttonExit["enabled"] = True
 buttonExit["color"] = pgvar.UI_button_color
 buttonExit["group"] = "buttonExit"
 buttonExit["visible"] = True
+
+# # Pushy Buttons 
+# # these are only enabled while the mouse button is down
+
+labelPushy = {}
+labelPushy["name"] = "pushy_label"
+labelPushy["origin_x"] = 0
+labelPushy["origin_y"] = pgvar.pygame_window_height - 120
+labelPushy["width"] =pgvar.UI_sideBar_width
+labelPushy["height"] = 20
+labelPushy["label_txt"] = "Pushy Buttons"
+labelPushy["type"] = "label"
+labelPushy["enabled"] = True
+labelPushy["color"] = pgvar.UI_label_color
+labelPushy["group"] = "pushy_buttons"
+labelPushy["visible"] = True
 
 buttonCommand01 = {}
 buttonCommand01["name"] = "command01"
@@ -96,18 +113,21 @@ buttonCommand03["color"] = pgvar.UI_button_color
 buttonCommand03["group"] = "command03"
 buttonCommand03["visible"] = True
 
-labelPushy = {}
-labelPushy["name"] = "pushy_label"
-labelPushy["origin_x"] = 0
-labelPushy["origin_y"] = pgvar.pygame_window_height - 120
-labelPushy["width"] =pgvar.UI_sideBar_width
-labelPushy["height"] = 20
-labelPushy["label_txt"] = "Pushy Buttons"
-labelPushy["type"] = "label"
-labelPushy["enabled"] = True
-labelPushy["color"] = pgvar.UI_label_color
-labelPushy["group"] = "pushy_buttons"
-labelPushy["visible"] = True
+# # Sticky Buttons 
+# # once clicked, they stay enabled, until clicked again which disables them
+
+labelSticky = {}
+labelSticky["name"] = "sticky_label"
+labelSticky["origin_x"] = 0
+labelSticky["origin_y"] = pgvar.pygame_window_height - 220
+labelSticky["width"] = pgvar.UI_sideBar_width
+labelSticky["height"] = 20
+labelSticky["label_txt"] = "Sticky Buttons"
+labelSticky["type"] = "label"
+labelSticky["enabled"] = True
+labelSticky["color"] = pgvar.UI_label_color
+labelSticky["group"] = "sticky_buttons"
+labelSticky["visible"] = True
 
 buttonSticky01 = {}
 buttonSticky01["name"] = "sticky01"
@@ -148,44 +168,35 @@ buttonSticky03["color"] = pgvar.UI_button_color 					# buttonColor
 buttonSticky03["group"] = "sticky03"								# buttonGroup
 buttonSticky03["visible"] = True									# buttonVisible
 
-labelSticky = {}
-labelSticky["name"] = "sticky_label"
-labelSticky["origin_x"] = 0
-labelSticky["origin_y"] = pgvar.pygame_window_height - 220
-labelSticky["width"] = pgvar.UI_sideBar_width
-labelSticky["height"] = 20
-labelSticky["label_txt"] = "Sticky Buttons"
-labelSticky["type"] = "label"
-labelSticky["enabled"] = True
-labelSticky["color"] = pgvar.UI_label_color
-labelSticky["group"] = "sticky_buttons"
-labelSticky["visible"] = True
+# # Group 01 Buttons:
+# # Group buttons are buttons where only one button in the defined group can be enabled, the buttons are mutually exclusive
+# # enabling one disables the other in the same group
 
 labelGroup01 = {}
-labelGroup01["name"] = "group01_label"					# button_name
-labelGroup01["origin_x"] = 0								# button_origin_x
+labelGroup01["name"] = "group01_label"							# button_name
+labelGroup01["origin_x"] = 0										# button_origin_x
 labelGroup01["origin_y"] = pgvar.pygame_window_height - 300		# button_origin_y
 labelGroup01["width"] = pgvar.UI_sideBar_width					# button_width
-labelGroup01["height"] = 20								# button_height
-labelGroup01["label_txt"] = "Group 01"					# button_label_txt
-labelGroup01["type"] = "label"							# buttonType
-labelGroup01["enabled"] = False							# buttonEnabled
-labelGroup01["color"] = pgvar.UI_label_color 					# buttonColor
-labelGroup01["group"] = "group01"							# buttonGroup
-labelGroup01["visible"] = True							# buttonVisible
+labelGroup01["height"] = 20										# button_height
+labelGroup01["label_txt"] = "Group 01"							# button_label_txt
+labelGroup01["type"] = "label"									# buttonType
+labelGroup01["enabled"] = False									# buttonEnabled
+labelGroup01["color"] = pgvar.UI_label_color 						# buttonColor
+labelGroup01["group"] = "group01"									# buttonGroup
+labelGroup01["visible"] = True									# buttonVisible
 
 bGroup01Button01 = {}
-bGroup01Button01["name"] = "Group01Button01"					# button_name
-bGroup01Button01["origin_x"] = 0								# button_origin_x
-bGroup01Button01["origin_y"] = pgvar.pygame_window_height - 280		# button_origin_y
-bGroup01Button01["width"] = pgvar.UI_sideBar_width					# button_width
-bGroup01Button01["height"] = 20								# button_height
-bGroup01Button01["label_txt"] = "Group 01 Button 01"			# button_label_txt
-bGroup01Button01["type"] = "group"							# buttonType
-bGroup01Button01["enabled"] = True							# buttonEnabled
-bGroup01Button01["color"] = pgvar.UI_button_selected_color			# buttonColor
-bGroup01Button01["group"] = "group01"							# buttonGroup
-bGroup01Button01["visible"] = True							# buttonVisible
+bGroup01Button01["name"] = "Group01Button01"						# button_name
+bGroup01Button01["origin_x"] = 0									# button_origin_x
+bGroup01Button01["origin_y"] = pgvar.pygame_window_height - 280	# button_origin_y
+bGroup01Button01["width"] = pgvar.UI_sideBar_width				# button_width
+bGroup01Button01["height"] = 20									# button_height
+bGroup01Button01["label_txt"] = "Group 01 Button 01"				# button_label_txt
+bGroup01Button01["type"] = "group"								# buttonType
+bGroup01Button01["enabled"] = True								# buttonEnabled
+bGroup01Button01["color"] = pgvar.UI_button_selected_color		# buttonColor
+bGroup01Button01["group"] = "group01"								# buttonGroup
+bGroup01Button01["visible"] = True								# buttonVisible
 
 bGroup01Button02 = {}
 bGroup01Button02["name"] = "Group01Button02"						# button_name
@@ -199,6 +210,8 @@ bGroup01Button02["enabled"] = False								# buttonEnabled
 bGroup01Button02["color"] = pgvar.UI_button_color					# buttonColor
 bGroup01Button02["group"] = "group01"								# buttonGroup
 bGroup01Button02["visible"] = True								# buttonVisible
+
+# # Group 02 Buttons:
 
 labelGroup02 = {}
 labelGroup02["name"] = "group02_label"							# button_name
@@ -238,6 +251,8 @@ bGroup02Button02["enabled"] = False								# buttonEnabled
 bGroup02Button02["color"] = pgvar.UI_button_color					# buttonColor
 bGroup02Button02["group"] = "group02"								# buttonGroup
 bGroup02Button02["visible"] = True								# buttonVisible
+
+# # Group 03 Buttons:
 
 labelGroup03 = {}
 labelGroup03["name"] = "group03_label"							# button_name
@@ -280,7 +295,7 @@ bGroup03Button02["visible"] = True								# buttonVisible
 
 bGroup03Button03 = {}
 bGroup03Button03["name"] = "Group03Button03"						# button_name
-bGroup03Button03["origin_x"] = (pgvar.UI_sideBar_width / 3) * 2			# button_origin_x
+bGroup03Button03["origin_x"] = (pgvar.UI_sideBar_width / 3) * 2		# button_origin_x
 bGroup03Button03["origin_y"] = pgvar.pygame_window_height - 400	# button_origin_y
 bGroup03Button03["width"] = pgvar.UI_sideBar_width / 3				# button_width
 bGroup03Button03["height"] = 20									# button_height
@@ -290,6 +305,35 @@ bGroup03Button03["enabled"] = False								# buttonEnabled
 bGroup03Button03["color"] = pgvar.UI_button_color					# buttonColor
 bGroup03Button03["group"] = "group03"								# buttonGroup
 bGroup03Button03["visible"] = True								# buttonVisible
+
+# # Display options buttons:
+
+labelDisplay = {}
+labelDisplay["name"] = "displayLabel"								# button_name
+labelDisplay["origin_x"] = 0										# button_origin_x
+labelDisplay["origin_y"] = pgvar.pygame_window_height - 540		# button_origin_y
+labelDisplay["width"] = pgvar.UI_sideBar_width					# button_width
+labelDisplay["height"] = 20										# button_height
+labelDisplay["label_txt"] = "Display"								# button_label_txt
+labelDisplay["type"] = "label"									# buttonType
+labelDisplay["enabled"] = False									# buttonEnabled
+labelDisplay["color"] = pgvar.UI_button_color						# buttonColor
+labelDisplay["group"] = "origin"									# buttonGroup
+labelDisplay["visible"] = True									# buttonVisible
+
+buttonFPS = {}
+buttonFPS["name"] = "fps"										# button_name
+buttonFPS["origin_x"] = 0										# button_origin_x
+buttonFPS["origin_y"] = pgvar.pygame_window_height - 460		# button_origin_y
+buttonFPS["width"] = pgvar.UI_sideBar_width					# button_width
+buttonFPS["height"] = 20										# button_height
+buttonFPS["label_txt"] = " FPS "								# button_label_txt
+buttonFPS["type"] = "sticky"									# buttonType
+buttonFPS["enabled"] = False									# buttonEnabled
+buttonFPS["color"] = pgvar.UI_button_color					# buttonColor
+buttonFPS["group"] = "fps"									# buttonGroup
+buttonFPS["visible"] = True									# buttonVisible
+
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
@@ -311,3 +355,5 @@ allButtons[15] = labelGroup03 		# group03 label
 allButtons[16] = bGroup03Button01 	# group 03 button 01
 allButtons[17] = bGroup03Button02 	# group 03 button 02
 allButtons[18] = bGroup03Button03		# group 03 button 03
+allButtons[19] = labelDisplay 		# label for the display buttons
+allButtons[20] = buttonFPS			# FPS button

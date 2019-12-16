@@ -40,6 +40,7 @@ import pbproc
 # ************************************************************************************************#
 
 moduleName = "photonmain.py"
+screen = pygame.display.set_mode((pgvar.pygame_window_width, pgvar.pygame_window_height))
 
 # ************************************************************************************************#
 # ************************************************************************************************#
@@ -57,6 +58,13 @@ pfunc.initializeDisplay()
 running = True
 
 while running:
+
+	
+	if pgui.buttonFPS["enabled"] == True:
+		pygame.draw.rect(screen, pgvar.color_blue, (pgvar.pygame_window_width - 100, pgvar.pygame_window_height - 30, 80, 20))   
+		pfunc.count_fps()
+		pfunc.show_fps()
+
 
 	for event in pygame.event.get():
 

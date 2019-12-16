@@ -46,11 +46,20 @@ import pclass
 my_buttons = []			#initializes my_buttons list, each button is added to this for display
 buttonToDraw = {}			#each button is loaded into this dictionary, added to my_buttons list
 
+# FPS related variables
+cSec = 0
+cFrame = 0
+FPS = 0
+
+screen = pygame.display.set_mode((pgvar.pygame_window_width, pgvar.pygame_window_height))
+
 # ************************************************************************************************#
 # ************************************************************************************************#
 #	functions
 # ************************************************************************************************#
 # ************************************************************************************************#
+
+
 
 ####### -------------------------------------##########
 ####### for printing Linu Number when debugging  ##########
@@ -59,6 +68,7 @@ buttonToDraw = {}			#each button is loaded into this dictionary, added to my_but
 def lineNum():
     """Returns the current line number in our program."""
     return inspect.currentframe().f_back.f_lineno
+
 
 
 ####### -------------------------------------##########
@@ -129,6 +139,7 @@ def defineButtons():
 	print moduleName, lineNum(), "defineButtons() - completed"
 
 
+
 ####### ---------------------------------------------------------------------##########
 ####### this determines what button has been clicked on                                                                ##########
 ####### ---------------------------------------------------------------------##########
@@ -141,3 +152,55 @@ def findButton(buttons, x, y):
 						print moduleName, lineNum(), "selected button label_txt = ", b.button_name
 						return b
 	return None
+
+
+
+####### ---------------------------------------------------------------------##########
+####### Redraw the backgroundm, buttons, screen, etc.                                                                 ##########
+####### ---------------------------------------------------------------------##########
+
+def redrawEverything():
+	print lineNum(), "redrawEverything() - started"
+	
+	print lineNum(), "drawing background"
+	screen.fill(pgvar.color_background)
+
+	""" *** ALERT ALERT ALERT -> re-enable below to get drid and origin working ***
+	
+	# check if draw grids is enabled, and draw if so
+	 if button21["enabled"] == True:
+		drawGrid()
+
+	# check if draw origin is enabled, and draw if so. 
+	if button22["enabled"] == True:
+		drawOrigin()
+
+	"""
+	
+	print lineNum(), "drawing borders and frames"
+	pygame.draw.rect(screen, pgvar.UI_background_color, (0, 0, pgvar.pygame_window_width, pgvar.UI_topBar_height))
+	pygame.draw.rect(screen, pgvar.UI_background_color, (0,0, pgvar.UI_sideBar_width, pgvar.pygame_window_height))
+
+	print lineNum(), "redifining buttons and redrawing"
+	defineButtons()
+	for i, button in enumerate(my_buttons):
+		button.display()
+
+	print lineNum(), "redrawEverything() - completed"
+
+
+####### ---------------------------------------------------------------------##########
+####### Functions for counting and displaying FPS (frames per second)                               ##########
+####### ---------------------------------------------------------------------##########
+def show_fps():
+	fps_overlay = pgvar.fps_font.render("FPS:"+str(FPS), True, pgvar.UI_button_txt_color)
+	screen.blit(fps_overlay, (pgvar.pygame_window_width - 100, pgvar.pygame_window_height - 30))
+
+def count_fps():
+	global cSec, cFrame, FPS, deltatime
+	if cSec == time.strftime("%S"):
+		cFrame += 1
+	else:
+		FPS = cFrame
+		cFrame = 0
+		cSec = time.strftime("%S")

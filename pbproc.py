@@ -112,6 +112,19 @@ def updateStickyButtons(selected_button):
 			pfunc.defineButtons()		
 
 
+	# # # FPS BUTTON
+	if selected_button == "fps":
+		if pgui.buttonFPS["enabled"] == False:
+			pgui.buttonFPS["enabled"] = True
+			pgui.buttonFPS["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+			
+		elif pgui.buttonFPS["enabled"] == True:
+			pgui.buttonFPS["enabled"] = False
+			pgui.buttonFPS["color"] = pgvar.UI_button_color
+			pfunc.redrawEverything()
+
+
 ####### -------------------------------------##########
 ####### Group Buttons 					           ##########
 ####### -------------------------------------##########

@@ -17,71 +17,6 @@
 
 
 
-button15 = {}
-button15["name"] = "group03_label"					# button_name
-button15["origin_x"] = 0								# button_origin_x
-button15["origin_y"] = pgvar.pygame_window_height - 420		# button_origin_y
-button15["width"] = pgvar.UI_sideBar_width					# button_width
-button15["height"] = 20								# button_height
-button15["label_txt"] = "Group 03"					# button_label_txt
-button15["type"] = "label"							# buttonType
-button15["enabled"] = False							# buttonEnabled
-button15["color"] = pgvar.UI_label_color 					# buttonColor
-button15["group"] = "group03"							# buttonGroup
-button15["visible"] = True							# buttonVisible
-
-button16 = {}
-button16["name"] = "Group03Button01"					# button_name
-button16["origin_x"] = 0								# button_origin_x
-button16["origin_y"] = pgvar.pygame_window_height - 400		# button_origin_y
-button16["width"] = pgvar.UI_sideBar_width / 3				# button_width
-button16["height"] = 20								# button_height
-button16["label_txt"] = " A "							# button_label_txt
-button16["type"] = "group"							# buttonType
-button16["enabled"] = True							# buttonEnabled
-button16["color"] = pgvar.UI_button_selected_color			# buttonColor
-button16["group"] = "group03"							# buttonGroup
-button16["visible"] = True							# buttonVisible
-
-button17 = {}
-button17["name"] = "Group03Button02"					# button_name
-button17["origin_x"] = pgvar.UI_sideBar_width / 3			# button_origin_x
-button17["origin_y"] = pgvar.pygame_window_height - 400		# button_origin_y
-button17["width"] = pgvar.UI_sideBar_width / 3				# button_width
-button17["height"] = 20								# button_height
-button17["label_txt"] = " B "					 		# button_label_txt
-button17["type"] = "group"							# buttonType
-button17["enabled"] = False							# buttonEnabled
-button17["color"] = pgvar.UI_button_color					# buttonColor
-button17["group"] = "group03"							# buttonGroup
-button17["visible"] = True							# buttonVisible
-
-button18 = {}
-button18["name"] = "Group03Button03"					# button_name
-button18["origin_x"] = (UI_sideBar_width / 3) * 2		# button_origin_x
-button18["origin_y"] = pgvar.pygame_window_height - 400		# button_origin_y
-button18["width"] = pgvar.UI_sideBar_width / 3				# button_width
-button18["height"] = 20								# button_height
-button18["label_txt"] = " C "							# button_label_txt
-button18["type"] = "group"							# buttonType
-button18["enabled"] = False							# buttonEnabled
-button18["color"] = pgvar.UI_button_color					# buttonColor
-button18["group"] = "group03"							# buttonGroup
-button18["visible"] = True							# buttonVisible
-
-button19 = {}
-button19["name"] = "fps"								# button_name
-button19["origin_x"] = 0								# button_origin_x
-button19["origin_y"] = pgvar.pygame_window_height - 460		# button_origin_y
-button19["width"] = pgvar.UI_sideBar_width					# button_width
-button19["height"] = 20								# button_height
-button19["label_txt"] = " FPS "						# button_label_txt
-button19["type"] = "sticky"							# buttonType
-button19["enabled"] = False							# buttonEnabled
-button19["color"] = pgvar.UI_button_color					# buttonColor
-button19["group"] = "fps"								# buttonGroup
-button19["visible"] = True							# buttonVisible
-
 button20 = {}
 button20["name"] = "scale"							# button_name
 button20["origin_x"] = 0								# button_origin_x
@@ -121,18 +56,17 @@ button22["color"] = pgvar.UI_button_color					# buttonColor
 button22["group"] = "origin"							# buttonGroup
 button22["visible"] = True							# buttonVisible
 
-button23 = {}
-button23["name"] = "displayLabel"						# button_name
-button23["origin_x"] = 0								# button_origin_x
-button23["origin_y"] = pgvar.pygame_window_height - 540		# button_origin_y
-button23["width"] = pgvar.UI_sideBar_width					# button_width
-button23["height"] = 20								# button_height
-button23["label_txt"] = "Display"						# button_label_txt
-button23["type"] = "label"							# buttonType
-button23["enabled"] = False							# buttonEnabled
-button23["color"] = pgvar.UI_button_color					# buttonColor
-button23["group"] = "origin"							# buttonGroup
-button23["visible"] = True							# buttonVisible
+
+
+
+
+
+
+
+
+
+
+
 
 button24 = {}
 button24["name"] = "dropdownLabel"					# button_name
@@ -497,11 +431,11 @@ button50["visible"] = False												# buttonVisible
 allButtons[12] = labelGroup02		# group02 label
 allButtons[13] = bGroup02Button01 	# group02 button 01
 allButtons[14] = bGroup02Button02		# group02 button 02
-allButtons[15] = button15		# group03 label
-allButtons[16] = button16 	# group03 button 01
-allButtons[17] = button17		# group03 button 02
-allButtons[18] = button18		# group03 button 03
-allButtons[19] = button19		# FPS display
+allButtons[15] = labelGroup03		# group03 label
+allButtons[16] = bGroup03Button01 	# group03 button 01
+allButtons[17] = bGroup03Button02		# group03 button 02
+allButtons[18] = bGroup03Button03		# group03 button 03
+allButtons[19] = buttonFPS		# FPS display
 allButtons[20] = button20 	# display scale
 allButtons[21] = button21 	# display grid
 allButtons[22] = button22 	# display origin
@@ -661,17 +595,20 @@ def updateStickyButtons(selected_button):
 			defineButtons()			
 """
 
+"""
 	# # # FPS BUTTON
 	if selected_button == "fps":
-		if button19["enabled"] == False:
-			button19["enabled"] = True
-			button19["color"] = pgvar.UI_button_selected_color
+		if buttonFPS["enabled"] == False:
+			buttonFPS["enabled"] = True
+			buttonFPS["color"] = pgvar.UI_button_selected_color
 			defineButtons()	
 			
-		elif button19["enabled"] == True:
-			button19["enabled"] = False
-			button19["color"] = pgvar.UI_button_color
+		elif buttonFPS["enabled"] == True:
+			buttonFPS["enabled"] = False
+			buttonFPS["color"] = pgvar.UI_button_color
 			redrawEverything()
+"""
+
 
 	# # # ORIGIN BUTTON
 	if selected_button == "origin":
@@ -786,49 +723,50 @@ def updateGroupButtons(selected_button):
 			defineButtons()
 """
 
+"""
 	# # Group 03 processing
 	if selected_button == "Group03Button01":
 		
-		if button16["enabled"] == False:
-			button16["enabled"] = True
-			button16["color"] = pgvar.UI_button_selected_color
+		if bGroup03Button01["enabled"] == False:
+			bGroup03Button01["enabled"] = True
+			bGroup03Button01["color"] = pgvar.UI_button_selected_color
 			
-			button17["enabled"] = False
-			button17["color"] = pgvar.UI_button_color
+			bGroup03Button02["enabled"] = False
+			bGroup03Button02["color"] = pgvar.UI_button_color
 			
-			button18["enabled"] = False
-			button18["color"] = pgvar.UI_button_color
+			bGroup03Button03["enabled"] = False
+			bGroup03Button03["color"] = pgvar.UI_button_color
 
-			defineButtons()	
+			pfunc.defineButtons()	
 
 	if selected_button == "Group03Button02":
 		
-		if button17["enabled"] == False:
-			button17["enabled"] = True
-			button17["color"] = pgvar.UI_button_selected_color
+		if bGroup03Button02["enabled"] == False:
+			bGroup03Button02["enabled"] = True
+			bGroup03Button02["color"] = pgvar.UI_button_selected_color
 			
-			button16["enabled"] = False
-			button16["color"] = pgvar.UI_button_color
+			bGroup03Button01["enabled"] = False
+			bGroup03Button01["color"] = pgvar.UI_button_color
 			
-			button18["enabled"] = False
-			button18["color"] = pgvar.UI_button_color
+			bGroup03Button03["enabled"] = False
+			bGroup03Button03["color"] = pgvar.UI_button_color
 
-			defineButtons()	
+			pfunc.defineButtons()	
 
 	if selected_button == "Group03Button03":
 		
-		if button18["enabled"] == False:
-			button18["enabled"] = True
-			button18["color"] = pgvar.UI_button_selected_color
+		if bGroup03Button03["enabled"] == False:
+			bGroup03Button03["enabled"] = True
+			bGroup03Button03["color"] = pgvar.UI_button_selected_color
 			
-			button16["enabled"] = False
-			button16["color"] = pgvar.UI_button_color
+			bGroup03Button01["enabled"] = False
+			bGroup03Button01["color"] = pgvar.UI_button_color
 			
-			button17["enabled"] = False
-			button17["color"] = pgvar.UI_button_color
+			bGroup03Button02["enabled"] = False
+			bGroup03Button02["color"] = pgvar.UI_button_color
 
-			defineButtons()	
-
+			pfunc.defineButtons()	
+"""
 
 ## ############################################################################################
 ## UPDATE DROPDOWN BUTTONS
@@ -1131,6 +1069,7 @@ def updateTextEntry(selected_button):
 ## OTHER FUNCTIONS
 ## ############################################################################################
 
+"""
 # # FPS related Functions
 def show_fps():
 	fps_overlay = fps_font.render("FPS:"+str(FPS), True, UI_button_txt_color)
@@ -1170,6 +1109,9 @@ def redrawEverything():
 		button.display()
 
 	print lineNum(), "redrawEverything() - completed"
+"""
+
+
 
 # # Draw origin lines
 def drawOrigin():
@@ -1351,11 +1293,12 @@ running = True
 while running:
 """
 
-	if button19["enabled"] == True:
+"""
+	if buttonFPS["enabled"] == True:
 		pygame.draw.rect(screen, blue, (pygame_window_width - 100, pygame_window_height - 30, 80, 20))   
 		count_fps()
 		show_fps()
-
+"""
 
 
 	for event in pygame.event.get():
