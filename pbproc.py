@@ -124,6 +124,18 @@ def updateStickyButtons(selected_button):
 			pgui.buttonFPS["color"] = pgvar.UI_button_color
 			pfunc.redrawEverything()
 
+	# # # Scale BUTTON
+	if selected_button == "scale":
+		if pgui.buttonScale["enabled"] == False:
+			pgui.buttonScale["enabled"] = True
+			pgui.buttonScale["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+			
+		elif pgui.buttonScale["enabled"] == True:
+			pgui.buttonScale["enabled"] = False
+			pgui.buttonScale["color"] = pgvar.UI_button_color
+			pfunc.redrawEverything()
+
 
 ####### -------------------------------------##########
 ####### Group Buttons 					           ##########

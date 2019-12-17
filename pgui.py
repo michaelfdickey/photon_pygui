@@ -334,6 +334,18 @@ buttonFPS["color"] = pgvar.UI_button_color					# buttonColor
 buttonFPS["group"] = "fps"									# buttonGroup
 buttonFPS["visible"] = True									# buttonVisible
 
+buttonScale = {}
+buttonScale["name"] = "scale"										# button_name
+buttonScale["origin_x"] = 0										# button_origin_x
+buttonScale["origin_y"] = pgvar.pygame_window_height - 480			# button_origin_y
+buttonScale["width"] = pgvar.UI_sideBar_width						# button_width
+buttonScale["height"] = 20										# button_height
+buttonScale["label_txt"] = "Scale          |<-  --  ->|"					# button_label_txt
+buttonScale["type"] = "sticky"									# buttonType
+buttonScale["enabled"] = False									# buttonEnabled
+buttonScale["color"] = pgvar.UI_button_color						# buttonColor
+buttonScale["group"] = "scale"									# buttonGroup
+buttonScale["visible"] = True										# buttonVisible
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
@@ -357,3 +369,4 @@ allButtons[17] = bGroup03Button02 	# group 03 button 02
 allButtons[18] = bGroup03Button03		# group 03 button 03
 allButtons[19] = labelDisplay 		# label for the display buttons
 allButtons[20] = buttonFPS			# FPS button
+allButtons[21] = buttonScale			# Scale button
