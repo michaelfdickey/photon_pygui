@@ -347,6 +347,21 @@ buttonScale["color"] = pgvar.UI_button_color						# buttonColor
 buttonScale["group"] = "scale"									# buttonGroup
 buttonScale["visible"] = True										# buttonVisible
 
+buttonGrid = {}
+buttonGrid["name"] = "grid"									# button_name
+buttonGrid["origin_x"] = 0									# button_origin_x
+buttonGrid["origin_y"] = pgvar.pygame_window_height - 500		# button_origin_y
+buttonGrid["width"] = pgvar.UI_sideBar_width					# button_width
+buttonGrid["height"] = 20										# button_height
+buttonGrid["label_txt"] = "Grid                          #"					# button_label_txt
+buttonGrid["type"] = "sticky"									# buttonType
+buttonGrid["enabled"] = False									# buttonEnabled
+buttonGrid["color"] = pgvar.UI_button_color					# buttonColor
+buttonGrid["group"] = "grid"									# buttonGroup
+buttonGrid["visible"] = True									# buttonVisible
+
+
+
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
 allButtons[1] = buttonCommand01		# command 01
@@ -370,3 +385,4 @@ allButtons[18] = bGroup03Button03		# group 03 button 03
 allButtons[19] = labelDisplay 		# label for the display buttons
 allButtons[20] = buttonFPS			# FPS button
 allButtons[21] = buttonScale			# Scale button
+allButtons[22] = buttonGrid			# Grid button
