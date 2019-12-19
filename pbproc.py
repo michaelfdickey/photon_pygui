@@ -136,6 +136,20 @@ def updateStickyButtons(selected_button):
 			pgui.buttonScale["color"] = pgvar.UI_button_color
 			pfunc.redrawEverything()
 
+	# # # GRID BUTTON
+	if selected_button == "grid":
+		if pgui.buttonGrid["enabled"] == False:
+			pgui.buttonGrid["enabled"] = True
+			pgui.buttonGrid["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+			#pfunc.redrawEverything()
+			
+		elif pgui.buttonGrid["enabled"] == True:
+			pgui.buttonGrid["enabled"] = False
+			pgui.buttonGrid["color"] = pgvar.UI_button_color
+			#pfunc.defineButtons()
+			pfunc.redrawEverything()
+
 
 ####### -------------------------------------##########
 ####### Group Buttons 					           ##########
