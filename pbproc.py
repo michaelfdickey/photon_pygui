@@ -142,12 +142,12 @@ def updateStickyButtons(selected_button):
 			pgui.buttonGrid["enabled"] = True
 			pgui.buttonGrid["color"] = pgvar.UI_button_selected_color
 			pfunc.defineButtons()	
-			#pfunc.redrawEverything()
+			pfunc.redrawEverything()
 			
 		elif pgui.buttonGrid["enabled"] == True:
 			pgui.buttonGrid["enabled"] = False
 			pgui.buttonGrid["color"] = pgvar.UI_button_color
-			#pfunc.defineButtons()
+			pfunc.defineButtons()
 			pfunc.redrawEverything()
 
 

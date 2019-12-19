@@ -17,31 +17,9 @@
 
 
 
-button20 = {}
-button20["name"] = "scale"							# button_name
-button20["origin_x"] = 0								# button_origin_x
-button20["origin_y"] = pgvar.pygame_window_height - 480		# button_origin_y
-button20["width"] = pgvar.UI_sideBar_width					# button_width
-button20["height"] = 20								# button_height
-button20["label_txt"] = "Scale          |<-  --  ->|"			# button_label_txt
-button20["type"] = "sticky"							# buttonType
-button20["enabled"] = False							# buttonEnabled
-button20["color"] = pgvar.UI_button_color					# buttonColor
-button20["group"] = "scale"							# buttonGroup
-button20["visible"] = True							# buttonVisible
 
-button21 = {}
-button21["name"] = "grid"								# button_name
-button21["origin_x"] = 0								# button_origin_x
-button21["origin_y"] = pgvar.pygame_window_height - 500		# button_origin_y
-button21["width"] = pgvar.UI_sideBar_width					# button_width
-button21["height"] = 20								# button_height
-button21["label_txt"] = "Grid                          #"			# button_label_txt
-button21["type"] = "sticky"							# buttonType
-button21["enabled"] = False							# buttonEnabled
-button21["color"] = pgvar.UI_button_color					# buttonColor
-button21["group"] = "grid"							# buttonGroup
-button21["visible"] = True							# buttonVisible
+
+
 
 button22 = {}
 button22["name"] = "origin"							# button_name
@@ -55,18 +33,6 @@ button22["enabled"] = False							# buttonEnabled
 button22["color"] = pgvar.UI_button_color					# buttonColor
 button22["group"] = "origin"							# buttonGroup
 button22["visible"] = True							# buttonVisible
-
-
-
-
-
-
-
-
-
-
-
-
 
 button24 = {}
 button24["name"] = "dropdownLabel"					# button_name
@@ -437,7 +403,7 @@ allButtons[17] = bGroup03Button02		# group03 button 02
 allButtons[18] = bGroup03Button03		# group03 button 03
 allButtons[19] = buttonFPS		# FPS display
 allButtons[20] = button20 	# display scale
-allButtons[21] = button21 	# display grid
+allButtons[21] = buttonGrid 	# display grid
 allButtons[22] = button22 	# display origin
 allButtons[23] = button23		# display options label
 allButtons[24] = button24 	# Dropdown01 - Label
@@ -624,21 +590,21 @@ def updateStickyButtons(selected_button):
 			defineButtons()
 			redrawEverything()
 
-
+"""
 	# # # GRID BUTTON
 	if selected_button == "grid":
-		if button21["enabled"] == False:
-			button21["enabled"] = True
-			button21["color"] = pgvar.UI_button_selected_color
+		if buttonGrid["enabled"] == False:
+			buttonGrid["enabled"] = True
+			buttonGrid["color"] = pgvar.UI_button_selected_color
 			defineButtons()	
 			redrawEverything()
 			
-		elif button21["enabled"] == True:
-			button21["enabled"] = False
-			button21["color"] = pgvar.UI_button_color
+		elif buttonGrid["enabled"] == True:
+			buttonGrid["enabled"] = False
+			buttonGrid["color"] = pgvar.UI_button_color
 			defineButtons()
 			redrawEverything()
-
+"""
 
 	print lineNum(), "updateStickyButtons() - completed"
 	return
@@ -1092,7 +1058,7 @@ def redrawEverything():
 	screen.fill(background_color)
 
 	# check if draw grids is enabled, and draw if so
-	if button21["enabled"] == True:
+	if buttonGrid["enabled"] == True:
 		drawGrid()
 
 	# check if draw origin is enabled, and draw if so. 

@@ -165,12 +165,12 @@ def redrawEverything():
 	print lineNum(), "drawing background"
 	screen.fill(pgvar.color_background)
 
-	""" *** ALERT ALERT ALERT -> re-enable below to get drid and origin working ***
-	
+	###*** ALERT ALERT ALERT -> re-enable below to get drid and origin working ***
 	# check if draw grids is enabled, and draw if so
-	 if button21["enabled"] == True:
+	if pgui.buttonGrid["enabled"] == True:
 		drawGrid()
 
+	"""
 	# check if draw origin is enabled, and draw if so. 
 	if button22["enabled"] == True:
 		drawOrigin()
@@ -204,3 +204,32 @@ def count_fps():
 		FPS = cFrame
 		cFrame = 0
 		cSec = time.strftime("%S")
+
+
+####### ---------------------------------------------------------------------##########
+####### Draw Grid lines                                                                                                                                       ##########
+####### ---------------------------------------------------------------------##########
+def drawGrid():
+	# # Draw grid
+	grid_width = pgvar.pygame_window_width / 10
+	grid_height = pgvar.pygame_window_height / 10
+
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [((pgvar.pygame_window_width / 2),0),((pgvar.pygame_window_width / 2 ),pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width,0),(grid_width,pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width * 2,0),(grid_width * 2,pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width * 3,0),(grid_width * 3,pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width * 4,0),(grid_width * 4,pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width * 6,0),(grid_width * 6,pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width * 7,0),(grid_width * 7,pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width * 8,0),(grid_width * 8,pgvar.pygame_window_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(grid_width * 9,0),(grid_width * 9,pgvar.pygame_window_height)],1)
+
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,(pgvar.pygame_window_height / 2)),(pgvar.pygame_window_width, (pgvar.pygame_window_height / 2))],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height), (pgvar.pygame_window_height,grid_height)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 2), (pgvar.pygame_window_height,grid_height * 2)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 3), (pgvar.pygame_window_height,grid_height * 3)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 4), (pgvar.pygame_window_height,grid_height * 4)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 6), (pgvar.pygame_window_height,grid_height * 6)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 7), (pgvar.pygame_window_height,grid_height * 7)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 8), (pgvar.pygame_window_height,grid_height * 8)],1)
+	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 9), (pgvar.pygame_window_height,grid_height * 9)],1)
