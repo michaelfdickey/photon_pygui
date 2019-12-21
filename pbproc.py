@@ -151,6 +151,22 @@ def updateStickyButtons(selected_button):
 			pfunc.redrawEverything()
 
 
+	# # # ORIGIN BUTTON
+	if selected_button == "origin":
+		if pgui.buttonOrigin["enabled"] == False:
+			pgui.buttonOrigin["enabled"] = True
+			pgui.buttonOrigin["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()	
+			pfunc.redrawEverything()
+			
+		elif pgui.buttonOrigin["enabled"] == True:
+			pgui.buttonOrigin["enabled"] = False
+			pgui.buttonOrigin["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()
+			pfunc.redrawEverything()
+
+
+
 ####### -------------------------------------##########
 ####### Group Buttons 					           ##########
 ####### -------------------------------------##########

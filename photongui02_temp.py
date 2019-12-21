@@ -21,18 +21,7 @@
 
 
 
-button22 = {}
-button22["name"] = "origin"							# button_name
-button22["origin_x"] = 0								# button_origin_x
-button22["origin_y"] = pgvar.pygame_window_height - 520		# button_origin_y
-button22["width"] = pgvar.UI_sideBar_width					# button_width
-button22["height"] = 20								# button_height
-button22["label_txt"] = "Origin                      +"			# button_label_txt
-button22["type"] = "sticky"							# buttonType
-button22["enabled"] = False							# buttonEnabled
-button22["color"] = pgvar.UI_button_color					# buttonColor
-button22["group"] = "origin"							# buttonGroup
-button22["visible"] = True							# buttonVisible
+
 
 button24 = {}
 button24["name"] = "dropdownLabel"					# button_name
@@ -404,7 +393,7 @@ allButtons[18] = bGroup03Button03		# group03 button 03
 allButtons[19] = buttonFPS		# FPS display
 allButtons[20] = button20 	# display scale
 allButtons[21] = buttonGrid 	# display grid
-allButtons[22] = button22 	# display origin
+allButtons[22] = buttonOrigin 	# display origin
 allButtons[23] = button23		# display options label
 allButtons[24] = button24 	# Dropdown01 - Label
 allButtons[25] = button25		# Dropdown01 - selected display
@@ -575,20 +564,22 @@ def updateStickyButtons(selected_button):
 			redrawEverything()
 """
 
-
+"""
 	# # # ORIGIN BUTTON
 	if selected_button == "origin":
-		if button22["enabled"] == False:
-			button22["enabled"] = True
-			button22["color"] = pgvar.UI_button_selected_color
+		if buttonOrigin["enabled"] == False:
+			buttonOrigin["enabled"] = True
+			buttonOrigin["color"] = pgvar.UI_button_selected_color
 			defineButtons()	
 			redrawEverything()
 			
-		elif button22["enabled"] == True:
-			button22["enabled"] = False
-			button22["color"] = pgvar.UI_button_color
+		elif buttonOrigin["enabled"] == True:
+			buttonOrigin["enabled"] = False
+			buttonOrigin["color"] = pgvar.UI_button_color
 			defineButtons()
 			redrawEverything()
+"""
+
 
 """
 	# # # GRID BUTTON
@@ -1062,7 +1053,7 @@ def redrawEverything():
 		drawGrid()
 
 	# check if draw origin is enabled, and draw if so. 
-	if button22["enabled"] == True:
+	if buttonOrigin["enabled"] == True:
 		drawOrigin()
 
 	print lineNum(), "drawing borders and frames"
@@ -1085,6 +1076,7 @@ def drawOrigin():
 	pygame.draw.lines(screen, red, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],2)
 
 
+"""
 # # Draw grid lines
 def drawGrid():
 	# # Draw grid
@@ -1110,7 +1102,7 @@ def drawGrid():
 	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 7), (pygame_window_height,grid_height * 7)],1)
 	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 8), (pygame_window_height,grid_height * 8)],1)
 	pygame.draw.lines(screen, gridYellow, False, [(0,grid_height * 9), (pygame_window_height,grid_height * 9)],1)	
-
+"""
 
 
 
