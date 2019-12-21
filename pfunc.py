@@ -170,13 +170,12 @@ def redrawEverything():
 	if pgui.buttonGrid["enabled"] == True:
 		drawGrid()
 
-	"""
+	
 	# check if draw origin is enabled, and draw if so. 
-	if button22["enabled"] == True:
+	if pgui.buttonOrigin["enabled"] == True:
 		drawOrigin()
 
-	"""
-	
+		
 	print lineNum(), "drawing borders and frames"
 	pygame.draw.rect(screen, pgvar.UI_background_color, (0, 0, pgvar.pygame_window_width, pgvar.UI_topBar_height))
 	pygame.draw.rect(screen, pgvar.UI_background_color, (0,0, pgvar.UI_sideBar_width, pgvar.pygame_window_height))
@@ -233,3 +232,11 @@ def drawGrid():
 	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 7), (pgvar.pygame_window_height,grid_height * 7)],1)
 	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 8), (pgvar.pygame_window_height,grid_height * 8)],1)
 	pygame.draw.lines(screen, pgvar.color_yellow_grid, False, [(0,grid_height * 9), (pgvar.pygame_window_height,grid_height * 9)],1)
+
+####### ---------------------------------------------------------------------##########
+####### Draw Origin Lines                                                                                                                                  ##########
+####### ---------------------------------------------------------------------##########
+def drawOrigin():
+	pygame.draw.lines(screen, pgvar.color_red, False, [((pgvar.pygame_window_width / 2),0),((pgvar.pygame_window_width / 2 ),pgvar.pygame_window_height)],2)
+	pygame.draw.lines(screen, pgvar.color_red, False, [(0,(pgvar.pygame_window_height / 2)),(pgvar.pygame_window_width, (pgvar.pygame_window_height / 2))],2)
+
