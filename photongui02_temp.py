@@ -1069,12 +1069,12 @@ def redrawEverything():
 """
 
 
-
+"""
 # # Draw origin lines
 def drawOrigin():
 	pygame.draw.lines(screen, red, False, [((pygame_window_width / 2),0),((pygame_window_width / 2 ),pygame_window_height)],2)
 	pygame.draw.lines(screen, red, False, [(0,(pygame_window_height / 2)),(pygame_window_width, (pygame_window_height / 2))],2)
-
+"""
 
 """
 # # Draw grid lines

@@ -373,6 +373,22 @@ buttonOrigin["color"] = pgvar.UI_button_color					# buttonColor
 buttonOrigin["group"] = "origin"								# buttonGroup
 buttonOrigin["visible"] = True								# buttonVisible
 
+labelDropdown = {}
+labelDropdown["name"] = "dropdownLabel"						# button_name
+labelDropdown["origin_x"] = 0									# button_origin_x
+labelDropdown["origin_y"] = pgvar.pygame_window_height - 600	# button_origin_y
+labelDropdown["width"] = pgvar.UI_sideBar_width				# button_width
+labelDropdown["height"] = 20									# button_height
+labelDropdown["label_txt"] = "Dropdown 01"					# button_label_txt
+labelDropdown["type"] = "label"								# buttonType
+labelDropdown["enabled"] = False								# buttonEnabled
+labelDropdown["color"] = pgvar.UI_button_color				# buttonColor
+labelDropdown["group"] = "dropdown01"							# buttonGroup
+labelDropdown["visible"] = True								# buttonVisible
+
+
+
+
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
@@ -399,3 +415,4 @@ allButtons[20] = buttonFPS			# FPS button
 allButtons[21] = buttonScale			# Scale button
 allButtons[22] = buttonGrid			# Grid button
 allButtons[23] = buttonOrigin 		# Origin Button
+allButtons[24] = labelDropdown 		# label for the dropdown group
