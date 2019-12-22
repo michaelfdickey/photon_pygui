@@ -386,8 +386,31 @@ labelDropdown["color"] = pgvar.UI_button_color				# buttonColor
 labelDropdown["group"] = "dropdown01"							# buttonGroup
 labelDropdown["visible"] = True								# buttonVisible
 
+lDropdown01TEXT = {}
+lDropdown01TEXT["name"] = "dropdown01TEXT"						# button_name
+lDropdown01TEXT["origin_x"] = 0									# button_origin_x
+lDropdown01TEXT["origin_y"] = pgvar.pygame_window_height - 580		# button_origin_y
+lDropdown01TEXT["width"] = pgvar.UI_sideBar_width - 20				# button_width
+lDropdown01TEXT["height"] = 20									# button_height
+lDropdown01TEXT["label_txt"] = "- select -"						# button_label_txt
+lDropdown01TEXT["type"] = "dropdown"								# buttonType
+lDropdown01TEXT["enabled"] = False								# buttonEnabled
+lDropdown01TEXT["color"] = pgvar.UI_button_color					# buttonColor
+lDropdown01TEXT["group"] = "dropdown01"							# buttonGroup
+lDropdown01TEXT["visible"] = True									# buttonVisible
 
-
+bDropdown01opener = {}
+bDropdown01opener["name"] = "dropdown01opener"					# button_name
+bDropdown01opener["origin_x"] = pgvar.UI_sideBar_width - 20		# button_origin_x
+bDropdown01opener["origin_y"] = pgvar.pygame_window_height - 580	# button_origin_y
+bDropdown01opener["width"] = 20									# button_width
+bDropdown01opener["height"] = 20									# button_height
+bDropdown01opener["label_txt"] = ">>"								# button_label_txt
+bDropdown01opener["type"] = "dropdown"							# buttonType
+bDropdown01opener["enabled"] = False								# buttonEnabled
+bDropdown01opener["color"] = pgvar.UI_button_color				# buttonColor
+bDropdown01opener["group"] = "dropdown01"							# buttonGroup
+bDropdown01opener["visible"] = True								# buttonVisible
 
 
 allButtons = {}
@@ -416,3 +439,5 @@ allButtons[21] = buttonScale			# Scale button
 allButtons[22] = buttonGrid			# Grid button
 allButtons[23] = buttonOrigin 		# Origin Button
 allButtons[24] = labelDropdown 		# label for the dropdown group
+allButtons[25] = lDropdown01TEXT		# Dropdown01 - selected display
+allButtons[26] = bDropdown01opener	# Dropdown01 - opener
