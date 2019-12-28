@@ -140,6 +140,10 @@ while running:
 					print moduleName, pfunc.lineNum(), "running group type button event"
 					pbproc.updateGroupButtons(selected_button.button_name)
 
+				if selected_button.buttonType == "dropdown":
+					print moduleName, pfunc.lineNum(), "running dropdown button event"
+					pbproc.updateDropdownButtons(selected_button.button_name)
+
 
 		if event.type == pygame.MOUSEBUTTONUP:
 

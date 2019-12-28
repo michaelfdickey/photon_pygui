@@ -40,6 +40,15 @@ import pgui
 
 # ************************************************************************************************#
 # ************************************************************************************************#
+#	Local Variables
+# ************************************************************************************************#
+# ************************************************************************************************#
+
+screen = pygame.display.set_mode((pgvar.pygame_window_width, pgvar.pygame_window_height))
+
+
+# ************************************************************************************************#
+# ************************************************************************************************#
 #	Button Processing
 # ************************************************************************************************#
 # ************************************************************************************************#
@@ -282,3 +291,94 @@ def updateGroupButtons(selected_button):
 			pgui.bGroup03Button02["color"] = pgvar.UI_button_color
 
 			pfunc.defineButtons()	
+
+## ############################################################################################
+## UPDATE DROPDOWN BUTTONS
+## ############################################################################################
+
+def updateDropdownButtons(selected_button):
+	print pfunc.lineNum(), "running update Dropdown buttons"
+
+	if selected_button == "dropdown01opener":
+		if pgui.bDropdown01opener["enabled"] == False:
+			print pfunc.lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
+			# update this button
+			pgui.bDropdown01opener["enabled"] = True
+			pgui.bDropdown01opener["color"] = pgvar.UI_button_selected_color
+			pgui.bDropdown01opener["label_txt"] = "<<"
+
+			# update associated buttons
+			pgui.bDropdown01option01["visible"] = True	
+			pgui.bDropdown01option02["visible"] = True
+			pgui.bDropdown01option03["visible"] = True
+
+			pfunc.defineButtons()	
+
+			print pfunc.lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
+			print pfunc.lineNum(), pgui.bDropdown01opener["name"], "enabled:", pgui.bDropdown01opener["enabled"], "visible:", pgui.bDropdown01opener["visible"]
+			
+		elif pgui.bDropdown01opener["enabled"] == True:
+			print " --------------------------------------- "
+			print pfunc.lineNum(), "STARTED dropdown true to false "
+			print " --------------------------------------- "
+
+			# udapte this button
+			print pfunc.lineNum(), pgui.bDropdown01opener["name"], "enabled was: ", pgui.bDropdown01opener["enabled"]
+			pgui.bDropdown01opener["enabled"] = False
+			pgui.bDropdown01opener["color"] = pgvar.UI_button_color
+			pgui.bDropdown01opener["label_txt"] = ">>"
+			print pfunc.lineNum(), pgui.bDropdown01opener["name"], "enabled:", pgui.bDropdown01opener["enabled"], "visible:", pgui.bDropdown01opener["visible"]
+
+			# update associated buttons
+			pgui.bDropdown01option01["visible"] = False
+			pgui.bDropdown01option02["visible"] = False
+			pgui.bDropdown01option03["visible"] = False
+			print pfunc.lineNum(), "buttons27,28,29 visible:", pgui.bDropdown01option01["visible"], pgui.bDropdown01option02["visible"], pgui.bDropdown01option03["visible"]
+
+			#screen.fill(pgvar.background_color)
+			pfunc.defineButtons()
+			pfunc.redrawEverything()
+
+			print pfunc.lineNum(), pgui.bDropdown01opener["name"], "enabled:", pgui.bDropdown01opener["enabled"], "visible:", pgui.bDropdown01opener["visible"]
+			print " --------------------------------------- "
+			print pfunc.lineNum(), "FINISHED dropdown true to false "
+			print " --------------------------------------- "
+			print type(pgui.bDropdown01option01["visible"])
+
+	if selected_button == "dropdown01option01":
+		if pgui.bDropdown01opener["enabled"] == True:
+			lDropdown01TEXT["label_txt"] = "Option 01"
+			pgui.bDropdown01option01["color"] = pgvar.UI_button_selected_color
+			pgui.bDropdown01option02["color"] = pgvar.UI_button_color
+			pgui.bDropdown01option03["color"] = pgvar.UI_button_color
+			pfunc.defineButtons()
+
+	if selected_button == "dropdown01option02":
+		if pgui.bDropdown01opener["enabled"] == True: 
+			lDropdown01TEXT["label_txt"] = "Option 02"
+			pgui.bDropdown01option01["color"] = pgvar.UI_button_color
+			pgui.bDropdown01option02["color"] = pgvar.UI_button_selected_color
+			pgui.bDropdown01option03["color"] = pgvar.UI_button_color		
+			pfunc.defineButtons()
+
+	if selected_button == "dropdown01option03":
+		if pgui.bDropdown01opener["enabled"] == True:
+			lDropdown01TEXT["label_txt"] = "Option 03"
+			pgui.bDropdown01option01["color"] = pgvar.UI_button_color
+			pgui.bDropdown01option02["color"] = pgvar.UI_button_color
+			pgui.bDropdown01option03["color"] = pgvar.UI_button_selected_color
+			pfunc.defineButtons()
+
+	if selected_button == "dropdown01TEXT":
+		if lDropdown01TEXT["label_txt"] != "- select -":
+			if lDropdown01TEXT["enabled"] == False:
+				lDropdown01TEXT["enabled"] = True
+				lDropdown01TEXT["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()	
+				pfunc.redrawEverything()
+				
+			elif lDropdown01TEXT["enabled"] == True:
+				lDropdown01TEXT["enabled"] = False
+				lDropdown01TEXT["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
+				pfunc.redrawEverything()
