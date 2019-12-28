@@ -423,8 +423,20 @@ bDropdown01option01["type"] = "dropdown"								# buttonType
 bDropdown01option01["enabled"] = False								# buttonEnabled
 bDropdown01option01["color"] = pgvar.UI_button_color					# buttonColor
 bDropdown01option01["group"] = "dropdown01"							# buttonGroup
-bDropdown01option01["visible"] = True								# buttonVisible
+bDropdown01option01["visible"] = True									# buttonVisible
 
+bDropdown01option02 = {}
+bDropdown01option02["name"] = "dropdown01option02"					# button_name
+bDropdown01option02["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
+bDropdown01option02["origin_y"] = pgvar.pygame_window_height - 560		# button_origin_y
+bDropdown01option02["width"] = 140									# button_width
+bDropdown01option02["height"] = 20									# button_height
+bDropdown01option02["label_txt"] = " Option 2"							# button_label_txt
+bDropdown01option02["type"] = "dropdown"								# buttonType
+bDropdown01option02["enabled"] = False								# buttonEnabled
+bDropdown01option02["color"] = pgvar.UI_button_color					# buttonColor
+bDropdown01option02["group"] = "dropdown01"							# buttonGroup
+bDropdown01option02["visible"] = True									# buttonVisible
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
@@ -455,3 +467,4 @@ allButtons[24] = labelDropdown 		# label for the dropdown group
 allButtons[25] = lDropdown01TEXT		# Dropdown01 - selected display
 allButtons[26] = bDropdown01opener	# Dropdown01 - opener
 allButtons[27] = bDropdown01option01 	# Dropdown01 option 01
+allButtons[28] = bDropdown01option02 	# Dropdown01 option 02
