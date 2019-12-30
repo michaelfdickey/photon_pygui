@@ -17,90 +17,6 @@
 
 
 
-
-
-
-
-
-
-button24 = {}
-button24["name"] = "dropdownLabel"					# button_name
-button24["origin_x"] = 0								# button_origin_x
-button24["origin_y"] = pgvar.pygame_window_height - 600		# button_origin_y
-button24["width"] = pgvar.UI_sideBar_width					# button_width
-button24["height"] = 20								# button_height
-button24["label_txt"] = "Dropdown 01"					# button_label_txt
-button24["type"] = "label"							# buttonType
-button24["enabled"] = False							# buttonEnabled
-button24["color"] = pgvar.UI_button_color					# buttonColor
-button24["group"] = "dropdown01"						# buttonGroup
-button24["visible"] = True							# buttonVisible
-
-button25 = {}
-button25["name"] = "dropdown01Label"					# button_name
-button25["origin_x"] = 0								# button_origin_x
-button25["origin_y"] = pgvar.pygame_window_height - 580		# button_origin_y
-button25["width"] = pgvar.UI_sideBar_width - 20				# button_width
-button25["height"] = 20								# button_height
-button25["label_txt"] = "- select -"					# button_label_txt
-button25["type"] = "dropdown"							# buttonType
-button25["enabled"] = False							# buttonEnabled
-button25["color"] = pgvar.UI_button_color					# buttonColor
-button25["group"] = "dropdown01"						# buttonGroup
-button25["visible"] = True							# buttonVisible
-
-button26 = {}
-button26["name"] = "dropdown01opener"					# button_name
-button26["origin_x"] = pgvar.UI_sideBar_width - 20			# button_origin_x
-button26["origin_y"] = pgvar.pygame_window_height - 580		# button_origin_y
-button26["width"] = 20								# button_width
-button26["height"] = 20								# button_height
-button26["label_txt"] = ">>"							# button_label_txt
-button26["type"] = "dropdown"							# buttonType
-button26["enabled"] = False							# buttonEnabled
-button26["color"] = pgvar.UI_button_color					# buttonColor
-button26["group"] = "dropdown01"						# buttonGroup
-button26["visible"] = True							# buttonVisible
-
-button27 = {}
-button27["name"] = "dropdown01option01"				# button_name
-button27["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button27["origin_y"] = pgvar.pygame_window_height - 580		# button_origin_y
-button27["width"] = 140								# button_width
-button27["height"] = 20								# button_height
-button27["label_txt"] = " Option 1"					# button_label_txt
-button27["type"] = "dropdown"							# buttonType
-button27["enabled"] = False							# buttonEnabled
-button27["color"] = pgvar.UI_button_color					# buttonColor
-button27["group"] = "dropdown01"						# buttonGroup
-button27["visible"] = False							# buttonVisible
-
-button28 = {}
-button28["name"] = "dropdown01option02"				# button_name
-button28["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button28["origin_y"] = pgvar.pygame_window_height - 560		# button_origin_y
-button28["width"] = 140								# button_width
-button28["height"] = 20								# button_height
-button28["label_txt"] = " Option 2"					# button_label_txt
-button28["type"] = "dropdown"							# buttonType
-button28["enabled"] = False							# buttonEnabled
-button28["color"] = pgvar.UI_button_color					# buttonColor
-button28["group"] = "dropdown01"						# buttonGroup
-button28["visible"] = False							# buttonVisible
-
-button29 = {}
-button29["name"] = "dropdown01option03"				# button_name
-button29["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button29["origin_y"] = pgvar.pygame_window_height - 540		# button_origin_y
-button29["width"] = 140								# button_width
-button29["height"] = 20								# button_height
-button29["label_txt"] = " Option 3"					# button_label_txt
-button29["type"] = "dropdown"							# buttonType
-button29["enabled"] = False							# buttonEnabled
-button29["color"] = pgvar.UI_button_color					# buttonColor
-button29["group"] = "dropdown01"						# buttonGroup
-button29["visible"] = False							# buttonVisible
-
 button30 = {}
 button30["name"] = "menu01"							# button_name
 button30["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
@@ -395,12 +311,12 @@ allButtons[20] = button20 	# display scale
 allButtons[21] = buttonGrid 	# display grid
 allButtons[22] = buttonOrigin 	# display origin
 allButtons[23] = button23		# display options label
-allButtons[24] = button24 	# Dropdown01 - Label
-allButtons[25] = button25		# Dropdown01 - selected display
-allButtons[26] = button26		# Dropdown01 - opener
-allButtons[27] = button27		# Dropdown01 - option1
-allButtons[28] = button28		# Dropdown01 - option2
-allButtons[29] = button29		# Dropdown01 - option3
+allButtons[24] = labelDropdown 	# Dropdown01 - Label
+allButtons[25] = lDropdown01TEXT		# Dropdown01 - selected display
+allButtons[26] = bDropdown01opener		# Dropdown01 - opener
+allButtons[27] = bDropdown01option01		# Dropdown01 - option1
+allButtons[28] = bDropdown01option02		# Dropdown01 - option2
+allButtons[29] = bDropdown01option03		# Dropdown01 - option3
 allButtons[30] = button30		# Menu 01
 allButtons[31] = button31		# Menu 01 - option 01 - Monday
 allButtons[32] = button32		# Menu 01 - option 02 - Tuesday
@@ -725,6 +641,7 @@ def updateGroupButtons(selected_button):
 			pfunc.defineButtons()	
 """
 
+"""
 ## ############################################################################################
 ## UPDATE DROPDOWN BUTTONS
 ## ############################################################################################
@@ -733,89 +650,89 @@ def updateDropdownButtons(selected_button):
 	print lineNum(), "running update Dropdown buttons"
 
 	if selected_button == "dropdown01opener":
-		if button26["enabled"] == False:
+		if bDropdown01opener["enabled"] == False:
 			print lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
 			# update this button
-			button26["enabled"] = True
-			button26["color"] = pgvar.UI_button_selected_color
-			button26["label_txt"] = "<<"
+			bDropdown01opener["enabled"] = True
+			bDropdown01opener["color"] = pgvar.UI_button_selected_color
+			bDropdown01opener["label_txt"] = "<<"
 
 			# update associated buttons
-			button27["visible"] = True	
-			button28["visible"] = True
-			button29["visible"] = True
+			bDropdown01option01["visible"] = True	
+			bDropdown01option02["visible"] = True
+			bDropdown01option03["visible"] = True
 
 			defineButtons()	
 
 			print lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
-			print lineNum(), button26["name"], "enabled:", button26["enabled"], "visible:", button26["visible"]
+			print lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
 			
-		elif button26["enabled"] == True:
+		elif bDropdown01opener["enabled"] == True:
 			print " --------------------------------------- "
 			print lineNum(), "STARTED dropdown true to false "
 			print " --------------------------------------- "
 
 			# udapte this button
-			print lineNum(), button26["name"], "enabled was: ", button26["enabled"]
-			button26["enabled"] = False
-			button26["color"] = pgvar.UI_button_color
-			button26["label_txt"] = ">>"
-			print lineNum(), button26["name"], "enabled:", button26["enabled"], "visible:", button26["visible"]
+			print lineNum(), bDropdown01opener["name"], "enabled was: ", bDropdown01opener["enabled"]
+			bDropdown01opener["enabled"] = False
+			bDropdown01opener["color"] = pgvar.UI_button_color
+			bDropdown01opener["label_txt"] = ">>"
+			print lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
 
 			# update associated buttons
-			button27["visible"] = False
-			button28["visible"] = False
-			button29["visible"] = False
-			print lineNum(), "buttons27,28,29 visible:", button27["visible"], button28["visible"], button29["visible"]
+			bDropdown01option01["visible"] = False
+			bDropdown01option02["visible"] = False
+			bDropdown01option03["visible"] = False
+			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 
 			screen.fill(background_color)
 			defineButtons()
 			redrawEverything()
 
-			print lineNum(), button26["name"], "enabled:", button26["enabled"], "visible:", button26["visible"]
+			print lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
 			print " --------------------------------------- "
 			print lineNum(), "FINISHED dropdown true to false "
 			print " --------------------------------------- "
-			print type(button27["visible"])
+			print type(bDropdown01option01["visible"])
 
 	if selected_button == "dropdown01option01":
-		if button26["enabled"] == True:
-			button25["label_txt"] = "Option 01"
-			button27["color"] = pgvar.UI_button_selected_color
-			button28["color"] = pgvar.UI_button_color
-			button29["color"] = pgvar.UI_button_color
+		if bDropdown01opener["enabled"] == True:
+			lDropdown01TEXT["label_txt"] = "Option 01"
+			bDropdown01option01["color"] = pgvar.UI_button_selected_color
+			bDropdown01option02["color"] = pgvar.UI_button_color
+			bDropdown01option03["color"] = pgvar.UI_button_color
 			defineButtons()
 
 	if selected_button == "dropdown01option02":
-		if button26["enabled"] == True: 
-			button25["label_txt"] = "Option 02"
-			button27["color"] = pgvar.UI_button_color
-			button28["color"] = pgvar.UI_button_selected_color
-			button29["color"] = pgvar.UI_button_color		
+		if bDropdown01opener["enabled"] == True: 
+			lDropdown01TEXT["label_txt"] = "Option 02"
+			bDropdown01option01["color"] = pgvar.UI_button_color
+			bDropdown01option02["color"] = pgvar.UI_button_selected_color
+			bDropdown01option03["color"] = pgvar.UI_button_color		
 			defineButtons()
 
 	if selected_button == "dropdown01option03":
-		if button26["enabled"] == True:
-			button25["label_txt"] = "Option 03"
-			button27["color"] = pgvar.UI_button_color
-			button28["color"] = pgvar.UI_button_color
-			button29["color"] = pgvar.UI_button_selected_color
+		if bDropdown01opener["enabled"] == True:
+			lDropdown01TEXT["label_txt"] = "Option 03"
+			bDropdown01option01["color"] = pgvar.UI_button_color
+			bDropdown01option02["color"] = pgvar.UI_button_color
+			bDropdown01option03["color"] = pgvar.UI_button_selected_color
 			defineButtons()
 
-	if selected_button == "dropdown01Label":
-		if button25["label_txt"] != "- select -":
-			if button25["enabled"] == False:
-				button25["enabled"] = True
-				button25["color"] = pgvar.UI_button_selected_color
+	if selected_button == "dropdown01TEXT":
+		if lDropdown01TEXT["label_txt"] != "- select -":
+			if lDropdown01TEXT["enabled"] == False:
+				lDropdown01TEXT["enabled"] = True
+				lDropdown01TEXT["color"] = pgvar.UI_button_selected_color
 				defineButtons()	
 				redrawEverything()
 				
-			elif button25["enabled"] == True:
-				button25["enabled"] = False
-				button25["color"] = pgvar.UI_button_color
+			elif lDropdown01TEXT["enabled"] == True:
+				lDropdown01TEXT["enabled"] = False
+				lDropdown01TEXT["color"] = pgvar.UI_button_color
 				defineButtons()
 				redrawEverything()
-
+"""
 
 ## ############################################################################################
 ## UPDATE MENU BUTTONS
@@ -1345,11 +1262,13 @@ while running:
 					print lineNum(), "running group type button event"
 					updateGroupButtons(selected_button.button_name)
 				"""
-		
+				
+				"""
 				if selected_button.buttonType == "dropdown":
 					print lineNum(), "running dropdown button event"
 					updateDropdownButtons(selected_button.button_name)
-
+				"""
+				
 				if selected_button.buttonType == "menu":
 					print lineNum(), "running menu button event"
 					updateMenuButtons(selected_button.button_name)
@@ -1432,18 +1351,18 @@ while running:
 			
 
 			selected_button = None
-			print lineNum(), "buttons27,28,29 visible:", button27["visible"], button28["visible"], button29["visible"]
+			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 			print lineNum(), "selected_button = ", selected_button
-			print lineNum(), "buttons27,28,29 visible:", button27["visible"], button28["visible"], button29["visible"]
+			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 			
 			# # re draw buttons!
 			# # without this here, pushy buttons don't return to normal on mouseup
 			print lineNum(), "____drawing buttons in MOUSEBUTTONUP call"
-			#print lineNum(), "buttons27,28,29 visible:", button27["visible"], button28["visible"], button29["visible"]
+			#print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 			for i, button in enumerate(my_buttons):
 				button.display()		
 			
-			print lineNum(), "buttons27,28,29 visible:", button27["visible"], button28["visible"], button29["visible"]
+			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 			
 
 	# always do this last

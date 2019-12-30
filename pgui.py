@@ -423,7 +423,7 @@ bDropdown01option01["type"] = "dropdown"								# buttonType
 bDropdown01option01["enabled"] = False								# buttonEnabled
 bDropdown01option01["color"] = pgvar.UI_button_color					# buttonColor
 bDropdown01option01["group"] = "dropdown01"							# buttonGroup
-bDropdown01option01["visible"] = True									# buttonVisible
+bDropdown01option01["visible"] = False								# buttonVisible
 
 bDropdown01option02 = {}
 bDropdown01option02["name"] = "dropdown01option02"					# button_name
@@ -436,7 +436,7 @@ bDropdown01option02["type"] = "dropdown"								# buttonType
 bDropdown01option02["enabled"] = False								# buttonEnabled
 bDropdown01option02["color"] = pgvar.UI_button_color					# buttonColor
 bDropdown01option02["group"] = "dropdown01"							# buttonGroup
-bDropdown01option02["visible"] = True									# buttonVisible
+bDropdown01option02["visible"] = False								# buttonVisible
 
 bDropdown01option03 = {}
 bDropdown01option03["name"] = "dropdown01option03"					# button_name
@@ -449,7 +449,7 @@ bDropdown01option03["type"] = "dropdown"								# buttonType
 bDropdown01option03["enabled"] = False								# buttonEnabled
 bDropdown01option03["color"] = pgvar.UI_button_color					# buttonColor
 bDropdown01option03["group"] = "dropdown01"							# buttonGroup
-bDropdown01option03["visible"] = True									# buttonVisible
+bDropdown01option03["visible"] = False								# buttonVisible
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button

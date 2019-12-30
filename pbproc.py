@@ -347,7 +347,7 @@ def updateDropdownButtons(selected_button):
 
 	if selected_button == "dropdown01option01":
 		if pgui.bDropdown01opener["enabled"] == True:
-			lDropdown01TEXT["label_txt"] = "Option 01"
+			pgui.lDropdown01TEXT["label_txt"] = "Option 01"
 			pgui.bDropdown01option01["color"] = pgvar.UI_button_selected_color
 			pgui.bDropdown01option02["color"] = pgvar.UI_button_color
 			pgui.bDropdown01option03["color"] = pgvar.UI_button_color
@@ -355,7 +355,7 @@ def updateDropdownButtons(selected_button):
 
 	if selected_button == "dropdown01option02":
 		if pgui.bDropdown01opener["enabled"] == True: 
-			lDropdown01TEXT["label_txt"] = "Option 02"
+			pgui.lDropdown01TEXT["label_txt"] = "Option 02"
 			pgui.bDropdown01option01["color"] = pgvar.UI_button_color
 			pgui.bDropdown01option02["color"] = pgvar.UI_button_selected_color
 			pgui.bDropdown01option03["color"] = pgvar.UI_button_color		
@@ -363,22 +363,22 @@ def updateDropdownButtons(selected_button):
 
 	if selected_button == "dropdown01option03":
 		if pgui.bDropdown01opener["enabled"] == True:
-			lDropdown01TEXT["label_txt"] = "Option 03"
+			pgui.lDropdown01TEXT["label_txt"] = "Option 03"
 			pgui.bDropdown01option01["color"] = pgvar.UI_button_color
 			pgui.bDropdown01option02["color"] = pgvar.UI_button_color
 			pgui.bDropdown01option03["color"] = pgvar.UI_button_selected_color
 			pfunc.defineButtons()
 
 	if selected_button == "dropdown01TEXT":
-		if lDropdown01TEXT["label_txt"] != "- select -":
-			if lDropdown01TEXT["enabled"] == False:
-				lDropdown01TEXT["enabled"] = True
-				lDropdown01TEXT["color"] = pgvar.UI_button_selected_color
+		if pgui.lDropdown01TEXT["label_txt"] != "- select -":
+			if pgui.lDropdown01TEXT["enabled"] == False:
+				pgui.lDropdown01TEXT["enabled"] = True
+				pgui.lDropdown01TEXT["color"] = pgvar.UI_button_selected_color
 				pfunc.defineButtons()	
 				pfunc.redrawEverything()
 				
-			elif lDropdown01TEXT["enabled"] == True:
-				lDropdown01TEXT["enabled"] = False
-				lDropdown01TEXT["color"] = pgvar.UI_button_color
+			elif pgui.lDropdown01TEXT["enabled"] == True:
+				pgui.lDropdown01TEXT["enabled"] = False
+				pgui.lDropdown01TEXT["color"] = pgvar.UI_button_color
 				pfunc.defineButtons()
 				pfunc.redrawEverything()
