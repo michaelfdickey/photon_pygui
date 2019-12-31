@@ -451,6 +451,21 @@ bDropdown01option03["color"] = pgvar.UI_button_color					# buttonColor
 bDropdown01option03["group"] = "dropdown01"							# buttonGroup
 bDropdown01option03["visible"] = False								# buttonVisible
 
+
+lTextField01 = {}
+lTextField01["name"] = "textField01Label"							# button_name
+lTextField01["origin_x"] = 0										# button_origin_x
+lTextField01["origin_y"] = pgvar.pygame_window_height - 660		# button_origin_y
+lTextField01["width"] = pgvar.UI_sideBar_width					# button_width
+lTextField01["height"] = 20										# button_height
+lTextField01["label_txt"] = "Enter Text:"							# button_label_txt
+lTextField01["type"] = "label"									# buttonType
+lTextField01["enabled"] = False									# buttonEnabled
+lTextField01["color"] = pgvar.UI_label_color					# buttonColor
+lTextField01["group"] = "text01"									# buttonGroup
+lTextField01["visible"] = True									# buttonVisible
+
+
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
 allButtons[1] = buttonCommand01		# command 01
@@ -482,3 +497,5 @@ allButtons[26] = bDropdown01opener	# Dropdown01 - opener
 allButtons[27] = bDropdown01option01 	# Dropdown01 option 01
 allButtons[28] = bDropdown01option02 	# Dropdown01 option 02
 allButtons[29] = bDropdown01option03 	# Dropdown01 option 03
+
+allButtons[38] = lTextField01		# Text Field - label
