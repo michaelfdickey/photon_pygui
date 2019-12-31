@@ -461,9 +461,22 @@ lTextField01["height"] = 20										# button_height
 lTextField01["label_txt"] = "Enter Text:"							# button_label_txt
 lTextField01["type"] = "label"									# buttonType
 lTextField01["enabled"] = False									# buttonEnabled
-lTextField01["color"] = pgvar.UI_label_color					# buttonColor
+lTextField01["color"] = pgvar.UI_label_color						# buttonColor
 lTextField01["group"] = "text01"									# buttonGroup
 lTextField01["visible"] = True									# buttonVisible
+
+textField01 = {}
+textField01["name"] = "textField01"							# button_name
+textField01["origin_x"] = 0									# button_origin_x
+textField01["origin_y"] = pgvar.pygame_window_height - 640		# button_origin_y
+textField01["width"] = pgvar.UI_sideBar_width					# button_width
+textField01["height"] = 20									# button_height
+textField01["label_txt"] = "abc123"							# button_label_txt
+textField01["type"] = "textEntry"								# buttonType
+textField01["enabled"] = False								# buttonEnabled
+textField01["color"] = pgvar.UI_text_entry_box_color				# buttonColor
+textField01["group"] = "text01"								# buttonGroup
+textField01["visible"] = True									# buttonVisible
 
 
 allButtons = {}
@@ -498,4 +511,5 @@ allButtons[27] = bDropdown01option01 	# Dropdown01 option 01
 allButtons[28] = bDropdown01option02 	# Dropdown01 option 02
 allButtons[29] = bDropdown01option03 	# Dropdown01 option 03
 
-allButtons[38] = lTextField01		# Text Field - label
+allButtons[38] = lTextField01			# Text Field - label
+allButtons[39] = textField01			# Text Field - text entry box
