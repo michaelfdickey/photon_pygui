@@ -121,31 +121,14 @@ button37["color"] = pgvar.UI_button_color					# buttonColor
 button37["group"] = "menu03"							# buttonGroup
 button37["visible"] = False							# buttonVisible
 
-button38 = {}
-button38["name"] = "textField01Label"					# button_name
-button38["origin_x"] = 0								# button_origin_x
-button38["origin_y"] = pgvar.pygame_window_height - 660		# button_origin_y
-button38["width"] = pgvar.UI_sideBar_width					# button_width
-button38["height"] = 20								# button_height
-button38["label_txt"] = "Enter Text:"					# button_label_txt
-button38["type"] = "label"							# buttonType
-button38["enabled"] = False							# buttonEnabled
-button38["color"] = pgvar.UI_label_color					# buttonColor
-button38["group"] = "text01"							# buttonGroup
-button38["visible"] = True							# buttonVisible
 
-button39 = {}
-button39["name"] = "textField01"						# button_name
-button39["origin_x"] = 0								# button_origin_x
-button39["origin_y"] = pgvar.pygame_window_height - 640		# button_origin_y
-button39["width"] = pgvar.UI_sideBar_width					# button_width
-button39["height"] = 20								# button_height
-button39["label_txt"] = "abc123"						# button_label_txt
-button39["type"] = "textEntry"						# buttonType
-button39["enabled"] = False							# buttonEnabled
-button39["color"] = UI_text_entry_box_color			# buttonColor
-button39["group"] = "text01"							# buttonGroup
-button39["visible"] = True							# buttonVisible
+
+
+
+
+
+
+
 
 
 button40 = {}
@@ -325,8 +308,8 @@ allButtons[34] = button34		# Menu 01 - option 04 - Thursday
 allButtons[35] = button35		# Menu 01 - option 05 - Friday
 allButtons[36] = button36		# Menu 02
 allButtons[37] = button37		# Menu 03
-allButtons[38] = button38		# Text Field - label
-allButtons[39] = button39		# Text Field - text entry box
+
+
 allButtons[40] = button40		# Menu 02  - small popup
 allButtons[41] = button41		# Menu 02  - Medium popup
 allButtons[42] = button42		# Menu 02  - Large popup
@@ -915,6 +898,7 @@ def updateMenuButtons(selected_button):
 	## END START MENU 02 HANDLING
 
 
+"""
 
 ## ############################################################################################
 ## UPDATE TEXT ENTRY BUTTONS
@@ -922,18 +906,18 @@ def updateMenuButtons(selected_button):
 
 def updateTextEntry(selected_button):
 	if selected_button == "textField01":
-		if button39["enabled"] == False:
-			button39["enabled"] = True
-			button39["color"] = UI_text_entry_box_color_active
+		if textField01["enabled"] == False:
+			textField01["enabled"] = True
+			textField01["color"] = UI_text_entry_box_color_active
 			defineButtons()
 			#enumerateButtons()
 
-		elif button39["enabled"] == True:
-			button39["enabled"] = False
-			button39["color"] = UI_text_entry_box_color
+		elif textField01["enabled"] == True:
+			textField01["enabled"] = False
+			textField01["color"] = UI_text_entry_box_color
 			defineButtons()
 
-
+"""
 
 
 
@@ -1268,31 +1252,37 @@ while running:
 					print lineNum(), "running dropdown button event"
 					updateDropdownButtons(selected_button.button_name)
 				"""
-				
+
 				if selected_button.buttonType == "menu":
 					print lineNum(), "running menu button event"
 					updateMenuButtons(selected_button.button_name)
 
+				
+				"""
 				if selected_button.buttonType == "textEntry":
 					print lineNum(), "running text entry event"
 					updateTextEntry(selected_button.button_name)
+				"""
 
+
+
+		"""
 		if event.type == pygame.KEYDOWN:
 		 	print "you pressed a key"
-		 	if button39["enabled"] == True:
+		 	if textField01["enabled"] == True:
 
 			 	if event.key == pygame.K_RETURN:
 			 		print(entered_text)
 			 		#entered_text = ""
-					button39["label_txt"] = entered_text
-					button39["enabled"] = False
-					button39["color"] = UI_text_entry_box_color
+					textField01["label_txt"] = entered_text
+					textField01["enabled"] = False
+					textField01["color"] = UI_text_entry_box_color
 					defineButtons()
 					enumerateButtons()
 
 				elif event.key == pygame.K_BACKSPACE:
 					entered_text = entered_text[:-1]
-					button39["label_txt"] = entered_text
+					textField01["label_txt"] = entered_text
 					defineButtons()
 					enumerateButtons()
 
@@ -1300,9 +1290,11 @@ while running:
 			 		if len(entered_text) <= 15:
 						entered_text += event.unicode
 						print "entered_text", entered_text
-						button39["label_txt"] = entered_text
+						textField01["label_txt"] = entered_text
 						defineButtons()
 						enumerateButtons()
+		"""
+
 
 
 		"""

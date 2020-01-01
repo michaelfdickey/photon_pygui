@@ -149,6 +149,34 @@ while running:
 					pbproc.updateTextEntry(selected_button.button_name)
 
 
+		if event.type == pygame.KEYDOWN:
+		 	print "you pressed a key"
+		 	if pgui.textField01["enabled"] == True:
+
+			 	if event.key == pygame.K_RETURN:
+			 		print(pgvar.entered_text)
+			 		#entered_text = ""
+					pgui.textField01["label_txt"] = pgvar.entered_text
+					pgui.textField01["enabled"] = False
+					pgui.textField01["color"] = pgvar.UI_text_entry_box_color
+					pfunc.defineButtons()
+					pfunc.enumerateButtons()
+
+				elif event.key == pygame.K_BACKSPACE:
+					pgvar.entered_text = pgvar.entered_text[:-1]
+					pgui.textField01["label_txt"] = pgvar.entered_text
+					pfunc.defineButtons()
+					pfunc.enumerateButtons()
+
+				else:
+			 		if len(pgvar.entered_text) <= 15:
+						pgvar.entered_text += event.unicode
+						print "entered_text", pgvar.entered_text
+						pgui.textField01["label_txt"] = pgvar.entered_text
+						pfunc.defineButtons()
+						pfunc.enumerateButtons()
+
+
 		if event.type == pygame.MOUSEBUTTONUP:
 
 			if selected_button != None:
@@ -187,11 +215,9 @@ while running:
 							button.display()
 
 
-			
 			for i, button in enumerate(pfunc.my_buttons):
 				button.display()	
 
-			
 
 	# always do this last
 	pygame.display.flip()

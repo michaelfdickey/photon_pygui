@@ -154,6 +154,14 @@ def findButton(buttons, x, y):
 	return None
 
 
+####### ---------------------------------------------------------------------##########
+####### something to do with updating text field buttons                                                                ##########
+####### ---------------------------------------------------------------------##########
+
+def enumerateButtons():
+	for i, button in enumerate(my_buttons):
+		button.display()	
+
 
 ####### ---------------------------------------------------------------------##########
 ####### Redraw the backgroundm, buttons, screen, etc.                                                                 ##########
@@ -236,25 +244,10 @@ def drawGrid():
 ####### ---------------------------------------------------------------------##########
 ####### Draw Origin Lines                                                                                                                                  ##########
 ####### ---------------------------------------------------------------------##########
+
 def drawOrigin():
 	pygame.draw.lines(screen, pgvar.color_red, False, [((pgvar.pygame_window_width / 2),0),((pgvar.pygame_window_width / 2 ),pgvar.pygame_window_height)],2)
 	pygame.draw.lines(screen, pgvar.color_red, False, [(0,(pgvar.pygame_window_height / 2)),(pgvar.pygame_window_width, (pgvar.pygame_window_height / 2))],2)
 
 
 
-## ############################################################################################
-## UPDATE TEXT ENTRY BUTTONS
-## ############################################################################################
-
-def updateTextEntry(selected_button):
-	if selected_button == "textField01":
-		if textField01["enabled"] == False:
-			textField01["enabled"] = True
-			textField01["color"] = UI_text_entry_box_color_active
-			defineButtons()
-			#enumerateButtons()
-
-		elif textField01["enabled"] == True:
-			textField01["enabled"] = False
-			textField01["color"] = UI_text_entry_box_color
-			defineButtons()
