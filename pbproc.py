@@ -382,3 +382,21 @@ def updateDropdownButtons(selected_button):
 				pgui.lDropdown01TEXT["color"] = pgvar.UI_button_color
 				pfunc.defineButtons()
 				pfunc.redrawEverything()
+
+
+## ############################################################################################
+## UPDATE TEXT ENTRY BUTTONS
+## ############################################################################################
+
+def updateTextEntry(selected_button):
+	if selected_button == "textField01":
+		if pgui.textField01["enabled"] == False:
+			pgui.textField01["enabled"] = True
+			pgui.textField01["color"] = pgvar.UI_text_entry_box_color_active
+			pfunc.defineButtons()
+			#enumerateButtons()
+
+		elif pgui.textField01["enabled"] == True:
+			pgui.textField01["enabled"] = False
+			pgui.textField01["color"] = pgvar.UI_text_entry_box_color
+			pfunc.defineButtons()

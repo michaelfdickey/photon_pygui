@@ -144,6 +144,10 @@ while running:
 					print moduleName, pfunc.lineNum(), "running dropdown button event"
 					pbproc.updateDropdownButtons(selected_button.button_name)
 
+				if selected_button.buttonType == "textEntry":
+					print moduleName, pfunc.lineNum(), "running text entry event"
+					pbproc.updateTextEntry(selected_button.button_name)
+
 
 		if event.type == pygame.MOUSEBUTTONUP:
 
