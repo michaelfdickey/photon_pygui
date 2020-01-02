@@ -478,6 +478,21 @@ textField01["color"] = pgvar.UI_text_entry_box_color				# buttonColor
 textField01["group"] = "text01"								# buttonGroup
 textField01["visible"] = True									# buttonVisible
 
+bMenu01 = {}
+bMenu01["name"] = "menu01"							# button_name
+bMenu01["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
+bMenu01["origin_y"] = 0								# button_origin_y
+bMenu01["width"] = 125								# button_width
+bMenu01["height"] = 20								# button_height
+bMenu01["label_txt"] = " Menu 01 Sticky"				# button_label_txt
+bMenu01["type"] = "menu"								# buttonType
+bMenu01["enabled"] = False							# buttonEnabled
+bMenu01["color"] = pgvar.UI_button_color					# buttonColor
+bMenu01["group"] = "menu01"							# buttonGroup
+bMenu01["visible"] = True							# buttonVisible
+
+
+
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
@@ -510,6 +525,7 @@ allButtons[26] = bDropdown01opener	# Dropdown01 - opener
 allButtons[27] = bDropdown01option01 	# Dropdown01 option 01
 allButtons[28] = bDropdown01option02 	# Dropdown01 option 02
 allButtons[29] = bDropdown01option03 	# Dropdown01 option 03
+allButtons[30] = bMenu01				# Menu 01
 
 allButtons[38] = lTextField01			# Text Field - label
 allButtons[39] = textField01			# Text Field - text entry box
