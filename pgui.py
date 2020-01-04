@@ -515,7 +515,27 @@ bMenu01option02["type"] = "menu"								# buttonType
 bMenu01option02["enabled"] = False							# buttonEnabled
 bMenu01option02["color"] = pgvar.UI_button_color				# buttonColor
 bMenu01option02["group"] = "menu01"							# buttonGroup
-bMenu01option02["visible"] = True							# buttonVisible
+bMenu01option02["visible"] = True								# buttonVisible
+
+bMenu01option03 = {}
+bMenu01option03["name"] = "menu01option03"					# button_name
+bMenu01option03["origin_x"] = pgvar.UI_sideBar_width			# button_origin_x
+bMenu01option03["origin_y"] = 60								# button_origin_y
+bMenu01option03["width"] = 150								# button_width
+bMenu01option03["height"] = 20								# button_height
+bMenu01option03["label_txt"] = " Wednesday "					# button_label_txt
+bMenu01option03["type"] = "menu"								# buttonType
+bMenu01option03["enabled"] = False							# buttonEnabled
+bMenu01option03["color"] = pgvar.UI_button_color				# buttonColor
+bMenu01option03["group"] = "menu01"							# buttonGroup
+bMenu01option03["visible"] = True							# buttonVisible
+
+
+
+
+
+
+
 
 allButtons = {}
 allButtons[0] = buttonExit			# exit button
@@ -551,7 +571,7 @@ allButtons[29] = bDropdown01option03 	# Dropdown01 option 03
 allButtons[30] = bMenu01				# Menu 01
 allButtons[31] = bMenu01option01		# Menu 01 - option 01 - Monday
 allButtons[32] = bMenu01option02		# Menu 01 - option 02 - Tuesday
-
+allButtons[33] = bMenu01option03		# Menu 01 - option 03 - Wednesday
 
 
 allButtons[38] = lTextField01			# Text Field - label
