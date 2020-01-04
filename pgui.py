@@ -528,8 +528,33 @@ bMenu01option03["type"] = "menu"								# buttonType
 bMenu01option03["enabled"] = False							# buttonEnabled
 bMenu01option03["color"] = pgvar.UI_button_color				# buttonColor
 bMenu01option03["group"] = "menu01"							# buttonGroup
-bMenu01option03["visible"] = True							# buttonVisible
+bMenu01option03["visible"] = True								# buttonVisible
 
+bMenu01option04 = {}
+bMenu01option04["name"] = "menu01option04"					# button_name
+bMenu01option04["origin_x"] = pgvar.UI_sideBar_width			# button_origin_x
+bMenu01option04["origin_y"] = 80								# button_origin_y
+bMenu01option04["width"] = 150								# button_width
+bMenu01option04["height"] = 20								# button_height
+bMenu01option04["label_txt"] = " Thursday "					# button_label_txt
+bMenu01option04["type"] = "menu"								# buttonType
+bMenu01option04["enabled"] = False 							# buttonEnabled
+bMenu01option04["color"] = pgvar.UI_button_color				# buttonColor
+bMenu01option04["group"] = "menu01"							# buttonGroup
+bMenu01option04["visible"] = True								# buttonVisible
+
+bMenu01option05 = {}
+bMenu01option05["name"] = "menu01option05"					# button_name
+bMenu01option05["origin_x"] = pgvar.UI_sideBar_width			# button_origin_x
+bMenu01option05["origin_y"] = 100								# button_origin_y
+bMenu01option05["width"] = 150								# button_width
+bMenu01option05["height"] = 20								# button_height
+bMenu01option05["label_txt"] = " Friday "						# button_label_txt
+bMenu01option05["type"] = "menu"								# buttonType
+bMenu01option05["enabled"] = False							# buttonEnabled
+bMenu01option05["color"] = pgvar.UI_button_color				# buttonColor
+bMenu01option05["group"] = "menu01"							# buttonGroup
+bMenu01option05["visible"] = True								# buttonVisible
 
 
 
@@ -572,6 +597,8 @@ allButtons[30] = bMenu01				# Menu 01
 allButtons[31] = bMenu01option01		# Menu 01 - option 01 - Monday
 allButtons[32] = bMenu01option02		# Menu 01 - option 02 - Tuesday
 allButtons[33] = bMenu01option03		# Menu 01 - option 03 - Wednesday
+allButtons[34] = bMenu01option04		# Menu 01 - option 04 - Thursday
+allButtons[35] = bMenu01option05		# Menu 01 - option 05 - Friday
 
 
 allButtons[38] = lTextField01			# Text Field - label
