@@ -17,44 +17,11 @@
 
 
 
-button30 = {}
-button30["name"] = "menu01"							# button_name
-button30["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button30["origin_y"] = 0								# button_origin_y
-button30["width"] = 125								# button_width
-button30["height"] = 20								# button_height
-button30["label_txt"] = " Menu 01 Sticky"				# button_label_txt
-button30["type"] = "menu"								# buttonType
-button30["enabled"] = False							# buttonEnabled
-button30["color"] = pgvar.UI_button_color					# buttonColor
-button30["group"] = "menu01"							# buttonGroup
-button30["visible"] = True							# buttonVisible
 
-button31 = {}
-button31["name"] = "menu01option01"					# button_name
-button31["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button31["origin_y"] = 20								# button_origin_y
-button31["width"] = 150								# button_width
-button31["height"] = 20								# button_height
-button31["label_txt"] = " Monday "						# button_label_txt
-button31["type"] = "menu"								# buttonType
-button31["enabled"] = False							# buttonEnabled
-button31["color"] = pgvar.UI_button_color					# buttonColor
-button31["group"] = "menu01"							# buttonGroup
-button31["visible"] = False							# buttonVisible
 
-button32 = {}
-button32["name"] = "menu01option02"					# button_name
-button32["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button32["origin_y"] = 40								# button_origin_y
-button32["width"] = 150								# button_width
-button32["height"] = 20								# button_height
-button32["label_txt"] = " Tuesday "					# button_label_txt
-button32["type"] = "menu"								# buttonType
-button32["enabled"] = False							# buttonEnabled
-button32["color"] = pgvar.UI_button_color					# buttonColor
-button32["group"] = "menu01"							# buttonGroup
-button32["visible"] = False							# buttonVisible
+
+
+
 
 button33 = {}
 button33["name"] = "menu01option03"					# button_name
@@ -281,7 +248,7 @@ button50["visible"] = False												# buttonVisible
 
 
 
-
+"""
 allButtons[12] = labelGroup02		# group02 label
 allButtons[13] = bGroup02Button01 	# group02 button 01
 allButtons[14] = bGroup02Button02		# group02 button 02
@@ -300,15 +267,16 @@ allButtons[26] = bDropdown01opener		# Dropdown01 - opener
 allButtons[27] = bDropdown01option01		# Dropdown01 - option1
 allButtons[28] = bDropdown01option02		# Dropdown01 - option2
 allButtons[29] = bDropdown01option03		# Dropdown01 - option3
-allButtons[30] = button30		# Menu 01
-allButtons[31] = button31		# Menu 01 - option 01 - Monday
-allButtons[32] = button32		# Menu 01 - option 02 - Tuesday
+"""
+
+
+
 allButtons[33] = button33		# Menu 01 - option 03 - Wednesday
 allButtons[34] = button34		# Menu 01 - option 04 - Thursday
 allButtons[35] = button35		# Menu 01 - option 05 - Friday
+
 allButtons[36] = button36		# Menu 02
 allButtons[37] = button37		# Menu 03
-
 
 allButtons[40] = button40		# Menu 02  - small popup
 allButtons[41] = button41		# Menu 02  - Medium popup
@@ -342,11 +310,11 @@ buttonToDraw = {}			#each button is loaded into this dictionary, added to my_but
 # # #########################################################################################
 
 
-
+"""
 def enumerateButtons():
 	for i, button in enumerate(my_buttons):
 		button.display()	
-
+"""
 
 """
 # # #########################################################################################
@@ -728,39 +696,39 @@ def updateMenuButtons(selected_button):
 
 	if selected_button == "menu01":
 		print lineNum(), "menu01 was clicked on"
-		print lineNum(), button30["name"], "is ", button30["enabled"]
+		print lineNum(), bMenu01["name"], "is ", bMenu01["enabled"]
 		
-		if button30["enabled"] == False:
+		if bMenu01["enabled"] == False:
 			print "was false, turning to true"
 			
-			button30["enabled"] = True
-			button30["color"] = pgvar.UI_button_selected_color
-			button31["visible"] = True
-			button32["visible"] = True
+			bMenu01["enabled"] = True
+			bMenu01["color"] = pgvar.UI_button_selected_color
+			bMenu01option01["visible"] = True
+			bMenu01option02["visible"] = True
 			button33["visible"] = True			
 			button34["visible"] = True
 			button35["visible"] = True
 
-			print lineNum(), "~", button31["name"], "Visible=", button31["visible"]
-			print lineNum(), "~", button32["name"], "Visible=", button32["visible"]
+			print lineNum(), "~", bMenu01option01["name"], "Visible=", bMenu01option01["visible"]
+			print lineNum(), "~", bMenu01option02["name"], "Visible=", bMenu01option02["visible"]
 			print lineNum(), "~", button33["name"], "Visible=", button33["visible"]			
 			print lineNum(), "~", button34["name"], "Visible=", button34["visible"]
 			print lineNum(), "~", button35["name"], "Visible=", button35["visible"]
 
 			defineButtons()	
 			
-		elif button30["enabled"] == True:
+		elif bMenu01["enabled"] == True:
 			print lineNum(), "was true, turning to false"
-			button30["enabled"] = False
-			button30["color"] = pgvar.UI_button_color
-			button31["visible"] = False
-			button32["visible"] = False
+			bMenu01["enabled"] = False
+			bMenu01["color"] = pgvar.UI_button_color
+			bMenu01option01["visible"] = False
+			bMenu01option02["visible"] = False
 			button33["visible"] = False			
 			button34["visible"] = False
 			button35["visible"] = False		
 			
-			print lineNum(), "~", button31["name"], "Visible=", button31["visible"]
-			print lineNum(), "~", button32["name"], "Visible=", button32["visible"]
+			print lineNum(), "~", bMenu01option01["name"], "Visible=", bMenu01option01["visible"]
+			print lineNum(), "~", bMenu01option02["name"], "Visible=", bMenu01option02["visible"]
 			print lineNum(), "~", button33["name"], "Visible=", button33["visible"]			
 			print lineNum(), "~", button34["name"], "Visible=", button34["visible"]
 			print lineNum(), "~", button35["name"], "Visible=", button35["visible"]
@@ -769,31 +737,31 @@ def updateMenuButtons(selected_button):
 			redrawEverything()
 
 	if selected_button == "menu01option01":
-		if button30["enabled"] == True:
+		if bMenu01["enabled"] == True:
 			print "~~ you clicked Monday ~~"
-			if button31["enabled"] == False:
-				button31["enabled"] = True
-				button31["color"] = pgvar.UI_button_selected_color
+			if bMenu01option01["enabled"] == False:
+				bMenu01option01["enabled"] = True
+				bMenu01option01["color"] = pgvar.UI_button_selected_color
 				defineButtons()
-			elif button31["enabled"] == True:
-				button31["enabled"] = False
-				button31["color"] = pgvar.UI_button_color
+			elif bMenu01option01["enabled"] == True:
+				bMenu01option01["enabled"] = False
+				bMenu01option01["color"] = pgvar.UI_button_color
 				defineButtons()
 
 	if selected_button == "menu01option02":
-		if button30["enabled"] == True:
+		if bMenu01["enabled"] == True:
 			print "~~ you clicked Tuesday ~~"
-			if button32["enabled"] == False:
-				button32["enabled"] = True
-				button32["color"] = pgvar.UI_button_selected_color
+			if bMenu01option02["enabled"] == False:
+				bMenu01option02["enabled"] = True
+				bMenu01option02["color"] = pgvar.UI_button_selected_color
 				defineButtons()
-			elif button32["enabled"] == True:
-				button32["enabled"] = False
-				button32["color"] = pgvar.UI_button_color
+			elif bMenu01option02["enabled"] == True:
+				bMenu01option02["enabled"] = False
+				bMenu01option02["color"] = pgvar.UI_button_color
 				defineButtons()
 
 	if selected_button == "menu01option03":
-		if button30["enabled"] == True:
+		if bMenu01["enabled"] == True:
 			print "~~ you clicked Wednesday ~~"
 			if button33["enabled"] == False:
 				button33["enabled"] = True
@@ -805,7 +773,7 @@ def updateMenuButtons(selected_button):
 				defineButtons()
 
 	if selected_button == "menu01option04":
-		if button30["enabled"] == True:
+		if bMenu01["enabled"] == True:
 			print "~~ you clicked Thursday ~~"
 			if button34["enabled"] == False:
 				button34["enabled"] = True
@@ -817,7 +785,7 @@ def updateMenuButtons(selected_button):
 				defineButtons()
 
 	if selected_button == "menu01option05":
-		if button30["enabled"] == True:
+		if bMenu01["enabled"] == True:
 			print "~~ you clicked Friday ~~"
 			if button35["enabled"] == False:
 				button35["enabled"] = True
