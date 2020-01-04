@@ -148,6 +148,11 @@ while running:
 					print moduleName, pfunc.lineNum(), "running text entry event"
 					pbproc.updateTextEntry(selected_button.button_name)
 
+				if selected_button.buttonType == "menu":
+					print pfunc.lineNum(), "running menu button event"
+					pbproc.updateMenuButtons(selected_button.button_name)
+
+
 
 		if event.type == pygame.KEYDOWN:
 		 	print "you pressed a key"

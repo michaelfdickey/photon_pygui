@@ -10,6 +10,7 @@ moduleName = "photon_ref.py"
 
 
 # # TO DO
+# when you click on background, all open menus should close
 # If you aren’t sure which license you should use for your project, check out choosealicense.com.
 
 

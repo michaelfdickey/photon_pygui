@@ -400,3 +400,117 @@ def updateTextEntry(selected_button):
 			pgui.textField01["enabled"] = False
 			pgui.textField01["color"] = pgvar.UI_text_entry_box_color
 			pfunc.defineButtons()
+
+
+## ############################################################################################
+## UPDATE MENU BUTTONS
+## ############################################################################################
+
+def updateMenuButtons(selected_button):
+	print pfunc.lineNum(), "running updateMenuButtons"
+
+	## START MENU 01 HANDLING
+
+	if selected_button == "menu01":
+		print pfunc.lineNum(), "menu01 was clicked on"
+		print pfunc.lineNum(), pgui.bMenu01["name"], "is ", pgui.bMenu01["enabled"]
+		
+		if pgui.bMenu01["enabled"] == False:
+			print "was false, turning to true"
+			
+			pgui.bMenu01["enabled"] = True
+			pgui.bMenu01["color"] = pgvar.UI_button_selected_color
+			pgui.bMenu01option01["visible"] = True
+			pgui.bMenu01option02["visible"] = True
+			pgui.bMenu01option03["visible"] = True			
+			pgui.bMenu01option04["visible"] = True
+			pgui.bMenu01option05["visible"] = True
+
+			print pfunc.lineNum(), "~", pgui.bMenu01option01["name"], "Visible=", pgui.bMenu01option01["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option02["name"], "Visible=", pgui.bMenu01option02["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option03["name"], "Visible=", pgui.bMenu01option03["visible"]			
+			print pfunc.lineNum(), "~", pgui.bMenu01option04["name"], "Visible=", pgui.bMenu01option04["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option05["name"], "Visible=", pgui.bMenu01option05["visible"]
+
+			pfunc.defineButtons()
+			
+		elif pgui.bMenu01["enabled"] == True:
+			print pfunc.lineNum(), "was true, turning to false"
+			pgui.bMenu01["enabled"] = False
+			pgui.bMenu01["color"] = pgvar.UI_button_color
+			pgui.bMenu01option01["visible"] = False
+			pgui.bMenu01option02["visible"] = False
+			pgui.bMenu01option03["visible"] = False			
+			pgui.bMenu01option04["visible"] = False
+			pgui.bMenu01option05["visible"] = False		
+			
+			print pfunc.lineNum(), "~", pgui.bMenu01option01["name"], "Visible=", pgui.bMenu01option01["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option02["name"], "Visible=", pgui.bMenu01option02["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option03["name"], "Visible=", pgui.bMenu01option03["visible"]			
+			print pfunc.lineNum(), "~", pgui.bMenu01option04["name"], "Visible=", pgui.bMenu01option04["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option05["name"], "Visible=", pgui.bMenu01option05["visible"]
+
+			pfunc.defineButtons()
+			pfunc.redrawEverything()
+
+	if selected_button == "menu01option01":
+		if pgui.bMenu01["enabled"] == True:
+			print "~~ you clicked Monday ~~"
+			if pgui.bMenu01option01["enabled"] == False:
+				pgui.bMenu01option01["enabled"] = True
+				pgui.bMenu01option01["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option01["enabled"] == True:
+				pgui.bMenu01option01["enabled"] = False
+				pgui.bMenu01option01["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
+
+	if selected_button == "menu01option02":
+		if pgui.bMenu01["enabled"] == True:
+			print "~~ you clicked Tuesday ~~"
+			if pgui.bMenu01option02["enabled"] == False:
+				pgui.bMenu01option02["enabled"] = True
+				pgui.bMenu01option02["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option02["enabled"] == True:
+				pgui.bMenu01option02["enabled"] = False
+				pgui.bMenu01option02["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
+
+	if selected_button == "menu01option03":
+		if pgui.bMenu01["enabled"] == True:
+			print "~~ you clicked Wednesday ~~"
+			if pgui.bMenu01option03["enabled"] == False:
+				pgui.bMenu01option03["enabled"] = True
+				pgui.bMenu01option03["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option03["enabled"] == True:
+				pgui.bMenu01option03["enabled"] = False
+				pgui.bMenu01option03["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
+
+	if selected_button == "menu01option04":
+		if pgui.bMenu01["enabled"] == True:
+			print "~~ you clicked Thursday ~~"
+			if pgui.bMenu01option04["enabled"] == False:
+				pgui.bMenu01option04["enabled"] = True
+				pgui.bMenu01option04["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option04["enabled"] == True:
+				pgui.bMenu01option04["enabled"] = False
+				pgui.bMenu01option04["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
+
+	if selected_button == "menu01option05":
+		if pgui.bMenu01["enabled"] == True:
+			print "~~ you clicked Friday ~~"
+			if pgui.bMenu01option05["enabled"] == False:
+				pgui.bMenu01option05["enabled"] = True
+				pgui.bMenu01option05["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option05["enabled"] == True:
+				pgui.bMenu01option05["enabled"] = False
+				pgui.bMenu01option05["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
+
+	## END MENU 01 HANDLING
