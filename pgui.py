@@ -502,7 +502,7 @@ bMenu01option01["type"] = "menu"								# buttonType
 bMenu01option01["enabled"] = False							# buttonEnabled
 bMenu01option01["color"] = pgvar.UI_button_color				# buttonColor
 bMenu01option01["group"] = "menu01"							# buttonGroup
-bMenu01option01["visible"] = True								# buttonVisible
+bMenu01option01["visible"] = False							# buttonVisible
 
 bMenu01option02 = {}
 bMenu01option02["name"] = "menu01option02"					# button_name
@@ -515,7 +515,7 @@ bMenu01option02["type"] = "menu"								# buttonType
 bMenu01option02["enabled"] = False							# buttonEnabled
 bMenu01option02["color"] = pgvar.UI_button_color				# buttonColor
 bMenu01option02["group"] = "menu01"							# buttonGroup
-bMenu01option02["visible"] = True								# buttonVisible
+bMenu01option02["visible"] = False							# buttonVisible
 
 bMenu01option03 = {}
 bMenu01option03["name"] = "menu01option03"					# button_name
@@ -528,7 +528,7 @@ bMenu01option03["type"] = "menu"								# buttonType
 bMenu01option03["enabled"] = False							# buttonEnabled
 bMenu01option03["color"] = pgvar.UI_button_color				# buttonColor
 bMenu01option03["group"] = "menu01"							# buttonGroup
-bMenu01option03["visible"] = True								# buttonVisible
+bMenu01option03["visible"] = False							# buttonVisible
 
 bMenu01option04 = {}
 bMenu01option04["name"] = "menu01option04"					# button_name
@@ -541,7 +541,7 @@ bMenu01option04["type"] = "menu"								# buttonType
 bMenu01option04["enabled"] = False 							# buttonEnabled
 bMenu01option04["color"] = pgvar.UI_button_color				# buttonColor
 bMenu01option04["group"] = "menu01"							# buttonGroup
-bMenu01option04["visible"] = True								# buttonVisible
+bMenu01option04["visible"] = False							# buttonVisible
 
 bMenu01option05 = {}
 bMenu01option05["name"] = "menu01option05"					# button_name
@@ -554,10 +554,20 @@ bMenu01option05["type"] = "menu"								# buttonType
 bMenu01option05["enabled"] = False							# buttonEnabled
 bMenu01option05["color"] = pgvar.UI_button_color				# buttonColor
 bMenu01option05["group"] = "menu01"							# buttonGroup
-bMenu01option05["visible"] = True								# buttonVisible
+bMenu01option05["visible"] = False							# buttonVisible
 
-
-
+bMenu02 = {}
+bMenu02["name"] = "menu02"											# button_name
+bMenu02["origin_x"] = pgvar.UI_sideBar_width + pgvar.UI_menuButton_width		# button_origin_x
+bMenu02["origin_y"] = 0												# button_origin_y
+bMenu02["width"] = pgvar.UI_menuButton_width												# button_width
+bMenu02["height"] = 20												# button_height
+bMenu02["label_txt"] = " Menu 02"										# button_label_txt
+bMenu02["type"] = "menu"												# buttonType
+bMenu02["enabled"] = False											# buttonEnabled
+bMenu02["color"] = pgvar.UI_button_color								# buttonColor
+bMenu02["group"] = "menu02"											# buttonGroup
+bMenu02["visible"] = True											# buttonVisible
 
 
 
@@ -599,7 +609,7 @@ allButtons[32] = bMenu01option02		# Menu 01 - option 02 - Tuesday
 allButtons[33] = bMenu01option03		# Menu 01 - option 03 - Wednesday
 allButtons[34] = bMenu01option04		# Menu 01 - option 04 - Thursday
 allButtons[35] = bMenu01option05		# Menu 01 - option 05 - Friday
-
+allButtons[36] = bMenu02				# Menu 02
 
 allButtons[38] = lTextField01			# Text Field - label
 allButtons[39] = textField01			# Text Field - text entry box

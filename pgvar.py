@@ -72,7 +72,7 @@ pygame_window_height = 1200
 # # interface formatting
 UI_topBar_height = 20
 UI_sideBar_width = 120  
-UI_menuButton_width = 120
+UI_menuButton_width = 150
 UI_popup_small_width = 200
 UI_popup_small_height = 200
 UI_popup_small_origin_x = (pygame_window_width / 2) - (UI_popup_small_width / 2)

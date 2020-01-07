@@ -23,44 +23,7 @@
 
 
 
-button33 = {}
-button33["name"] = "menu01option03"					# button_name
-button33["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button33["origin_y"] = 60								# button_origin_y
-button33["width"] = 150								# button_width
-button33["height"] = 20								# button_height
-button33["label_txt"] = " Wednesday "					# button_label_txt
-button33["type"] = "menu"								# buttonType
-button33["enabled"] = False							# buttonEnabled
-button33["color"] = pgvar.UI_button_color					# buttonColor
-button33["group"] = "menu01"							# buttonGroup
-button33["visible"] = False							# buttonVisible
 
-button34 = {}
-button34["name"] = "menu01option04"					# button_name
-button34["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button34["origin_y"] = 80								# button_origin_y
-button34["width"] = 150								# button_width
-button34["height"] = 20								# button_height
-button34["label_txt"] = " Thursday "					# button_label_txt
-button34["type"] = "menu"								# buttonType
-button34["enabled"] = False 							# buttonEnabled
-button34["color"] = pgvar.UI_button_color					# buttonColor
-button34["group"] = "menu01"							# buttonGroup
-button34["visible"] = False							# buttonVisible
-
-button35 = {}
-button35["name"] = "menu01option05"					# button_name
-button35["origin_x"] = pgvar.UI_sideBar_width				# button_origin_x
-button35["origin_y"] = 100							# button_origin_y
-button35["width"] = 150								# button_width
-button35["height"] = 20								# button_height
-button35["label_txt"] = " Friday "						# button_label_txt
-button35["type"] = "menu"								# buttonType
-button35["enabled"] = False							# buttonEnabled
-button35["color"] = pgvar.UI_button_color					# buttonColor
-button35["group"] = "menu01"							# buttonGroup
-button35["visible"] = False							# buttonVisible
 
 button36 = {}
 button36["name"] = "menu02"										# button_name
@@ -271,9 +234,8 @@ allButtons[29] = bDropdown01option03		# Dropdown01 - option3
 
 
 
-allButtons[33] = button33		# Menu 01 - option 03 - Wednesday
-allButtons[34] = button34		# Menu 01 - option 04 - Thursday
-allButtons[35] = button35		# Menu 01 - option 05 - Friday
+
+
 
 allButtons[36] = button36		# Menu 02
 allButtons[37] = button37		# Menu 03
@@ -325,7 +287,7 @@ def findButton(buttons, x, y):
 			if x >= b.x:
 				if y >= b.y:
 					if y <= b.y + b.y_height:
-						print lineNum(), "selected button label_txt = ", b.button_name
+						print pfunc.lineNum(), "selected button label_txt = ", b.button_name
 						return b
 	return None
 """
@@ -335,7 +297,7 @@ def findButton(buttons, x, y):
 # # #########################################################################################
 # # this updates pushy buttons
 def updatePushyButtons(selected_button):
-	print lineNum(), "updating pushy buttons"
+	print pfunc.lineNum(), "updating pushy buttons"
 
 """
 	MOVE PUSHY BUTTON PROCESSING HERE
@@ -352,69 +314,69 @@ buttonToCheck = {}
 
 """
 def updateStickyButtons(selected_button):
-	print lineNum(), "updateStickyButtons() - started"
-	print lineNum(), "selected_button = ", selected_button
+	print pfunc.lineNum(), "updateStickyButtons() - started"
+	print pfunc.lineNum(), "selected_button = ", selected_button
 """
 	"""
 	# for sticky buttons, iterate through nested allButtons dictionary and flip buttonEnabled
 	for allButtonsID, allButtonsValue in allButtons.items():
 		for key in allButtonsValue:
-			#print lineNum(), "key", key
+			#print pfunc.lineNum(), "key", key
 			#buttonToCheck[key] = allButtonsValue[key]
-			#print lineNum(), "buttonToCheck", key, allButtonsValue[key]
+			#print pfunc.lineNum(), "buttonToCheck", key, allButtonsValue[key]
 			if allButtonsValue[key] == "sticky":
-				print lineNum(), "found a sticky button"
-				print lineNum(), "key, ", key, "value", allButtonsValue[key]
-				#print lineNum(), "buttonToCheck", key, allButtonsValue[key]
+				print pfunc.lineNum(), "found a sticky button"
+				print pfunc.lineNum(), "key, ", key, "value", allButtonsValue[key]
+				#print pfunc.lineNum(), "buttonToCheck", key, allButtonsValue[key]
 	"""
 """	
 	if selected_button == "sticky01":
 		if buttonSticky01["enabled"] == False:
-			print lineNum(), "sticky01 button found"
+			print pfunc.lineNum(), "sticky01 button found"
 			buttonSticky01["enabled"] = True
 			buttonSticky01["color"] = pgvar.UI_button_selected_color
-			print lineNum(), "flipped sticky01 from false to true"
-			defineButtons()	
+			print pfunc.lineNum(), "flipped sticky01 from false to true"
+			pfunc.pfunc.defineButtons()
 			
 		elif buttonSticky01["enabled"] == True:
-			print lineNum(), "sticky01 button found"
+			print pfunc.lineNum(), "sticky01 button found"
 			buttonSticky01["enabled"] = False
 			buttonSticky01["color"] = pgvar.UI_button_color
-			print lineNum(), "flipped stick01 from true to false"
-			defineButtons()
+			print pfunc.lineNum(), "flipped stick01 from true to false"
+			pfunc.defineButtons()
 """
 
 """
 	if selected_button == "sticky02":
 		if buttonSticky02["enabled"] == False:
-			print lineNum(), "sticky02 button found"
+			print pfunc.lineNum(), "sticky02 button found"
 			buttonSticky02["enabled"] = True
 			buttonSticky02["color"] = pgvar.UI_button_selected_color
-			print lineNum(), "flipped sticky02 from false to true"
-			defineButtons()	
+			print pfunc.lineNum(), "flipped sticky02 from false to true"
+			pfunc.pfunc.defineButtons()
 			
 		elif buttonSticky02["enabled"] == True:
-			print lineNum(), "sticky02 button found"
+			print pfunc.lineNum(), "sticky02 button found"
 			buttonSticky02["enabled"] = False
 			buttonSticky02["color"] = pgvar.UI_button_color
-			print lineNum(), "flipped sticky02 from true to false"
-			defineButtons()
+			print pfunc.lineNum(), "flipped sticky02 from true to false"
+			pfunc.defineButtons()
 """
 """
 	if selected_button == "sticky03":
 		if buttonSticky03["enabled"] == False:
-			print lineNum(), "sticky03 button found"
+			print pfunc.lineNum(), "sticky03 button found"
 			buttonSticky03["enabled"] = True
 			buttonSticky03["color"] = pgvar.UI_button_selected_color
-			print lineNum(), "flipped sticky03 from false to true"
-			defineButtons()	
+			print pfunc.lineNum(), "flipped sticky03 from false to true"
+			pfunc.pfunc.defineButtons()
 			
 		elif buttonSticky03["enabled"] == True:
-			print lineNum(), "sticky03 button found"
+			print pfunc.lineNum(), "sticky03 button found"
 			buttonSticky03["enabled"] = False
 			buttonSticky03["color"] = pgvar.UI_button_color
-			print lineNum(), "flipped sticky03 from true to false"
-			defineButtons()			
+			print pfunc.lineNum(), "flipped sticky03 from true to false"
+			pfunc.pfunc.defineButtons()		
 """
 
 """
@@ -423,12 +385,12 @@ def updateStickyButtons(selected_button):
 		if buttonFPS["enabled"] == False:
 			buttonFPS["enabled"] = True
 			buttonFPS["color"] = pgvar.UI_button_selected_color
-			defineButtons()	
+			pfunc.pfunc.defineButtons()
 			
 		elif buttonFPS["enabled"] == True:
 			buttonFPS["enabled"] = False
 			buttonFPS["color"] = pgvar.UI_button_color
-			redrawEverything()
+			pfunc.redrawEverything()
 """
 
 """
@@ -437,14 +399,14 @@ def updateStickyButtons(selected_button):
 		if buttonOrigin["enabled"] == False:
 			buttonOrigin["enabled"] = True
 			buttonOrigin["color"] = pgvar.UI_button_selected_color
-			defineButtons()	
-			redrawEverything()
+			pfunc.pfunc.defineButtons()
+			pfunc.redrawEverything()
 			
 		elif buttonOrigin["enabled"] == True:
 			buttonOrigin["enabled"] = False
 			buttonOrigin["color"] = pgvar.UI_button_color
-			defineButtons()
-			redrawEverything()
+			pfunc.defineButtons()
+			pfunc.redrawEverything()
 """
 
 
@@ -454,17 +416,17 @@ def updateStickyButtons(selected_button):
 		if buttonGrid["enabled"] == False:
 			buttonGrid["enabled"] = True
 			buttonGrid["color"] = pgvar.UI_button_selected_color
-			defineButtons()	
-			redrawEverything()
+			pfunc.pfunc.defineButtons()
+			pfunc.redrawEverything()
 			
 		elif buttonGrid["enabled"] == True:
 			buttonGrid["enabled"] = False
 			buttonGrid["color"] = pgvar.UI_button_color
-			defineButtons()
-			redrawEverything()
+			pfunc.defineButtons()
+			pfunc.redrawEverything()
 """
 
-	print lineNum(), "updateStickyButtons() - completed"
+	print pfunc.lineNum(), "updateStickyButtons() - completed"
 	return
 	
 
@@ -476,7 +438,7 @@ def updateStickyButtons(selected_button):
 
 """
 def updateGroupButtons(selected_button):
-	print lineNum(), "running update group buttons"
+	print pfunc.lineNum(), "running update group buttons"
 
 	# # Group 01 processing
 	if selected_button == "Group01Button01":
@@ -486,14 +448,14 @@ def updateGroupButtons(selected_button):
 			bGroup01Button01["color"] = pgvar.UI_button_color
 			bGroup01Button02["enabled"] = True
 			bGroup01Button02["color"] = pgvar.UI_button_selected_color
-			pfunc.defineButtons()	
+			pfunc.pfunc.pfunc.defineButtons()
 		
 		elif bGroup01Button01["enabled"] == False:
 			bGroup01Button01["enabled"] = True
 			bGroup01Button01["color"] = pgvar.UI_button_selected_color
 			bGroup01Button02["enabled"] = False
 			bGroup01Button02["color"] = pgvar.UI_button_color
-			pfunc.defineButtons()	
+			pfunc.pfunc.pfunc.defineButtons()
 
 	if selected_button == "Group01Button02":
 		
@@ -502,14 +464,14 @@ def updateGroupButtons(selected_button):
 			bGroup01Button02["color"] = pgvar.UI_button_color
 			bGroup01Button01["enabled"] = True
 			bGroup01Button01["color"] = pgvar.UI_button_selected_color
-			pfunc.defineButtons()	
+			pfunc.pfunc.pfunc.defineButtons()
 		
 		elif bGroup01Button02["enabled"] == False:
 			bGroup01Button02["enabled"] = True
 			bGroup01Button02["color"] = pgvar.UI_button_selected_color
 			bGroup01Button01["enabled"] = False
 			bGroup01Button01["color"] = pgvar.UI_button_color
-			pfunc.defineButtons()
+			pfunc.pfunc.defineButtons()
 """
 
 """
@@ -521,14 +483,14 @@ def updateGroupButtons(selected_button):
 			bGroup02Button01["color"] = pgvar.UI_button_color
 			bGroup02Button02["enabled"] = True
 			bGroup02Button02["color"] = pgvar.UI_button_selected_color
-			defineButtons()	
+			pfunc.pfunc.defineButtons()
 		
 		elif bGroup02Button01["enabled"] == False:
 			bGroup02Button01["enabled"] = True
 			bGroup02Button01["color"] = pgvar.UI_button_selected_color
 			bGroup02Button02["enabled"] = False
 			bGroup02Button02["color"] = pgvar.UI_button_color
-			defineButtons()	
+			pfunc.pfunc.defineButtons()
 
 	if selected_button == "Group02Button02":
 		
@@ -537,14 +499,14 @@ def updateGroupButtons(selected_button):
 			bGroup02Button02["color"] = pgvar.UI_button_color
 			bGroup02Button01["enabled"] = True
 			bGroup02Button01["color"] = pgvar.UI_button_selected_color
-			defineButtons()	
+			pfunc.pfunc.defineButtons()
 		
 		elif bGroup02Button02["enabled"] == False:
 			bGroup02Button02["enabled"] = True
 			bGroup02Button02["color"] = pgvar.UI_button_selected_color
 			bGroup02Button01["enabled"] = False
 			bGroup02Button01["color"] = pgvar.UI_button_color
-			defineButtons()
+			pfunc.defineButtons()
 """
 
 """
@@ -561,7 +523,7 @@ def updateGroupButtons(selected_button):
 			bGroup03Button03["enabled"] = False
 			bGroup03Button03["color"] = pgvar.UI_button_color
 
-			pfunc.defineButtons()	
+			pfunc.pfunc.pfunc.defineButtons()
 
 	if selected_button == "Group03Button02":
 		
@@ -575,7 +537,7 @@ def updateGroupButtons(selected_button):
 			bGroup03Button03["enabled"] = False
 			bGroup03Button03["color"] = pgvar.UI_button_color
 
-			pfunc.defineButtons()	
+			pfunc.pfunc.pfunc.defineButtons()
 
 	if selected_button == "Group03Button03":
 		
@@ -589,7 +551,7 @@ def updateGroupButtons(selected_button):
 			bGroup03Button02["enabled"] = False
 			bGroup03Button02["color"] = pgvar.UI_button_color
 
-			pfunc.defineButtons()	
+			pfunc.pfunc.pfunc.defineButtons()
 """
 
 """
@@ -598,11 +560,11 @@ def updateGroupButtons(selected_button):
 ## ############################################################################################
 
 def updateDropdownButtons(selected_button):
-	print lineNum(), "running update Dropdown buttons"
+	print pfunc.lineNum(), "running update Dropdown buttons"
 
 	if selected_button == "dropdown01opener":
 		if bDropdown01opener["enabled"] == False:
-			print lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
+			print pfunc.lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
 			# update this button
 			bDropdown01opener["enabled"] = True
 			bDropdown01opener["color"] = pgvar.UI_button_selected_color
@@ -613,36 +575,36 @@ def updateDropdownButtons(selected_button):
 			bDropdown01option02["visible"] = True
 			bDropdown01option03["visible"] = True
 
-			defineButtons()	
+			pfunc.pfunc.defineButtons()
 
-			print lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
-			print lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
+			print pfunc.lineNum(), "~~~~ running dropdown opener fasle to true  ~~~~"
+			print pfunc.lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
 			
 		elif bDropdown01opener["enabled"] == True:
 			print " --------------------------------------- "
-			print lineNum(), "STARTED dropdown true to false "
+			print pfunc.lineNum(), "STARTED dropdown true to false "
 			print " --------------------------------------- "
 
 			# udapte this button
-			print lineNum(), bDropdown01opener["name"], "enabled was: ", bDropdown01opener["enabled"]
+			print pfunc.lineNum(), bDropdown01opener["name"], "enabled was: ", bDropdown01opener["enabled"]
 			bDropdown01opener["enabled"] = False
 			bDropdown01opener["color"] = pgvar.UI_button_color
 			bDropdown01opener["label_txt"] = ">>"
-			print lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
+			print pfunc.lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
 
 			# update associated buttons
 			bDropdown01option01["visible"] = False
 			bDropdown01option02["visible"] = False
 			bDropdown01option03["visible"] = False
-			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
+			print pfunc.lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 
 			screen.fill(background_color)
-			defineButtons()
-			redrawEverything()
+			pfunc.defineButtons()
+			pfunc.redrawEverything()
 
-			print lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
+			print pfunc.lineNum(), bDropdown01opener["name"], "enabled:", bDropdown01opener["enabled"], "visible:", bDropdown01opener["visible"]
 			print " --------------------------------------- "
-			print lineNum(), "FINISHED dropdown true to false "
+			print pfunc.lineNum(), "FINISHED dropdown true to false "
 			print " --------------------------------------- "
 			print type(bDropdown01option01["visible"])
 
@@ -652,7 +614,7 @@ def updateDropdownButtons(selected_button):
 			bDropdown01option01["color"] = pgvar.UI_button_selected_color
 			bDropdown01option02["color"] = pgvar.UI_button_color
 			bDropdown01option03["color"] = pgvar.UI_button_color
-			defineButtons()
+			pfunc.defineButtons()
 
 	if selected_button == "dropdown01option02":
 		if bDropdown01opener["enabled"] == True: 
@@ -660,7 +622,7 @@ def updateDropdownButtons(selected_button):
 			bDropdown01option01["color"] = pgvar.UI_button_color
 			bDropdown01option02["color"] = pgvar.UI_button_selected_color
 			bDropdown01option03["color"] = pgvar.UI_button_color		
-			defineButtons()
+			pfunc.defineButtons()
 
 	if selected_button == "dropdown01option03":
 		if bDropdown01opener["enabled"] == True:
@@ -668,135 +630,142 @@ def updateDropdownButtons(selected_button):
 			bDropdown01option01["color"] = pgvar.UI_button_color
 			bDropdown01option02["color"] = pgvar.UI_button_color
 			bDropdown01option03["color"] = pgvar.UI_button_selected_color
-			defineButtons()
+			pfunc.defineButtons()
 
 	if selected_button == "dropdown01TEXT":
 		if lDropdown01TEXT["label_txt"] != "- select -":
 			if lDropdown01TEXT["enabled"] == False:
 				lDropdown01TEXT["enabled"] = True
 				lDropdown01TEXT["color"] = pgvar.UI_button_selected_color
-				defineButtons()	
-				redrawEverything()
+				pfunc.pfunc.defineButtons()
+				pfunc.redrawEverything()
 				
 			elif lDropdown01TEXT["enabled"] == True:
 				lDropdown01TEXT["enabled"] = False
 				lDropdown01TEXT["color"] = pgvar.UI_button_color
-				defineButtons()
-				redrawEverything()
+				pfunc.defineButtons()
+				pfunc.redrawEverything()
 """
+
+
 
 ## ############################################################################################
 ## UPDATE MENU BUTTONS
 ## ############################################################################################
 
+"""
 def updateMenuButtons(selected_button):
-	print lineNum(), "running updateMenuButtons"
+	print pfunc.lineNum(), "running updateMenuButtons"
 
 	## START MENU 01 HANDLING
 
 	if selected_button == "menu01":
-		print lineNum(), "menu01 was clicked on"
-		print lineNum(), bMenu01["name"], "is ", bMenu01["enabled"]
+		print pfunc.lineNum(), "menu01 was clicked on"
+		print pfunc.lineNum(), pgui.bMenu01["name"], "is ", pgui.bMenu01["enabled"]
 		
-		if bMenu01["enabled"] == False:
+		if pgui.bMenu01["enabled"] == False:
 			print "was false, turning to true"
 			
-			bMenu01["enabled"] = True
-			bMenu01["color"] = pgvar.UI_button_selected_color
-			bMenu01option01["visible"] = True
-			bMenu01option02["visible"] = True
-			button33["visible"] = True			
-			button34["visible"] = True
-			button35["visible"] = True
+			pgui.bMenu01["enabled"] = True
+			pgui.bMenu01["color"] = pgvar.UI_button_selected_color
+			pgui.bMenu01option01["visible"] = True
+			pgui.bMenu01option02["visible"] = True
+			pgui.bMenu01option03["visible"] = True			
+			pgui.bMenu01option04["visible"] = True
+			pgui.bMenu01option05["visible"] = True
 
-			print lineNum(), "~", bMenu01option01["name"], "Visible=", bMenu01option01["visible"]
-			print lineNum(), "~", bMenu01option02["name"], "Visible=", bMenu01option02["visible"]
-			print lineNum(), "~", button33["name"], "Visible=", button33["visible"]			
-			print lineNum(), "~", button34["name"], "Visible=", button34["visible"]
-			print lineNum(), "~", button35["name"], "Visible=", button35["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option01["name"], "Visible=", pgui.bMenu01option01["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option02["name"], "Visible=", pgui.bMenu01option02["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option03["name"], "Visible=", pgui.bMenu01option03["visible"]			
+			print pfunc.lineNum(), "~", pgui.bMenu01option04["name"], "Visible=", pgui.bMenu01option04["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option05["name"], "Visible=", pgui.bMenu01option05["visible"]
 
-			defineButtons()	
+			pfunc.defineButtons()
 			
-		elif bMenu01["enabled"] == True:
-			print lineNum(), "was true, turning to false"
-			bMenu01["enabled"] = False
-			bMenu01["color"] = pgvar.UI_button_color
-			bMenu01option01["visible"] = False
-			bMenu01option02["visible"] = False
-			button33["visible"] = False			
-			button34["visible"] = False
-			button35["visible"] = False		
+		elif pgui.bMenu01["enabled"] == True:
+			print pfunc.lineNum(), "was true, turning to false"
+			pgui.bMenu01["enabled"] = False
+			pgui.bMenu01["color"] = pgvar.UI_button_color
+			pgui.bMenu01option01["visible"] = False
+			pgui.bMenu01option02["visible"] = False
+			pgui.bMenu01option03["visible"] = False			
+			pgui.bMenu01option04["visible"] = False
+			pgui.bMenu01option05["visible"] = False		
 			
-			print lineNum(), "~", bMenu01option01["name"], "Visible=", bMenu01option01["visible"]
-			print lineNum(), "~", bMenu01option02["name"], "Visible=", bMenu01option02["visible"]
-			print lineNum(), "~", button33["name"], "Visible=", button33["visible"]			
-			print lineNum(), "~", button34["name"], "Visible=", button34["visible"]
-			print lineNum(), "~", button35["name"], "Visible=", button35["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option01["name"], "Visible=", pgui.bMenu01option01["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option02["name"], "Visible=", pgui.bMenu01option02["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option03["name"], "Visible=", pgui.bMenu01option03["visible"]			
+			print pfunc.lineNum(), "~", pgui.bMenu01option04["name"], "Visible=", pgui.bMenu01option04["visible"]
+			print pfunc.lineNum(), "~", pgui.bMenu01option05["name"], "Visible=", pgui.bMenu01option05["visible"]
 
-			defineButtons()
-			redrawEverything()
+			pfunc.defineButtons()
+			pfunc.redrawEverything()
 
 	if selected_button == "menu01option01":
-		if bMenu01["enabled"] == True:
+		if pgui.bMenu01["enabled"] == True:
 			print "~~ you clicked Monday ~~"
-			if bMenu01option01["enabled"] == False:
-				bMenu01option01["enabled"] = True
-				bMenu01option01["color"] = pgvar.UI_button_selected_color
-				defineButtons()
-			elif bMenu01option01["enabled"] == True:
-				bMenu01option01["enabled"] = False
-				bMenu01option01["color"] = pgvar.UI_button_color
-				defineButtons()
+			if pgui.bMenu01option01["enabled"] == False:
+				pgui.bMenu01option01["enabled"] = True
+				pgui.bMenu01option01["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option01["enabled"] == True:
+				pgui.bMenu01option01["enabled"] = False
+				pgui.bMenu01option01["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
 
 	if selected_button == "menu01option02":
-		if bMenu01["enabled"] == True:
+		if pgui.bMenu01["enabled"] == True:
 			print "~~ you clicked Tuesday ~~"
-			if bMenu01option02["enabled"] == False:
-				bMenu01option02["enabled"] = True
-				bMenu01option02["color"] = pgvar.UI_button_selected_color
-				defineButtons()
-			elif bMenu01option02["enabled"] == True:
-				bMenu01option02["enabled"] = False
-				bMenu01option02["color"] = pgvar.UI_button_color
-				defineButtons()
+			if pgui.bMenu01option02["enabled"] == False:
+				pgui.bMenu01option02["enabled"] = True
+				pgui.bMenu01option02["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option02["enabled"] == True:
+				pgui.bMenu01option02["enabled"] = False
+				pgui.bMenu01option02["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
 
 	if selected_button == "menu01option03":
-		if bMenu01["enabled"] == True:
+		if pgui.bMenu01["enabled"] == True:
 			print "~~ you clicked Wednesday ~~"
-			if button33["enabled"] == False:
-				button33["enabled"] = True
-				button33["color"] = pgvar.UI_button_selected_color
-				defineButtons()
-			elif button33["enabled"] == True:
-				button33["enabled"] = False
-				button33["color"] = pgvar.UI_button_color
-				defineButtons()
+			if pgui.bMenu01option03["enabled"] == False:
+				pgui.bMenu01option03["enabled"] = True
+				pgui.bMenu01option03["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option03["enabled"] == True:
+				pgui.bMenu01option03["enabled"] = False
+				pgui.bMenu01option03["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
 
 	if selected_button == "menu01option04":
-		if bMenu01["enabled"] == True:
+		if pgui.bMenu01["enabled"] == True:
 			print "~~ you clicked Thursday ~~"
-			if button34["enabled"] == False:
-				button34["enabled"] = True
-				button34["color"] = pgvar.UI_button_selected_color
-				defineButtons()
-			elif button34["enabled"] == True:
-				button34["enabled"] = False
-				button34["color"] = pgvar.UI_button_color
-				defineButtons()
+			if pgui.bMenu01option04["enabled"] == False:
+				pgui.bMenu01option04["enabled"] = True
+				pgui.bMenu01option04["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option04["enabled"] == True:
+				pgui.bMenu01option04["enabled"] = False
+				pgui.bMenu01option04["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
 
 	if selected_button == "menu01option05":
-		if bMenu01["enabled"] == True:
+		if pgui.bMenu01["enabled"] == True:
 			print "~~ you clicked Friday ~~"
-			if button35["enabled"] == False:
-				button35["enabled"] = True
-				button35["color"] = pgvar.UI_button_selected_color
-				defineButtons()
-			elif button35["enabled"] == True:
-				button35["enabled"] = False
-				button35["color"] = pgvar.UI_button_color
-				defineButtons()
+			if pgui.bMenu01option05["enabled"] == False:
+				pgui.bMenu01option05["enabled"] = True
+				pgui.bMenu01option05["color"] = pgvar.UI_button_selected_color
+				pfunc.defineButtons()
+			elif pgui.bMenu01option05["enabled"] == True:
+				pgui.bMenu01option05["enabled"] = False
+				pgui.bMenu01option05["color"] = pgvar.UI_button_color
+				pfunc.defineButtons()
 
 	## END MENU 01 HANDLING
+"""
+
+
+
 
 	## START MENU 02 HANDLING
 
@@ -811,7 +780,7 @@ def updateMenuButtons(selected_button):
 			button41["visible"] = True
 			button42["visible"] = True			
 
-			defineButtons()	
+			pfunc.pfunc.defineButtons()
 
 		elif button36["enabled"] == True:
 			# flip this menu button
@@ -823,8 +792,8 @@ def updateMenuButtons(selected_button):
 			button41["visible"] = False
 			button42["visible"] = False			
 
-			defineButtons()
-			redrawEverything()	
+			pfunc.defineButtons()
+			pfunc.redrawEverything()	
 
 	if selected_button == "menu02popup01":
 		if button36["enabled"] == True:
@@ -843,8 +812,8 @@ def updateMenuButtons(selected_button):
 				button49["visible"] = True	
 				button50["visible"] = True
 
-				defineButtons()
-				#redrawEverything()	
+				pfunc.defineButtons()
+				#pfunc.redrawEverything()	
 		
 			elif button40["enabled"] == True:
 				#flop this menu buttone
@@ -860,8 +829,8 @@ def updateMenuButtons(selected_button):
 				button49["visible"] = False	
 				button50["visible"] = False
 
-				defineButtons()
-				redrawEverything()	
+				pfunc.defineButtons()
+				pfunc.redrawEverything()	
 
 	## END START MENU 02 HANDLING
 
@@ -877,13 +846,13 @@ def updateTextEntry(selected_button):
 		if textField01["enabled"] == False:
 			textField01["enabled"] = True
 			textField01["color"] = UI_text_entry_box_color_active
-			defineButtons()
+			pfunc.defineButtons()
 			#enumerateButtons()
 
 		elif textField01["enabled"] == True:
 			textField01["enabled"] = False
 			textField01["color"] = UI_text_entry_box_color
-			defineButtons()
+			pfunc.defineButtons()
 
 """
 
@@ -911,10 +880,10 @@ def count_fps():
 		cSec = time.strftime("%S")
 
 # # Redraw the backgroundm, buttons, screen, etc. 
-def redrawEverything():
-	print lineNum(), "redrawEverything() - started"
+def pfunc.redrawEverything():
+	print pfunc.lineNum(), "pfunc.redrawEverything() - started"
 	
-	print lineNum(), "drawing background"
+	print pfunc.lineNum(), "drawing background"
 	screen.fill(background_color)
 
 	# check if draw grids is enabled, and draw if so
@@ -925,16 +894,16 @@ def redrawEverything():
 	if buttonOrigin["enabled"] == True:
 		drawOrigin()
 
-	print lineNum(), "drawing borders and frames"
+	print pfunc.lineNum(), "drawing borders and frames"
 	pygame.draw.rect(screen, UI_background_color, (0, 0, pygame_window_width, UI_topBar_height))
 	pygame.draw.rect(screen, UI_background_color, (0,0, UI_sideBar_width, pygame_window_height))
 
-	print lineNum(), "redifining buttons and redrawing"
-	defineButtons()
+	print pfunc.lineNum(), "redifining buttons and redrawing"
+	pfunc.defineButtons()
 	for i, button in enumerate(my_buttons):
 		button.display()
 
-	print lineNum(), "redrawEverything() - completed"
+	print pfunc.lineNum(), "pfunc.redrawEverything() - completed"
 """
 
 
@@ -1042,7 +1011,7 @@ class Button:
 		elif self.buttonType == "dropdown":	
 			
 			if self.buttonVisible == True:
-				#print lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
+				#print pfunc.lineNum(), "rendering dropdown type buttons, button: ", self.button_name, "buttonVisible?:", self.buttonVisible
 				pygame.draw.rect(screen, self.color, (self.x, self.y, self.x_width, self.y_height))               		#button
 				pygame.draw.rect(screen, self.colorBorder, (self.x, self.y, self.x_width, self.y_height), 3)  	#border
 
@@ -1138,97 +1107,98 @@ while running:
 		"""
 		if event.type == pygame.MOUSEBUTTONDOWN:							#mousebuttondown only runs once, things run outside if this if loop
 			(mouseX, mouseY) = pygame.mouse.get_pos()						# will run continually while button is held down
-			print lineNum(), "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
+			print pfunc.lineNum(), "mouseX = ", mouseX, "mouseY = ", mouseY			# this if.even MOUSEBUTTONDOWN **MUST** be under the for event in pygame.event.get() to run only once
 			selected_button = findButton(my_buttons, mouseX, mouseY)
-			print lineNum(), "selected button = ", selected_button
+			print pfunc.lineNum(), "selected button = ", selected_button
 
 			if selected_button != None:
 		
 				if selected_button.button_label_txt == "EXIT":
-					print lineNum(), "you pressed exit"
+					print pfunc.lineNum(), "you pressed exit"
 					running = False
 		"""
 
 				"""		
 				if selected_button.buttonType == "pushy":
-					print lineNum(), "running MOUSEBUTTONDOWN pushy event"
-					print lineNum(), "selected_button.color  was :", selected_button.color	
+					print pfunc.lineNum(), "running MOUSEBUTTONDOWN pushy event"
+					print pfunc.lineNum(), "selected_button.color  was :", selected_button.color	
 					selected_button.color = UI_button_click_color
-					print lineNum(), "selected_button.color now : ", selected_button.color			
+					print pfunc.lineNum(), "selected_button.color now : ", selected_button.color			
 					selected_button.buttonEnabled = True
-					print lineNum(), "clicked button is a pushy temporary button"
+					print pfunc.lineNum(), "clicked button is a pushy temporary button"
 				"""
 
 				"""
 					if selected_button.button_name == "command01":
-						print lineNum(), "you clicked command01"
+						print pfunc.lineNum(), "you clicked command01"
 						buttonCommand01["enabled"] = True
 						buttonCommand01["color"] = UI_button_click_color
-						defineButtons()
+						pfunc.defineButtons()
 
-						print lineNum(), "____drawing buttons from pushy event"
+						print pfunc.lineNum(), "____drawing buttons from pushy event"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print lineNum(), "running code for Command01"
+						print pfunc.lineNum(), "running code for Command01"
 						# command01 function call goes here:
 				"""
 
 				"""
 					if selected_button.button_name == "command02":
-						print lineNum(), "you clicked command02"
+						print pfunc.lineNum(), "you clicked command02"
 						buttonCommand02["enabled"] = True
 						buttonCommand02["color"] = UI_button_click_color
-						defineButtons()
+						pfunc.defineButtons()
 
-						print lineNum(), "____drawing buttons from pushy event"
+						print pfunc.lineNum(), "____drawing buttons from pushy event"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print lineNum(), "running code for Command02"
+						print pfunc.lineNum(), "running code for Command02"
 						#command02 function call goes here:
 
 
 					if selected_button.button_name == "command03":
-						print lineNum(), "you clicked command03"
+						print pfunc.lineNum(), "you clicked command03"
 						buttonCommand03["enabled"] = True
 						buttonCommand03["color"] = UI_button_click_color
-						defineButtons()
+						pfunc.defineButtons()
 
-						print lineNum(), "____drawing buttons from pushy event"
+						print pfunc.lineNum(), "____drawing buttons from pushy event"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
-						print lineNum(), "running code for Command03"
+						print pfunc.lineNum(), "running code for Command03"
 						#command03 function call goes here:		
 				"""
 
 				"""
 				if selected_button.buttonType == "sticky":
-					print lineNum(), "running sticky event"
+					print pfunc.lineNum(), "running sticky event"
 					updateStickyButtons(selected_button.button_name)
 				"""
 
 				"""
 				if selected_button.buttonType == "group":
-					print lineNum(), "running group type button event"
+					print pfunc.lineNum(), "running group type button event"
 					updateGroupButtons(selected_button.button_name)
 				"""
 				
 				"""
 				if selected_button.buttonType == "dropdown":
-					print lineNum(), "running dropdown button event"
+					print pfunc.lineNum(), "running dropdown button event"
 					updateDropdownButtons(selected_button.button_name)
 				"""
 
+				"""
 				if selected_button.buttonType == "menu":
-					print lineNum(), "running menu button event"
+					print pfunc.lineNum(), "running menu button event"
 					updateMenuButtons(selected_button.button_name)
-
+				"""
 				
 				"""
 				if selected_button.buttonType == "textEntry":
-					print lineNum(), "running text entry event"
+					print pfunc.lineNum(), "running text entry event"
 					updateTextEntry(selected_button.button_name)
 				"""
 
@@ -1245,13 +1215,13 @@ while running:
 					textField01["label_txt"] = entered_text
 					textField01["enabled"] = False
 					textField01["color"] = UI_text_entry_box_color
-					defineButtons()
+					pfunc.defineButtons()
 					enumerateButtons()
 
 				elif event.key == pygame.K_BACKSPACE:
 					entered_text = entered_text[:-1]
 					textField01["label_txt"] = entered_text
-					defineButtons()
+					pfunc.defineButtons()
 					enumerateButtons()
 
 				else:
@@ -1259,7 +1229,7 @@ while running:
 						entered_text += event.unicode
 						print "entered_text", entered_text
 						textField01["label_txt"] = entered_text
-						defineButtons()
+						pfunc.defineButtons()
 						enumerateButtons()
 		"""
 
@@ -1271,58 +1241,58 @@ while running:
 			if selected_button != None:
 				
 				if selected_button.buttonType == "pushy":
-					print lineNum(), "running MOUSEBUTTONUP pushy event"
-					print lineNum(), "selected_button.color  was :", selected_button.color	
+					print pfunc.lineNum(), "running MOUSEBUTTONUP pushy event"
+					print pfunc.lineNum(), "selected_button.color  was :", selected_button.color	
 					selected_button.color = pgvar.UI_button_color 			#reverts button back to normal color after letting go of mouse
-					print lineNum(), "selected_button.color now : ", selected_button.color	
+					print pfunc.lineNum(), "selected_button.color now : ", selected_button.color	
 			
 					if selected_button.button_name == "command01":
-						print lineNum(), "you clicked command01"
+						print pfunc.lineNum(), "you clicked command01"
 						buttonCommand01["enabled"] = False
 						buttonCommand01["color"] = pgvar.UI_button_color
-						defineButtons()
+						pfunc.defineButtons()
 
-						print lineNum(), "____drawing buttons from pushy event command01"
+						print pfunc.lineNum(), "____drawing buttons from pushy event command01"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
 					if selected_button.button_name == "command02":
-						print lineNum(), "you clicked command02"
+						print pfunc.lineNum(), "you clicked command02"
 						buttonCommand02["enabled"] = False
 						buttonCommand02["color"] = pgvar.UI_button_color
-						defineButtons()
+						pfunc.defineButtons()
 
-						print lineNum(), "____drawing buttons from pushy event command02"
+						print pfunc.lineNum(), "____drawing buttons from pushy event command02"
 						for i, button in enumerate(my_buttons):
 							button.display()
 
 
 
 					if selected_button.button_name == "command03":
-						print lineNum(), "you clicked command03"
+						print pfunc.lineNum(), "you clicked command03"
 						buttonCommand03["enabled"] = False
 						buttonCommand03["color"] = pgvar.UI_button_color
-						defineButtons()
+						pfunc.defineButtons()
 
-						print lineNum(), "____drawing buttons from pushy event command03"
+						print pfunc.lineNum(), "____drawing buttons from pushy event command03"
 						for i, button in enumerate(my_buttons):
 							button.display()
 		"""
 			
 
 			selected_button = None
-			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
-			print lineNum(), "selected_button = ", selected_button
-			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
+			print pfunc.lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
+			print pfunc.lineNum(), "selected_button = ", selected_button
+			print pfunc.lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 			
 			# # re draw buttons!
 			# # without this here, pushy buttons don't return to normal on mouseup
-			print lineNum(), "____drawing buttons in MOUSEBUTTONUP call"
-			#print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
+			print pfunc.lineNum(), "____drawing buttons in MOUSEBUTTONUP call"
+			#print pfunc.lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 			for i, button in enumerate(my_buttons):
 				button.display()		
 			
-			print lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
+			print pfunc.lineNum(), "buttons27,28,29 visible:", bDropdown01option01["visible"], bDropdown01option02["visible"], bDropdown01option03["visible"]
 			
 
 	# always do this last
