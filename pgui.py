@@ -569,7 +569,6 @@ bMenu02["color"] = pgvar.UI_button_color								# buttonColor
 bMenu02["group"] = "menu02"											# buttonGroup
 bMenu02["visible"] = True											# buttonVisible
 
-
 bMenu02popup01 = {}
 bMenu02popup01["name"] = "menu02popup01"										# button_name
 bMenu02popup01["origin_x"] = pgvar.UI_sideBar_width + pgvar.UI_menuButton_width		# button_origin_x
@@ -582,6 +581,21 @@ bMenu02popup01["enabled"] = False												# buttonEnabled
 bMenu02popup01["color"] = pgvar.UI_button_color								# buttonColor
 bMenu02popup01["group"] = "menu02"											# buttonGroup
 bMenu02popup01["visible"] = True												# buttonVisible
+
+
+bMenu02popup02 = {}
+bMenu02popup02["name"] = "menu02popup02"							# button_name
+bMenu02popup02["origin_x"] = pgvar.UI_sideBar_width + pgvar.UI_menuButton_width	# button_origin_x
+bMenu02popup02["origin_y"] = 40										# button_origin_y
+bMenu02popup02["width"] = 150										# button_width
+bMenu02popup02["height"] = 20										# button_height
+bMenu02popup02["label_txt"] = " Medium Popup"						# button_label_txt
+bMenu02popup02["type"] = "menu"										# buttonType
+bMenu02popup02["enabled"] = False									# buttonEnabled
+bMenu02popup02["color"] = pgvar.UI_button_color							# buttonColor
+bMenu02popup02["group"] = "menu02"									# buttonGroup
+bMenu02popup02["visible"] = True									# buttonVisible
+
 
 
 
@@ -625,7 +639,10 @@ allButtons[34] = bMenu01option04		# Menu 01 - option 04 - Thursday
 allButtons[35] = bMenu01option05		# Menu 01 - option 05 - Friday
 allButtons[36] = bMenu02				# Menu 02
 
+
+
 allButtons[38] = lTextField01			# Text Field - label
 allButtons[39] = textField01			# Text Field - text entry box
 
 allButtons[40] = bMenu02popup01		# Menu 02  - small popup
+allButtons[41] = bMenu02popup02		# Menu 02  - Medium popup
