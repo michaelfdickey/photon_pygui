@@ -613,20 +613,33 @@ bMenu02popup03["visible"] = True											# buttonVisible
 #	MENU 02 POPUP 01 
 # ************************************************************************************************#
 
+# background box
 menu02popup01element01 = {}
 menu02popup01element01["name"] = "menu02popup01element01"					# button_name
 menu02popup01element01["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
 menu02popup01element01["origin_y"] = pgvar.UI_popup_small_origin_y				# button_origin_y
 menu02popup01element01["width"] = pgvar.UI_popup_small_width						# button_width
 menu02popup01element01["height"] = pgvar.UI_popup_small_height					# button_height
-menu02popup01element01["label_txt"] = " Small Popup"							# button_label_txt
+menu02popup01element01["label_txt"] = ""							# button_label_txt
 menu02popup01element01["type"] = "popup"									# buttonType
 menu02popup01element01["enabled"] = False									# buttonEnabled
 menu02popup01element01["color"] = pgvar.UI_background_color						# buttonColor
 menu02popup01element01["group"] = "menu02popup01"							# buttonGroup
 menu02popup01element01["visible"] = True									# buttonVisible
 
-
+# Title Bar
+menu02popup01element02 = {}
+menu02popup01element02["name"] = "menu02popup01element02"							# button_name
+menu02popup01element02["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
+menu02popup01element02["origin_y"] = pgvar.UI_popup_small_origin_y				# button_origin_y
+menu02popup01element02["width"] = pgvar.UI_popup_small_width						# button_width
+menu02popup01element02["height"] = 20												# button_height
+menu02popup01element02["label_txt"] = " Menu 02 >> Small Popup"						# button_label_txt
+menu02popup01element02["type"] = "popup"											# buttonType
+menu02popup01element02["enabled"] = False											# buttonEnabled
+menu02popup01element02["color"] = pgvar.UI_button_selected_color					# buttonColor
+menu02popup01element02["group"] = "menu02popup01"									# buttonGroup
+menu02popup01element02["visible"] = True										# buttonVisible
 
 
 
@@ -677,3 +690,4 @@ allButtons[40] = bMenu02popup01		# Menu 02  - small popup
 allButtons[41] = bMenu02popup02		# Menu 02  - Medium popup
 allButtons[42] = bMenu02popup03		# Menu 02  - Large popup
 allButtons[43] = menu02popup01element01		# Menu 02  - small popup - element 01 - background box
+allButtons[44] = menu02popup01element02		# Menu 02  - small popup - element 02 - title bar
