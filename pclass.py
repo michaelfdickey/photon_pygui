@@ -33,7 +33,7 @@ import inspect		# for displaying the line number of the code in print commands
 # # unique modules for this app
 import pgvar
 #import pfunc
-#import pgui
+import pgui
 #import pclass
 #import pbproc
 
@@ -149,7 +149,7 @@ class Button:
 		elif self.buttonType == "popup_element":
 
 			if self.button_name == "menu02popup01element03":
-				self.buttonVisible = button45["visible"]
+				self.buttonVisible = pgui.menu02popup01element03["visible"]
 			if self.button_name == "menu02popup01element06":
 				self.buttonVisible = button48["visible"]
 

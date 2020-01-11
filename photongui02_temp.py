@@ -22,32 +22,20 @@
 
 
 
-# Title Bar
-menu02popup01element02 = {}
-menu02popup01element02["name"] = "menu02popup01element02"							# button_name
-menu02popup01element02["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
-menu02popup01element02["origin_y"] = pgvar.UI_popup_small_origin_y				# button_origin_y
-menu02popup01element02["width"] = pgvar.UI_popup_small_width						# button_width
-menu02popup01element02["height"] = 20												# button_height
-menu02popup01element02["label_txt"] = " Menu 02 >> Small Popup"						# button_label_txt
-menu02popup01element02["type"] = "popup"											# buttonType
-menu02popup01element02["enabled"] = False											# buttonEnabled
-menu02popup01element02["color"] = pgvar.UI_button_selected_color					# buttonColor
-menu02popup01element02["group"] = "menu02popup01"									# buttonGroup
-menu02popup01element02["visible"] = True										# buttonVisible
+
 
 button45 = {}
-button45["name"] = "menu02popup01element03"					# button_name
+button45["name"] = "menu02popup01element03"						# button_name
 button45["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
 button45["origin_y"] = pgvar.UI_popup_small_origin_y + 40			# button_origin_y
-button45["width"] = pgvar.UI_popup_small_width						# button_width
-button45["height"] = 20										# button_height
-button45["label_txt"] = " Do Something Interesting:"			# button_label_txt
-button45["type"] = "popup_element"							# buttonType
-button45["enabled"] = False									# buttonEnabled
+button45["width"] = pgvar.UI_popup_small_width					# button_width
+button45["height"] = 20											# button_height
+button45["label_txt"] = " Do Something Interesting:"				# button_label_txt
+button45["type"] = "popup_element"								# buttonType
+button45["enabled"] = False										# buttonEnabled
 button45["color"] = pgvar.UI_label_color							# buttonColor
-button45["group"] = "menu02popup01"							# buttonGroup
-button45["visible"] = False									# buttonVisible
+button45["group"] = "menu02popup01"								# buttonGroup
+button45["visible"] = False										# buttonVisible
 
 button46 = {}
 button46["name"] = "menu02popup01element04"					# button_name
@@ -153,7 +141,7 @@ allButtons[37] = button37		# Menu 03
 
 
 
-allButtons[44] = menu02popup01element02		# Menu 02  - small popup - element 02 - title bar
+
 allButtons[45] = button45		# Menu 02  - small popup - element 03 - option description
 allButtons[46] = button46		# Menu 02  - small popup - element 04 - something button
 allButtons[47] = button47		# Menu 02  - small popup - element 05 - interesting button
