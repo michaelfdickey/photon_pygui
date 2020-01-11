@@ -609,6 +609,27 @@ bMenu02popup03["color"] = pgvar.UI_button_color							# buttonColor
 bMenu02popup03["group"] = "menu02"										# buttonGroup
 bMenu02popup03["visible"] = True											# buttonVisible
 
+# ************************************************************************************************#
+#	MENU 02 POPUP 01 
+# ************************************************************************************************#
+
+menu02popup01element01 = {}
+menu02popup01element01["name"] = "menu02popup01element01"					# button_name
+menu02popup01element01["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
+menu02popup01element01["origin_y"] = pgvar.UI_popup_small_origin_y				# button_origin_y
+menu02popup01element01["width"] = pgvar.UI_popup_small_width						# button_width
+menu02popup01element01["height"] = pgvar.UI_popup_small_height					# button_height
+menu02popup01element01["label_txt"] = " Small Popup"							# button_label_txt
+menu02popup01element01["type"] = "popup"									# buttonType
+menu02popup01element01["enabled"] = False									# buttonEnabled
+menu02popup01element01["color"] = pgvar.UI_background_color						# buttonColor
+menu02popup01element01["group"] = "menu02popup01"							# buttonGroup
+menu02popup01element01["visible"] = True									# buttonVisible
+
+
+
+
+
 
 
 allButtons = {}
@@ -650,11 +671,9 @@ allButtons[34] = bMenu01option04		# Menu 01 - option 04 - Thursday
 allButtons[35] = bMenu01option05		# Menu 01 - option 05 - Friday
 allButtons[36] = bMenu02				# Menu 02
 
-
-
 allButtons[38] = lTextField01			# Text Field - label
 allButtons[39] = textField01			# Text Field - text entry box
-
 allButtons[40] = bMenu02popup01		# Menu 02  - small popup
 allButtons[41] = bMenu02popup02		# Menu 02  - Medium popup
 allButtons[42] = bMenu02popup03		# Menu 02  - Large popup
+allButtons[43] = menu02popup01element01		# Menu 02  - small popup - element 01 - background box

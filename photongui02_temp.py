@@ -21,104 +21,24 @@
 
 
 
-
-
-
-
-button36 = {}
-button36["name"] = "menu02"										# button_name
-button36["origin_x"] = pgvar.UI_sideBar_width + UI_menuButton_width		# button_origin_x
-button36["origin_y"] = 0											# button_origin_y
-button36["width"] = 125											# button_width
-button36["height"] = 20											# button_height
-button36["label_txt"] = " Menu 02"									# button_label_txt
-button36["type"] = "menu"											# buttonType
-button36["enabled"] = False										# buttonEnabled
-button36["color"] = pgvar.UI_button_color								# buttonColor
-button36["group"] = "menu02"										# buttonGroup
-button36["visible"] = True										# buttonVisible
-
-button37 = {}
-button37["name"] = "menu03"							# button_name
-button37["origin_x"] = pgvar.UI_sideBar_width * 250			# button_origin_x
-button37["origin_y"] = 0								# button_origin_y
-button37["width"] = 125								# button_width
-button37["height"] = 20								# button_height
-button37["label_txt"] = " Menu 03 Popup"				# button_label_txt
-button37["type"] = "menu"								# buttonType
-button37["enabled"] = False							# buttonEnabled
-button37["color"] = pgvar.UI_button_color					# buttonColor
-button37["group"] = "menu03"							# buttonGroup
-button37["visible"] = False							# buttonVisible
-
-
-
-
-
-
-
-
-
-
-
-button40 = {}
-button40["name"] = "menu02popup01"							# button_name
-button40["origin_x"] = pgvar.UI_sideBar_width + UI_menuButton_width	# button_origin_x
-button40["origin_y"] = 20										# button_origin_y
-button40["width"] = 150										# button_width
-button40["height"] = 20										# button_height
-button40["label_txt"] = " Small Popup"							# button_label_txt
-button40["type"] = "menu"										# buttonType
-button40["enabled"] = False									# buttonEnabled
-button40["color"] = pgvar.UI_button_color							# buttonColor
-button40["group"] = "menu02"									# buttonGroup
-button40["visible"] = False									# buttonVisible
-
-
-button41 = {}
-button41["name"] = "menu02popup02"							# button_name
-button41["origin_x"] = pgvar.UI_sideBar_width + UI_menuButton_width	# button_origin_x
-button41["origin_y"] = 40										# button_origin_y
-button41["width"] = 150										# button_width
-button41["height"] = 20										# button_height
-button41["label_txt"] = " Medium Popup"						# button_label_txt
-button41["type"] = "menu"										# buttonType
-button41["enabled"] = False									# buttonEnabled
-button41["color"] = pgvar.UI_button_color							# buttonColor
-button41["group"] = "menu02"									# buttonGroup
-button41["visible"] = False									# buttonVisible
-
-button42 = {}
-button42["name"] = "menu02popup03"							# button_name
-button42["origin_x"] = pgvar.UI_sideBar_width + UI_menuButton_width	# button_origin_x
-button42["origin_y"] = 60										# button_origin_y
-button42["width"] = 150										# button_width
-button42["height"] = 20										# button_height
-button42["label_txt"] = " Large Popup"							# button_label_txt
-button42["type"] = "menu"										# buttonType
-button42["enabled"] = False									# buttonEnabled
-button42["color"] = pgvar.UI_button_color							# buttonColor
-button42["group"] = "menu02"									# buttonGroup
-button42["visible"] = False									# buttonVisible
-
-button43 = {}
-button43["name"] = "menu02popup01element01"					# button_name
-button43["origin_x"] = UI_popup_small_origin_x				# button_origin_x
-button43["origin_y"] = UI_popup_small_origin_y				# button_origin_y
-button43["width"] = UI_popup_small_width						# button_width
-button43["height"] = UI_popup_small_height					# button_height
-button43["label_txt"] = " Small Popup"							# button_label_txt
-button43["type"] = "popup"									# buttonType
-button43["enabled"] = False									# buttonEnabled
-button43["color"] = UI_background_color						# buttonColor
-button43["group"] = "menu02popup01"							# buttonGroup
-button43["visible"] = False									# buttonVisible
+menu02popup01element01 = {}
+menu02popup01element01["name"] = "menu02popup01element01"					# button_name
+menu02popup01element01["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
+menu02popup01element01["origin_y"] = pgvar.UI_popup_small_origin_y				# button_origin_y
+menu02popup01element01["width"] = pgvar.UI_popup_small_width						# button_width
+menu02popup01element01["height"] = pgvar.UI_popup_small_height					# button_height
+menu02popup01element01["label_txt"] = " Small Popup"							# button_label_txt
+menu02popup01element01["type"] = "popup"									# buttonType
+menu02popup01element01["enabled"] = False									# buttonEnabled
+menu02popup01element01["color"] = pgvar.UI_background_color						# buttonColor
+menu02popup01element01["group"] = "menu02popup01"							# buttonGroup
+menu02popup01element01["visible"] = False									# buttonVisible
 
 button44 = {}
 button44["name"] = "menu02popup01element02"					# button_name
-button44["origin_x"] = UI_popup_small_origin_x				# button_origin_x
-button44["origin_y"] = UI_popup_small_origin_y				# button_origin_y
-button44["width"] = UI_popup_small_width						# button_width
+button44["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
+button44["origin_y"] = pgvar.UI_popup_small_origin_y				# button_origin_y
+button44["width"] = pgvar.UI_popup_small_width						# button_width
 button44["height"] = 20										# button_height
 button44["label_txt"] = " Menu 02 >> Small Popup"				# button_label_txt
 button44["type"] = "popup"									# buttonType
@@ -129,9 +49,9 @@ button44["visible"] = False									# buttonVisible
 
 button45 = {}
 button45["name"] = "menu02popup01element03"					# button_name
-button45["origin_x"] = UI_popup_small_origin_x				# button_origin_x
-button45["origin_y"] = UI_popup_small_origin_y + 40			# button_origin_y
-button45["width"] = UI_popup_small_width						# button_width
+button45["origin_x"] = pgvar.UI_popup_small_origin_x				# button_origin_x
+button45["origin_y"] = pgvar.UI_popup_small_origin_y + 40			# button_origin_y
+button45["width"] = pgvar.UI_popup_small_width						# button_width
 button45["height"] = 20										# button_height
 button45["label_txt"] = " Do Something Interesting:"			# button_label_txt
 button45["type"] = "popup_element"							# buttonType
@@ -142,8 +62,8 @@ button45["visible"] = False									# buttonVisible
 
 button46 = {}
 button46["name"] = "menu02popup01element04"					# button_name
-button46["origin_x"] = UI_popup_small_origin_x + 20			# button_origin_x
-button46["origin_y"] = UI_popup_small_origin_y + 80			# button_origin_y
+button46["origin_x"] = pgvar.UI_popup_small_origin_x + 20			# button_origin_x
+button46["origin_y"] = pgvar.UI_popup_small_origin_y + 80			# button_origin_y
 button46["width"] = 80										# button_width
 button46["height"] = 20										# button_height
 button46["label_txt"] = "Something"							# button_label_txt
@@ -155,8 +75,8 @@ button46["visible"] = False									# buttonVisible
 
 button47 = {}
 button47["name"] = "menu02popup01element05"					# button_name
-button47["origin_x"] = UI_popup_small_origin_x + 20			# button_origin_x
-button47["origin_y"] = UI_popup_small_origin_y + 100			# button_origin_y
+button47["origin_x"] = pgvar.UI_popup_small_origin_x + 20			# button_origin_x
+button47["origin_y"] = pgvar.UI_popup_small_origin_y + 100			# button_origin_y
 button47["width"] = 80										# button_width
 button47["height"] = 20										# button_height
 button47["label_txt"] = "Interesting"							# button_label_txt
@@ -168,9 +88,9 @@ button47["visible"] = False									# buttonVisible
 
 button48 = {}
 button48["name"] = "menu02popup01element06"								# button_name
-button48["origin_x"] = UI_popup_small_origin_x							# button_origin_x
-button48["origin_y"] = UI_popup_small_origin_y + UI_popup_small_height - 60 	# button_origin_y
-button48["width"] = UI_popup_small_width									# button_width
+button48["origin_x"] = pgvar.UI_popup_small_origin_x							# button_origin_x
+button48["origin_y"] = pgvar.UI_popup_small_origin_y + UI_popup_small_height - 60 	# button_origin_y
+button48["width"] = pgvar.UI_popup_small_width									# button_width
 button48["height"] = 60													# button_height
 button48["label_txt"] = ""												# button_label_txt
 button48["type"] = "popup_element"										# buttonType
@@ -181,8 +101,8 @@ button48["visible"] = False												# buttonVisible
 
 button49 = {}
 button49["name"] = "menu02popup01element07"								# button_name
-button49["origin_x"] = UI_popup_small_origin_x + 20						# button_origin_x
-button49["origin_y"] = UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
+button49["origin_x"] = pgvar.UI_popup_small_origin_x + 20						# button_origin_x
+button49["origin_y"] = pgvar.UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
 button49["width"] = 60													# button_width
 button49["height"] = 20													# button_height
 button49["label_txt"] = " OK "												# button_label_txt
@@ -194,8 +114,8 @@ button49["visible"] = False												# buttonVisible
 
 button50 = {}
 button50["name"] = "menu02popup01element08"								# button_name
-button50["origin_x"] = UI_popup_small_origin_x + UI_popup_small_width -80	# button_origin_x
-button50["origin_y"] = UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
+button50["origin_x"] = pgvar.UI_popup_small_origin_x + UI_popup_small_width -80	# button_origin_x
+button50["origin_y"] = pgvar.UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
 button50["width"] = 60													# button_width
 button50["height"] = 20													# button_height
 button50["label_txt"] = "Cancel"											# button_label_txt
@@ -237,13 +157,13 @@ allButtons[29] = bDropdown01option03		# Dropdown01 - option3
 
 
 
-allButtons[36] = button36		# Menu 02
+
 allButtons[37] = button37		# Menu 03
 
-allButtons[40] = button40		# Menu 02  - small popup
-allButtons[41] = button41		# Menu 02  - Medium popup
-allButtons[42] = button42		# Menu 02  - Large popup
-allButtons[43] = button43		# Menu 02  - small popup - element 01 - background box
+
+
+
+allButtons[43] = menu02popup01element01		# Menu 02  - small popup - element 01 - background box
 allButtons[44] = button44		# Menu 02  - small popup - element 02 - title bar
 allButtons[45] = button45		# Menu 02  - small popup - element 03 - option description
 allButtons[46] = button46		# Menu 02  - small popup - element 04 - something button
@@ -770,40 +690,40 @@ def updateMenuButtons(selected_button):
 	## START MENU 02 HANDLING
 
 	if selected_button == "menu02":
-		if button36["enabled"] == False:
+		if bMenu02["enabled"] == False:
 			# flip this menu button
-			button36["enabled"] = True
-			button36["color"] = pgvar.UI_button_selected_color
+			bMenu02["enabled"] = True
+			bMenu02["color"] = pgvar.UI_button_selected_color
 			
 			# flip related buttons in the group
-			button40["visible"] = True
-			button41["visible"] = True
-			button42["visible"] = True			
+			bMenu02popup01["visible"] = True
+			bMenu02popup02["visible"] = True
+			bMenu02popup03["visible"] = True			
 
-			pfunc.pfunc.defineButtons()
+			pfunc.defineButtons()
 
-		elif button36["enabled"] == True:
+		elif bMenu02["enabled"] == True:
 			# flip this menu button
-			button36["enabled"] = False
-			button36["color"] = pgvar.UI_button_color
+			bMenu02["enabled"] = False
+			bMenu02["color"] = pgvar.UI_button_color
 			
 			# flip related buttons in the group
-			button40["visible"] = False
-			button41["visible"] = False
-			button42["visible"] = False			
+			bMenu02popup01["visible"] = False
+			bMenu02popup02["visible"] = False
+			bMenu02popup03["visible"] = False			
 
 			pfunc.defineButtons()
 			pfunc.redrawEverything()	
 
 	if selected_button == "menu02popup01":
-		if button36["enabled"] == True:
-			if button40["enabled"] == False:
+		if bMenu02["enabled"] == True:
+			if bMenu02popup01["enabled"] == False:
 				#flip this menu buttone
-				button40["enabled"] = True
-				button40["color"] = pgvar.UI_button_selected_color
+				bMenu02popup01["enabled"] = True
+				bMenu02popup01["color"] = pgvar.UI_button_selected_color
 
 				#flip related buttons
-				button43["visible"] = True
+				menu02popup01element01["visible"] = True
 				button44["visible"] = True
 				button45["visible"] = True
 				button46["visible"] = True
@@ -815,12 +735,12 @@ def updateMenuButtons(selected_button):
 				pfunc.defineButtons()
 				#pfunc.redrawEverything()	
 		
-			elif button40["enabled"] == True:
+			elif bMenu02popup01["enabled"] == True:
 				#flop this menu buttone
-				button40["enabled"] = False
-				button40["color"] = pgvar.UI_button_color
+				bMenu02popup01["enabled"] = False
+				bMenu02popup01["color"] = pgvar.UI_button_color
 
-				button43["visible"] = False
+				menu02popup01element01["visible"] = False
 				button44["visible"] = False
 				button45["visible"] = False
 				button46["visible"] = False
