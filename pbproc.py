@@ -543,7 +543,7 @@ def updateMenuButtons(selected_button):
 			pfunc.defineButtons()
 			pfunc.redrawEverything()	
 
-	if selected_button == "pgui.menu02popup01":
+	if selected_button == "menu02popup01":
 		if pgui.bMenu02["enabled"] == True:
 			if pgui.bMenu02popup01["enabled"] == False:
 				#flip this menu buttone
