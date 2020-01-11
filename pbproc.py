@@ -514,3 +514,70 @@ def updateMenuButtons(selected_button):
 				pfunc.defineButtons()
 
 	## END MENU 01 HANDLING
+
+	## START MENU 02 HANDLING
+
+	if selected_button == "menu02":
+		if pgui.bMenu02["enabled"] == False:
+			# flip this menu button
+			pgui.bMenu02["enabled"] = True
+			pgui.bMenu02["color"] = pgvar.UI_button_selected_color
+			
+			# flip related buttons in the group
+			pgui.bMenu02popup01["visible"] = True
+			pgui.bMenu02popup02["visible"] = True
+			pgui.bMenu02popup03["visible"] = True			
+
+			pfunc.defineButtons()
+
+		elif pgui.bMenu02["enabled"] == True:
+			# flip this menu button
+			pgui.bMenu02["enabled"] = False
+			pgui.bMenu02["color"] = pgvar.UI_button_color
+			
+			# flip related buttons in the group
+			pgui.bMenu02popup01["visible"] = False
+			pgui.bMenu02popup02["visible"] = False
+			pgui.bMenu02popup03["visible"] = False			
+
+			pfunc.defineButtons()
+			pfunc.redrawEverything()	
+
+	if selected_button == "pgui.menu02popup01":
+		if pgui.bMenu02["enabled"] == True:
+			if pgui.bMenu02popup01["enabled"] == False:
+				#flip this menu buttone
+				pgui.bMenu02popup01["enabled"] = True
+				pgui.bMenu02popup01["color"] = pgvar.UI_button_selected_color
+
+				#flip related buttons
+				pgui.menu02popup01element01["visible"] = True
+				pgui.menu02popup01element02["visible"] = True
+				pgui.menu02popup01element03["visible"] = True
+				pgui.menu02popup01element04["visible"] = True
+				pgui.menu02popup01element05["visible"] = True
+				pgui.menu02popup01element06["visible"] = True
+				pgui.menu02popup01element07["visible"] = True	
+				pgui.menu02popup01element08["visible"] = True
+
+				pfunc.defineButtons()
+				#pfunc.redrawEverything()	
+		
+			elif pgui.bMenu02popup01["enabled"] == True:
+				#flop this menu buttone
+				pgui.bMenu02popup01["enabled"] = False
+				pgui.bMenu02popup01["color"] = pgvar.UI_button_color
+
+				pgui.menu02popup01element01["visible"] = False
+				pgui.menu02popup01element02["visible"] = False
+				pgui.menu02popup01element03["visible"] = False
+				pgui.menu02popup01element04["visible"] = False
+				pgui.menu02popup01element05["visible"] = False
+				pgui.menu02popup01element06["visible"] = False
+				pgui.menu02popup01element07["visible"] = False	
+				pgui.menu02popup01element08["visible"] = False
+
+				pfunc.defineButtons()
+				pfunc.redrawEverything()	
+
+	## END START MENU 02 HANDLING
