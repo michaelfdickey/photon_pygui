@@ -151,7 +151,7 @@ class Button:
 			if self.button_name == "menu02popup01element03":
 				self.buttonVisible = pgui.menu02popup01element03["visible"]
 			if self.button_name == "menu02popup01element06":
-				self.buttonVisible = button48["visible"]
+				self.buttonVisible = pgui.menu02popup01element06["visible"]
 
 
 			if self.buttonVisible == True:
