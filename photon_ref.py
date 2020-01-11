@@ -7,7 +7,7 @@ moduleName = "photon_ref.py"
 # ************************************************************************************************#
 
 # # DONE
-
+completed transfer of program to a modular design
 
 # # TO DO
 # when you click on background, all open menus should close

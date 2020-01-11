@@ -580,7 +580,7 @@ bMenu02popup01["type"] = "menu"												# buttonType
 bMenu02popup01["enabled"] = False												# buttonEnabled
 bMenu02popup01["color"] = pgvar.UI_button_color								# buttonColor
 bMenu02popup01["group"] = "menu02"											# buttonGroup
-bMenu02popup01["visible"] = True												# buttonVisible
+bMenu02popup01["visible"] = False												# buttonVisible
 
 
 bMenu02popup02 = {}
@@ -594,7 +594,7 @@ bMenu02popup02["type"] = "menu"										# buttonType
 bMenu02popup02["enabled"] = False									# buttonEnabled
 bMenu02popup02["color"] = pgvar.UI_button_color							# buttonColor
 bMenu02popup02["group"] = "menu02"										# buttonGroup
-bMenu02popup02["visible"] = True											# buttonVisible
+bMenu02popup02["visible"] = False											# buttonVisible
 
 bMenu02popup03 = {}
 bMenu02popup03["name"] = "menu02popup03"									# button_name
@@ -607,7 +607,7 @@ bMenu02popup03["type"] = "menu"											# buttonType
 bMenu02popup03["enabled"] = False											# buttonEnabled
 bMenu02popup03["color"] = pgvar.UI_button_color							# buttonColor
 bMenu02popup03["group"] = "menu02"										# buttonGroup
-bMenu02popup03["visible"] = True											# buttonVisible
+bMenu02popup03["visible"] = False											# buttonVisible
 
 # ************************************************************************************************#
 #	MENU 02 POPUP 01 
@@ -625,7 +625,7 @@ menu02popup01element01["type"] = "popup"											# buttonType
 menu02popup01element01["enabled"] = False											# buttonEnabled
 menu02popup01element01["color"] = pgvar.UI_background_color						# buttonColor
 menu02popup01element01["group"] = "menu02popup01"									# buttonGroup
-menu02popup01element01["visible"] = True											# buttonVisible
+menu02popup01element01["visible"] = False											# buttonVisible
 
 # Title Bar
 menu02popup01element02 = {}
@@ -639,7 +639,7 @@ menu02popup01element02["type"] = "popup"											# buttonType
 menu02popup01element02["enabled"] = False											# buttonEnabled
 menu02popup01element02["color"] = pgvar.UI_button_selected_color					# buttonColor
 menu02popup01element02["group"] = "menu02popup01"									# buttonGroup
-menu02popup01element02["visible"] = True											# buttonVisible
+menu02popup01element02["visible"] = False											# buttonVisible
 
 # description bar
 menu02popup01element03 = {}
@@ -653,7 +653,7 @@ menu02popup01element03["type"] = "popup_element"									# buttonType
 menu02popup01element03["enabled"] = False											# buttonEnabled
 menu02popup01element03["color"] = pgvar.UI_label_color							# buttonColor
 menu02popup01element03["group"] = "menu02popup01"									# buttonGroup
-menu02popup01element03["visible"] = True											# buttonVisible
+menu02popup01element03["visible"] = False											# buttonVisible
 
 # first button in small popup
 menu02popup01element04 = {}
@@ -667,7 +667,7 @@ menu02popup01element04["type"] = "popup_element_button"						# buttonType
 menu02popup01element04["enabled"] = False									# buttonEnabled
 menu02popup01element04["color"] = pgvar.UI_button_color							# buttonColor
 menu02popup01element04["group"] = "menu02popup01"							# buttonGroup
-menu02popup01element04["visible"] = True									# buttonVisible
+menu02popup01element04["visible"] = False									# buttonVisible
 
 # second button in small popup
 menu02popup01element05 = {}
@@ -681,7 +681,7 @@ menu02popup01element05["type"] = "popup_element_button"						# buttonType
 menu02popup01element05["enabled"] = False										# buttonEnabled
 menu02popup01element05["color"] = pgvar.UI_button_color						# buttonColor
 menu02popup01element05["group"] = "menu02popup01"								# buttonGroup
-menu02popup01element05["visible"] = True										# buttonVisible
+menu02popup01element05["visible"] = False										# buttonVisible
 
 # ok / cancel background box
 menu02popup01element06 = {}
@@ -695,7 +695,7 @@ menu02popup01element06["type"] = "popup_element"														# buttonType
 menu02popup01element06["enabled"] = False																# buttonEnabled
 menu02popup01element06["color"] = pgvar.UI_label_color												# buttonColor
 menu02popup01element06["group"] = "menu02popup01"														# buttonGroup
-menu02popup01element06["visible"] = True																# buttonVisible
+menu02popup01element06["visible"] = False																# buttonVisible
 
 # ok button
 menu02popup01element07 = {}
@@ -709,7 +709,7 @@ menu02popup01element07["type"] = "popup_element_button"												# buttonType
 menu02popup01element07["enabled"] = False																# buttonEnabled
 menu02popup01element07["color"] = pgvar.UI_button_color 												# buttonColor
 menu02popup01element07["group"] = "menu02popup01"														# buttonGroup
-menu02popup01element07["visible"] = True																# buttonVisible
+menu02popup01element07["visible"] = False																# buttonVisible
 
 # cancel button
 menu02popup01element08 = {}
@@ -723,7 +723,7 @@ menu02popup01element08["type"] = "popup_element_button"													# buttonType
 menu02popup01element08["enabled"] = False																	# buttonEnabled
 menu02popup01element08["color"] = pgvar.UI_button_color 													# buttonColor
 menu02popup01element08["group"] = "menu02popup01"															# buttonGroup
-menu02popup01element08["visible"] = True																	# buttonVisible
+menu02popup01element08["visible"] = False																	# buttonVisible
 
 
 
