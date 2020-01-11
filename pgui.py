@@ -711,6 +711,19 @@ menu02popup01element07["color"] = pgvar.UI_button_color 												# buttonColo
 menu02popup01element07["group"] = "menu02popup01"														# buttonGroup
 menu02popup01element07["visible"] = True																# buttonVisible
 
+# cancel button
+menu02popup01element08 = {}
+menu02popup01element08["name"] = "menu02popup01element08"													# button_name
+menu02popup01element08["origin_x"] = pgvar.UI_popup_small_origin_x + pgvar.UI_popup_small_width -80		# button_origin_x
+menu02popup01element08["origin_y"] = pgvar.UI_popup_small_origin_y + pgvar.UI_popup_small_height - 40 		# button_origin_y
+menu02popup01element08["width"] = 60																		# button_width
+menu02popup01element08["height"] = 20																		# button_height
+menu02popup01element08["label_txt"] = "Cancel"															# button_label_txt
+menu02popup01element08["type"] = "popup_element_button"													# buttonType
+menu02popup01element08["enabled"] = False																	# buttonEnabled
+menu02popup01element08["color"] = pgvar.UI_button_color 													# buttonColor
+menu02popup01element08["group"] = "menu02popup01"															# buttonGroup
+menu02popup01element08["visible"] = True																	# buttonVisible
 
 
 
@@ -775,3 +788,4 @@ allButtons[46] = menu02popup01element04		# Menu 02  - small popup - element 04 -
 allButtons[47] = menu02popup01element05		# Menu 02  - small popup - element 05 - interesting button
 allButtons[48] = menu02popup01element06		# Menu 02  - small popup - element 06 - ok / cancel background
 allButtons[49] = menu02popup01element07		# Menu 02  - small popup - element 06 - ok button
+allButtons[50] = menu02popup01element08		# Menu 02  - small popup - element 06 - cancel button

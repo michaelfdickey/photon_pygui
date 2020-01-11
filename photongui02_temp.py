@@ -22,31 +22,20 @@
 
 
 
-menu02popup01element07 = {}
-menu02popup01element07["name"] = "menu02popup01element07"												# button_name
-menu02popup01element07["origin_x"] = pgvar.UI_popup_small_origin_x + 20								# button_origin_x
-menu02popup01element07["origin_y"] = pgvar.UI_popup_small_origin_y + pgvar.UI_popup_small_height - 40 	# button_origin_y
-menu02popup01element07["width"] = 60																	# button_width
-menu02popup01element07["height"] = 20																	# button_height
-menu02popup01element07["label_txt"] = " OK "															# button_label_txt
-menu02popup01element07["type"] = "popup_element_button"												# buttonType
-menu02popup01element07["enabled"] = False																# buttonEnabled
-menu02popup01element07["color"] = pgvar.UI_button_color 												# buttonColor
-menu02popup01element07["group"] = "menu02popup01"														# buttonGroup
-menu02popup01element07["visible"] = True																# buttonVisible
 
-button50 = {}
-button50["name"] = "menu02popup01element08"								# button_name
-button50["origin_x"] = pgvar.UI_popup_small_origin_x + UI_popup_small_width -80	# button_origin_x
-button50["origin_y"] = pgvar.UI_popup_small_origin_y + UI_popup_small_height - 40 	# button_origin_y
-button50["width"] = 60													# button_width
-button50["height"] = 20													# button_height
-button50["label_txt"] = "Cancel"											# button_label_txt
-button50["type"] = "popup_element_button"									# buttonType
-button50["enabled"] = False												# buttonEnabled
-button50["color"] = pgvar.UI_button_color 										# buttonColor
-button50["group"] = "menu02popup01"										# buttonGroup
-button50["visible"] = False												# buttonVisible
+
+menu02popup01element08 = {}
+menu02popup01element08["name"] = "menu02popup01element08"													# button_name
+menu02popup01element08["origin_x"] = pgvar.UI_popup_small_origin_x + pgvar.UI_popup_small_width -80		# button_origin_x
+menu02popup01element08["origin_y"] = pgvar.UI_popup_small_origin_y + pgvar.UI_popup_small_height - 40 		# button_origin_y
+menu02popup01element08["width"] = 60																		# button_width
+menu02popup01element08["height"] = 20																		# button_height
+menu02popup01element08["label_txt"] = "Cancel"															# button_label_txt
+menu02popup01element08["type"] = "popup_element_button"													# buttonType
+menu02popup01element08["enabled"] = False																	# buttonEnabled
+menu02popup01element08["color"] = pgvar.UI_button_color 													# buttonColor
+menu02popup01element08["group"] = "menu02popup01"															# buttonGroup
+menu02popup01element08["visible"] = True																# buttonVisible
 
 
 
@@ -92,8 +81,8 @@ allButtons[37] = button37		# Menu 03
 
 
 
-allButtons[49] = menu02popup01element07		# Menu 02  - small popup - element 06 - ok button
-allButtons[50] = button50		# Menu 02  - small popup - element 06 - cancel button
+
+allButtons[50] = menu02popup01element08		# Menu 02  - small popup - element 06 - cancel button
 
 
 
@@ -653,7 +642,7 @@ def updateMenuButtons(selected_button):
 				menu02popup01element05["visible"] = True
 				menu02popup01element06["visible"] = True
 				menu02popup01element07["visible"] = True	
-				button50["visible"] = True
+				menu02popup01element08["visible"] = True
 
 				pfunc.defineButtons()
 				#pfunc.redrawEverything()	
@@ -670,7 +659,7 @@ def updateMenuButtons(selected_button):
 				menu02popup01element05["visible"] = False
 				menu02popup01element06["visible"] = False
 				menu02popup01element07["visible"] = False	
-				button50["visible"] = False
+				menu02popup01element08["visible"] = False
 
 				pfunc.defineButtons()
 				pfunc.redrawEverything()	
