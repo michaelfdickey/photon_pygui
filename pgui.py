@@ -655,6 +655,22 @@ menu02popup01element03["color"] = pgvar.UI_label_color							# buttonColor
 menu02popup01element03["group"] = "menu02popup01"									# buttonGroup
 menu02popup01element03["visible"] = True											# buttonVisible
 
+# first button in small popup
+menu02popup01element04 = {}
+menu02popup01element04["name"] = "menu02popup01element04"					# button_name
+menu02popup01element04["origin_x"] = pgvar.UI_popup_small_origin_x + 20			# button_origin_x
+menu02popup01element04["origin_y"] = pgvar.UI_popup_small_origin_y + 80			# button_origin_y
+menu02popup01element04["width"] = 80										# button_width
+menu02popup01element04["height"] = 20										# button_height
+menu02popup01element04["label_txt"] = "Something"							# button_label_txt
+menu02popup01element04["type"] = "popup_element_button"						# buttonType
+menu02popup01element04["enabled"] = False									# buttonEnabled
+menu02popup01element04["color"] = pgvar.UI_button_color							# buttonColor
+menu02popup01element04["group"] = "menu02popup01"							# buttonGroup
+menu02popup01element04["visible"] = True									# buttonVisible
+
+
+
 # ************************************************************************************************#
 #	Dictionary of all buttons, when you add a button / element above ^ you need to add it below as well \/
 # ************************************************************************************************#
@@ -704,6 +720,9 @@ allButtons[39] = textField01			# Text Field - text entry box
 allButtons[40] = bMenu02popup01		# Menu 02  - small popup
 allButtons[41] = bMenu02popup02		# Menu 02  - Medium popup
 allButtons[42] = bMenu02popup03		# Menu 02  - Large popup
+
+# menu02 popup01 elements
 allButtons[43] = menu02popup01element01		# Menu 02  - small popup - element 01 - background box
 allButtons[44] = menu02popup01element02		# Menu 02  - small popup - element 02 - title bar
 allButtons[45] = menu02popup01element03		# Menu 02  - small popup - element 03 - option description
+allButtons[46] = menu02popup01element04		# Menu 02  - small popup - element 04 - something button
